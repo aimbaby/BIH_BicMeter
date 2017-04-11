@@ -3,6 +3,7 @@
 #include   "Extern.h"
   #include "HWI_func.h"
   #include "SpeedCalc.h"
+  #include "BCDdisplay.h"
 #include "Alloc.h"
   #include "APP.h"
   
@@ -13,32 +14,23 @@
   
   PUBLIC void APP_MANAGE(void)
   {
-      unsigned short Speed;
-      Speed =  GetSpeedKph();
-      PORTD = Speed/10;
-      /*
-      if( Speed < 50)
+      unsigned short AvgSpeedKph;
+      unsigned short LapTimeAvg;    
+      const unsigned short CircFactor = (unsigned short)7200;
+      
+ 
+      LapTimeAvg =  GetAvgLapTime();
+      
+      LapTimeAvg /= ((unsigned short)SpeedCalFilterBufferSize);
+
+      AvgSpeedKph = (unsigned short)10 * (CircFactor/(unsigned short)SpeedCalcTaskRate);
+      AvgSpeedKph /= LapTimeAvg;
+
+      if(AvgSpeedKph < (unsigned short)29)
       {
-          PORTD = 0x0;
+          AvgSpeedKph = (unsigned short)0;
       }
-      else if( Speed < 100)
-      {
-          PORTD = 0x80;
-      }
-      else if(Speed < 200)
-      {
-          PORTD = 0xC0;
-      }
-      else if(Speed < 300)
-      {
-          PORTD = 0xE0;
-      }
-      else if(Speed < 400)
-      {
-          PORTD = 0xF0;
-      }
-      else
-      {
-          PORTD = 0xFF;
-      } */
+      
+      BCDsendNumber(AvgSpeedKph);
+
   }
