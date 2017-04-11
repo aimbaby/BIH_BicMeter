@@ -5,19 +5,20 @@
 #include "Alloc.h"
     #include "SpeedCalc.h"
 
-#define TimeSaturation (unsigned char)0xFF
+#define TimeSaturation (unsigned char)10
 
 
-static unsigned char LapTimeBuffer[SpeedCalFilterBufferSize];
-static unsigned char LapFlag = (unsigned char)0;
+static unsigned char LapCounterBuffer[SpeedCalFilterBufferSize];
 static unsigned char NotifyFlag = (unsigned char)0;
+static unsigned char LapCounter = (unsigned char)0;
+static unsigned short KMfactor = (unsigned char)200;
 static unsigned long DistTravelCntr = (unsigned long)0;
-static unsigned short LapTimeAvg = (unsigned short)0;
+static unsigned short LapCounterAvg = (unsigned short)0;
 
 
 PUBLIC void SpeedCalcNotifyInitialize(void)
 {
-    memset(LapTimeBuffer , 0 , sizeof(LapTimeBuffer));
+    memset(LapCounterBuffer , 0 , sizeof(LapCounterBuffer));
 }
 
 PUBLIC void SensorOneNotify(void)
@@ -28,7 +29,10 @@ PUBLIC void SensorOneNotify(void)
     }
     else
     {
-        //LapFlag = (unsigned char)0;
+        if(LapCounter != (unsigned char)0)
+        {
+            LapCounter--;
+        }    
     }
 }
 
@@ -36,12 +40,15 @@ PUBLIC void SensorTwoNotify(void)
 {
     if( (unsigned char)0 == NotifyFlag )
     {
-        LapFlag = (unsigned char)1;
-        NotifyFlag = (unsigned char)1;    
+        NotifyFlag = (unsigned char)1;
+        LapCounter++; 
     }
     else
     {
-        //LapFlag = (unsigned char)0;
+        if(LapCounter != (unsigned char)0)
+        {
+            LapCounter--;
+        }       
     }
 }
 
@@ -50,21 +57,17 @@ PUBLIC void SpeedCalcManage(void)
     static unsigned char LapTime = (unsigned char)0;
     static unsigned char LapSampleIndex = (unsigned char)0;
    
-    if(LapTime != TimeSaturation)
-    {
-       LapTime ++; 
-    }
-    
-     
+    LapTime ++; 
+
        
-    if(((unsigned char)1 == LapFlag) || (TimeSaturation == LapTime))
+    if(TimeSaturation == LapTime)
     {   
-        LapTimeAvg += (unsigned short)LapTime;
-        LapTimeAvg -= (unsigned short)LapTimeBuffer[LapSampleIndex];
+        LapTime = (unsigned char)0;
+        LapCounterAvg += (unsigned short)LapCounter;
+        LapCounterAvg -= (unsigned short)LapCounterBuffer[LapSampleIndex];
         
-        LapTimeBuffer[LapSampleIndex] = LapTime; 
-        LapTime = (unsigned char)0; 
-        LapFlag = (unsigned char)0;
+        LapCounterBuffer[LapSampleIndex] = LapCounter;
+        LapCounter = (unsigned char)0;
         DistTravelCntr ++;
         
        
@@ -91,10 +94,24 @@ PUBLIC unsigned long GetDistance(void)
     return DistTravelCntr;
 }
 
+// in cm
+PUBLIC void SetCircumfirunce(unsigned char Circum)
+{
+    KMfactor = (unsigned short)(
+            ((unsigned long)36 * (unsigned long)Circum)
+              /((unsigned long)SpeedCalFilterBufferSize)
+            );
+}
 
 // Time Ms 
-PUBLIC unsigned short GetAvgLapTime(void)
+PUBLIC unsigned short GetAvgSpeed(void)
 {
-    return LapTimeAvg;
+    unsigned short AvgSpeedKph;
+    
+    AvgSpeedKph = (unsigned short)(
+            ((unsigned long)KMfactor * (unsigned long)LapCounterAvg)
+            /((unsigned long)SpeedCalcTaskRate)
+            );
+    return AvgSpeedKph;
 }
 
