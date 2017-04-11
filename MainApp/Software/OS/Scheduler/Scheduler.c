@@ -33,7 +33,7 @@ PUBLIC void RunScheduler(void)
     {
         for(TaskIndex = (unsigned char)0 ; TaskIndex < NUM_TASKS ; TaskIndex++)
         {
-            if(ArrayTask[TaskIndex].Period == ArrayTask[TaskIndex].TickCounter)
+            if(ArrayTask[TaskIndex].Period <= ArrayTask[TaskIndex].TickCounter)
             {
                 ArrayTask[TaskIndex].ManageFunction();
                 ArrayTask[TaskIndex].TickCounter = (unsigned char)0;
