@@ -15,13 +15,14 @@
   PUBLIC void APP_MANAGE(void)
   {
       unsigned short AvgSpeedKph;
-      unsigned short LapTimeAvg;    
-      const unsigned short CircFactor = (unsigned short)7200;
+      //unsigned short LapTimeAvg;    
+     // const unsigned short CircFactor = (unsigned short)7200;
       
+      SetCircumfirunce(200);
  
-      LapTimeAvg =  GetAvgLapTime();
+      AvgSpeedKph =  GetAvgSpeed();
       
-      LapTimeAvg /= ((unsigned short)SpeedCalFilterBufferSize);
+   /*   LapTimeAvg /= ((unsigned short)SpeedCalFilterBufferSize);
 
       AvgSpeedKph = (unsigned short)10 * (CircFactor/(unsigned short)SpeedCalcTaskRate);
       AvgSpeedKph /= LapTimeAvg;
@@ -29,7 +30,7 @@
       if(AvgSpeedKph < (unsigned short)29)
       {
           AvgSpeedKph = (unsigned short)0;
-      }
+      }*/
       
       BCDsendNumber(AvgSpeedKph);
 
