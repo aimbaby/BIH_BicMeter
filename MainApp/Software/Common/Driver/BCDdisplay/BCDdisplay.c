@@ -31,7 +31,7 @@ PUBLIC void BCDsendNumber( unsigned short Number)
         if((Buffer != (unsigned short)0)|| (LoopIndex <= (unsigned short)1)) 
         { 
             Link = Buffer;
-            Buffer /= (unsigned short)10;
+            Buffer = (unsigned short)(Buffer/(unsigned short)10);
             Output = Link - (unsigned short)(Buffer * (unsigned short)10);
          
             BCDNumber[LoopIndex] = SevenSegmentMAP[Output];
