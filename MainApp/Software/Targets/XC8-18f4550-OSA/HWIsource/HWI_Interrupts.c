@@ -48,7 +48,7 @@ void interrupt ISR(void)
   if(TMR0IF)
   {
    TMR0IF=0;
-   TMR0L=19;
+   TMR0L=18;
    SchedulerTick();
   }
   if(TMR3IF)

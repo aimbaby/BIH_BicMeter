@@ -75,6 +75,7 @@
 #include "HWI_func.h"
 #include "APP.h"
 #include "SpeedCalc.h"
+#include "BCDdisplay.h"
 
 
 
@@ -102,9 +103,7 @@ void main(void) {
 
 void DisplayAlphaNumeric (void)
 {
-
-    //PORTDbits.RD0 = LATDbits.LATD0 ^ 0x1;
-    
+    BCDManage7segment();
 }
 void ManageApplication (void)
 {      
