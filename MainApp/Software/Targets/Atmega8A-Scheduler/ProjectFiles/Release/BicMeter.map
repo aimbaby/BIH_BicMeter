@@ -235,7 +235,7 @@ LOAD e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
                 0x00000340                HWI_8Digit_WRITE
                 0x0000034c                HWI8Digit_READ
  .text          0x00000358      0x108 HWI_Interrupts.o
-                0x00000358                HWI_TIMERS_INTITALIZE
+                0x00000358                HWI_INTERRUPTS_INTITALIZE
                 0x0000038a                __vector_9
                 0x000003d4                __vector_1
                 0x0000041a                __vector_2

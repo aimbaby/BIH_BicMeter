@@ -455,7 +455,7 @@ Disassembly of section .text:
  354:	85 b3       	in	r24, 0x15	; 21
  356:	08 95       	ret
 
-00000358 <HWI_TIMERS_INTITALIZE>:
+00000358 <HWI_INTERRUPTS_INTITALIZE>:
  358:	83 b7       	in	r24, 0x33	; 51
  35a:	83 60       	ori	r24, 0x03	; 3
  35c:	83 bf       	out	0x33, r24	; 51
@@ -608,7 +608,7 @@ Disassembly of section .text:
  46a:	08 95       	ret
 
 0000046c <main>:
- 46c:	75 df       	rcall	.-278    	; 0x358 <HWI_TIMERS_INTITALIZE>
+ 46c:	75 df       	rcall	.-278    	; 0x358 <HWI_INTERRUPTS_INTITALIZE>
  46e:	48 df       	rcall	.-368    	; 0x300 <HWI_DIGITAL_INITIALIZE>
  470:	60 de       	rcall	.-832    	; 0x132 <SpeedCalcNotifyInitialize>
  472:	f5 dd       	rcall	.-1046   	; 0x5e <APP_INITIALIZE>
