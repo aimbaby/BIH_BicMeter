@@ -1,0 +1,58 @@
+
+# 1 "../../../../OS/Scheduler/Scheduler.c"
+
+# 14 "../../../../OS/Scheduler/Scheduler.h"
+typedef void (*PointerVoid)(void);
+
+typedef struct
+{
+PointerVoid ManageFunction;
+unsigned char Period;
+unsigned char TickCounter;
+}TaskConfig;
+
+ void CreateTask( PointerVoid MangeFunction , unsigned char TaskId , unsigned char Period);
+
+ void RunScheduler(void);
+
+ void SchedulerTick(void);
+
+# 4 "../../../../OS/Scheduler/Scheduler.c"
+static TaskConfig ArrayTask[3];
+
+ void CreateTask( PointerVoid MangeFunction , unsigned char TaskId , unsigned char Period)
+{
+if(TaskId < 3)
+{
+ArrayTask[TaskId].ManageFunction = MangeFunction;
+ArrayTask[TaskId].Period = Period;
+ArrayTask[TaskId].TickCounter = (unsigned char)0;
+}
+}
+
+ void SchedulerTick(void)
+{
+unsigned char TaskIndex;
+for(TaskIndex = (unsigned char)0 ;TaskIndex < 3 ; TaskIndex++)
+{
+ArrayTask[TaskIndex].TickCounter ++;
+}
+}
+
+ void RunScheduler(void)
+{
+static unsigned char TaskIndex;
+for(;;)
+{
+for(TaskIndex = (unsigned char)0 ; TaskIndex < 3 ; TaskIndex++)
+{
+if(ArrayTask[TaskIndex].Period <= ArrayTask[TaskIndex].TickCounter)
+{
+ArrayTask[TaskIndex].ManageFunction();
+ArrayTask[TaskIndex].TickCounter = (unsigned char)0;
+}
+
+}
+}
+
+}

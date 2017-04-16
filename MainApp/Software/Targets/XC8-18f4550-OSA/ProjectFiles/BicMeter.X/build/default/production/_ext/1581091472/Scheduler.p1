@@ -1,0 +1,154 @@
+Version 3.2 HI-TECH Software Intermediate Code
+[v F2 `(v ~T0 @X0 0 tf ]
+"17 ../../../../OS/Scheduler/Scheduler.h
+[s S1 `*F2 1 `uc 1 `uc 1 ]
+[n S1 . ManageFunction Period TickCounter ]
+[; ;Scheduler.h: 14: typedef void (*PointerVoid)(void);
+[; ;Scheduler.h: 16: typedef struct
+[; ;Scheduler.h: 17: {
+[; ;Scheduler.h: 18: PointerVoid ManageFunction;
+[; ;Scheduler.h: 19: unsigned char Period;
+[; ;Scheduler.h: 20: unsigned char TickCounter;
+[; ;Scheduler.h: 21: }TaskConfig;
+[; ;Scheduler.h: 23: void CreateTask( PointerVoid MangeFunction , unsigned char TaskId , unsigned char Period);
+[; ;Scheduler.h: 25: void RunScheduler(void);
+[; ;Scheduler.h: 27: void SchedulerTick(void);
+"4 ../../../../OS/Scheduler/Scheduler.c
+[v _ArrayTask `S1 ~T0 @X0 -> 3 `i s ]
+[; ;Scheduler.c: 4: static TaskConfig ArrayTask[3];
+"6
+[v _CreateTask `(v ~T0 @X0 1 ef3`*F2`uc`uc ]
+"7
+{
+[; ;Scheduler.c: 6: void CreateTask( PointerVoid MangeFunction , unsigned char TaskId , unsigned char Period)
+[; ;Scheduler.c: 7: {
+[e :U _CreateTask ]
+"6
+[v _MangeFunction `*F2 ~T0 @X0 1 r1 ]
+[v _TaskId `uc ~T0 @X0 1 r2 ]
+[v _Period `uc ~T0 @X0 1 r3 ]
+"7
+[f ]
+[; ;Scheduler.c: 8: if(TaskId < 3)
+"8
+[e $ ! < -> _TaskId `i -> 3 `i 3  ]
+[; ;Scheduler.c: 9: {
+"9
+{
+[; ;Scheduler.c: 10: ArrayTask[TaskId].ManageFunction = MangeFunction;
+"10
+[e = . *U + &U _ArrayTask * -> _TaskId `ux -> -> # *U &U _ArrayTask `ui `ux 0 _MangeFunction ]
+[; ;Scheduler.c: 11: ArrayTask[TaskId].Period = Period;
+"11
+[e = . *U + &U _ArrayTask * -> _TaskId `ux -> -> # *U &U _ArrayTask `ui `ux 1 _Period ]
+[; ;Scheduler.c: 12: ArrayTask[TaskId].TickCounter = (unsigned char)0;
+"12
+[e = . *U + &U _ArrayTask * -> _TaskId `ux -> -> # *U &U _ArrayTask `ui `ux 2 -> -> 0 `i `uc ]
+"13
+}
+[e :U 3 ]
+[; ;Scheduler.c: 13: }
+[; ;Scheduler.c: 14: }
+"14
+[e :UE 2 ]
+}
+"16
+[v _SchedulerTick `(v ~T0 @X0 1 ef ]
+"17
+{
+[; ;Scheduler.c: 16: void SchedulerTick(void)
+[; ;Scheduler.c: 17: {
+[e :U _SchedulerTick ]
+[f ]
+"18
+[v _TaskIndex `uc ~T0 @X0 1 a ]
+[; ;Scheduler.c: 18: unsigned char TaskIndex;
+[; ;Scheduler.c: 19: for(TaskIndex = (unsigned char)0 ;TaskIndex < 3 ; TaskIndex++)
+"19
+{
+[e = _TaskIndex -> -> 0 `i `uc ]
+[e $ < -> _TaskIndex `i -> 3 `i 5  ]
+[e $U 6  ]
+"20
+[e :U 5 ]
+[; ;Scheduler.c: 20: {
+{
+[; ;Scheduler.c: 21: ArrayTask[TaskIndex].TickCounter ++;
+"21
+[e ++ . *U + &U _ArrayTask * -> _TaskIndex `ux -> -> # *U &U _ArrayTask `ui `ux 2 -> -> 1 `i `uc ]
+"22
+}
+"19
+[e ++ _TaskIndex -> -> 1 `i `uc ]
+[e $ < -> _TaskIndex `i -> 3 `i 5  ]
+[e :U 6 ]
+"22
+}
+[; ;Scheduler.c: 22: }
+[; ;Scheduler.c: 23: }
+"23
+[e :UE 4 ]
+}
+"25
+[v _RunScheduler `(v ~T0 @X0 1 ef ]
+"26
+{
+[; ;Scheduler.c: 25: void RunScheduler(void)
+[; ;Scheduler.c: 26: {
+[e :U _RunScheduler ]
+[f ]
+"27
+[v F26 `uc ~T0 @X0 1 s TaskIndex ]
+[; ;Scheduler.c: 27: static unsigned char TaskIndex;
+[; ;Scheduler.c: 28: for(;;)
+"28
+{
+"29
+[e :U 9 ]
+[; ;Scheduler.c: 29: {
+{
+[; ;Scheduler.c: 30: for(TaskIndex = (unsigned char)0 ; TaskIndex < 3 ; TaskIndex++)
+"30
+{
+[e = F26 -> -> 0 `i `uc ]
+[e $ < -> F26 `i -> 3 `i 12  ]
+[e $U 13  ]
+"31
+[e :U 12 ]
+[; ;Scheduler.c: 31: {
+{
+[; ;Scheduler.c: 32: if(ArrayTask[TaskIndex].Period <= ArrayTask[TaskIndex].TickCounter)
+"32
+[e $ ! <= -> . *U + &U _ArrayTask * -> F26 `ux -> -> # *U &U _ArrayTask `ui `ux 1 `i -> . *U + &U _ArrayTask * -> F26 `ux -> -> # *U &U _ArrayTask `ui `ux 2 `i 15  ]
+[; ;Scheduler.c: 33: {
+"33
+{
+[; ;Scheduler.c: 34: ArrayTask[TaskIndex].ManageFunction();
+"34
+[e ( *U . *U + &U _ArrayTask * -> F26 `ux -> -> # *U &U _ArrayTask `ui `ux 0 ..  ]
+[; ;Scheduler.c: 35: ArrayTask[TaskIndex].TickCounter = (unsigned char)0;
+"35
+[e = . *U + &U _ArrayTask * -> F26 `ux -> -> # *U &U _ArrayTask `ui `ux 2 -> -> 0 `i `uc ]
+"36
+}
+[e :U 15 ]
+"38
+}
+"30
+[e ++ F26 -> -> 1 `i `uc ]
+[e $ < -> F26 `i -> 3 `i 12  ]
+[e :U 13 ]
+"38
+}
+"39
+}
+[; ;Scheduler.c: 36: }
+[; ;Scheduler.c: 38: }
+[; ;Scheduler.c: 39: }
+[e $U 9  ]
+[e :U 10 ]
+}
+[; ;Scheduler.c: 41: }
+"41
+[e :UE 8 ]
+}
