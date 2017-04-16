@@ -89,7 +89,7 @@ void main(void) {
     SpeedCalcNotifyInitialize();
     APP_INITIALIZE();
    
-    CreateTask( ManageSpeedCalc, (unsigned char)0  , (unsigned char) 13);
+    CreateTask( ManageSpeedCalc, (unsigned char)0  , (unsigned char) 20);
     
     CreateTask( ManageApplication, (unsigned char)2  , (unsigned char) 100);
     
