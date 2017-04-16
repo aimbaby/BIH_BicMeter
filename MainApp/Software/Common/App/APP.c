@@ -1,4 +1,4 @@
-#include <xc.h>
+#include "TargetFile.h"
 
 #include   "Extern.h"
   #include "HWI_func.h"
@@ -22,6 +22,8 @@
  
       AvgSpeedKph =  GetAvgSpeed();
       
+      AvgSpeedKph = (AvgSpeedKph + (unsigned short)5)/(unsigned short)10;
+      
    /*   LapTimeAvg /= ((unsigned short)SpeedCalFilterBufferSize);
 
       AvgSpeedKph = (unsigned short)10 * (CircFactor/(unsigned short)SpeedCalcTaskRate);
@@ -32,6 +34,6 @@
           AvgSpeedKph = (unsigned short)0;
       }*/
       
-      BCDsendNumber(AvgSpeedKph);
+      BCDsendNumber(AvgSpeedKph,0);
 
   }

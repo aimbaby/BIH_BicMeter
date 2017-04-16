@@ -1,4 +1,4 @@
-#include <xc.h>
+#include "TargetFile.h"
 #include "Extern.h"
  #include "SpeedCalc.h"
 

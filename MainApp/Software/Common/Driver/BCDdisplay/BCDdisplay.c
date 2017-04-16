@@ -1,4 +1,7 @@
-#include <xc.h>
+#include "TargetFile.h"
+
+#include "Extern.h"
+      #include "HWI_func.h"
 #include "Alloc.h"
       #include "BCDdisplay.h"
 
@@ -19,7 +22,7 @@ const unsigned char SevenSegmentMAP[11] =
 
 static unsigned short BCDNumber[NUMBER_DIGITS];
 
-PUBLIC void BCDsendNumber( unsigned short Number)
+PUBLIC void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace)
 {
     unsigned short Link,Output,Buffer;
     unsigned char LoopIndex;
@@ -28,7 +31,7 @@ PUBLIC void BCDsendNumber( unsigned short Number)
     Buffer = Number;
     for( LoopIndex = (unsigned char)0; LoopIndex < NUMBER_DIGITS ; LoopIndex++)
     {
-        if((Buffer != (unsigned short)0)|| (LoopIndex <= (unsigned short)1)) 
+        if((Buffer != (unsigned short)0)|| (LoopIndex <= DecimalPlace) )
         { 
             Link = Buffer;
             Buffer = (unsigned short)(Buffer/(unsigned short)10);
@@ -36,7 +39,7 @@ PUBLIC void BCDsendNumber( unsigned short Number)
          
             BCDNumber[LoopIndex] = SevenSegmentMAP[Output];
         }
-        else if (LoopIndex <= (unsigned short)1)
+        else if (LoopIndex <= DecimalPlace)
         {
             BCDNumber[LoopIndex] = SevenSegmentMAP[0];            
         }
@@ -45,7 +48,10 @@ PUBLIC void BCDsendNumber( unsigned short Number)
            BCDNumber[LoopIndex] = 0x0;    
         }
     }    
-    BCDNumber[1] |= SevenSegmentMAP[10];
+    if(DecimalPlace != (unsigned char)0)
+    {
+        BCDNumber[DecimalPlace] |= SevenSegmentMAP[10];
+    }
 }
 
 PUBLIC void BCDManage7segment(void)
@@ -53,9 +59,14 @@ PUBLIC void BCDManage7segment(void)
     static unsigned char DigitIndex = (unsigned char)0;    
     //PORTD = BCDNumber/10;
 
-    PORTD = BCDNumber[DigitIndex];
-    PORTC =  0xF & (~((unsigned char) 0x8 >> DigitIndex));
+    HWI_4Digit_WRITE(0,(~((unsigned char) 0x8 >> DigitIndex)));
+    HWI_8Digit_WRITE(1,BCDNumber[DigitIndex]);
+    
+    //PORTD = BCDNumber[DigitIndex];
+    //PORTC =  0xF & (~((unsigned char) 0x8 >> DigitIndex));
 
+    
+    
     DigitIndex ++;
     if(DigitIndex == NUMBER_DIGITS)
     {
