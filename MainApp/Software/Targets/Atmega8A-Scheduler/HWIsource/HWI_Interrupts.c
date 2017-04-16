@@ -7,7 +7,7 @@
 #include "Alloc.h"
  #include "HWI_func.h"
  
-PUBLIC void HWI_TIMERS_INTITALIZE(void)
+PUBLIC void HWI_INTERRUPTS_INTITALIZE(void)
 {
 	
 	TCCR0 |= (1<<CS01)|(1<<CS00);
