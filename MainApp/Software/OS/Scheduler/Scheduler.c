@@ -1,10 +1,6 @@
 #include "Alloc.h"
 #include "Scheduler.h"
 
-
-
-
-
 static TaskConfig ArrayTask[NUM_TASKS];
 
 PUBLIC void CreateTask( PointerVoid MangeFunction , unsigned char TaskId , unsigned char Period)
