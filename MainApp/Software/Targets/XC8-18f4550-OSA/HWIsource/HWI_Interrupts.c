@@ -7,7 +7,7 @@
 #include "Alloc.h"
  #include "HWI_func.h"
  
-PUBLIC void HWI_TIMERS_INTITALIZE(void)
+PUBLIC void HWI_INTERRUPTS_INTITALIZE(void)
 {
     TRISBbits.RB0 = 1;
     TRISBbits.RB1 = 1;
