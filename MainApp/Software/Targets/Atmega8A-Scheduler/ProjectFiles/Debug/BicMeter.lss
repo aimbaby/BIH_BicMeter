@@ -1,0 +1,1110 @@
+
+BicMeter.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000526  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000000e  00800060  00000526  000005ba  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000044  0080006e  0080006e  000005c8  2**0
+                  ALLOC
+  3 .stab         000006cc  00000000  00000000  000005c8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000085  00000000  00000000  00000c94  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_aranges 000001c0  00000000  00000000  00000d20  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000deb  00000000  00000000  00000ee0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000004e2  00000000  00000000  00001ccb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000754  00000000  00000000  000021ad  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  0000039c  00000000  00000000  00002904  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000004ce  00000000  00000000  00002ca0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000041d  00000000  00000000  0000316e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	d7 c1       	rjmp	.+942    	; 0x3b2 <__vector_1>
+   4:	f9 c1       	rjmp	.+1010   	; 0x3f8 <__vector_2>
+   6:	2a c0       	rjmp	.+84     	; 0x5c <__bad_interrupt>
+   8:	29 c0       	rjmp	.+82     	; 0x5c <__bad_interrupt>
+   a:	28 c0       	rjmp	.+80     	; 0x5c <__bad_interrupt>
+   c:	27 c0       	rjmp	.+78     	; 0x5c <__bad_interrupt>
+   e:	26 c0       	rjmp	.+76     	; 0x5c <__bad_interrupt>
+  10:	25 c0       	rjmp	.+74     	; 0x5c <__bad_interrupt>
+  12:	a6 c1       	rjmp	.+844    	; 0x360 <__vector_9>
+  14:	23 c0       	rjmp	.+70     	; 0x5c <__bad_interrupt>
+  16:	22 c0       	rjmp	.+68     	; 0x5c <__bad_interrupt>
+  18:	21 c0       	rjmp	.+66     	; 0x5c <__bad_interrupt>
+  1a:	20 c0       	rjmp	.+64     	; 0x5c <__bad_interrupt>
+  1c:	1f c0       	rjmp	.+62     	; 0x5c <__bad_interrupt>
+  1e:	1e c0       	rjmp	.+60     	; 0x5c <__bad_interrupt>
+  20:	1d c0       	rjmp	.+58     	; 0x5c <__bad_interrupt>
+  22:	1c c0       	rjmp	.+56     	; 0x5c <__bad_interrupt>
+  24:	1b c0       	rjmp	.+54     	; 0x5c <__bad_interrupt>
+
+00000026 <__ctors_end>:
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf e5       	ldi	r28, 0x5F	; 95
+  2c:	d4 e0       	ldi	r29, 0x04	; 4
+  2e:	de bf       	out	0x3e, r29	; 62
+  30:	cd bf       	out	0x3d, r28	; 61
+
+00000032 <__do_copy_data>:
+  32:	10 e0       	ldi	r17, 0x00	; 0
+  34:	a0 e6       	ldi	r26, 0x60	; 96
+  36:	b0 e0       	ldi	r27, 0x00	; 0
+  38:	e6 e2       	ldi	r30, 0x26	; 38
+  3a:	f5 e0       	ldi	r31, 0x05	; 5
+  3c:	02 c0       	rjmp	.+4      	; 0x42 <__SREG__+0x3>
+  3e:	05 90       	lpm	r0, Z+
+  40:	0d 92       	st	X+, r0
+  42:	ae 36       	cpi	r26, 0x6E	; 110
+  44:	b1 07       	cpc	r27, r17
+  46:	d9 f7       	brne	.-10     	; 0x3e <__SP_H__>
+
+00000048 <__do_clear_bss>:
+  48:	10 e0       	ldi	r17, 0x00	; 0
+  4a:	ae e6       	ldi	r26, 0x6E	; 110
+  4c:	b0 e0       	ldi	r27, 0x00	; 0
+  4e:	01 c0       	rjmp	.+2      	; 0x52 <.do_clear_bss_start>
+
+00000050 <.do_clear_bss_loop>:
+  50:	1d 92       	st	X+, r1
+
+00000052 <.do_clear_bss_start>:
+  52:	a2 3b       	cpi	r26, 0xB2	; 178
+  54:	b1 07       	cpc	r27, r17
+  56:	e1 f7       	brne	.-8      	; 0x50 <.do_clear_bss_loop>
+  58:	f8 d1       	rcall	.+1008   	; 0x44a <main>
+  5a:	63 c2       	rjmp	.+1222   	; 0x522 <_exit>
+
+0000005c <__bad_interrupt>:
+  5c:	d1 cf       	rjmp	.-94     	; 0x0 <__vectors>
+
+0000005e <APP_INITIALIZE>:
+  #include "APP.h"
+  
+  PUBLIC void APP_INITIALIZE(void)
+  {
+ 
+  }
+  5e:	08 95       	ret
+
+00000060 <APP_MANAGE>:
+  {
+      unsigned short AvgSpeedKph;
+      //unsigned short LapTimeAvg;    
+     // const unsigned short CircFactor = (unsigned short)7200;
+      
+      SetCircumfirunce(200);
+  60:	88 ec       	ldi	r24, 0xC8	; 200
+  62:	f5 d0       	rcall	.+490    	; 0x24e <SetCircumfirunce>
+ 
+      AvgSpeedKph =  GetAvgSpeed();
+  64:	03 d1       	rcall	.+518    	; 0x26c <GetAvgSpeed>
+      
+      AvgSpeedKph = (AvgSpeedKph + (unsigned short)5)/(unsigned short)10;
+  66:	05 96       	adiw	r24, 0x05	; 5
+  68:	6a e0       	ldi	r22, 0x0A	; 10
+  6a:	70 e0       	ldi	r23, 0x00	; 0
+  6c:	24 d2       	rcall	.+1096   	; 0x4b6 <__udivmodhi4>
+  6e:	cb 01       	movw	r24, r22
+      if(AvgSpeedKph < (unsigned short)29)
+      {
+          AvgSpeedKph = (unsigned short)0;
+      }*/
+      
+      BCDsendNumber(AvgSpeedKph,0);
+  70:	60 e0       	ldi	r22, 0x00	; 0
+  72:	01 d0       	rcall	.+2      	; 0x76 <BCDsendNumber>
+
+  74:	08 95       	ret
+
+00000076 <BCDsendNumber>:
+};
+
+static unsigned short BCDNumber[NUMBER_DIGITS];
+
+PUBLIC void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace)
+{
+  76:	cf 92       	push	r12
+  78:	df 92       	push	r13
+  7a:	ef 92       	push	r14
+  7c:	ff 92       	push	r15
+  7e:	1f 93       	push	r17
+  80:	cf 93       	push	r28
+  82:	df 93       	push	r29
+  84:	16 2f       	mov	r17, r22
+    for( LoopIndex = (unsigned char)0; LoopIndex < NUMBER_DIGITS ; LoopIndex++)
+    {
+        if((Buffer != (unsigned short)0)|| (LoopIndex <= DecimalPlace) )
+        { 
+            Link = Buffer;
+            Buffer = (unsigned short)(Buffer/(unsigned short)10);
+  86:	ce e6       	ldi	r28, 0x6E	; 110
+  88:	d0 e0       	ldi	r29, 0x00	; 0
+{
+    unsigned short Link,Output,Buffer;
+    unsigned char LoopIndex;
+    
+ 
+    Buffer = Number;
+  8a:	e8 2f       	mov	r30, r24
+  8c:	f9 2f       	mov	r31, r25
+    for( LoopIndex = (unsigned char)0; LoopIndex < NUMBER_DIGITS ; LoopIndex++)
+  8e:	40 e0       	ldi	r20, 0x00	; 0
+    {
+        if((Buffer != (unsigned short)0)|| (LoopIndex <= DecimalPlace) )
+        { 
+            Link = Buffer;
+            Buffer = (unsigned short)(Buffer/(unsigned short)10);
+  90:	0f 2e       	mov	r0, r31
+  92:	fa e0       	ldi	r31, 0x0A	; 10
+  94:	ef 2e       	mov	r14, r31
+  96:	ff 24       	eor	r15, r15
+  98:	f0 2d       	mov	r31, r0
+            Output = Link - (unsigned short)(Buffer * (unsigned short)10);
+         
+            BCDNumber[LoopIndex] = SevenSegmentMAP[Output];
+  9a:	0f 2e       	mov	r0, r31
+  9c:	f0 e6       	ldi	r31, 0x60	; 96
+  9e:	cf 2e       	mov	r12, r31
+  a0:	f0 e0       	ldi	r31, 0x00	; 0
+  a2:	df 2e       	mov	r13, r31
+  a4:	f0 2d       	mov	r31, r0
+    
+ 
+    Buffer = Number;
+    for( LoopIndex = (unsigned char)0; LoopIndex < NUMBER_DIGITS ; LoopIndex++)
+    {
+        if((Buffer != (unsigned short)0)|| (LoopIndex <= DecimalPlace) )
+  a6:	30 97       	sbiw	r30, 0x00	; 0
+  a8:	11 f4       	brne	.+4      	; 0xae <BCDsendNumber+0x38>
+  aa:	14 17       	cp	r17, r20
+  ac:	c0 f0       	brcs	.+48     	; 0xde <BCDsendNumber+0x68>
+        { 
+            Link = Buffer;
+            Buffer = (unsigned short)(Buffer/(unsigned short)10);
+  ae:	cf 01       	movw	r24, r30
+  b0:	b7 01       	movw	r22, r14
+  b2:	01 d2       	rcall	.+1026   	; 0x4b6 <__udivmodhi4>
+            Output = Link - (unsigned short)(Buffer * (unsigned short)10);
+  b4:	86 2f       	mov	r24, r22
+  b6:	97 2f       	mov	r25, r23
+  b8:	88 0f       	add	r24, r24
+  ba:	99 1f       	adc	r25, r25
+  bc:	9c 01       	movw	r18, r24
+  be:	22 0f       	add	r18, r18
+  c0:	33 1f       	adc	r19, r19
+  c2:	22 0f       	add	r18, r18
+  c4:	33 1f       	adc	r19, r19
+  c6:	82 0f       	add	r24, r18
+  c8:	93 1f       	adc	r25, r19
+  ca:	e8 1b       	sub	r30, r24
+  cc:	f9 0b       	sbc	r31, r25
+         
+            BCDNumber[LoopIndex] = SevenSegmentMAP[Output];
+  ce:	ec 0d       	add	r30, r12
+  d0:	fd 1d       	adc	r31, r13
+  d2:	80 81       	ld	r24, Z
+  d4:	88 83       	st	Y, r24
+  d6:	19 82       	std	Y+1, r1	; 0x01
+    for( LoopIndex = (unsigned char)0; LoopIndex < NUMBER_DIGITS ; LoopIndex++)
+    {
+        if((Buffer != (unsigned short)0)|| (LoopIndex <= DecimalPlace) )
+        { 
+            Link = Buffer;
+            Buffer = (unsigned short)(Buffer/(unsigned short)10);
+  d8:	e6 2f       	mov	r30, r22
+  da:	f7 2f       	mov	r31, r23
+            Output = Link - (unsigned short)(Buffer * (unsigned short)10);
+         
+            BCDNumber[LoopIndex] = SevenSegmentMAP[Output];
+  dc:	02 c0       	rjmp	.+4      	; 0xe2 <BCDsendNumber+0x6c>
+        {
+            BCDNumber[LoopIndex] = SevenSegmentMAP[0];            
+        }
+        else
+        {
+           BCDNumber[LoopIndex] = 0x0;    
+  de:	19 82       	std	Y+1, r1	; 0x01
+  e0:	18 82       	st	Y, r1
+    unsigned short Link,Output,Buffer;
+    unsigned char LoopIndex;
+    
+ 
+    Buffer = Number;
+    for( LoopIndex = (unsigned char)0; LoopIndex < NUMBER_DIGITS ; LoopIndex++)
+  e2:	4f 5f       	subi	r20, 0xFF	; 255
+  e4:	22 96       	adiw	r28, 0x02	; 2
+  e6:	44 30       	cpi	r20, 0x04	; 4
+  e8:	f1 f6       	brne	.-68     	; 0xa6 <BCDsendNumber+0x30>
+        else
+        {
+           BCDNumber[LoopIndex] = 0x0;    
+        }
+    }    
+    if(DecimalPlace != (unsigned char)0)
+  ea:	11 23       	and	r17, r17
+  ec:	59 f0       	breq	.+22     	; 0x104 <BCDsendNumber+0x8e>
+    {
+        BCDNumber[DecimalPlace] |= SevenSegmentMAP[10];
+  ee:	e1 2f       	mov	r30, r17
+  f0:	f0 e0       	ldi	r31, 0x00	; 0
+  f2:	ee 0f       	add	r30, r30
+  f4:	ff 1f       	adc	r31, r31
+  f6:	e2 59       	subi	r30, 0x92	; 146
+  f8:	ff 4f       	sbci	r31, 0xFF	; 255
+  fa:	80 81       	ld	r24, Z
+  fc:	91 81       	ldd	r25, Z+1	; 0x01
+  fe:	81 60       	ori	r24, 0x01	; 1
+ 100:	91 83       	std	Z+1, r25	; 0x01
+ 102:	80 83       	st	Z, r24
+    }
+}
+ 104:	df 91       	pop	r29
+ 106:	cf 91       	pop	r28
+ 108:	1f 91       	pop	r17
+ 10a:	ff 90       	pop	r15
+ 10c:	ef 90       	pop	r14
+ 10e:	df 90       	pop	r13
+ 110:	cf 90       	pop	r12
+ 112:	08 95       	ret
+
+00000114 <BCDManage7segment>:
+PUBLIC void BCDManage7segment(void)
+{
+    static unsigned char DigitIndex = (unsigned char)0;    
+    //PORTD = BCDNumber/10;
+
+    HWI_4Digit_WRITE(0,(~((unsigned char) 0x8 >> DigitIndex)));
+ 114:	68 e0       	ldi	r22, 0x08	; 8
+ 116:	70 e0       	ldi	r23, 0x00	; 0
+ 118:	00 90 76 00 	lds	r0, 0x0076
+ 11c:	02 c0       	rjmp	.+4      	; 0x122 <BCDManage7segment+0xe>
+ 11e:	75 95       	asr	r23
+ 120:	67 95       	ror	r22
+ 122:	0a 94       	dec	r0
+ 124:	e2 f7       	brpl	.-8      	; 0x11e <BCDManage7segment+0xa>
+ 126:	60 95       	com	r22
+ 128:	80 e0       	ldi	r24, 0x00	; 0
+ 12a:	0a d1       	rcall	.+532    	; 0x340 <HWI_4Digit_WRITE>
+    HWI_8Digit_WRITE(1,BCDNumber[DigitIndex]);
+ 12c:	e0 91 76 00 	lds	r30, 0x0076
+ 130:	f0 e0       	ldi	r31, 0x00	; 0
+ 132:	ee 0f       	add	r30, r30
+ 134:	ff 1f       	adc	r31, r31
+ 136:	e2 59       	subi	r30, 0x92	; 146
+ 138:	ff 4f       	sbci	r31, 0xFF	; 255
+ 13a:	81 e0       	ldi	r24, 0x01	; 1
+ 13c:	60 81       	ld	r22, Z
+ 13e:	03 d1       	rcall	.+518    	; 0x346 <HWI_8Digit_WRITE>
+    //PORTD = BCDNumber[DigitIndex];
+    //PORTC =  0xF & (~((unsigned char) 0x8 >> DigitIndex));
+
+    
+    
+    DigitIndex ++;
+ 140:	80 91 76 00 	lds	r24, 0x0076
+ 144:	8f 5f       	subi	r24, 0xFF	; 255
+ 146:	80 93 76 00 	sts	0x0076, r24
+    if(DigitIndex == NUMBER_DIGITS)
+ 14a:	84 30       	cpi	r24, 0x04	; 4
+ 14c:	11 f4       	brne	.+4      	; 0x152 <BCDManage7segment+0x3e>
+    {
+        DigitIndex = (unsigned char)0;
+ 14e:	10 92 76 00 	sts	0x0076, r1
+ 152:	08 95       	ret
+
+00000154 <SpeedCalcNotifyInitialize>:
+static unsigned short LapCounterAvg = (unsigned short)0;
+
+
+PUBLIC void SpeedCalcNotifyInitialize(void)
+{
+    memset(LapCounterBuffer , 0 , sizeof(LapCounterBuffer));
+ 154:	84 e2       	ldi	r24, 0x24	; 36
+ 156:	e7 e7       	ldi	r30, 0x77	; 119
+ 158:	f0 e0       	ldi	r31, 0x00	; 0
+ 15a:	df 01       	movw	r26, r30
+ 15c:	1d 92       	st	X+, r1
+ 15e:	8a 95       	dec	r24
+ 160:	e9 f7       	brne	.-6      	; 0x15c <SpeedCalcNotifyInitialize+0x8>
+}
+ 162:	08 95       	ret
+
+00000164 <SensorOneNotify>:
+
+PUBLIC void SensorOneNotify(void)
+{
+    if( (unsigned char)1 == NotifyFlag )
+ 164:	80 91 9b 00 	lds	r24, 0x009B
+ 168:	81 30       	cpi	r24, 0x01	; 1
+ 16a:	19 f4       	brne	.+6      	; 0x172 <SensorOneNotify+0xe>
+    {
+        NotifyFlag = (unsigned char)0;
+ 16c:	10 92 9b 00 	sts	0x009B, r1
+ 170:	08 95       	ret
+    }
+    else
+    {
+        if(LapCounter != (unsigned char)0)
+ 172:	80 91 9c 00 	lds	r24, 0x009C
+ 176:	88 23       	and	r24, r24
+ 178:	19 f0       	breq	.+6      	; 0x180 <SensorOneNotify+0x1c>
+        {
+            LapCounter--;
+ 17a:	81 50       	subi	r24, 0x01	; 1
+ 17c:	80 93 9c 00 	sts	0x009C, r24
+ 180:	08 95       	ret
+
+00000182 <SensorTwoNotify>:
+    }
+}
+
+PUBLIC void SensorTwoNotify(void)
+{
+    if( (unsigned char)0 == NotifyFlag )
+ 182:	80 91 9b 00 	lds	r24, 0x009B
+ 186:	88 23       	and	r24, r24
+ 188:	49 f4       	brne	.+18     	; 0x19c <SensorTwoNotify+0x1a>
+    {
+        NotifyFlag = (unsigned char)1;
+ 18a:	81 e0       	ldi	r24, 0x01	; 1
+ 18c:	80 93 9b 00 	sts	0x009B, r24
+        LapCounter++; 
+ 190:	80 91 9c 00 	lds	r24, 0x009C
+ 194:	8f 5f       	subi	r24, 0xFF	; 255
+ 196:	80 93 9c 00 	sts	0x009C, r24
+ 19a:	08 95       	ret
+    }
+    else
+    {
+        if(LapCounter != (unsigned char)0)
+ 19c:	80 91 9c 00 	lds	r24, 0x009C
+ 1a0:	88 23       	and	r24, r24
+ 1a2:	19 f0       	breq	.+6      	; 0x1aa <SensorTwoNotify+0x28>
+        {
+            LapCounter--;
+ 1a4:	81 50       	subi	r24, 0x01	; 1
+ 1a6:	80 93 9c 00 	sts	0x009C, r24
+ 1aa:	08 95       	ret
+
+000001ac <SpeedCalcManage>:
+PUBLIC void SpeedCalcManage(void)
+{
+    static unsigned char LapTime = (unsigned char)0;
+    static unsigned char LapSampleIndex = (unsigned char)0;
+   
+    LapTime ++; 
+ 1ac:	80 91 9d 00 	lds	r24, 0x009D
+ 1b0:	8f 5f       	subi	r24, 0xFF	; 255
+ 1b2:	80 93 9d 00 	sts	0x009D, r24
+
+       
+    if(TimeSaturation == LapTime)
+ 1b6:	8a 30       	cpi	r24, 0x0A	; 10
+ 1b8:	a9 f5       	brne	.+106    	; 0x224 <SpeedCalcManage+0x78>
+    {   
+        LapTime = (unsigned char)0;
+ 1ba:	10 92 9d 00 	sts	0x009D, r1
+        LapCounterAvg += (unsigned short)LapCounter;
+ 1be:	30 91 9c 00 	lds	r19, 0x009C
+        LapCounterAvg -= (unsigned short)LapCounterBuffer[LapSampleIndex];
+ 1c2:	20 91 a0 00 	lds	r18, 0x00A0
+
+       
+    if(TimeSaturation == LapTime)
+    {   
+        LapTime = (unsigned char)0;
+        LapCounterAvg += (unsigned short)LapCounter;
+ 1c6:	80 91 9e 00 	lds	r24, 0x009E
+ 1ca:	90 91 9f 00 	lds	r25, 0x009F
+ 1ce:	83 0f       	add	r24, r19
+ 1d0:	91 1d       	adc	r25, r1
+        LapCounterAvg -= (unsigned short)LapCounterBuffer[LapSampleIndex];
+ 1d2:	e7 e7       	ldi	r30, 0x77	; 119
+ 1d4:	f0 e0       	ldi	r31, 0x00	; 0
+ 1d6:	e2 0f       	add	r30, r18
+ 1d8:	f1 1d       	adc	r31, r1
+ 1da:	40 81       	ld	r20, Z
+ 1dc:	84 1b       	sub	r24, r20
+ 1de:	91 09       	sbc	r25, r1
+ 1e0:	90 93 9f 00 	sts	0x009F, r25
+ 1e4:	80 93 9e 00 	sts	0x009E, r24
+        
+        LapCounterBuffer[LapSampleIndex] = LapCounter;
+ 1e8:	30 83       	st	Z, r19
+        LapCounter = (unsigned char)0;
+ 1ea:	10 92 9c 00 	sts	0x009C, r1
+        DistTravelCntr ++;
+ 1ee:	80 91 a1 00 	lds	r24, 0x00A1
+ 1f2:	90 91 a2 00 	lds	r25, 0x00A2
+ 1f6:	a0 91 a3 00 	lds	r26, 0x00A3
+ 1fa:	b0 91 a4 00 	lds	r27, 0x00A4
+ 1fe:	01 96       	adiw	r24, 0x01	; 1
+ 200:	a1 1d       	adc	r26, r1
+ 202:	b1 1d       	adc	r27, r1
+ 204:	80 93 a1 00 	sts	0x00A1, r24
+ 208:	90 93 a2 00 	sts	0x00A2, r25
+ 20c:	a0 93 a3 00 	sts	0x00A3, r26
+ 210:	b0 93 a4 00 	sts	0x00A4, r27
+        
+       
+        LapSampleIndex ++;    
+ 214:	82 2f       	mov	r24, r18
+ 216:	8f 5f       	subi	r24, 0xFF	; 255
+ 218:	80 93 a0 00 	sts	0x00A0, r24
+       
+        if( (unsigned char)SpeedCalFilterBufferSize == LapSampleIndex )  
+ 21c:	84 32       	cpi	r24, 0x24	; 36
+ 21e:	11 f4       	brne	.+4      	; 0x224 <SpeedCalcManage+0x78>
+        {
+            LapSampleIndex = (unsigned char)0;
+ 220:	10 92 a0 00 	sts	0x00A0, r1
+ 224:	08 95       	ret
+
+00000226 <SetDistance>:
+        
+    }        
+}
+
+PUBLIC void SetDistance(unsigned long Distance)
+{
+ 226:	dc 01       	movw	r26, r24
+ 228:	cb 01       	movw	r24, r22
+    DistTravelCntr = Distance;
+ 22a:	80 93 a1 00 	sts	0x00A1, r24
+ 22e:	90 93 a2 00 	sts	0x00A2, r25
+ 232:	a0 93 a3 00 	sts	0x00A3, r26
+ 236:	b0 93 a4 00 	sts	0x00A4, r27
+}
+ 23a:	08 95       	ret
+
+0000023c <GetDistance>:
+
+PUBLIC unsigned long GetDistance(void)
+{
+    return DistTravelCntr;
+ 23c:	60 91 a1 00 	lds	r22, 0x00A1
+ 240:	70 91 a2 00 	lds	r23, 0x00A2
+}
+ 244:	80 91 a3 00 	lds	r24, 0x00A3
+ 248:	90 91 a4 00 	lds	r25, 0x00A4
+ 24c:	08 95       	ret
+
+0000024e <SetCircumfirunce>:
+
+// in cm
+PUBLIC void SetCircumfirunce(unsigned char Circum)
+{
+    KMfactor = (unsigned short)(
+            ((unsigned long)36 * (unsigned long)Circum)
+ 24e:	68 2f       	mov	r22, r24
+ 250:	70 e0       	ldi	r23, 0x00	; 0
+ 252:	80 e0       	ldi	r24, 0x00	; 0
+ 254:	90 e0       	ldi	r25, 0x00	; 0
+ 256:	24 e2       	ldi	r18, 0x24	; 36
+ 258:	30 e0       	ldi	r19, 0x00	; 0
+ 25a:	40 e0       	ldi	r20, 0x00	; 0
+ 25c:	50 e0       	ldi	r21, 0x00	; 0
+ 25e:	0c d1       	rcall	.+536    	; 0x478 <__mulsi3>
+              /((unsigned long)SpeedCalFilterBufferSize)
+ 260:	3e d1       	rcall	.+636    	; 0x4de <__udivmodsi4>
+}
+
+// in cm
+PUBLIC void SetCircumfirunce(unsigned char Circum)
+{
+    KMfactor = (unsigned short)(
+ 262:	30 93 6c 00 	sts	0x006C, r19
+ 266:	20 93 6b 00 	sts	0x006B, r18
+            ((unsigned long)36 * (unsigned long)Circum)
+              /((unsigned long)SpeedCalFilterBufferSize)
+            );
+}
+ 26a:	08 95       	ret
+
+0000026c <GetAvgSpeed>:
+PUBLIC unsigned short GetAvgSpeed(void)
+{
+    unsigned short AvgSpeedKph;
+    
+    AvgSpeedKph = (unsigned short)(
+            ((unsigned long)KMfactor * (unsigned long)LapCounterAvg)
+ 26c:	60 91 9e 00 	lds	r22, 0x009E
+ 270:	70 91 9f 00 	lds	r23, 0x009F
+ 274:	80 e0       	ldi	r24, 0x00	; 0
+ 276:	90 e0       	ldi	r25, 0x00	; 0
+ 278:	20 91 6b 00 	lds	r18, 0x006B
+ 27c:	30 91 6c 00 	lds	r19, 0x006C
+ 280:	40 e0       	ldi	r20, 0x00	; 0
+ 282:	50 e0       	ldi	r21, 0x00	; 0
+ 284:	f9 d0       	rcall	.+498    	; 0x478 <__mulsi3>
+            /((unsigned long)SpeedCalcTaskRate)
+ 286:	24 e1       	ldi	r18, 0x14	; 20
+ 288:	30 e0       	ldi	r19, 0x00	; 0
+ 28a:	40 e0       	ldi	r20, 0x00	; 0
+ 28c:	50 e0       	ldi	r21, 0x00	; 0
+ 28e:	27 d1       	rcall	.+590    	; 0x4de <__udivmodsi4>
+            );
+    return AvgSpeedKph;
+}
+ 290:	82 2f       	mov	r24, r18
+ 292:	93 2f       	mov	r25, r19
+ 294:	08 95       	ret
+
+00000296 <APP_ISR1>:
+#include "Alloc.h"
+ #include "AppInterrupts.h"
+
+PUBLIC void APP_ISR1(void)
+{
+    SensorOneNotify();
+ 296:	66 df       	rcall	.-308    	; 0x164 <SensorOneNotify>
+}
+ 298:	08 95       	ret
+
+0000029a <APP_ISR2>:
+
+PUBLIC void APP_ISR2(void)
+{
+    SensorTwoNotify();  
+ 29a:	73 df       	rcall	.-282    	; 0x182 <SensorTwoNotify>
+ 29c:	08 95       	ret
+
+0000029e <CreateTask>:
+
+static TaskConfig ArrayTask[NUM_TASKS];
+
+PUBLIC void CreateTask( PointerVoid MangeFunction , unsigned char TaskId , unsigned char Period)
+{
+    if(TaskId < NUM_TASKS)
+ 29e:	63 30       	cpi	r22, 0x03	; 3
+ 2a0:	60 f4       	brcc	.+24     	; 0x2ba <CreateTask+0x1c>
+    {
+        ArrayTask[TaskId].ManageFunction = MangeFunction;
+ 2a2:	e6 2f       	mov	r30, r22
+ 2a4:	f0 e0       	ldi	r31, 0x00	; 0
+ 2a6:	ee 0f       	add	r30, r30
+ 2a8:	ff 1f       	adc	r31, r31
+ 2aa:	ee 0f       	add	r30, r30
+ 2ac:	ff 1f       	adc	r31, r31
+ 2ae:	eb 55       	subi	r30, 0x5B	; 91
+ 2b0:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2b2:	91 83       	std	Z+1, r25	; 0x01
+ 2b4:	80 83       	st	Z, r24
+        ArrayTask[TaskId].Period = Period;
+ 2b6:	42 83       	std	Z+2, r20	; 0x02
+        ArrayTask[TaskId].TickCounter = (unsigned char)0;
+ 2b8:	13 82       	std	Z+3, r1	; 0x03
+ 2ba:	08 95       	ret
+
+000002bc <SchedulerTick>:
+PUBLIC void SchedulerTick(void)
+{
+    unsigned char TaskIndex;
+    for(TaskIndex = (unsigned char)0 ;TaskIndex < NUM_TASKS ; TaskIndex++)
+    {
+        ArrayTask[TaskIndex].TickCounter ++;
+ 2bc:	80 91 a8 00 	lds	r24, 0x00A8
+ 2c0:	8f 5f       	subi	r24, 0xFF	; 255
+ 2c2:	80 93 a8 00 	sts	0x00A8, r24
+ 2c6:	80 91 ac 00 	lds	r24, 0x00AC
+ 2ca:	8f 5f       	subi	r24, 0xFF	; 255
+ 2cc:	80 93 ac 00 	sts	0x00AC, r24
+ 2d0:	80 91 b0 00 	lds	r24, 0x00B0
+ 2d4:	8f 5f       	subi	r24, 0xFF	; 255
+ 2d6:	80 93 b0 00 	sts	0x00B0, r24
+    }   
+}
+ 2da:	08 95       	ret
+
+000002dc <RunScheduler>:
+    static unsigned char TaskIndex;
+    for(;;)
+    {
+        for(TaskIndex = (unsigned char)0 ; TaskIndex < NUM_TASKS ; TaskIndex++)
+        {
+            if(ArrayTask[TaskIndex].Period <= ArrayTask[TaskIndex].TickCounter)
+ 2dc:	c5 ea       	ldi	r28, 0xA5	; 165
+ 2de:	d0 e0       	ldi	r29, 0x00	; 0
+PUBLIC void RunScheduler(void)
+{
+    static unsigned char TaskIndex;
+    for(;;)
+    {
+        for(TaskIndex = (unsigned char)0 ; TaskIndex < NUM_TASKS ; TaskIndex++)
+ 2e0:	10 92 b1 00 	sts	0x00B1, r1
+ 2e4:	80 e0       	ldi	r24, 0x00	; 0
+        {
+            if(ArrayTask[TaskIndex].Period <= ArrayTask[TaskIndex].TickCounter)
+ 2e6:	90 e0       	ldi	r25, 0x00	; 0
+ 2e8:	fc 01       	movw	r30, r24
+ 2ea:	ee 0f       	add	r30, r30
+ 2ec:	ff 1f       	adc	r31, r31
+ 2ee:	ee 0f       	add	r30, r30
+ 2f0:	ff 1f       	adc	r31, r31
+ 2f2:	ec 0f       	add	r30, r28
+ 2f4:	fd 1f       	adc	r31, r29
+ 2f6:	32 81       	ldd	r19, Z+2	; 0x02
+ 2f8:	23 81       	ldd	r18, Z+3	; 0x03
+ 2fa:	23 17       	cp	r18, r19
+ 2fc:	a8 f0       	brcs	.+42     	; 0x328 <RunScheduler+0x4c>
+            {
+                ArrayTask[TaskIndex].ManageFunction();
+ 2fe:	fc 01       	movw	r30, r24
+ 300:	ee 0f       	add	r30, r30
+ 302:	ff 1f       	adc	r31, r31
+ 304:	ee 0f       	add	r30, r30
+ 306:	ff 1f       	adc	r31, r31
+ 308:	ec 0f       	add	r30, r28
+ 30a:	fd 1f       	adc	r31, r29
+ 30c:	01 90       	ld	r0, Z+
+ 30e:	f0 81       	ld	r31, Z
+ 310:	e0 2d       	mov	r30, r0
+ 312:	09 95       	icall
+                ArrayTask[TaskIndex].TickCounter = (unsigned char)0;
+ 314:	e0 91 b1 00 	lds	r30, 0x00B1
+ 318:	f0 e0       	ldi	r31, 0x00	; 0
+ 31a:	ee 0f       	add	r30, r30
+ 31c:	ff 1f       	adc	r31, r31
+ 31e:	ee 0f       	add	r30, r30
+ 320:	ff 1f       	adc	r31, r31
+ 322:	ec 0f       	add	r30, r28
+ 324:	fd 1f       	adc	r31, r29
+ 326:	13 82       	std	Z+3, r1	; 0x03
+PUBLIC void RunScheduler(void)
+{
+    static unsigned char TaskIndex;
+    for(;;)
+    {
+        for(TaskIndex = (unsigned char)0 ; TaskIndex < NUM_TASKS ; TaskIndex++)
+ 328:	80 91 b1 00 	lds	r24, 0x00B1
+ 32c:	8f 5f       	subi	r24, 0xFF	; 255
+ 32e:	80 93 b1 00 	sts	0x00B1, r24
+ 332:	83 30       	cpi	r24, 0x03	; 3
+ 334:	a8 f6       	brcc	.-86     	; 0x2e0 <RunScheduler+0x4>
+ 336:	d7 cf       	rjmp	.-82     	; 0x2e6 <RunScheduler+0xa>
+
+00000338 <HWI_DIGITAL_INITIALIZE>:
+  
+
+PUBLIC void HWI_DIGITAL_INITIALIZE(void)
+{
+
+}
+ 338:	08 95       	ret
+
+0000033a <HWI_DIGI_READ>:
+  
+PUBLIC unsigned char HWI_DIGI_READ(unsigned char pin)
+{
+ return (0);
+}
+ 33a:	80 e0       	ldi	r24, 0x00	; 0
+ 33c:	08 95       	ret
+
+0000033e <HWI_DIGI_WRITE>:
+PUBLIC void HWI_DIGI_WRITE(unsigned char pin,unsigned char value)
+{
+}
+ 33e:	08 95       	ret
+
+00000340 <HWI_4Digit_WRITE>:
+
+PUBLIC void HWI_4Digit_WRITE(unsigned char port,unsigned char value)
+{
+	
+	
+}
+ 340:	08 95       	ret
+
+00000342 <HWI_4Digit_READ>:
+PUBLIC unsigned char HWI_4Digit_READ(unsigned char port)
+{
+	return 0;
+	
+}
+ 342:	80 e0       	ldi	r24, 0x00	; 0
+ 344:	08 95       	ret
+
+00000346 <HWI_8Digit_WRITE>:
+
+PUBLIC void HWI_8Digit_WRITE(unsigned char port,unsigned char value)
+{
+	
+	
+}
+ 346:	08 95       	ret
+
+00000348 <HWI8Digit_READ>:
+PUBLIC unsigned char HWI8Digit_READ(unsigned char port)
+{
+	return 0;
+	
+}
+ 348:	80 e0       	ldi	r24, 0x00	; 0
+ 34a:	08 95       	ret
+
+0000034c <HWI_TIMERS_INTITALIZE>:
+ #include "HWI_func.h"
+ 
+PUBLIC void HWI_TIMERS_INTITALIZE(void)
+{
+	
+	TCCR0 |= (1<<CS01);
+ 34c:	83 b7       	in	r24, 0x33	; 51
+ 34e:	82 60       	ori	r24, 0x02	; 2
+ 350:	83 bf       	out	0x33, r24	; 51
+	TCNT0 = 0;
+ 352:	12 be       	out	0x32, r1	; 50
+	
+	// enable overflow interrupt
+	TIMSK |= (1 << TOIE0);
+ 354:	89 b7       	in	r24, 0x39	; 57
+ 356:	81 60       	ori	r24, 0x01	; 1
+ 358:	89 bf       	out	0x39, r24	; 57
+	    
+	// enable global interrupts
+	sei();
+ 35a:	78 94       	sei
+	
+	DDRC |= 1;
+ 35c:	a0 9a       	sbi	0x14, 0	; 20
+    //TMR1H=0xAA;
+//
+    //TMR3L=0;
+    //TMR3H=0;
+
+}
+ 35e:	08 95       	ret
+
+00000360 <__vector_9>:
+
+
+// TIMER0 overflow interrupt service routine
+// called whenever TCNT0 overflows
+ISR(TIMER0_OVF_vect)
+{
+ 360:	1f 92       	push	r1
+ 362:	0f 92       	push	r0
+ 364:	0f b6       	in	r0, 0x3f	; 63
+ 366:	0f 92       	push	r0
+ 368:	11 24       	eor	r1, r1
+ 36a:	2f 93       	push	r18
+ 36c:	3f 93       	push	r19
+ 36e:	4f 93       	push	r20
+ 370:	5f 93       	push	r21
+ 372:	6f 93       	push	r22
+ 374:	7f 93       	push	r23
+ 376:	8f 93       	push	r24
+ 378:	9f 93       	push	r25
+ 37a:	af 93       	push	r26
+ 37c:	bf 93       	push	r27
+ 37e:	ef 93       	push	r30
+ 380:	ff 93       	push	r31
+	TCNT0 = (unsigned char)128;
+ 382:	80 e8       	ldi	r24, 0x80	; 128
+ 384:	82 bf       	out	0x32, r24	; 50
+	SchedulerTick();
+ 386:	9a df       	rcall	.-204    	; 0x2bc <SchedulerTick>
+	PORTC ^= (1<<PORTC0);
+ 388:	95 b3       	in	r25, 0x15	; 21
+ 38a:	81 e0       	ldi	r24, 0x01	; 1
+ 38c:	89 27       	eor	r24, r25
+ 38e:	85 bb       	out	0x15, r24	; 21
+	
+}
+ 390:	ff 91       	pop	r31
+ 392:	ef 91       	pop	r30
+ 394:	bf 91       	pop	r27
+ 396:	af 91       	pop	r26
+ 398:	9f 91       	pop	r25
+ 39a:	8f 91       	pop	r24
+ 39c:	7f 91       	pop	r23
+ 39e:	6f 91       	pop	r22
+ 3a0:	5f 91       	pop	r21
+ 3a2:	4f 91       	pop	r20
+ 3a4:	3f 91       	pop	r19
+ 3a6:	2f 91       	pop	r18
+ 3a8:	0f 90       	pop	r0
+ 3aa:	0f be       	out	0x3f, r0	; 63
+ 3ac:	0f 90       	pop	r0
+ 3ae:	1f 90       	pop	r1
+ 3b0:	18 95       	reti
+
+000003b2 <__vector_1>:
+
+ISR(INT0_vect)
+{
+ 3b2:	1f 92       	push	r1
+ 3b4:	0f 92       	push	r0
+ 3b6:	0f b6       	in	r0, 0x3f	; 63
+ 3b8:	0f 92       	push	r0
+ 3ba:	11 24       	eor	r1, r1
+ 3bc:	2f 93       	push	r18
+ 3be:	3f 93       	push	r19
+ 3c0:	4f 93       	push	r20
+ 3c2:	5f 93       	push	r21
+ 3c4:	6f 93       	push	r22
+ 3c6:	7f 93       	push	r23
+ 3c8:	8f 93       	push	r24
+ 3ca:	9f 93       	push	r25
+ 3cc:	af 93       	push	r26
+ 3ce:	bf 93       	push	r27
+ 3d0:	ef 93       	push	r30
+ 3d2:	ff 93       	push	r31
+	APP_ISR1(); 
+ 3d4:	60 df       	rcall	.-320    	; 0x296 <APP_ISR1>
+}
+ 3d6:	ff 91       	pop	r31
+ 3d8:	ef 91       	pop	r30
+ 3da:	bf 91       	pop	r27
+ 3dc:	af 91       	pop	r26
+ 3de:	9f 91       	pop	r25
+ 3e0:	8f 91       	pop	r24
+ 3e2:	7f 91       	pop	r23
+ 3e4:	6f 91       	pop	r22
+ 3e6:	5f 91       	pop	r21
+ 3e8:	4f 91       	pop	r20
+ 3ea:	3f 91       	pop	r19
+ 3ec:	2f 91       	pop	r18
+ 3ee:	0f 90       	pop	r0
+ 3f0:	0f be       	out	0x3f, r0	; 63
+ 3f2:	0f 90       	pop	r0
+ 3f4:	1f 90       	pop	r1
+ 3f6:	18 95       	reti
+
+000003f8 <__vector_2>:
+
+ISR(INT1_vect)
+{
+ 3f8:	1f 92       	push	r1
+ 3fa:	0f 92       	push	r0
+ 3fc:	0f b6       	in	r0, 0x3f	; 63
+ 3fe:	0f 92       	push	r0
+ 400:	11 24       	eor	r1, r1
+ 402:	2f 93       	push	r18
+ 404:	3f 93       	push	r19
+ 406:	4f 93       	push	r20
+ 408:	5f 93       	push	r21
+ 40a:	6f 93       	push	r22
+ 40c:	7f 93       	push	r23
+ 40e:	8f 93       	push	r24
+ 410:	9f 93       	push	r25
+ 412:	af 93       	push	r26
+ 414:	bf 93       	push	r27
+ 416:	ef 93       	push	r30
+ 418:	ff 93       	push	r31
+	APP_ISR2();
+ 41a:	3f df       	rcall	.-386    	; 0x29a <APP_ISR2>
+}
+ 41c:	ff 91       	pop	r31
+ 41e:	ef 91       	pop	r30
+ 420:	bf 91       	pop	r27
+ 422:	af 91       	pop	r26
+ 424:	9f 91       	pop	r25
+ 426:	8f 91       	pop	r24
+ 428:	7f 91       	pop	r23
+ 42a:	6f 91       	pop	r22
+ 42c:	5f 91       	pop	r21
+ 42e:	4f 91       	pop	r20
+ 430:	3f 91       	pop	r19
+ 432:	2f 91       	pop	r18
+ 434:	0f 90       	pop	r0
+ 436:	0f be       	out	0x3f, r0	; 63
+ 438:	0f 90       	pop	r0
+ 43a:	1f 90       	pop	r1
+ 43c:	18 95       	reti
+
+0000043e <ManageSpeedCalc>:
+{
+	APP_MANAGE();
+}
+void ManageSpeedCalc(void)
+{
+	SpeedCalcManage();
+ 43e:	b6 de       	rcall	.-660    	; 0x1ac <SpeedCalcManage>
+ 440:	08 95       	ret
+
+00000442 <ManageApplication>:
+{
+	BCDManage7segment();
+}
+void ManageApplication (void)
+{
+	APP_MANAGE();
+ 442:	0e de       	rcall	.-996    	; 0x60 <APP_MANAGE>
+}
+ 444:	08 95       	ret
+
+00000446 <DisplayAlphaNumeric>:
+}
+
+
+void DisplayAlphaNumeric (void)
+{
+	BCDManage7segment();
+ 446:	66 de       	rcall	.-820    	; 0x114 <BCDManage7segment>
+}
+ 448:	08 95       	ret
+
+0000044a <main>:
+void ManageApplication (void);
+void ManageSpeedCalc(void);
+
+int main(void)
+{
+ HWI_TIMERS_INTITALIZE();
+ 44a:	80 df       	rcall	.-256    	; 0x34c <HWI_TIMERS_INTITALIZE>
+ HWI_DIGITAL_INITIALIZE();
+ 44c:	75 df       	rcall	.-278    	; 0x338 <HWI_DIGITAL_INITIALIZE>
+ SpeedCalcNotifyInitialize();
+ 44e:	82 de       	rcall	.-764    	; 0x154 <SpeedCalcNotifyInitialize>
+ APP_INITIALIZE();
+ 450:	06 de       	rcall	.-1012   	; 0x5e <APP_INITIALIZE>
+ 
+ CreateTask( ManageSpeedCalc, (unsigned char)0  , (unsigned char) 13);
+ 452:	8f e1       	ldi	r24, 0x1F	; 31
+ 454:	92 e0       	ldi	r25, 0x02	; 2
+ 456:	60 e0       	ldi	r22, 0x00	; 0
+ 458:	4d e0       	ldi	r20, 0x0D	; 13
+ 45a:	21 df       	rcall	.-446    	; 0x29e <CreateTask>
+ 
+ CreateTask( ManageApplication, (unsigned char)2  , (unsigned char) 100);
+ 45c:	81 e2       	ldi	r24, 0x21	; 33
+ 45e:	92 e0       	ldi	r25, 0x02	; 2
+ 460:	62 e0       	ldi	r22, 0x02	; 2
+ 462:	44 e6       	ldi	r20, 0x64	; 100
+ 464:	1c df       	rcall	.-456    	; 0x29e <CreateTask>
+ 
+ CreateTask( DisplayAlphaNumeric, (unsigned char)1  , (unsigned char) 50);
+ 466:	83 e2       	ldi	r24, 0x23	; 35
+ 468:	92 e0       	ldi	r25, 0x02	; 2
+ 46a:	61 e0       	ldi	r22, 0x01	; 1
+ 46c:	42 e3       	ldi	r20, 0x32	; 50
+ 46e:	17 df       	rcall	.-466    	; 0x29e <CreateTask>
+
+
+ RunScheduler();
+ 470:	35 df       	rcall	.-406    	; 0x2dc <RunScheduler>
+}
+ 472:	80 e0       	ldi	r24, 0x00	; 0
+ 474:	90 e0       	ldi	r25, 0x00	; 0
+ 476:	08 95       	ret
+
+00000478 <__mulsi3>:
+ 478:	62 9f       	mul	r22, r18
+ 47a:	d0 01       	movw	r26, r0
+ 47c:	73 9f       	mul	r23, r19
+ 47e:	f0 01       	movw	r30, r0
+ 480:	82 9f       	mul	r24, r18
+ 482:	e0 0d       	add	r30, r0
+ 484:	f1 1d       	adc	r31, r1
+ 486:	64 9f       	mul	r22, r20
+ 488:	e0 0d       	add	r30, r0
+ 48a:	f1 1d       	adc	r31, r1
+ 48c:	92 9f       	mul	r25, r18
+ 48e:	f0 0d       	add	r31, r0
+ 490:	83 9f       	mul	r24, r19
+ 492:	f0 0d       	add	r31, r0
+ 494:	74 9f       	mul	r23, r20
+ 496:	f0 0d       	add	r31, r0
+ 498:	65 9f       	mul	r22, r21
+ 49a:	f0 0d       	add	r31, r0
+ 49c:	99 27       	eor	r25, r25
+ 49e:	72 9f       	mul	r23, r18
+ 4a0:	b0 0d       	add	r27, r0
+ 4a2:	e1 1d       	adc	r30, r1
+ 4a4:	f9 1f       	adc	r31, r25
+ 4a6:	63 9f       	mul	r22, r19
+ 4a8:	b0 0d       	add	r27, r0
+ 4aa:	e1 1d       	adc	r30, r1
+ 4ac:	f9 1f       	adc	r31, r25
+ 4ae:	bd 01       	movw	r22, r26
+ 4b0:	cf 01       	movw	r24, r30
+ 4b2:	11 24       	eor	r1, r1
+ 4b4:	08 95       	ret
+
+000004b6 <__udivmodhi4>:
+ 4b6:	aa 1b       	sub	r26, r26
+ 4b8:	bb 1b       	sub	r27, r27
+ 4ba:	51 e1       	ldi	r21, 0x11	; 17
+ 4bc:	07 c0       	rjmp	.+14     	; 0x4cc <__udivmodhi4_ep>
+
+000004be <__udivmodhi4_loop>:
+ 4be:	aa 1f       	adc	r26, r26
+ 4c0:	bb 1f       	adc	r27, r27
+ 4c2:	a6 17       	cp	r26, r22
+ 4c4:	b7 07       	cpc	r27, r23
+ 4c6:	10 f0       	brcs	.+4      	; 0x4cc <__udivmodhi4_ep>
+ 4c8:	a6 1b       	sub	r26, r22
+ 4ca:	b7 0b       	sbc	r27, r23
+
+000004cc <__udivmodhi4_ep>:
+ 4cc:	88 1f       	adc	r24, r24
+ 4ce:	99 1f       	adc	r25, r25
+ 4d0:	5a 95       	dec	r21
+ 4d2:	a9 f7       	brne	.-22     	; 0x4be <__udivmodhi4_loop>
+ 4d4:	80 95       	com	r24
+ 4d6:	90 95       	com	r25
+ 4d8:	bc 01       	movw	r22, r24
+ 4da:	cd 01       	movw	r24, r26
+ 4dc:	08 95       	ret
+
+000004de <__udivmodsi4>:
+ 4de:	a1 e2       	ldi	r26, 0x21	; 33
+ 4e0:	1a 2e       	mov	r1, r26
+ 4e2:	aa 1b       	sub	r26, r26
+ 4e4:	bb 1b       	sub	r27, r27
+ 4e6:	fd 01       	movw	r30, r26
+ 4e8:	0d c0       	rjmp	.+26     	; 0x504 <__udivmodsi4_ep>
+
+000004ea <__udivmodsi4_loop>:
+ 4ea:	aa 1f       	adc	r26, r26
+ 4ec:	bb 1f       	adc	r27, r27
+ 4ee:	ee 1f       	adc	r30, r30
+ 4f0:	ff 1f       	adc	r31, r31
+ 4f2:	a2 17       	cp	r26, r18
+ 4f4:	b3 07       	cpc	r27, r19
+ 4f6:	e4 07       	cpc	r30, r20
+ 4f8:	f5 07       	cpc	r31, r21
+ 4fa:	20 f0       	brcs	.+8      	; 0x504 <__udivmodsi4_ep>
+ 4fc:	a2 1b       	sub	r26, r18
+ 4fe:	b3 0b       	sbc	r27, r19
+ 500:	e4 0b       	sbc	r30, r20
+ 502:	f5 0b       	sbc	r31, r21
+
+00000504 <__udivmodsi4_ep>:
+ 504:	66 1f       	adc	r22, r22
+ 506:	77 1f       	adc	r23, r23
+ 508:	88 1f       	adc	r24, r24
+ 50a:	99 1f       	adc	r25, r25
+ 50c:	1a 94       	dec	r1
+ 50e:	69 f7       	brne	.-38     	; 0x4ea <__udivmodsi4_loop>
+ 510:	60 95       	com	r22
+ 512:	70 95       	com	r23
+ 514:	80 95       	com	r24
+ 516:	90 95       	com	r25
+ 518:	9b 01       	movw	r18, r22
+ 51a:	ac 01       	movw	r20, r24
+ 51c:	bd 01       	movw	r22, r26
+ 51e:	cf 01       	movw	r24, r30
+ 520:	08 95       	ret
+
+00000522 <_exit>:
+ 522:	f8 94       	cli
+
+00000524 <__stop_program>:
+ 524:	ff cf       	rjmp	.-2      	; 0x524 <__stop_program>

@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>6.0</ProjectVersion>
+    <ToolchainName>com.Atmel.AVRGCC8</ToolchainName>
+    <ProjectGuid>{4f52436c-fed6-4f5e-b10d-46e71002eabb}</ProjectGuid>
+    <avrdevice>ATmega8A</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <Language>C</Language>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AssemblyName>BicMeter</AssemblyName>
+    <Name>BicMeter</Name>
+    <RootNamespace>../Software</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <OverrideVtorValue />
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <avrtoolinterface />
+    <avrtool>com.atmel.avrdbg.tool.simulator</avrtool>
+    <com_atmel_avrdbg_tool_simulator>
+      <ToolType xmlns="">com.atmel.avrdbg.tool.simulator</ToolType>
+      <ToolName xmlns="">AVR Simulator</ToolName>
+      <ToolNumber xmlns="">
+      </ToolNumber>
+      <KeepTimersRunning xmlns="">true</KeepTimersRunning>
+      <OverrideVtor xmlns="">false</OverrideVtor>
+      <OverrideVtorValue xmlns="">
+      </OverrideVtorValue>
+      <Channel xmlns="">
+        <host>127.0.0.1</host>
+        <port>58713</port>
+        <ssl>False</ssl>
+      </Channel>
+    </com_atmel_avrdbg_tool_simulator>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <AvrGcc>
+  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcc.compiler.directories.IncludePaths><ListValues>
+  <Value>../../../../..</Value>
+  <Value>../../../../Common/Link</Value>
+  <Value>../../../../Common/Interrupts</Value>
+  <Value>../../../../Common/Driver/SpeedCalc</Value>
+  <Value>../../../../Common/App</Value>
+  <Value>../../../../OS/Scheduler</Value>
+  <Value>../../../../Common/Driver/BCDdisplay</Value>
+  <Value>../../../../Common/HWIheader</Value>
+  <Value>../../HWIsource</Value>
+</ListValues></avrgcc.compiler.directories.IncludePaths>
+  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+  <avrgcc.linker.libraries.Libraries><ListValues>
+  <Value>m</Value>
+</ListValues></avrgcc.linker.libraries.Libraries>
+  <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+</AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <AvrGcc>
+  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcc.compiler.directories.IncludePaths><ListValues>
+  <Value>../../../../..</Value>
+  <Value>../../../../Common/Link</Value>
+  <Value>../../../../Common/Interrupts</Value>
+  <Value>../../../../Common/Driver/SpeedCalc</Value>
+  <Value>../../../../Common/App</Value>
+  <Value>../../../../OS/Scheduler</Value>
+  <Value>../../../../Common/Driver/BCDdisplay</Value>
+  <Value>../../../../Common/HWIheader</Value>
+  <Value>../../HWIsource</Value>
+</ListValues></avrgcc.compiler.directories.IncludePaths>
+  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+  <avrgcc.linker.libraries.Libraries><ListValues>
+  <Value>m</Value>
+</ListValues></avrgcc.linker.libraries.Libraries>
+  <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
+  <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+  <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
+</AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\Common\App\APP.c">
+      <SubType>compile</SubType>
+      <Link>APP.c</Link>
+    </Compile>
+    <Compile Include="..\..\..\Common\App\APP.h">
+      <SubType>compile</SubType>
+      <Link>APP.h</Link>
+    </Compile>
+    <Compile Include="..\..\..\Common\Driver\BCDdisplay\BCDdisplay.c">
+      <SubType>compile</SubType>
+      <Link>BCDdisplay.c</Link>
+    </Compile>
+    <Compile Include="..\..\..\Common\Driver\BCDdisplay\BCDdisplay.h">
+      <SubType>compile</SubType>
+      <Link>BCDdisplay.h</Link>
+    </Compile>
+    <Compile Include="..\..\..\Common\Driver\BCDdisplay\BCDdisplay_p.h">
+      <SubType>compile</SubType>
+      <Link>BCDdisplay_p.h</Link>
+    </Compile>
+    <Compile Include="..\..\..\Common\Driver\SpeedCalc\SpeedCalc.c">
+      <SubType>compile</SubType>
+      <Link>SpeedCalc.c</Link>
+    </Compile>
+    <Compile Include="..\..\..\Common\Driver\SpeedCalc\SpeedCalc.h">
+      <SubType>compile</SubType>
+      <Link>SpeedCalc.h</Link>
+    </Compile>
+    <Compile Include="..\..\..\Common\Driver\SpeedCalc\SpeedCalc_p.h">
+      <SubType>compile</SubType>
+      <Link>SpeedCalc_p.h</Link>
+    </Compile>
+    <Compile Include="..\..\..\Common\HWIheader\HWI_func.h">
+      <SubType>compile</SubType>
+      <Link>HWI_func.h</Link>
+    </Compile>
+    <Compile Include="..\..\..\Common\Interrupts\AppInterrupts.c">
+      <SubType>compile</SubType>
+      <Link>AppInterrupts.c</Link>
+    </Compile>
+    <Compile Include="..\..\..\Common\Interrupts\AppInterrupts.h">
+      <SubType>compile</SubType>
+      <Link>AppInterrupts.h</Link>
+    </Compile>
+    <Compile Include="..\..\..\Common\Link\Alloc.h">
+      <SubType>compile</SubType>
+      <Link>Alloc.h</Link>
+    </Compile>
+    <Compile Include="..\..\..\Common\Link\Extern.h">
+      <SubType>compile</SubType>
+      <Link>Extern.h</Link>
+    </Compile>
+    <Compile Include="..\..\..\OS\Scheduler\Scheduler.c">
+      <SubType>compile</SubType>
+      <Link>Scheduler.c</Link>
+    </Compile>
+    <Compile Include="..\..\..\OS\Scheduler\Scheduler.h">
+      <SubType>compile</SubType>
+      <Link>Scheduler.h</Link>
+    </Compile>
+    <Compile Include="..\..\..\OS\Scheduler\Scheduler_p.h">
+      <SubType>compile</SubType>
+      <Link>Scheduler_p.h</Link>
+    </Compile>
+    <Compile Include="..\HWIsource\HWI_DIGITAL.c">
+      <SubType>compile</SubType>
+      <Link>HWI_DIGITAL.c</Link>
+    </Compile>
+    <Compile Include="..\HWIsource\HWI_Interrupts.c">
+      <SubType>compile</SubType>
+      <Link>HWI_Interrupts.c</Link>
+    </Compile>
+    <Compile Include="..\HWIsource\TargetFile.h">
+      <SubType>compile</SubType>
+      <Link>TargetFile.h</Link>
+    </Compile>
+    <Compile Include="BicMeter.c">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>
