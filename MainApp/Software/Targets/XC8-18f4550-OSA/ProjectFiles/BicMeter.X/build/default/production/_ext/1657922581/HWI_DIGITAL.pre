@@ -3758,7 +3758,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 extern __nonreentrant void _delay3(unsigned char);
 
 # 1 "../../../../Common/HWIheader\HWI_func.h"
- void HWI_TIMERS_INTITALIZE(void);
+ void HWI_INTERRUPTS_INTITALIZE(void);
  void HWI_DIGITAL_INITIALIZE(void);
  unsigned char HWI_DIGI_READ(unsigned char pin);
  void HWI_DIGI_WRITE(unsigned char pin,unsigned char value);

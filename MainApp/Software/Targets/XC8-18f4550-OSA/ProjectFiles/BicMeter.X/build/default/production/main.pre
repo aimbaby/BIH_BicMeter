@@ -3830,7 +3830,7 @@ extern void RunScheduler(void);
 extern void SchedulerTick(void);
 
 # 1 "../../../../Common/HWIheader\HWI_func.h"
-extern void HWI_TIMERS_INTITALIZE(void);
+extern void HWI_INTERRUPTS_INTITALIZE(void);
 extern void HWI_DIGITAL_INITIALIZE(void);
 extern unsigned char HWI_DIGI_READ(unsigned char pin);
 extern void HWI_DIGI_WRITE(unsigned char pin,unsigned char value);
@@ -3877,7 +3877,7 @@ void ManageApplication (void);
 void ManageSpeedCalc(void);
 
 void main(void) {
-HWI_TIMERS_INTITALIZE();
+HWI_INTERRUPTS_INTITALIZE();
 HWI_DIGITAL_INITIALIZE();
 SpeedCalcNotifyInitialize();
 APP_INITIALIZE();

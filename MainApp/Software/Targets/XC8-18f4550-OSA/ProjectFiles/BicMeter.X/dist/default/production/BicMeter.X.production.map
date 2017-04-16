@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files\Microchip\xc8\v1.41\dat\en_msgs.txt -cs \
   -h+dist/default/production\BicMeter.X.production.sym \
   --cmf=dist/default/production\BicMeter.X.production.cmf -z -Q18F4520 \
-  -oC:\Users\0E57~1\AppData\Local\Temp\s7e8.2 \
+  -oC:\Users\0E57~1\AppData\Local\Temp\s4tk.2 \
   -Mdist/default/production/BicMeter.X.production.map -E1 -ver=XC8 \
   -ASTACK=088h-05ffh -pstack=STACK -ACODE=00h-07FFFh -ACONST=00h-07FFFh \
   -ASMALLCONST=0600h-06FFhx122 -AMEDIUMCONST=0600h-07FFFh -ACOMRAM=01h-07Fh \
@@ -21,7 +21,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\0E57~1\AppData\Local\Temp\s7e8.obj \
+  C:\Users\0E57~1\AppData\Local\Temp\s4tk.obj \
   dist/default/production\BicMeter.X.production.obj 
 
 Object code version is 3.11
@@ -34,7 +34,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\0E57~1\AppData\Local\Temp\s7e8.obj
+C:\Users\0E57~1\AppData\Local\Temp\s4tk.obj
                 init                                  E        E        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
@@ -244,7 +244,7 @@ _GetAvgSpeed                        text10       000A2E
 _HWI_4Digit_WRITE                   text18       000C24
 _HWI_8Digit_WRITE                   text17       000CD2
 _HWI_DIGITAL_INITIALIZE             text20       000D44
-_HWI_TIMERS_INTITALIZE              text19       000BB8
+_HWI_INTERRUPTS_INTITALIZE          text19       000BB8
 _INT0IF                             (abs)        007F91
 _INT1IF                             (abs)        007F80
 _INTCON                             (abs)        000FF2
@@ -537,7 +537,7 @@ __end_of_GetAvgSpeed                text10       000A80
 __end_of_HWI_4Digit_WRITE           text18       000C56
 __end_of_HWI_8Digit_WRITE           text17       000CF8
 __end_of_HWI_DIGITAL_INITIALIZE     text20       000D52
-__end_of_HWI_TIMERS_INTITALIZE      text19       000BF2
+__end_of_HWI_INTERRUPTS_INTITALIZE  text19       000BF2
 __end_of_ISR                        intcode_body 0007B8
 __end_of_ManageApplication          text5        000D5E
 __end_of_ManageSpeedCalc            text6        000D64
@@ -609,7 +609,7 @@ __size_of_GetAvgSpeed               (abs)        000000
 __size_of_HWI_4Digit_WRITE          (abs)        000000
 __size_of_HWI_8Digit_WRITE          (abs)        000000
 __size_of_HWI_DIGITAL_INITIALIZE    (abs)        000000
-__size_of_HWI_TIMERS_INTITALIZE     (abs)        000000
+__size_of_HWI_INTERRUPTS_INTITALIZE (abs)        000000
 __size_of_ISR                       (abs)        000000
 __size_of_ManageApplication         (abs)        000000
 __size_of_ManageSpeedCalc           (abs)        000000
@@ -675,7 +675,7 @@ Total ram usage:        0 bytes
 		_APP_INITIALIZE
 		_CreateTask
 		_HWI_DIGITAL_INITIALIZE
-		_HWI_TIMERS_INTITALIZE
+		_HWI_INTERRUPTS_INTITALIZE
 		_RunScheduler
 		_SpeedCalcNotifyInitialize
  This function is called by:
@@ -1254,7 +1254,7 @@ Total ram usage:        2 bytes
  This function uses a non-reentrant model
 
 
- *************** function _HWI_TIMERS_INTITALIZE *****************
+ *************** function _HWI_INTERRUPTS_INTITALIZE *****************
  Defined at:
 		line 10 in file "../../HWIsource/HWI_Interrupts.c"
  Parameters:    Size  Location     Type
@@ -1579,7 +1579,7 @@ C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c estimated size: 87
 
 ../../HWIsource/HWI_Interrupts.c
 		_ISR           		CODE           	0008	0000	187
-		_HWI_TIMERS_INTITALIZE		CODE           	0BB8	0000	59
+		_HWI_INTERRUPTS_INTITALIZE		CODE           	0BB8	0000	59
 
 ../../HWIsource/HWI_Interrupts.c estimated size: 246
 

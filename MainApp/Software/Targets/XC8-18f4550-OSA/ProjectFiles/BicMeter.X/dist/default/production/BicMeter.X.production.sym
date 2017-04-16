@@ -16,7 +16,6 @@ __CFG_PWRT$OFF 0 0 ABS 0
 __Lintentry 0 0 ABS 0
 _LATC F8B 0 ABS 0
 _LATD F8C 0 ABS 0
-__size_of_HWI_TIMERS_INTITALIZE 0 0 ABS 0
 _main 9DA 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 70 0 COMRAM 1
@@ -112,6 +111,7 @@ _HWI_8Digit_WRITE CD2 0 CODE 0
 __HnvFARRAM 0 0 FARRAM 0
 __LnvFARRAM 0 0 FARRAM 0
 __CFG_EBTR1$OFF 0 0 ABS 0
+__size_of_HWI_INTERRUPTS_INTITALIZE 0 0 ABS 0
 __CFG_PBADEN$OFF 0 0 ABS 0
 __CFG_CCP2MX$PORTC 0 0 ABS 0
 SetCircumfirunce@Circum 6D 0 COMRAM 1
@@ -229,7 +229,6 @@ __Ltext7 0 0 ABS 0
 __ptext6 D5E 0 CODE 0
 __HbssCOMRAM 0 0 ABS 0
 __LbssCOMRAM 0 0 ABS 0
-_HWI_TIMERS_INTITALIZE BB8 0 CODE 0
 __Htext8 0 0 ABS 0
 __Ltext8 0 0 ABS 0
 __ptext7 8C6 0 CODE 0
@@ -242,7 +241,6 @@ __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 __end_of_HWI_DIGITAL_INITIALIZE D52 0 CODE 0
 __end_of__initialization C16 0 CODE 0
-__end_of_HWI_TIMERS_INTITALIZE BF2 0 CODE 0
 memset@c 56 0 COMRAM 1
 ___rparam_used 1 0 ABS 0
 __end_of___lwdiv AD2 0 CODE 0
@@ -295,6 +293,7 @@ __Hconst 0 0 CONST 0
 __Lconst 0 0 CONST 0
 __end_of_APP_ISR1 D70 0 CODE 0
 __end_of_APP_ISR2 D6A 0 CODE 0
+__end_of_HWI_INTERRUPTS_INTITALIZE BF2 0 CODE 0
 __CFG_MCLRE$OFF 0 0 ABS 0
 __CFG_WRT0$OFF 0 0 ABS 0
 _GetAvgSpeed A2E 0 CODE 0
@@ -433,6 +432,7 @@ BCDsendNumber@Link 60 0 COMRAM 1
 _SetCircumfirunce B22 0 CODE 0
 __initialization BF2 0 CODE 0
 __CFG_LPT1OSC$OFF 0 0 ABS 0
+_HWI_INTERRUPTS_INTITALIZE BB8 0 CODE 0
 __activetblptr 2 0 ABS 0
 ___lmul@product 5C 0 COMRAM 1
 ___wmul@product 58 0 COMRAM 1
@@ -452,7 +452,7 @@ text13 60E D73 CODE 60E 0
 %locals
 dist/default/production\BicMeter.X.production.obj
 C:\Program Files\Microchip\xc8\v1.41\include\pic18f4520.h
-C:\Users\0E57~1\AppData\Local\Temp\s7e8.
+C:\Users\0E57~1\AppData\Local\Temp\s4tk.
 2174 BF2 0 CODE 0
 2176 BF2 0 CODE 0
 2179 BF2 0 CODE 0

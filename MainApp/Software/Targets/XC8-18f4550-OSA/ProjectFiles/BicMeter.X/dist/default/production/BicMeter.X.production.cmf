@@ -50,7 +50,7 @@ intcode CODE 0 8 8 6 1
 smallconst SMALLCONST 0 600 600 E 1
 dataCOMRAM COMRAM 1 6E 6E 2 1
 bssCOMRAM COMRAM 1 1 1 44 1
-$C:\Users\0E57~1\AppData\Local\Temp\s7e8.obj
+$C:\Users\0E57~1\AppData\Local\Temp\s4tk.obj
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 E E 4 1
 reset_vec CODE 0 0 0 4 1
@@ -323,32 +323,32 @@ D14 text1 CODE >22:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/Spee
 A12 text0 CODE >96:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA\ProjectFiles\BicMeter.X\main.c
 A26 text0 CODE >99:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA\ProjectFiles\BicMeter.X\main.c
 A2A text0 CODE >102:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA\ProjectFiles\BicMeter.X\main.c
-BF2 cinit CODE >2174:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-BF2 cinit CODE >2176:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-BF2 cinit CODE >2179:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-BF2 cinit CODE >2218:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-BF4 cinit CODE >2219:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-BF6 cinit CODE >2220:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-BF8 cinit CODE >2221:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-BFA cinit CODE >2222:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-BFC cinit CODE >2223:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-BFE cinit CODE >2224:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-C00 cinit CODE >2225:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-C04 cinit CODE >2226:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-C06 cinit CODE >2227:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-C0A cinit CODE >2231:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-C0E cinit CODE >2232:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-C10 cinit CODE >2233:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-C10 cinit CODE >2234:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-C12 cinit CODE >2235:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-C14 cinit CODE >2236:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-C16 cinit CODE >2242:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-C16 cinit CODE >2244:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-C18 cinit CODE >2245:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-C1A cinit CODE >2247:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-C1C cinit CODE >2248:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-C1E cinit CODE >2249:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
-C20 cinit CODE >2250:C:\Users\0E57~1\AppData\Local\Temp\s7e8.
+BF2 cinit CODE >2174:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+BF2 cinit CODE >2176:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+BF2 cinit CODE >2179:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+BF2 cinit CODE >2218:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+BF4 cinit CODE >2219:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+BF6 cinit CODE >2220:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+BF8 cinit CODE >2221:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+BFA cinit CODE >2222:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+BFC cinit CODE >2223:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+BFE cinit CODE >2224:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+C00 cinit CODE >2225:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+C04 cinit CODE >2226:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+C06 cinit CODE >2227:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+C0A cinit CODE >2231:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+C0E cinit CODE >2232:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+C10 cinit CODE >2233:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+C10 cinit CODE >2234:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+C12 cinit CODE >2235:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+C14 cinit CODE >2236:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+C16 cinit CODE >2242:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+C16 cinit CODE >2244:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+C18 cinit CODE >2245:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+C1A cinit CODE >2247:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+C1C cinit CODE >2248:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+C1E cinit CODE >2249:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
+C20 cinit CODE >2250:C:\Users\0E57~1\AppData\Local\Temp\s4tk.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -370,7 +370,7 @@ __Hspace_1 88 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __Hspace_2 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\BicMeter.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\0E57~1\AppData\Local\Temp\s7e8.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\0E57~1\AppData\Local\Temp\s4tk.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\BicMeter.X.production.obj
 __size_of_BCDsendNumber 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 _DisplayAlphaNumeric D52 0 CODE 0 text4 dist/default/production\BicMeter.X.production.obj
@@ -378,11 +378,11 @@ _DistTravelCntr 15 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.produ
 __Lsmallconst 600 0 SMALLCONST 0 smallconst dist/default/production\BicMeter.X.production.obj
 _LATC F8B 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 _LATD F8C 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\0E57~1\AppData\Local\Temp\s7e8.obj
+___sp 0 0 STACK 2 stack C:\Users\0E57~1\AppData\Local\Temp\s4tk.obj
 _main 9DA 0 CODE 0 text0 dist/default/production\BicMeter.X.production.obj
 btemp 70 0 COMRAM 1 temp dist/default/production\BicMeter.X.production.obj
 RunScheduler@TaskIndex 1B 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
-start E 0 CODE 0 init C:\Users\0E57~1\AppData\Local\Temp\s7e8.obj
+start E 0 CODE 0 init C:\Users\0E57~1\AppData\Local\Temp\s4tk.obj
 __size_of_BCDManage7segment 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __size_of_SensorOneNotify 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
@@ -399,11 +399,11 @@ __Hpowerup E 0 CODE 0 powerup dist/default/production\BicMeter.X.production.obj
 __end_of_BCDsendNumber 704 0 CODE 0 text13 dist/default/production\BicMeter.X.production.obj
 _SpeedCalcNotifyInitialize CF8 0 CODE 0 text1 dist/default/production\BicMeter.X.production.obj
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\BicMeter.X.production.obj
-__accesstop 80 0 ABS 0 - C:\Users\0E57~1\AppData\Local\Temp\s7e8.obj
-intlevel0 0 0 CODE 0 text C:\Users\0E57~1\AppData\Local\Temp\s7e8.obj
-intlevel1 0 0 CODE 0 text C:\Users\0E57~1\AppData\Local\Temp\s7e8.obj
-intlevel2 0 0 CODE 0 text C:\Users\0E57~1\AppData\Local\Temp\s7e8.obj
-intlevel3 0 0 CODE 0 text C:\Users\0E57~1\AppData\Local\Temp\s7e8.obj
+__accesstop 80 0 ABS 0 - C:\Users\0E57~1\AppData\Local\Temp\s4tk.obj
+intlevel0 0 0 CODE 0 text C:\Users\0E57~1\AppData\Local\Temp\s4tk.obj
+intlevel1 0 0 CODE 0 text C:\Users\0E57~1\AppData\Local\Temp\s4tk.obj
+intlevel2 0 0 CODE 0 text C:\Users\0E57~1\AppData\Local\Temp\s4tk.obj
+intlevel3 0 0 CODE 0 text C:\Users\0E57~1\AppData\Local\Temp\s4tk.obj
 APP_MANAGE@AvgSpeedKph 84 0 BANK0 1 cstackBANK0 dist/default/production\BicMeter.X.production.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 _ManageApplication D58 0 CODE 0 text5 dist/default/production\BicMeter.X.production.obj
@@ -420,9 +420,8 @@ __pidataCOMRAM D70 0 CODE 0 idataCOMRAM dist/default/production\BicMeter.X.produ
 _ManageSpeedCalc D5E 0 CODE 0 text6 dist/default/production\BicMeter.X.production.obj
 ___wmul@multiplicand 56 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 _LapCounterAvg 19 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\0E57~1\AppData\Local\Temp\s7e8.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\0E57~1\AppData\Local\Temp\s7e8.obj
-__end_of_HWI_TIMERS_INTITALIZE BF2 0 CODE 0 text19 dist/default/production\BicMeter.X.production.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\0E57~1\AppData\Local\Temp\s4tk.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\0E57~1\AppData\Local\Temp\s4tk.obj
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\BicMeter.X.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\BicMeter.X.production.obj
 _SpeedCalcManage 8C6 0 CODE 0 text7 dist/default/production\BicMeter.X.production.obj
@@ -433,7 +432,6 @@ __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\BicMeter.X.
 __Hintcodelo E 0 CODE 0 intcodelo dist/default/production\BicMeter.X.production.obj
 __end_of_DisplayAlphaNumeric D58 0 CODE 0 text4 dist/default/production\BicMeter.X.production.obj
 __size_of_CreateTask 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-_HWI_TIMERS_INTITALIZE BB8 0 CODE 0 text19 dist/default/production\BicMeter.X.production.obj
 __end_of___lldiv 8C6 0 CODE 0 text12 dist/default/production\BicMeter.X.production.obj
 __end_of___lwdiv AD2 0 CODE 0 text15 dist/default/production\BicMeter.X.production.obj
 _INT0IF 7F91 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
@@ -442,6 +440,7 @@ _INTCON FF2 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 ___lwdiv@quotient 59 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\BicMeter.X.production.obj
 SchedulerTick@TaskIndex 45 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
+__end_of_HWI_INTERRUPTS_INTITALIZE BF2 0 CODE 0 text19 dist/default/production\BicMeter.X.production.obj
 __end_of_BCDManage7segment B22 0 CODE 0 text16 dist/default/production\BicMeter.X.production.obj
 _LapCounter 1E 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 _INTCON2bits FF1 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
@@ -501,7 +500,7 @@ __Htext9 0 0 ABS 0 text9 dist/default/production\BicMeter.X.production.obj
 ___lwdiv@counter 58 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\BicMeter.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\BicMeter.X.production.obj
-__smallconst 600 0 SMALLCONST 0 smallconst C:\Users\0E57~1\AppData\Local\Temp\s7e8.obj
+__smallconst 600 0 SMALLCONST 0 smallconst C:\Users\0E57~1\AppData\Local\Temp\s4tk.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production\BicMeter.X.production.obj
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production\BicMeter.X.production.obj
 __CFG_LPT1OSC$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
@@ -531,6 +530,7 @@ __Ltext7 0 0 ABS 0 text7 dist/default/production\BicMeter.X.production.obj
 __Ltext8 0 0 ABS 0 text8 dist/default/production\BicMeter.X.production.obj
 __Ltext9 0 0 ABS 0 text9 dist/default/production\BicMeter.X.production.obj
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\BicMeter.X.production.obj
+__size_of_HWI_INTERRUPTS_INTITALIZE 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\BicMeter.X.production.obj
 __Habs1 0 0 ABS 0 abs1 dist/default/production\BicMeter.X.production.obj
 __Hdata 0 0 ABS 0 data dist/default/production\BicMeter.X.production.obj
@@ -642,10 +642,10 @@ __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\BicMeter.X.production.obj
 __size_of_SensorTwoNotify 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 ___lwdiv@divisor 56 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\BicMeter.X.production.obj
-__size_of_HWI_TIMERS_INTITALIZE 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
+_HWI_INTERRUPTS_INTITALIZE BB8 0 CODE 0 text19 dist/default/production\BicMeter.X.production.obj
 __size_of_SetCircumfirunce 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-stackhi 5FF 0 ABS 0 - C:\Users\0E57~1\AppData\Local\Temp\s7e8.obj
-stacklo 88 0 ABS 0 - C:\Users\0E57~1\AppData\Local\Temp\s7e8.obj
+stackhi 5FF 0 ABS 0 - C:\Users\0E57~1\AppData\Local\Temp\s4tk.obj
+stacklo 88 0 ABS 0 - C:\Users\0E57~1\AppData\Local\Temp\s4tk.obj
 __Lintcode 8 0 CODE 0 intcode dist/default/production\BicMeter.X.production.obj
 __Lintret 0 0 ABS 0 intret dist/default/production\BicMeter.X.production.obj
 __Lirdata 0 0 CODE 0 irdata dist/default/production\BicMeter.X.production.obj
@@ -715,7 +715,7 @@ __Ltext26 0 0 ABS 0 text26 dist/default/production\BicMeter.X.production.obj
 __Ltext27 0 0 ABS 0 text27 dist/default/production\BicMeter.X.production.obj
 __Ltext28 0 0 ABS 0 text28 dist/default/production\BicMeter.X.production.obj
 __Ltext29 0 0 ABS 0 text29 dist/default/production\BicMeter.X.production.obj
-__ramtop 600 0 RAM 0 ramtop C:\Users\0E57~1\AppData\Local\Temp\s7e8.obj
+__ramtop 600 0 RAM 0 ramtop C:\Users\0E57~1\AppData\Local\Temp\s4tk.obj
 __Lpowerup E 0 CODE 0 powerup dist/default/production\BicMeter.X.production.obj
 _HWI_4Digit_WRITE C24 0 CODE 0 text18 dist/default/production\BicMeter.X.production.obj
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\BicMeter.X.production.obj

@@ -84,7 +84,7 @@ void ManageApplication (void);
 void ManageSpeedCalc(void);
 
 void main(void) {
-    HWI_TIMERS_INTITALIZE();
+    HWI_INTERRUPTS_INTITALIZE();
     HWI_DIGITAL_INITIALIZE();
     SpeedCalcNotifyInitialize();
     APP_INITIALIZE();

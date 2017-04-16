@@ -3778,7 +3778,7 @@ extern void RunScheduler(void);
 extern void SchedulerTick(void);
 
 # 1 "../../../../Common/HWIheader\HWI_func.h"
- void HWI_TIMERS_INTITALIZE(void);
+ void HWI_INTERRUPTS_INTITALIZE(void);
  void HWI_DIGITAL_INITIALIZE(void);
  unsigned char HWI_DIGI_READ(unsigned char pin);
  void HWI_DIGI_WRITE(unsigned char pin,unsigned char value);
@@ -3794,7 +3794,7 @@ extern void SchedulerTick(void);
  void HWI_Delay_nsec(unsigned short Time);
 
 # 10 "../../HWIsource/HWI_Interrupts.c"
- void HWI_TIMERS_INTITALIZE(void)
+ void HWI_INTERRUPTS_INTITALIZE(void)
 {
 TRISBbits.RB0 = 1;
 TRISBbits.RB1 = 1;

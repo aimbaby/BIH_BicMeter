@@ -2783,7 +2783,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;HWIheader\HWI_func.h: 1: extern void HWI_TIMERS_INTITALIZE(void);
+[; ;HWIheader\HWI_func.h: 1: extern void HWI_INTERRUPTS_INTITALIZE(void);
 [; ;HWIheader\HWI_func.h: 2: extern void HWI_DIGITAL_INITIALIZE(void);
 [; ;HWIheader\HWI_func.h: 3: extern unsigned char HWI_DIGI_READ(unsigned char pin);
 [; ;HWIheader\HWI_func.h: 4: extern void HWI_DIGI_WRITE(unsigned char pin,unsigned char value);

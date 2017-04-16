@@ -2854,7 +2854,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Scheduler\Scheduler.h: 23: extern void CreateTask( PointerVoid MangeFunction , unsigned char TaskId , unsigned char Period);
 [; ;Scheduler\Scheduler.h: 25: extern void RunScheduler(void);
 [; ;Scheduler\Scheduler.h: 27: extern void SchedulerTick(void);
-[; ;HWIheader\HWI_func.h: 1: void HWI_TIMERS_INTITALIZE(void);
+[; ;HWIheader\HWI_func.h: 1: void HWI_INTERRUPTS_INTITALIZE(void);
 [; ;HWIheader\HWI_func.h: 2: void HWI_DIGITAL_INITIALIZE(void);
 [; ;HWIheader\HWI_func.h: 3: unsigned char HWI_DIGI_READ(unsigned char pin);
 [; ;HWIheader\HWI_func.h: 4: void HWI_DIGI_WRITE(unsigned char pin,unsigned char value);
@@ -2866,12 +2866,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;HWIheader\HWI_func.h: 13: void HWI_Delay_usec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 14: void HWI_Delay_nsec(unsigned short Time);
 "10 ../../HWIsource/HWI_Interrupts.c
-[v _HWI_TIMERS_INTITALIZE `(v ~T0 @X0 1 ef ]
+[v _HWI_INTERRUPTS_INTITALIZE `(v ~T0 @X0 1 ef ]
 "11
 {
-[; ;HWI_Interrupts.c: 10: void HWI_TIMERS_INTITALIZE(void)
+[; ;HWI_Interrupts.c: 10: void HWI_INTERRUPTS_INTITALIZE(void)
 [; ;HWI_Interrupts.c: 11: {
-[e :U _HWI_TIMERS_INTITALIZE ]
+[e :U _HWI_INTERRUPTS_INTITALIZE ]
 [f ]
 [; ;HWI_Interrupts.c: 12: TRISBbits.RB0 = 1;
 "12

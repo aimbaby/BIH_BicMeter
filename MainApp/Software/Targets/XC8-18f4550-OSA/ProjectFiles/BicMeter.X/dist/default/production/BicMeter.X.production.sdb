@@ -40,7 +40,7 @@
 "74
 [v _HWI_DIGITAL_INITIALIZE HWI_DIGITAL_INITIALIZE `(v  1 e 1 0 ]
 "10 E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-[v _HWI_TIMERS_INTITALIZE HWI_TIMERS_INTITALIZE `(v  1 e 1 0 ]
+[v _HWI_INTERRUPTS_INTITALIZE HWI_INTERRUPTS_INTITALIZE `(v  1 e 1 0 ]
 "46
 [v _ISR ISR `II(v  1 e 1 0 ]
 "62 C:\Program Files\Microchip\xc8\v1.41\sources\common\float.c
@@ -342,7 +342,7 @@
 "22
 } 0
 "10 E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-[v _HWI_TIMERS_INTITALIZE HWI_TIMERS_INTITALIZE `(v  1 e 1 0 ]
+[v _HWI_INTERRUPTS_INTITALIZE HWI_INTERRUPTS_INTITALIZE `(v  1 e 1 0 ]
 {
 "43
 } 0
