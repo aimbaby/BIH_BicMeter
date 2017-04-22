@@ -11,17 +11,19 @@
 [v _BCDsendNumber BCDsendNumber `(v  1 e 1 0 ]
 "57
 [v _BCDManage7segment BCDManage7segment `(v  1 e 1 0 ]
-"19 E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+"21 E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
 [v _SpeedCalcNotifyInitialize SpeedCalcNotifyInitialize `(v  1 e 1 0 ]
-"24
+"26
 [v _SensorOneNotify SensorOneNotify `(v  1 e 1 0 ]
-"39
+"41
 [v _SensorTwoNotify SensorTwoNotify `(v  1 e 1 0 ]
-"55
+"57
 [v _SpeedCalcManage SpeedCalcManage `(v  1 e 1 0 ]
-"98
+"110
+[v _GetDistance GetDistance `(ul  1 e 4 0 ]
+"116
 [v _SetCircumfirunce SetCircumfirunce `(v  1 e 1 0 ]
-"107
+"122
 [v _GetAvgSpeed GetAvgSpeed `(us  1 e 2 0 ]
 "8 E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
 [v _APP_ISR1 APP_ISR1 `(v  1 e 1 0 ]
@@ -83,21 +85,23 @@
 [v _SevenSegmentMAP SevenSegmentMAP `C[11]uc  1 e 11 0 ]
 "23
 [v _BCDNumber BCDNumber `[4]us  1 s 8 BCDNumber ]
-"11 E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+"12 E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
 [v _LapCounterBuffer LapCounterBuffer `[36]uc  1 s 36 LapCounterBuffer ]
-"12
-[v _NotifyFlag NotifyFlag `uc  1 s 1 NotifyFlag ]
 "13
-[v _LapCounter LapCounter `uc  1 s 1 LapCounter ]
+[v _NotifyFlag NotifyFlag `uc  1 s 1 NotifyFlag ]
 "14
-[v _KMfactor KMfactor `us  1 s 2 KMfactor ]
+[v _LapCounter LapCounter `uc  1 s 1 LapCounter ]
 "15
-[v _DistTravelCntr DistTravelCntr `ul  1 s 4 DistTravelCntr ]
+[v _CircumFactor CircumFactor `us  1 s 2 CircumFactor ]
 "16
+[v _DistTravelCntr DistTravelCntr `ul  1 s 4 DistTravelCntr ]
+"17
 [v _LapCounterAvg LapCounterAvg `us  1 s 2 LapCounterAvg ]
-[s S95 . 4 `*.37(v 1 ManageFunction 2 0 `uc 1 Period 1 2 `uc 1 TickCounter 1 3 ]
+"18
+[v _LapDistanceCounter LapDistanceCounter `us  1 s 2 LapDistanceCounter ]
+[s S105 . 4 `*.37(v 1 ManageFunction 2 0 `uc 1 Period 1 2 `uc 1 TickCounter 1 3 ]
 "4 E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
-[v _ArrayTask ArrayTask `[3]S95  1 s 12 ArrayTask ]
+[v _ArrayTask ArrayTask `[3]S105  1 s 12 ArrayTask ]
 "445 C:\Program Files\Microchip\xc8\v1.41\include\pic18f4520.h
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
 "626
@@ -106,7 +110,7 @@
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
 "1302
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
-[s S136 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S146 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -116,7 +120,7 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "1717
-[s S145 . 1 `uc 1 RB0 1 0 :1:0 
+[s S155 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -125,8 +129,8 @@
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-[u S154 . 1 `S136 1 . 1 0 `S145 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES154  1 e 1 @3987 ]
+[u S164 . 1 `S146 1 . 1 0 `S155 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES164  1 e 1 @3987 ]
 "1906
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "2127
@@ -149,11 +153,11 @@
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "6425
 [v _INTCON3 INTCON3 `VEuc  1 e 1 @4080 ]
-[s S181 . 1 `uc 1 . 1 0 :7:0 
+[s S191 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "6541
-[s S184 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S194 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -162,11 +166,11 @@
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S193 . 1 `uc 1 . 1 0 :7:0 
+[s S203 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S196 . 1 `S181 1 . 1 0 `S184 1 . 1 0 `S193 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES196  1 e 1 @4081 ]
+[u S206 . 1 `S191 1 . 1 0 `S194 1 . 1 0 `S203 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES206  1 e 1 @4081 ]
 "6585
 [v _INTCON INTCON `VEuc  1 e 1 @4082 ]
 "7203
@@ -188,10 +192,10 @@
 {
 "102
 } 0
-"19 E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+"21 E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
 [v _SpeedCalcNotifyInitialize SpeedCalcNotifyInitialize `(v  1 e 1 0 ]
 {
-"22
+"24
 } 0
 "8 C:\Program Files\Microchip\xc8\v1.41\sources\common\memset.c
 [v _memset memset `(*.39v  1 e 2 0 ]
@@ -226,37 +230,50 @@
 {
 "115
 } 0
-"55 E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+"57 E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
 [v _SpeedCalcManage SpeedCalcManage `(v  1 e 1 0 ]
 {
-"57
+"62
+[v SpeedCalcManage@HundredMeterReference HundredMeterReference `us  1 a 2 41 ]
+"59
 [v SpeedCalcManage@LapTime LapTime `uc  1 s 1 LapTime ]
-"58
+"60
 [v SpeedCalcManage@LapSampleIndex LapSampleIndex `uc  1 s 1 LapSampleIndex ]
-"85
+"103
 } 0
 "15 E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
 [v _APP_MANAGE APP_MANAGE `(v  1 e 1 0 ]
 {
+"18
+[v APP_MANAGE@TravelledDistance TravelledDistance `us  1 a 2 55 ]
 "17
-[v APP_MANAGE@AvgSpeedKph AvgSpeedKph `us  1 a 2 4 ]
-"39
+[v APP_MANAGE@AvgSpeedKph AvgSpeedKph `us  1 a 2 53 ]
+"42
 } 0
-"98 E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+"116 E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
 [v _SetCircumfirunce SetCircumfirunce `(v  1 e 1 0 ]
 {
-[v SetCircumfirunce@Circum Circum `uc  1 a 1 wreg ]
-[v SetCircumfirunce@Circum Circum `uc  1 a 1 wreg ]
-"103
-[v SetCircumfirunce@Circum Circum `uc  1 a 1 40 ]
-"104
+[v SetCircumfirunce@Circum Circum `us  1 p 2 15 ]
+"119
 } 0
-"107
+"110
+[v _GetDistance GetDistance `(ul  1 e 4 0 ]
+{
+"113
+} 0
+"122
 [v _GetAvgSpeed GetAvgSpeed `(us  1 e 2 0 ]
 {
-"109
-[v GetAvgSpeed@AvgSpeedKph AvgSpeedKph `us  1 a 2 2 ]
-"116
+[v GetAvgSpeed@bIsKph bIsKph `uc  1 a 1 wreg ]
+"125
+[v GetAvgSpeed@KphMphFactor KphMphFactor `ul  1 a 4 49 ]
+"124
+[v GetAvgSpeed@AvgSpeedKphMph AvgSpeedKphMph `us  1 a 2 46 ]
+"122
+[v GetAvgSpeed@bIsKph bIsKph `uc  1 a 1 wreg ]
+"127
+[v GetAvgSpeed@bIsKph bIsKph `uc  1 a 1 48 ]
+"143
 } 0
 "15 C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
@@ -308,9 +325,9 @@
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 {
 "11
-[v ___lwdiv@quotient quotient `ui  1 a 2 20 ]
+[v ___lwdiv@quotient quotient `ui  1 a 2 19 ]
 "12
-[v ___lwdiv@counter counter `uc  1 a 1 19 ]
+[v ___lwdiv@counter counter `uc  1 a 1 21 ]
 "8
 [v ___lwdiv@dividend dividend `ui  1 p 2 15 ]
 [v ___lwdiv@divisor divisor `ui  1 p 2 17 ]
@@ -381,18 +398,18 @@
 {
 "16
 } 0
-"39 E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+"41 E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
 [v _SensorTwoNotify SensorTwoNotify `(v  1 e 1 0 ]
 {
-"53
+"55
 } 0
 "8 E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
 [v _APP_ISR1 APP_ISR1 `(v  1 e 1 0 ]
 {
 "11
 } 0
-"24 E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+"26 E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
 [v _SensorOneNotify SensorOneNotify `(v  1 e 1 0 ]
 {
-"37
+"39
 } 0

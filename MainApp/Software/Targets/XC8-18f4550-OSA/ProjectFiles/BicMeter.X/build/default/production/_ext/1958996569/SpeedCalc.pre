@@ -3805,17 +3805,18 @@ extern char * strrichr(const char *, int);
 
  unsigned long GetDistance(void);
 
- void SetCircumfirunce(unsigned char Circum);
+ void SetCircumfirunce(unsigned short Circum);
 
- unsigned short GetAvgSpeed(void);
+ unsigned short GetAvgSpeed(unsigned char bIsKph);
 
-# 11 "../../../../Common/Driver/SpeedCalc/SpeedCalc.c"
+# 12 "../../../../Common/Driver/SpeedCalc/SpeedCalc.c"
 static unsigned char LapCounterBuffer[36];
 static unsigned char NotifyFlag = (unsigned char)0;
 static unsigned char LapCounter = (unsigned char)0;
-static unsigned short KMfactor = (unsigned char)200;
+static unsigned short CircumFactor = (unsigned char)200;
 static unsigned long DistTravelCntr = (unsigned long)0;
 static unsigned short LapCounterAvg = (unsigned short)0;
+static unsigned short LapDistanceCounter = (unsigned short)0;
 
 
  void SpeedCalcNotifyInitialize(void)
@@ -3859,6 +3860,8 @@ LapCounter--;
 static unsigned char LapTime = (unsigned char)0;
 static unsigned char LapSampleIndex = (unsigned char)0;
 
+unsigned short HundredMeterReference;
+
 LapTime ++;
 
 
@@ -3869,8 +3872,22 @@ LapCounterAvg += (unsigned short)LapCounter;
 LapCounterAvg -= (unsigned short)LapCounterBuffer[LapSampleIndex];
 
 LapCounterBuffer[LapSampleIndex] = LapCounter;
+LapDistanceCounter += LapCounter;
 LapCounter = (unsigned char)0;
+
+HundredMeterReference = (unsigned short)((unsigned long)100000 /
+(unsigned long)CircumFactor);
+
+if(LapDistanceCounter >= HundredMeterReference)
+{
 DistTravelCntr ++;
+LapDistanceCounter -= HundredMeterReference;
+}
+else
+{
+
+}
+
 
 
 LapSampleIndex ++;
@@ -3897,23 +3914,32 @@ return DistTravelCntr;
 }
 
 
- void SetCircumfirunce(unsigned char Circum)
+ void SetCircumfirunce(unsigned short Circum)
 {
-KMfactor = (unsigned short)(
-((unsigned long)36 * (unsigned long)Circum)
-/((unsigned long)36)
-);
+CircumFactor = (unsigned short)Circum;
 }
 
 
- unsigned short GetAvgSpeed(void)
+ unsigned short GetAvgSpeed(unsigned char bIsKph)
 {
-unsigned short AvgSpeedKph;
+unsigned short AvgSpeedKphMph;
+unsigned long KphMphFactor;
 
-AvgSpeedKph = (unsigned short)(
-((unsigned long)KMfactor * (unsigned long)LapCounterAvg)
-/((unsigned long)20)
+if( (unsigned char)1 == bIsKph )
+{
+KphMphFactor = (unsigned long)360;
+}
+else
+{
+KphMphFactor = (unsigned long)225;
+}
+
+AvgSpeedKphMph = (unsigned short)(
+(KphMphFactor * CircumFactor * (unsigned long)LapCounterAvg)
+/((unsigned long)20 *
+(unsigned long)100
+* (unsigned long)36)
 );
-return AvgSpeedKph;
+return AvgSpeedKphMph;
 }
 

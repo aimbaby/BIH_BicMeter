@@ -3786,9 +3786,9 @@ extern void SetDistance(unsigned long Distance);
 
 extern unsigned long GetDistance(void);
 
-extern void SetCircumfirunce(unsigned char Circum);
+extern void SetCircumfirunce(unsigned short Circum);
 
-extern unsigned short GetAvgSpeed(void);
+extern unsigned short GetAvgSpeed(unsigned char bIsKph);
 
 # 13 "../../../../Common/Driver/BCDdisplay\BCDdisplay.h"
 extern void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace);
@@ -3808,16 +3808,18 @@ extern void BCDManage7segment(void);
  void APP_MANAGE(void)
 {
 unsigned short AvgSpeedKph;
+unsigned short TravelledDistance;
 
 
 
-SetCircumfirunce(200);
+SetCircumfirunce(2056);
 
-AvgSpeedKph = GetAvgSpeed();
+AvgSpeedKph = GetAvgSpeed(0);
+TravelledDistance = GetDistance();
+TravelledDistance *= (unsigned short)10;
+TravelledDistance /= (unsigned short)16;
 
-AvgSpeedKph = (AvgSpeedKph + (unsigned short)5)/(unsigned short)10;
-
-# 37
-BCDsendNumber(AvgSpeedKph,0);
+# 40
+BCDsendNumber(TravelledDistance,1);
 
 }

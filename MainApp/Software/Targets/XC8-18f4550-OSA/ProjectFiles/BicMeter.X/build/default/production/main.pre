@@ -3862,9 +3862,9 @@ extern void SetDistance(unsigned long Distance);
 
 extern unsigned long GetDistance(void);
 
-extern void SetCircumfirunce(unsigned char Circum);
+extern void SetCircumfirunce(unsigned short Circum);
 
-extern unsigned short GetAvgSpeed(void);
+extern unsigned short GetAvgSpeed(unsigned char bIsKph);
 
 # 13 "../../../../Common/Driver/BCDdisplay\BCDdisplay.h"
 extern void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace);

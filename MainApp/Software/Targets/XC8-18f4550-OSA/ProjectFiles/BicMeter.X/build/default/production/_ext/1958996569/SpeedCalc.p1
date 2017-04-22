@@ -2812,313 +2812,383 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SpeedCalc.h: 19: void SpeedCalcManage(void);
 [; ;SpeedCalc.h: 21: void SetDistance(unsigned long Distance);
 [; ;SpeedCalc.h: 23: unsigned long GetDistance(void);
-[; ;SpeedCalc.h: 25: void SetCircumfirunce(unsigned char Circum);
-[; ;SpeedCalc.h: 27: unsigned short GetAvgSpeed(void);
-"11 ../../../../Common/Driver/SpeedCalc/SpeedCalc.c
+[; ;SpeedCalc.h: 25: void SetCircumfirunce(unsigned short Circum);
+[; ;SpeedCalc.h: 27: unsigned short GetAvgSpeed(unsigned char bIsKph);
+"12 ../../../../Common/Driver/SpeedCalc/SpeedCalc.c
 [v _LapCounterBuffer `uc ~T0 @X0 -> 36 `i s ]
-[; ;SpeedCalc.c: 11: static unsigned char LapCounterBuffer[36];
-"12
+[; ;SpeedCalc.c: 12: static unsigned char LapCounterBuffer[36];
+"13
 [v _NotifyFlag `uc ~T0 @X0 1 s ]
 [i _NotifyFlag
 -> -> 0 `i `uc
 ]
-[; ;SpeedCalc.c: 12: static unsigned char NotifyFlag = (unsigned char)0;
-"13
+[; ;SpeedCalc.c: 13: static unsigned char NotifyFlag = (unsigned char)0;
+"14
 [v _LapCounter `uc ~T0 @X0 1 s ]
 [i _LapCounter
 -> -> 0 `i `uc
 ]
-[; ;SpeedCalc.c: 13: static unsigned char LapCounter = (unsigned char)0;
-"14
-[v _KMfactor `us ~T0 @X0 1 s ]
-[i _KMfactor
+[; ;SpeedCalc.c: 14: static unsigned char LapCounter = (unsigned char)0;
+"15
+[v _CircumFactor `us ~T0 @X0 1 s ]
+[i _CircumFactor
 -> -> -> 200 `i `uc `us
 ]
-[; ;SpeedCalc.c: 14: static unsigned short KMfactor = (unsigned char)200;
-"15
+[; ;SpeedCalc.c: 15: static unsigned short CircumFactor = (unsigned char)200;
+"16
 [v _DistTravelCntr `ul ~T0 @X0 1 s ]
 [i _DistTravelCntr
 -> -> 0 `i `ul
 ]
-[; ;SpeedCalc.c: 15: static unsigned long DistTravelCntr = (unsigned long)0;
-"16
+[; ;SpeedCalc.c: 16: static unsigned long DistTravelCntr = (unsigned long)0;
+"17
 [v _LapCounterAvg `us ~T0 @X0 1 s ]
 [i _LapCounterAvg
 -> -> 0 `i `us
 ]
-[; ;SpeedCalc.c: 16: static unsigned short LapCounterAvg = (unsigned short)0;
-"19
+[; ;SpeedCalc.c: 17: static unsigned short LapCounterAvg = (unsigned short)0;
+"18
+[v _LapDistanceCounter `us ~T0 @X0 1 s ]
+[i _LapDistanceCounter
+-> -> 0 `i `us
+]
+[; ;SpeedCalc.c: 18: static unsigned short LapDistanceCounter = (unsigned short)0;
+"21
 [v _SpeedCalcNotifyInitialize `(v ~T0 @X0 1 ef ]
-"20
+"22
 {
-[; ;SpeedCalc.c: 19: void SpeedCalcNotifyInitialize(void)
-[; ;SpeedCalc.c: 20: {
+[; ;SpeedCalc.c: 21: void SpeedCalcNotifyInitialize(void)
+[; ;SpeedCalc.c: 22: {
 [e :U _SpeedCalcNotifyInitialize ]
 [f ]
-[; ;SpeedCalc.c: 21: memset(LapCounterBuffer , 0 , sizeof(LapCounterBuffer));
-"21
+[; ;SpeedCalc.c: 23: memset(LapCounterBuffer , 0 , sizeof(LapCounterBuffer));
+"23
 [e ( _memset (3 , , -> &U _LapCounterBuffer `*v -> 0 `i -> # _LapCounterBuffer `ui ]
-[; ;SpeedCalc.c: 22: }
-"22
+[; ;SpeedCalc.c: 24: }
+"24
 [e :UE 276 ]
 }
-"24
-[v _SensorOneNotify `(v ~T0 @X0 1 ef ]
-"25
-{
-[; ;SpeedCalc.c: 24: void SensorOneNotify(void)
-[; ;SpeedCalc.c: 25: {
-[e :U _SensorOneNotify ]
-[f ]
-[; ;SpeedCalc.c: 26: if( (unsigned char)1 == NotifyFlag )
 "26
-[e $ ! == -> -> -> 1 `i `uc `i -> _NotifyFlag `i 278  ]
-[; ;SpeedCalc.c: 27: {
+[v _SensorOneNotify `(v ~T0 @X0 1 ef ]
 "27
 {
-[; ;SpeedCalc.c: 28: NotifyFlag = (unsigned char)0;
+[; ;SpeedCalc.c: 26: void SensorOneNotify(void)
+[; ;SpeedCalc.c: 27: {
+[e :U _SensorOneNotify ]
+[f ]
+[; ;SpeedCalc.c: 28: if( (unsigned char)1 == NotifyFlag )
 "28
-[e = _NotifyFlag -> -> 0 `i `uc ]
+[e $ ! == -> -> -> 1 `i `uc `i -> _NotifyFlag `i 278  ]
+[; ;SpeedCalc.c: 29: {
 "29
-}
-[; ;SpeedCalc.c: 29: }
-[e $U 279  ]
-"30
-[e :U 278 ]
-[; ;SpeedCalc.c: 30: else
-[; ;SpeedCalc.c: 31: {
-"31
 {
-[; ;SpeedCalc.c: 32: if(LapCounter != (unsigned char)0)
+[; ;SpeedCalc.c: 30: NotifyFlag = (unsigned char)0;
+"30
+[e = _NotifyFlag -> -> 0 `i `uc ]
+"31
+}
+[; ;SpeedCalc.c: 31: }
+[e $U 279  ]
 "32
-[e $ ! != -> _LapCounter `i -> -> -> 0 `i `uc `i 280  ]
+[e :U 278 ]
+[; ;SpeedCalc.c: 32: else
 [; ;SpeedCalc.c: 33: {
 "33
 {
-[; ;SpeedCalc.c: 34: LapCounter--;
+[; ;SpeedCalc.c: 34: if(LapCounter != (unsigned char)0)
 "34
-[e -- _LapCounter -> -> 1 `i `uc ]
+[e $ ! != -> _LapCounter `i -> -> -> 0 `i `uc `i 280  ]
+[; ;SpeedCalc.c: 35: {
 "35
+{
+[; ;SpeedCalc.c: 36: LapCounter--;
+"36
+[e -- _LapCounter -> -> 1 `i `uc ]
+"37
 }
 [e :U 280 ]
-"36
+"38
 }
 [e :U 279 ]
-[; ;SpeedCalc.c: 35: }
-[; ;SpeedCalc.c: 36: }
 [; ;SpeedCalc.c: 37: }
-"37
+[; ;SpeedCalc.c: 38: }
+[; ;SpeedCalc.c: 39: }
+"39
 [e :UE 277 ]
 }
-"39
-[v _SensorTwoNotify `(v ~T0 @X0 1 ef ]
-"40
-{
-[; ;SpeedCalc.c: 39: void SensorTwoNotify(void)
-[; ;SpeedCalc.c: 40: {
-[e :U _SensorTwoNotify ]
-[f ]
-[; ;SpeedCalc.c: 41: if( (unsigned char)0 == NotifyFlag )
 "41
-[e $ ! == -> -> -> 0 `i `uc `i -> _NotifyFlag `i 282  ]
-[; ;SpeedCalc.c: 42: {
+[v _SensorTwoNotify `(v ~T0 @X0 1 ef ]
 "42
 {
-[; ;SpeedCalc.c: 43: NotifyFlag = (unsigned char)1;
+[; ;SpeedCalc.c: 41: void SensorTwoNotify(void)
+[; ;SpeedCalc.c: 42: {
+[e :U _SensorTwoNotify ]
+[f ]
+[; ;SpeedCalc.c: 43: if( (unsigned char)0 == NotifyFlag )
 "43
-[e = _NotifyFlag -> -> 1 `i `uc ]
-[; ;SpeedCalc.c: 44: LapCounter++;
+[e $ ! == -> -> -> 0 `i `uc `i -> _NotifyFlag `i 282  ]
+[; ;SpeedCalc.c: 44: {
 "44
-[e ++ _LapCounter -> -> 1 `i `uc ]
-"45
-}
-[; ;SpeedCalc.c: 45: }
-[e $U 283  ]
-"46
-[e :U 282 ]
-[; ;SpeedCalc.c: 46: else
-[; ;SpeedCalc.c: 47: {
-"47
 {
-[; ;SpeedCalc.c: 48: if(LapCounter != (unsigned char)0)
+[; ;SpeedCalc.c: 45: NotifyFlag = (unsigned char)1;
+"45
+[e = _NotifyFlag -> -> 1 `i `uc ]
+[; ;SpeedCalc.c: 46: LapCounter++;
+"46
+[e ++ _LapCounter -> -> 1 `i `uc ]
+"47
+}
+[; ;SpeedCalc.c: 47: }
+[e $U 283  ]
 "48
-[e $ ! != -> _LapCounter `i -> -> -> 0 `i `uc `i 284  ]
+[e :U 282 ]
+[; ;SpeedCalc.c: 48: else
 [; ;SpeedCalc.c: 49: {
 "49
 {
-[; ;SpeedCalc.c: 50: LapCounter--;
+[; ;SpeedCalc.c: 50: if(LapCounter != (unsigned char)0)
 "50
-[e -- _LapCounter -> -> 1 `i `uc ]
+[e $ ! != -> _LapCounter `i -> -> -> 0 `i `uc `i 284  ]
+[; ;SpeedCalc.c: 51: {
 "51
+{
+[; ;SpeedCalc.c: 52: LapCounter--;
+"52
+[e -- _LapCounter -> -> 1 `i `uc ]
+"53
 }
 [e :U 284 ]
-"52
+"54
 }
 [e :U 283 ]
-[; ;SpeedCalc.c: 51: }
-[; ;SpeedCalc.c: 52: }
 [; ;SpeedCalc.c: 53: }
-"53
+[; ;SpeedCalc.c: 54: }
+[; ;SpeedCalc.c: 55: }
+"55
 [e :UE 281 ]
 }
-"55
+"57
 [v _SpeedCalcManage `(v ~T0 @X0 1 ef ]
-"56
+"58
 {
-[; ;SpeedCalc.c: 55: void SpeedCalcManage(void)
-[; ;SpeedCalc.c: 56: {
+[; ;SpeedCalc.c: 57: void SpeedCalcManage(void)
+[; ;SpeedCalc.c: 58: {
 [e :U _SpeedCalcManage ]
 [f ]
-"57
-[v F3120 `uc ~T0 @X0 1 s LapTime ]
-[i F3120
--> -> 0 `i `uc
-]
-"58
-[v F3122 `uc ~T0 @X0 1 s LapSampleIndex ]
+"59
+[v F3122 `uc ~T0 @X0 1 s LapTime ]
 [i F3122
 -> -> 0 `i `uc
 ]
-[; ;SpeedCalc.c: 57: static unsigned char LapTime = (unsigned char)0;
-[; ;SpeedCalc.c: 58: static unsigned char LapSampleIndex = (unsigned char)0;
-[; ;SpeedCalc.c: 60: LapTime ++;
 "60
-[e ++ F3120 -> -> 1 `i `uc ]
-[; ;SpeedCalc.c: 63: if((unsigned char)10 == LapTime)
-"63
-[e $ ! == -> -> -> 10 `i `uc `i -> F3120 `i 286  ]
-[; ;SpeedCalc.c: 64: {
+[v F3124 `uc ~T0 @X0 1 s LapSampleIndex ]
+[i F3124
+-> -> 0 `i `uc
+]
+"62
+[v _HundredMeterReference `us ~T0 @X0 1 a ]
+[; ;SpeedCalc.c: 59: static unsigned char LapTime = (unsigned char)0;
+[; ;SpeedCalc.c: 60: static unsigned char LapSampleIndex = (unsigned char)0;
+[; ;SpeedCalc.c: 62: unsigned short HundredMeterReference;
+[; ;SpeedCalc.c: 64: LapTime ++;
 "64
-{
-[; ;SpeedCalc.c: 65: LapTime = (unsigned char)0;
-"65
-[e = F3120 -> -> 0 `i `uc ]
-[; ;SpeedCalc.c: 66: LapCounterAvg += (unsigned short)LapCounter;
-"66
-[e =+ _LapCounterAvg -> _LapCounter `us ]
-[; ;SpeedCalc.c: 67: LapCounterAvg -= (unsigned short)LapCounterBuffer[LapSampleIndex];
-"67
-[e =- _LapCounterAvg -> *U + &U _LapCounterBuffer * -> F3122 `ux -> -> # *U &U _LapCounterBuffer `ui `ux `us ]
-[; ;SpeedCalc.c: 69: LapCounterBuffer[LapSampleIndex] = LapCounter;
-"69
-[e = *U + &U _LapCounterBuffer * -> F3122 `ux -> -> # *U &U _LapCounterBuffer `ui `ux _LapCounter ]
-[; ;SpeedCalc.c: 70: LapCounter = (unsigned char)0;
-"70
-[e = _LapCounter -> -> 0 `i `uc ]
-[; ;SpeedCalc.c: 71: DistTravelCntr ++;
-"71
-[e ++ _DistTravelCntr -> -> -> 1 `i `l `ul ]
-[; ;SpeedCalc.c: 74: LapSampleIndex ++;
-"74
 [e ++ F3122 -> -> 1 `i `uc ]
-[; ;SpeedCalc.c: 76: if( (unsigned char)36 == LapSampleIndex )
-"76
-[e $ ! == -> -> -> 36 `i `uc `i -> F3122 `i 287  ]
-[; ;SpeedCalc.c: 77: {
-"77
+[; ;SpeedCalc.c: 67: if((unsigned char)10 == LapTime)
+"67
+[e $ ! == -> -> -> 10 `i `uc `i -> F3122 `i 286  ]
+[; ;SpeedCalc.c: 68: {
+"68
 {
-[; ;SpeedCalc.c: 78: LapSampleIndex = (unsigned char)0;
-"78
+[; ;SpeedCalc.c: 69: LapTime = (unsigned char)0;
+"69
 [e = F3122 -> -> 0 `i `uc ]
-"79
-}
-[e :U 287 ]
+[; ;SpeedCalc.c: 70: LapCounterAvg += (unsigned short)LapCounter;
+"70
+[e =+ _LapCounterAvg -> _LapCounter `us ]
+[; ;SpeedCalc.c: 71: LapCounterAvg -= (unsigned short)LapCounterBuffer[LapSampleIndex];
+"71
+[e =- _LapCounterAvg -> *U + &U _LapCounterBuffer * -> F3124 `ux -> -> # *U &U _LapCounterBuffer `ui `ux `us ]
+[; ;SpeedCalc.c: 73: LapCounterBuffer[LapSampleIndex] = LapCounter;
+"73
+[e = *U + &U _LapCounterBuffer * -> F3124 `ux -> -> # *U &U _LapCounterBuffer `ui `ux _LapCounter ]
+[; ;SpeedCalc.c: 74: LapDistanceCounter += LapCounter;
+"74
+[e =+ _LapDistanceCounter -> _LapCounter `us ]
+[; ;SpeedCalc.c: 75: LapCounter = (unsigned char)0;
+"75
+[e = _LapCounter -> -> 0 `i `uc ]
+[; ;SpeedCalc.c: 77: HundredMeterReference = (unsigned short)((unsigned long)100000 /
+[; ;SpeedCalc.c: 78: (unsigned long)CircumFactor);
+"78
+[e = _HundredMeterReference -> / -> -> 100000 `l `ul -> _CircumFactor `ul `us ]
+[; ;SpeedCalc.c: 80: if(LapDistanceCounter >= HundredMeterReference)
 "80
-}
-[; ;SpeedCalc.c: 79: }
-[; ;SpeedCalc.c: 80: }
-[e $U 288  ]
+[e $ ! >= -> _LapDistanceCounter `ui -> _HundredMeterReference `ui 287  ]
+[; ;SpeedCalc.c: 81: {
 "81
-[e :U 286 ]
-[; ;SpeedCalc.c: 81: else
-[; ;SpeedCalc.c: 82: {
-"82
 {
+[; ;SpeedCalc.c: 82: DistTravelCntr ++;
+"82
+[e ++ _DistTravelCntr -> -> -> 1 `i `l `ul ]
+[; ;SpeedCalc.c: 83: LapDistanceCounter -= HundredMeterReference;
+"83
+[e =- _LapDistanceCounter _HundredMeterReference ]
 "84
 }
-[e :U 288 ]
 [; ;SpeedCalc.c: 84: }
-[; ;SpeedCalc.c: 85: }
+[e $U 288  ]
 "85
+[e :U 287 ]
+[; ;SpeedCalc.c: 85: else
+[; ;SpeedCalc.c: 86: {
+"86
+{
+"88
+}
+[e :U 288 ]
+[; ;SpeedCalc.c: 88: }
+[; ;SpeedCalc.c: 92: LapSampleIndex ++;
+"92
+[e ++ F3124 -> -> 1 `i `uc ]
+[; ;SpeedCalc.c: 94: if( (unsigned char)36 == LapSampleIndex )
+"94
+[e $ ! == -> -> -> 36 `i `uc `i -> F3124 `i 289  ]
+[; ;SpeedCalc.c: 95: {
+"95
+{
+[; ;SpeedCalc.c: 96: LapSampleIndex = (unsigned char)0;
+"96
+[e = F3124 -> -> 0 `i `uc ]
+"97
+}
+[e :U 289 ]
+"98
+}
+[; ;SpeedCalc.c: 97: }
+[; ;SpeedCalc.c: 98: }
+[e $U 290  ]
+"99
+[e :U 286 ]
+[; ;SpeedCalc.c: 99: else
+[; ;SpeedCalc.c: 100: {
+"100
+{
+"102
+}
+[e :U 290 ]
+[; ;SpeedCalc.c: 102: }
+[; ;SpeedCalc.c: 103: }
+"103
 [e :UE 285 ]
 }
-"87
+"105
 [v _SetDistance `(v ~T0 @X0 1 ef1`ul ]
-"88
+"106
 {
-[; ;SpeedCalc.c: 87: void SetDistance(unsigned long Distance)
-[; ;SpeedCalc.c: 88: {
+[; ;SpeedCalc.c: 105: void SetDistance(unsigned long Distance)
+[; ;SpeedCalc.c: 106: {
 [e :U _SetDistance ]
-"87
+"105
 [v _Distance `ul ~T0 @X0 1 r1 ]
-"88
+"106
 [f ]
-[; ;SpeedCalc.c: 89: DistTravelCntr = Distance;
-"89
+[; ;SpeedCalc.c: 107: DistTravelCntr = Distance;
+"107
 [e = _DistTravelCntr _Distance ]
-[; ;SpeedCalc.c: 90: }
-"90
-[e :UE 289 ]
-}
-"92
-[v _GetDistance `(ul ~T0 @X0 1 ef ]
-"93
-{
-[; ;SpeedCalc.c: 92: unsigned long GetDistance(void)
-[; ;SpeedCalc.c: 93: {
-[e :U _GetDistance ]
-[f ]
-[; ;SpeedCalc.c: 94: return DistTravelCntr;
-"94
-[e ) _DistTravelCntr ]
-[e $UE 290  ]
-[; ;SpeedCalc.c: 95: }
-"95
-[e :UE 290 ]
-}
-"98
-[v _SetCircumfirunce `(v ~T0 @X0 1 ef1`uc ]
-"99
-{
-[; ;SpeedCalc.c: 98: void SetCircumfirunce(unsigned char Circum)
-[; ;SpeedCalc.c: 99: {
-[e :U _SetCircumfirunce ]
-"98
-[v _Circum `uc ~T0 @X0 1 r1 ]
-"99
-[f ]
-[; ;SpeedCalc.c: 100: KMfactor = (unsigned short)(
-[; ;SpeedCalc.c: 101: ((unsigned long)36 * (unsigned long)Circum)
-[; ;SpeedCalc.c: 102: /((unsigned long)36)
-[; ;SpeedCalc.c: 103: );
-"103
-[e = _KMfactor -> / * -> -> 36 `i `ul -> _Circum `ul -> -> 36 `i `ul `us ]
-[; ;SpeedCalc.c: 104: }
-"104
+[; ;SpeedCalc.c: 108: }
+"108
 [e :UE 291 ]
 }
-"107
-[v _GetAvgSpeed `(us ~T0 @X0 1 ef ]
-"108
+"110
+[v _GetDistance `(ul ~T0 @X0 1 ef ]
+"111
 {
-[; ;SpeedCalc.c: 107: unsigned short GetAvgSpeed(void)
-[; ;SpeedCalc.c: 108: {
-[e :U _GetAvgSpeed ]
+[; ;SpeedCalc.c: 110: unsigned long GetDistance(void)
+[; ;SpeedCalc.c: 111: {
+[e :U _GetDistance ]
 [f ]
-"109
-[v _AvgSpeedKph `us ~T0 @X0 1 a ]
-[; ;SpeedCalc.c: 109: unsigned short AvgSpeedKph;
-[; ;SpeedCalc.c: 111: AvgSpeedKph = (unsigned short)(
-[; ;SpeedCalc.c: 112: ((unsigned long)KMfactor * (unsigned long)LapCounterAvg)
-[; ;SpeedCalc.c: 113: /((unsigned long)20)
-[; ;SpeedCalc.c: 114: );
-"114
-[e = _AvgSpeedKph -> / * -> _KMfactor `ul -> _LapCounterAvg `ul -> -> 20 `i `ul `us ]
-[; ;SpeedCalc.c: 115: return AvgSpeedKph;
-"115
-[e ) _AvgSpeedKph ]
+[; ;SpeedCalc.c: 112: return DistTravelCntr;
+"112
+[e ) _DistTravelCntr ]
 [e $UE 292  ]
-[; ;SpeedCalc.c: 116: }
-"116
+[; ;SpeedCalc.c: 113: }
+"113
 [e :UE 292 ]
+}
+"116
+[v _SetCircumfirunce `(v ~T0 @X0 1 ef1`us ]
+"117
+{
+[; ;SpeedCalc.c: 116: void SetCircumfirunce(unsigned short Circum)
+[; ;SpeedCalc.c: 117: {
+[e :U _SetCircumfirunce ]
+"116
+[v _Circum `us ~T0 @X0 1 r1 ]
+"117
+[f ]
+[; ;SpeedCalc.c: 118: CircumFactor = (unsigned short)Circum;
+"118
+[e = _CircumFactor _Circum ]
+[; ;SpeedCalc.c: 119: }
+"119
+[e :UE 293 ]
+}
+"122
+[v _GetAvgSpeed `(us ~T0 @X0 1 ef1`uc ]
+"123
+{
+[; ;SpeedCalc.c: 122: unsigned short GetAvgSpeed(unsigned char bIsKph)
+[; ;SpeedCalc.c: 123: {
+[e :U _GetAvgSpeed ]
+"122
+[v _bIsKph `uc ~T0 @X0 1 r1 ]
+"123
+[f ]
+"124
+[v _AvgSpeedKphMph `us ~T0 @X0 1 a ]
+"125
+[v _KphMphFactor `ul ~T0 @X0 1 a ]
+[; ;SpeedCalc.c: 124: unsigned short AvgSpeedKphMph;
+[; ;SpeedCalc.c: 125: unsigned long KphMphFactor;
+[; ;SpeedCalc.c: 127: if( (unsigned char)1 == bIsKph )
+"127
+[e $ ! == -> -> -> 1 `i `uc `i -> _bIsKph `i 295  ]
+[; ;SpeedCalc.c: 128: {
+"128
+{
+[; ;SpeedCalc.c: 129: KphMphFactor = (unsigned long)360;
+"129
+[e = _KphMphFactor -> -> 360 `i `ul ]
+"130
+}
+[; ;SpeedCalc.c: 130: }
+[e $U 296  ]
+"131
+[e :U 295 ]
+[; ;SpeedCalc.c: 131: else
+[; ;SpeedCalc.c: 132: {
+"132
+{
+[; ;SpeedCalc.c: 133: KphMphFactor = (unsigned long)225;
+"133
+[e = _KphMphFactor -> -> 225 `i `ul ]
+"134
+}
+[e :U 296 ]
+[; ;SpeedCalc.c: 134: }
+[; ;SpeedCalc.c: 136: AvgSpeedKphMph = (unsigned short)(
+[; ;SpeedCalc.c: 137: (KphMphFactor * CircumFactor * (unsigned long)LapCounterAvg)
+[; ;SpeedCalc.c: 138: /((unsigned long)20 *
+[; ;SpeedCalc.c: 139: (unsigned long)100
+[; ;SpeedCalc.c: 140: * (unsigned long)36)
+[; ;SpeedCalc.c: 141: );
+"141
+[e = _AvgSpeedKphMph -> / * * _KphMphFactor -> _CircumFactor `ul -> _LapCounterAvg `ul * * -> -> 20 `i `ul -> -> 100 `i `ul -> -> 36 `i `ul `us ]
+[; ;SpeedCalc.c: 142: return AvgSpeedKphMph;
+"142
+[e ) _AvgSpeedKphMph ]
+[e $UE 294  ]
+[; ;SpeedCalc.c: 143: }
+"143
+[e :UE 294 ]
 }

@@ -2787,8 +2787,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SpeedCalc\SpeedCalc.h: 19: extern void SpeedCalcManage(void);
 [; ;SpeedCalc\SpeedCalc.h: 21: extern void SetDistance(unsigned long Distance);
 [; ;SpeedCalc\SpeedCalc.h: 23: extern unsigned long GetDistance(void);
-[; ;SpeedCalc\SpeedCalc.h: 25: extern void SetCircumfirunce(unsigned char Circum);
-[; ;SpeedCalc\SpeedCalc.h: 27: extern unsigned short GetAvgSpeed(void);
+[; ;SpeedCalc\SpeedCalc.h: 25: extern void SetCircumfirunce(unsigned short Circum);
+[; ;SpeedCalc\SpeedCalc.h: 27: extern unsigned short GetAvgSpeed(unsigned char bIsKph);
 [; ;AppInterrupts.h: 1: void APP_ISR1(void);
 [; ;AppInterrupts.h: 2: void APP_ISR2(void);
 "8 ../../../../Common/Interrupts/AppInterrupts.c

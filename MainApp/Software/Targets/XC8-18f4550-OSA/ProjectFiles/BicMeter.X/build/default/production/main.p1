@@ -2898,8 +2898,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SpeedCalc\SpeedCalc.h: 19: extern void SpeedCalcManage(void);
 [; ;SpeedCalc\SpeedCalc.h: 21: extern void SetDistance(unsigned long Distance);
 [; ;SpeedCalc\SpeedCalc.h: 23: extern unsigned long GetDistance(void);
-[; ;SpeedCalc\SpeedCalc.h: 25: extern void SetCircumfirunce(unsigned char Circum);
-[; ;SpeedCalc\SpeedCalc.h: 27: extern unsigned short GetAvgSpeed(void);
+[; ;SpeedCalc\SpeedCalc.h: 25: extern void SetCircumfirunce(unsigned short Circum);
+[; ;SpeedCalc\SpeedCalc.h: 27: extern unsigned short GetAvgSpeed(unsigned char bIsKph);
 [; ;BCDdisplay\BCDdisplay.h: 13: extern void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace);
 [; ;BCDdisplay\BCDdisplay.h: 15: extern void BCDManage7segment(void);
 [; ;main.c: 82: void DisplayAlphaNumeric (void);

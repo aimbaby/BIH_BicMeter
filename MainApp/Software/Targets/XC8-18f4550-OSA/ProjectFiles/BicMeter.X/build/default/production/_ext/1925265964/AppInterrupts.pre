@@ -3770,9 +3770,9 @@ extern void SetDistance(unsigned long Distance);
 
 extern unsigned long GetDistance(void);
 
-extern void SetCircumfirunce(unsigned char Circum);
+extern void SetCircumfirunce(unsigned short Circum);
 
-extern unsigned short GetAvgSpeed(void);
+extern unsigned short GetAvgSpeed(unsigned char bIsKph);
 
 # 1 "../../../../Common/Interrupts/AppInterrupts.h"
  void APP_ISR1(void);
