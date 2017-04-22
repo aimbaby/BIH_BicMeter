@@ -22,9 +22,9 @@ PUBLIC void SetDistance(unsigned long Distance);
 
 PUBLIC unsigned long GetDistance(void);
 
-PUBLIC void SetCircumfirunce(unsigned char Circum);
+PUBLIC void SetCircumfirunce(unsigned short Circum);
 
-PUBLIC unsigned short GetAvgSpeed(void);
+PUBLIC unsigned short GetAvgSpeed(unsigned char bIsKph);
 
 #endif	/* SPEEDCALC_H */
 

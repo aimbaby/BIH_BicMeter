@@ -15,14 +15,17 @@
   PUBLIC void APP_MANAGE(void)
   {
       unsigned short AvgSpeedKph;
+      unsigned short TravelledDistance;
       //unsigned short LapTimeAvg;    
      // const unsigned short CircFactor = (unsigned short)7200;
       
-      SetCircumfirunce(200);
+      SetCircumfirunce(2056);
  
-      AvgSpeedKph =  GetAvgSpeed();
-      
-      AvgSpeedKph = (AvgSpeedKph + (unsigned short)5)/(unsigned short)10;
+      AvgSpeedKph =  GetAvgSpeed(0);
+      TravelledDistance = GetDistance();
+      TravelledDistance *= (unsigned short)10;
+      TravelledDistance /= (unsigned short)16;
+      //AvgSpeedKph = (AvgSpeedKph + (unsigned short)5)/(unsigned short)10;
       
    /*   LapTimeAvg /= ((unsigned short)SpeedCalFilterBufferSize);
 
@@ -33,7 +36,7 @@
       {
           AvgSpeedKph = (unsigned short)0;
       }*/
-      
-      BCDsendNumber(AvgSpeedKph,0);
+      //BCDsendNumber(AvgSpeedKph,1);
+      BCDsendNumber(TravelledDistance,1);
 
   }

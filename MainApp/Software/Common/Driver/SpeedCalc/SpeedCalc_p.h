@@ -15,7 +15,7 @@
 /* Resolution in Km/H = 36 * circumference /(bufferSize * taskRate) */
 
 
-#define AVG_THRESHOLD                                     1
+#define AVG_THRESHOLD                                     2
 
 #endif	/* SPEEDCALC_P_H */
 
