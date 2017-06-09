@@ -3845,6 +3845,8 @@ extern void HWI_Delay_msec(unsigned short Time);
 extern void HWI_Delay_usec(unsigned short Time);
 extern void HWI_Delay_nsec(unsigned short Time);
 
+extern unsigned short ReloadHWtimer(unsigned char TimerId);
+
 # 2 "../../../../Common/App\APP.h"
 extern void APP_INITIALIZE(void);
 extern void APP_MANAGE();
@@ -3865,6 +3867,8 @@ extern unsigned long GetDistance(void);
 extern void SetCircumfirunce(unsigned short Circum);
 
 extern unsigned short GetAvgSpeed(unsigned char bIsKph);
+
+extern void HWtimerCallback (void);
 
 # 13 "../../../../Common/Driver/BCDdisplay\BCDdisplay.h"
 extern void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace);

@@ -3,6 +3,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SensorOneNotify `(v ~T0 @X0 0 ef ]
 "17
 [v _SensorTwoNotify `(v ~T0 @X0 0 ef ]
+"29
+[v _HWtimerCallback `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2789,8 +2791,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SpeedCalc\SpeedCalc.h: 23: extern unsigned long GetDistance(void);
 [; ;SpeedCalc\SpeedCalc.h: 25: extern void SetCircumfirunce(unsigned short Circum);
 [; ;SpeedCalc\SpeedCalc.h: 27: extern unsigned short GetAvgSpeed(unsigned char bIsKph);
+[; ;SpeedCalc\SpeedCalc.h: 29: extern void HWtimerCallback (void);
 [; ;AppInterrupts.h: 1: void APP_ISR1(void);
 [; ;AppInterrupts.h: 2: void APP_ISR2(void);
+[; ;AppInterrupts.h: 3: void APP_ISR3(void);
 "8 ../../../../Common/Interrupts/AppInterrupts.c
 [v _APP_ISR1 `(v ~T0 @X0 1 ef ]
 "9
@@ -2820,4 +2824,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;AppInterrupts.c: 16: }
 "16
 [e :UE 277 ]
+}
+"18
+[v _APP_ISR3 `(v ~T0 @X0 1 ef ]
+"19
+{
+[; ;AppInterrupts.c: 18: void APP_ISR3(void)
+[; ;AppInterrupts.c: 19: {
+[e :U _APP_ISR3 ]
+[f ]
+[; ;AppInterrupts.c: 20: HWtimerCallback();
+"20
+[e ( _HWtimerCallback ..  ]
+[; ;AppInterrupts.c: 21: }
+"21
+[e :UE 278 ]
 }

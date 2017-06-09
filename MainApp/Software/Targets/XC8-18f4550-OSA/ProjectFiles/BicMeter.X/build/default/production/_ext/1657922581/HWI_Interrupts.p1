@@ -34,8 +34,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S265 . . . . ]
 "6541
 [v _INTCON2bits `VS265 ~T0 @X0 0 e@4081 ]
-"6182
-[v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
+"7877
+[v _TMR0IF `Vb ~T0 @X0 0 e@32658 ]
+"7875
+[v _TMR0IE `Vb ~T0 @X0 0 e@32661 ]
 "7887
 [v _TMR1IF `Vb ~T0 @X0 0 e@31984 ]
 "7885
@@ -44,19 +46,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TMR3IF `Vb ~T0 @X0 0 e@32009 ]
 "7903
 [v _TMR3IE `Vb ~T0 @X0 0 e@32001 ]
-"5572
-[v _TMR1L `Vuc ~T0 @X0 0 e@4046 ]
-"5578
-[v _TMR1H `Vuc ~T0 @X0 0 e@4047 ]
+"6182
+[v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
+"5566
+[v _TMR1 `Vus ~T0 @X0 0 e@4046 ]
 "3701
 [v _TMR3L `Vuc ~T0 @X0 0 e@4018 ]
 "3707
 [v _TMR3H `Vuc ~T0 @X0 0 e@4019 ]
-"7877
-[v _TMR0IF `Vb ~T0 @X0 0 e@32658 ]
 "27 ../../../../OS/Scheduler\Scheduler.h
 [v _SchedulerTick `(v ~T0 @X0 0 ef ]
-"7203 C:\Program Files\Microchip\xc8\v1.41\include\pic18f4520.h
+"3 ../../../../Common/Interrupts\AppInterrupts.h
+[v _APP_ISR3 `(v ~T0 @X0 0 ef ]
+"7895 C:\Program Files\Microchip\xc8\v1.41\include\pic18f4520.h
+[v _TMR2IF `Vb ~T0 @X0 0 e@31985 ]
+"7203
 [v _INT0IF `Vb ~T0 @X0 0 e@32657 ]
 "1 ../../../../Common/Interrupts\AppInterrupts.h
 [v _APP_ISR1 `(v ~T0 @X0 0 ef ]
@@ -2844,6 +2848,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
 [; ;Interrupts\AppInterrupts.h: 1: extern void APP_ISR1(void);
 [; ;Interrupts\AppInterrupts.h: 2: extern void APP_ISR2(void);
+[; ;Interrupts\AppInterrupts.h: 3: extern void APP_ISR3(void);
 [; ;Scheduler\Scheduler.h: 14: typedef void (*PointerVoid)(void);
 [; ;Scheduler\Scheduler.h: 16: typedef struct
 [; ;Scheduler\Scheduler.h: 17: {
@@ -2865,6 +2870,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;HWIheader\HWI_func.h: 12: void HWI_Delay_msec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 13: void HWI_Delay_usec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 14: void HWI_Delay_nsec(unsigned short Time);
+[; ;HWIheader\HWI_func.h: 16: unsigned short ReloadHWtimer(unsigned char TimerId);
 "10 ../../HWIsource/HWI_Interrupts.c
 [v _HWI_INTERRUPTS_INTITALIZE `(v ~T0 @X0 1 ef ]
 "11
@@ -2885,151 +2891,232 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;HWI_Interrupts.c: 16: INTCON3 = 0b00001000;
 "16
 [e = _INTCON3 -> -> 8 `i `uc ]
-[; ;HWI_Interrupts.c: 18: T0CON =0b11010001;
-"18
-[e = _T0CON -> -> 209 `i `uc ]
-[; ;HWI_Interrupts.c: 19: T1CON =0b10000101;
-"19
-[e = _T1CON -> -> 133 `i `uc ]
-[; ;HWI_Interrupts.c: 20: T3CON =0b10011101;
+[; ;HWI_Interrupts.c: 20: T0CON =0b11010001;
 "20
-[e = _T3CON -> -> 157 `i `uc ]
-[; ;HWI_Interrupts.c: 23: INTCON2bits.INTEDG0 = 1;
+[e = _T0CON -> -> 209 `i `uc ]
+[; ;HWI_Interrupts.c: 21: T1CON =0b10000101;
+"21
+[e = _T1CON -> -> 133 `i `uc ]
+[; ;HWI_Interrupts.c: 23: T3CON =0b10011101;
 "23
-[e = . . _INTCON2bits 1 6 -> -> 1 `i `uc ]
-[; ;HWI_Interrupts.c: 24: INTCON2bits.INTEDG1 = 1;
-"24
-[e = . . _INTCON2bits 1 5 -> -> 1 `i `uc ]
-[; ;HWI_Interrupts.c: 26: TMR0L= 19;
+[e = _T3CON -> -> 157 `i `uc ]
+[; ;HWI_Interrupts.c: 26: INTCON2bits.INTEDG0 = 1;
 "26
-[e = _TMR0L -> -> 19 `i `uc ]
-[; ;HWI_Interrupts.c: 29: TMR1IF=0;
+[e = . . _INTCON2bits 1 6 -> -> 1 `i `uc ]
+[; ;HWI_Interrupts.c: 27: INTCON2bits.INTEDG1 = 1;
+"27
+[e = . . _INTCON2bits 1 5 -> -> 1 `i `uc ]
+[; ;HWI_Interrupts.c: 29: TMR0IF=0;
 "29
-[e = _TMR1IF -> -> 0 `i `b ]
-[; ;HWI_Interrupts.c: 30: TMR1IE=1;
+[e = _TMR0IF -> -> 0 `i `b ]
+[; ;HWI_Interrupts.c: 30: TMR0IE=1;
 "30
-[e = _TMR1IE -> -> 1 `i `b ]
-[; ;HWI_Interrupts.c: 33: TMR3IF=0;
+[e = _TMR0IE -> -> 1 `i `b ]
+[; ;HWI_Interrupts.c: 32: TMR1IF=0;
+"32
+[e = _TMR1IF -> -> 0 `i `b ]
+[; ;HWI_Interrupts.c: 33: TMR1IE=1;
 "33
-[e = _TMR3IF -> -> 0 `i `b ]
-[; ;HWI_Interrupts.c: 34: TMR3IE=1;
-"34
-[e = _TMR3IE -> -> 1 `i `b ]
-[; ;HWI_Interrupts.c: 37: TMR1L=0;
-"37
-[e = _TMR1L -> -> 0 `i `uc ]
-[; ;HWI_Interrupts.c: 38: TMR1H=0xAA;
+[e = _TMR1IE -> -> 1 `i `b ]
+[; ;HWI_Interrupts.c: 38: TMR3IF=0;
 "38
-[e = _TMR1H -> -> 170 `i `uc ]
-[; ;HWI_Interrupts.c: 40: TMR3L=0;
-"40
-[e = _TMR3L -> -> 0 `i `uc ]
-[; ;HWI_Interrupts.c: 41: TMR3H=0;
+[e = _TMR3IF -> -> 0 `i `b ]
+[; ;HWI_Interrupts.c: 39: TMR3IE=1;
+"39
+[e = _TMR3IE -> -> 1 `i `b ]
+[; ;HWI_Interrupts.c: 41: TMR0L= 19;
 "41
-[e = _TMR3H -> -> 0 `i `uc ]
-[; ;HWI_Interrupts.c: 43: }
+[e = _TMR0L -> -> 19 `i `uc ]
+[; ;HWI_Interrupts.c: 43: TMR1 = 0;
 "43
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;HWI_Interrupts.c: 47: TMR3L=0;
+"47
+[e = _TMR3L -> -> 0 `i `uc ]
+[; ;HWI_Interrupts.c: 48: TMR3H=0;
+"48
+[e = _TMR3H -> -> 0 `i `uc ]
+[; ;HWI_Interrupts.c: 50: }
+"50
 [e :UE 277 ]
 }
-[v F3046 `(v ~T0 @X0 1 tf ]
-"46
-[v _ISR `IF3046 ~T0 @X0 1 e ]
-"47
+[v F3050 `(v ~T0 @X0 1 tf ]
+"52
+[v _ISR `IF3050 ~T0 @X0 1 e ]
+"53
 {
-[; ;HWI_Interrupts.c: 46: void interrupt ISR(void)
-[; ;HWI_Interrupts.c: 47: {
+[; ;HWI_Interrupts.c: 52: void interrupt ISR(void)
+[; ;HWI_Interrupts.c: 53: {
 [e :U _ISR ]
 [f ]
-[; ;HWI_Interrupts.c: 48: if(TMR0IF)
-"48
-[e $ ! _TMR0IF 279  ]
-[; ;HWI_Interrupts.c: 49: {
-"49
-{
-[; ;HWI_Interrupts.c: 50: TMR0IF=0;
-"50
-[e = _TMR0IF -> -> 0 `i `b ]
-[; ;HWI_Interrupts.c: 51: TMR0L=18;
-"51
-[e = _TMR0L -> -> 18 `i `uc ]
-[; ;HWI_Interrupts.c: 52: SchedulerTick();
-"52
-[e ( _SchedulerTick ..  ]
-"53
-}
-[e :U 279 ]
-[; ;HWI_Interrupts.c: 53: }
-[; ;HWI_Interrupts.c: 54: if(TMR3IF)
+[; ;HWI_Interrupts.c: 54: if(TMR0IF)
 "54
-[e $ ! _TMR3IF 280  ]
+[e $ ! _TMR0IF 279  ]
 [; ;HWI_Interrupts.c: 55: {
 "55
 {
-[; ;HWI_Interrupts.c: 56: TMR3IF=0;
+[; ;HWI_Interrupts.c: 56: TMR0IF=0;
 "56
-[e = _TMR3IF -> -> 0 `i `b ]
-[; ;HWI_Interrupts.c: 57: TMR3H = 0xEF;
+[e = _TMR0IF -> -> 0 `i `b ]
+[; ;HWI_Interrupts.c: 57: TMR0L=18;
 "57
-[e = _TMR3H -> -> 239 `i `uc ]
-[; ;HWI_Interrupts.c: 58: TMR3L = 0;
+[e = _TMR0L -> -> 18 `i `uc ]
+[; ;HWI_Interrupts.c: 58: SchedulerTick();
 "58
-[e = _TMR3L -> -> 0 `i `uc ]
+[e ( _SchedulerTick ..  ]
 "59
 }
-[e :U 280 ]
+[e :U 279 ]
 [; ;HWI_Interrupts.c: 59: }
-[; ;HWI_Interrupts.c: 60: if(TMR1IF)
+[; ;HWI_Interrupts.c: 60: if(TMR3IF)
 "60
-[e $ ! _TMR1IF 281  ]
+[e $ ! _TMR3IF 280  ]
 [; ;HWI_Interrupts.c: 61: {
 "61
 {
-[; ;HWI_Interrupts.c: 62: TMR1IF=0;
+[; ;HWI_Interrupts.c: 62: TMR3IF=0;
 "62
-[e = _TMR1IF -> -> 0 `i `b ]
-[; ;HWI_Interrupts.c: 63: TMR1L=0;
+[e = _TMR3IF -> -> 0 `i `b ]
+[; ;HWI_Interrupts.c: 63: TMR3H = 0xEF;
 "63
-[e = _TMR1L -> -> 0 `i `uc ]
-[; ;HWI_Interrupts.c: 64: TMR1H=0xAA;
+[e = _TMR3H -> -> 239 `i `uc ]
+[; ;HWI_Interrupts.c: 64: TMR3L = 0;
 "64
-[e = _TMR1H -> -> 170 `i `uc ]
+[e = _TMR3L -> -> 0 `i `uc ]
 "65
 }
-[e :U 281 ]
+[e :U 280 ]
 [; ;HWI_Interrupts.c: 65: }
-[; ;HWI_Interrupts.c: 67: if((unsigned char)1 == INT0IF)
+[; ;HWI_Interrupts.c: 66: if(TMR1IF)
+"66
+[e $ ! _TMR1IF 281  ]
+[; ;HWI_Interrupts.c: 67: {
 "67
-[e $ ! == -> -> -> 1 `i `uc `i -> _INT0IF `i 282  ]
-[; ;HWI_Interrupts.c: 68: {
-"68
 {
-[; ;HWI_Interrupts.c: 69: INT0IF = 0;
+[; ;HWI_Interrupts.c: 68: TMR1IF=0;
+"68
+[e = _TMR1IF -> -> 0 `i `b ]
+[; ;HWI_Interrupts.c: 69: TMR1 = 0;
 "69
-[e = _INT0IF -> -> 0 `i `b ]
-[; ;HWI_Interrupts.c: 70: APP_ISR1();
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;HWI_Interrupts.c: 70: APP_ISR3();
 "70
-[e ( _APP_ISR1 ..  ]
+[e ( _APP_ISR3 ..  ]
 "71
 }
-[e :U 282 ]
+[e :U 281 ]
 [; ;HWI_Interrupts.c: 71: }
-[; ;HWI_Interrupts.c: 73: if((unsigned char)1 == INT1IF)
+[; ;HWI_Interrupts.c: 72: if(TMR2IF)
+"72
+[e $ ! _TMR2IF 282  ]
+[; ;HWI_Interrupts.c: 73: {
 "73
-[e $ ! == -> -> -> 1 `i `uc `i -> _INT1IF `i 283  ]
-[; ;HWI_Interrupts.c: 74: {
-"74
 {
-[; ;HWI_Interrupts.c: 75: INT1IF = 0;
-"75
-[e = _INT1IF -> -> 0 `i `b ]
-[; ;HWI_Interrupts.c: 76: APP_ISR2();
+[; ;HWI_Interrupts.c: 74: TMR2IF = 0;
+"74
+[e = _TMR2IF -> -> 0 `i `b ]
 "76
-[e ( _APP_ISR2 ..  ]
-"77
+}
+[e :U 282 ]
+[; ;HWI_Interrupts.c: 76: }
+[; ;HWI_Interrupts.c: 78: if((unsigned char)1 == INT0IF)
+"78
+[e $ ! == -> -> -> 1 `i `uc `i -> _INT0IF `i 283  ]
+[; ;HWI_Interrupts.c: 79: {
+"79
+{
+[; ;HWI_Interrupts.c: 80: INT0IF = 0;
+"80
+[e = _INT0IF -> -> 0 `i `b ]
+[; ;HWI_Interrupts.c: 81: APP_ISR1();
+"81
+[e ( _APP_ISR1 ..  ]
+"82
 }
 [e :U 283 ]
-[; ;HWI_Interrupts.c: 77: }
-[; ;HWI_Interrupts.c: 78: }
-"78
+[; ;HWI_Interrupts.c: 82: }
+[; ;HWI_Interrupts.c: 84: if((unsigned char)1 == INT1IF)
+"84
+[e $ ! == -> -> -> 1 `i `uc `i -> _INT1IF `i 284  ]
+[; ;HWI_Interrupts.c: 85: {
+"85
+{
+[; ;HWI_Interrupts.c: 86: INT1IF = 0;
+"86
+[e = _INT1IF -> -> 0 `i `b ]
+[; ;HWI_Interrupts.c: 87: APP_ISR2();
+"87
+[e ( _APP_ISR2 ..  ]
+"88
+}
+[e :U 284 ]
+[; ;HWI_Interrupts.c: 88: }
+[; ;HWI_Interrupts.c: 89: }
+"89
 [e :UE 278 ]
+}
+"91
+[v _ReloadHWtimer `(us ~T0 @X0 1 ef1`uc ]
+"92
+{
+[; ;HWI_Interrupts.c: 91: unsigned short ReloadHWtimer(unsigned char TimerId)
+[; ;HWI_Interrupts.c: 92: {
+[e :U _ReloadHWtimer ]
+"91
+[v _TimerId `uc ~T0 @X0 1 r1 ]
+"92
+[f ]
+"94
+[v _ElapsedTime `us ~T0 @X0 1 a ]
+[; ;HWI_Interrupts.c: 94: unsigned short ElapsedTime = (unsigned short)0;
+[e = _ElapsedTime -> -> 0 `i `us ]
+[; ;HWI_Interrupts.c: 95: switch(TimerId)
+"95
+[e $U 287  ]
+[; ;HWI_Interrupts.c: 96: {
+"96
+{
+[; ;HWI_Interrupts.c: 97: case 0:
+"97
+[e :U 288 ]
+"98
+[e :U 289 ]
+"99
+[e :U 290 ]
+[; ;HWI_Interrupts.c: 98: case 1:
+[; ;HWI_Interrupts.c: 99: case 2:
+[; ;HWI_Interrupts.c: 100: ElapsedTime = TMR1;
+"100
+[e = _ElapsedTime _TMR1 ]
+[; ;HWI_Interrupts.c: 101: TMR1 = 0;
+"101
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;HWI_Interrupts.c: 102: break;
+"102
+[e $U 286  ]
+[; ;HWI_Interrupts.c: 103: default:
+"103
+[e :U 291 ]
+[; ;HWI_Interrupts.c: 104: break;
+"104
+[e $U 286  ]
+"105
+}
+[; ;HWI_Interrupts.c: 105: }
+[e $U 286  ]
+"95
+[e :U 287 ]
+[e [\ _TimerId , $ -> -> 0 `i `uc 288
+ , $ -> -> 1 `i `uc 289
+ , $ -> -> 2 `i `uc 290
+ 291 ]
+"105
+[e :U 286 ]
+[; ;HWI_Interrupts.c: 106: return ElapsedTime;
+"106
+[e ) _ElapsedTime ]
+[e $UE 285  ]
+[; ;HWI_Interrupts.c: 107: }
+"107
+[e :UE 285 ]
 }

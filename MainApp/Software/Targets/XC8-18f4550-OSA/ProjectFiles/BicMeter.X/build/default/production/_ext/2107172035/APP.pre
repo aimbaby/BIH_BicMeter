@@ -3773,6 +3773,8 @@ extern void HWI_Delay_msec(unsigned short Time);
 extern void HWI_Delay_usec(unsigned short Time);
 extern void HWI_Delay_nsec(unsigned short Time);
 
+extern unsigned short ReloadHWtimer(unsigned char TimerId);
+
 # 13 "../../../../Common/Driver/SpeedCalc\SpeedCalc.h"
 extern void SpeedCalcNotifyInitialize(void);
 
@@ -3789,6 +3791,8 @@ extern unsigned long GetDistance(void);
 extern void SetCircumfirunce(unsigned short Circum);
 
 extern unsigned short GetAvgSpeed(unsigned char bIsKph);
+
+extern void HWtimerCallback (void);
 
 # 13 "../../../../Common/Driver/BCDdisplay\BCDdisplay.h"
 extern void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace);
@@ -3812,14 +3816,15 @@ unsigned short TravelledDistance;
 
 
 
-SetCircumfirunce(2056);
+SetCircumfirunce(2000);
 
-AvgSpeedKph = GetAvgSpeed(0);
+AvgSpeedKph = GetAvgSpeed(1);
 TravelledDistance = GetDistance();
 TravelledDistance *= (unsigned short)10;
 TravelledDistance /= (unsigned short)16;
 
-# 40
-BCDsendNumber(TravelledDistance,1);
+# 39
+BCDsendNumber(AvgSpeedKph,1);
+
 
 }

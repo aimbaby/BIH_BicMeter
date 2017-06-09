@@ -2796,6 +2796,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;HWIheader\HWI_func.h: 12: extern void HWI_Delay_msec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 13: extern void HWI_Delay_usec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 14: extern void HWI_Delay_nsec(unsigned short Time);
+[; ;HWIheader\HWI_func.h: 16: extern unsigned short ReloadHWtimer(unsigned char TimerId);
 [; ;SpeedCalc\SpeedCalc.h: 13: extern void SpeedCalcNotifyInitialize(void);
 [; ;SpeedCalc\SpeedCalc.h: 15: extern void SensorOneNotify(void);
 [; ;SpeedCalc\SpeedCalc.h: 17: extern void SensorTwoNotify(void);
@@ -2804,6 +2805,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SpeedCalc\SpeedCalc.h: 23: extern unsigned long GetDistance(void);
 [; ;SpeedCalc\SpeedCalc.h: 25: extern void SetCircumfirunce(unsigned short Circum);
 [; ;SpeedCalc\SpeedCalc.h: 27: extern unsigned short GetAvgSpeed(unsigned char bIsKph);
+[; ;SpeedCalc\SpeedCalc.h: 29: extern void HWtimerCallback (void);
 [; ;BCDdisplay\BCDdisplay.h: 13: extern void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace);
 [; ;BCDdisplay\BCDdisplay.h: 15: extern void BCDManage7segment(void);
 [; ;APP.h: 2: void APP_INITIALIZE(void);
@@ -2834,12 +2836,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TravelledDistance `us ~T0 @X0 1 a ]
 [; ;APP.c: 17: unsigned short AvgSpeedKph;
 [; ;APP.c: 18: unsigned short TravelledDistance;
-[; ;APP.c: 22: SetCircumfirunce(2056);
+[; ;APP.c: 22: SetCircumfirunce(2000);
 "22
-[e ( _SetCircumfirunce (1 -> -> 2056 `i `us ]
-[; ;APP.c: 24: AvgSpeedKph = GetAvgSpeed(0);
+[e ( _SetCircumfirunce (1 -> -> 2000 `i `us ]
+[; ;APP.c: 24: AvgSpeedKph = GetAvgSpeed(1);
 "24
-[e = _AvgSpeedKph ( _GetAvgSpeed (1 -> -> 0 `i `uc ]
+[e = _AvgSpeedKph ( _GetAvgSpeed (1 -> -> 1 `i `uc ]
 [; ;APP.c: 25: TravelledDistance = GetDistance();
 "25
 [e = _TravelledDistance -> ( _GetDistance ..  `us ]
@@ -2849,9 +2851,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;APP.c: 27: TravelledDistance /= (unsigned short)16;
 "27
 [e =/ _TravelledDistance -> -> -> 16 `i `us `us ]
-[; ;APP.c: 40: BCDsendNumber(TravelledDistance,1);
-"40
-[e ( _BCDsendNumber (2 , _TravelledDistance -> -> 1 `i `uc ]
+[; ;APP.c: 39: BCDsendNumber(AvgSpeedKph,1);
+"39
+[e ( _BCDsendNumber (2 , _AvgSpeedKph -> -> 1 `i `uc ]
 [; ;APP.c: 42: }
 "42
 [e :UE 277 ]

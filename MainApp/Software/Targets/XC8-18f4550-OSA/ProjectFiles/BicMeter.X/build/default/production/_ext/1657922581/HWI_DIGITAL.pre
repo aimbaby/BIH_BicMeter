@@ -3773,6 +3773,8 @@ extern __nonreentrant void _delay3(unsigned char);
  void HWI_Delay_usec(unsigned short Time);
  void HWI_Delay_nsec(unsigned short Time);
 
+ unsigned short ReloadHWtimer(unsigned char TimerId);
+
 # 8 "../../HWIsource/HWI_DIGITAL.c"
  void HWI_4Digit_WRITE(unsigned char port,unsigned char value)
 {

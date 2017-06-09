@@ -3774,9 +3774,12 @@ extern void SetCircumfirunce(unsigned short Circum);
 
 extern unsigned short GetAvgSpeed(unsigned char bIsKph);
 
+extern void HWtimerCallback (void);
+
 # 1 "../../../../Common/Interrupts/AppInterrupts.h"
  void APP_ISR1(void);
  void APP_ISR2(void);
+ void APP_ISR3(void);
 
 # 8 "../../../../Common/Interrupts/AppInterrupts.c"
  void APP_ISR1(void)
@@ -3787,4 +3790,9 @@ SensorOneNotify();
  void APP_ISR2(void)
 {
 SensorTwoNotify();
+}
+
+ void APP_ISR3(void)
+{
+HWtimerCallback();
 }

@@ -2800,6 +2800,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;HWIheader\HWI_func.h: 12: void HWI_Delay_msec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 13: void HWI_Delay_usec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 14: void HWI_Delay_nsec(unsigned short Time);
+[; ;HWIheader\HWI_func.h: 16: unsigned short ReloadHWtimer(unsigned char TimerId);
 "8 ../../HWIsource/HWI_DIGITAL.c
 [v _HWI_4Digit_WRITE `(v ~T0 @X0 1 ef2`uc`uc ]
 "9

@@ -3792,6 +3792,24 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
+# 1 "../../../../Common/HWIheader\HWI_func.h"
+extern void HWI_INTERRUPTS_INTITALIZE(void);
+extern void HWI_DIGITAL_INITIALIZE(void);
+extern unsigned char HWI_DIGI_READ(unsigned char pin);
+extern void HWI_DIGI_WRITE(unsigned char pin,unsigned char value);
+
+extern void HWI_4Digit_WRITE(unsigned char port,unsigned char value);
+extern unsigned char HWI_4Digit_READ(unsigned char port);
+
+extern void HWI_8Digit_WRITE(unsigned char port,unsigned char value);
+extern unsigned char HWI8Digit_READ(unsigned char port);
+
+extern void HWI_Delay_msec(unsigned short Time);
+extern void HWI_Delay_usec(unsigned short Time);
+extern void HWI_Delay_nsec(unsigned short Time);
+
+extern unsigned short ReloadHWtimer(unsigned char TimerId);
+
 # 13 "../../../../Common/Driver/SpeedCalc/SpeedCalc.h"
  void SpeedCalcNotifyInitialize(void);
 
@@ -3809,19 +3827,20 @@ extern char * strrichr(const char *, int);
 
  unsigned short GetAvgSpeed(unsigned char bIsKph);
 
-# 12 "../../../../Common/Driver/SpeedCalc/SpeedCalc.c"
-static unsigned char LapCounterBuffer[36];
+ void HWtimerCallback (void);
+
+# 14 "../../../../Common/Driver/SpeedCalc/SpeedCalc.c"
 static unsigned char NotifyFlag = (unsigned char)0;
 static unsigned char LapCounter = (unsigned char)0;
 static unsigned short CircumFactor = (unsigned char)200;
 static unsigned long DistTravelCntr = (unsigned long)0;
-static unsigned short LapCounterAvg = (unsigned short)0;
 static unsigned short LapDistanceCounter = (unsigned short)0;
-
+static unsigned short LapTimeTenthMilli = (unsigned short)0;
+static unsigned char TimerOVFLcount = (unsigned char)0;
 
  void SpeedCalcNotifyInitialize(void)
 {
-memset(LapCounterBuffer , 0 , sizeof(LapCounterBuffer));
+
 }
 
  void SensorOneNotify(void)
@@ -3845,6 +3864,11 @@ if( (unsigned char)0 == NotifyFlag )
 {
 NotifyFlag = (unsigned char)1;
 LapCounter++;
+LapTimeTenthMilli = ReloadHWtimer((unsigned char)1);
+LapTimeTenthMilli /= 100;
+LapTimeTenthMilli +=
+((unsigned short)TimerOVFLcount * (unsigned short)655);
+TimerOVFLcount = (unsigned char)0;
 }
 else
 {
@@ -3857,22 +3881,10 @@ LapCounter--;
 
  void SpeedCalcManage(void)
 {
-static unsigned char LapTime = (unsigned char)0;
-static unsigned char LapSampleIndex = (unsigned char)0;
-
 unsigned short HundredMeterReference;
 
-LapTime ++;
-
-
-if((unsigned char)10 == LapTime)
-{
-LapTime = (unsigned char)0;
-LapCounterAvg += (unsigned short)LapCounter;
-LapCounterAvg -= (unsigned short)LapCounterBuffer[LapSampleIndex];
-
-LapCounterBuffer[LapSampleIndex] = LapCounter;
 LapDistanceCounter += LapCounter;
+
 LapCounter = (unsigned char)0;
 
 HundredMeterReference = (unsigned short)((unsigned long)100000 /
@@ -3882,20 +3894,6 @@ if(LapDistanceCounter >= HundredMeterReference)
 {
 DistTravelCntr ++;
 LapDistanceCounter -= HundredMeterReference;
-}
-else
-{
-
-}
-
-
-
-LapSampleIndex ++;
-
-if( (unsigned char)36 == LapSampleIndex )
-{
-LapSampleIndex = (unsigned char)0;
-}
 }
 else
 {
@@ -3934,12 +3932,19 @@ else
 KphMphFactor = (unsigned long)225;
 }
 
-AvgSpeedKphMph = (unsigned short)(
-(KphMphFactor * CircumFactor * (unsigned long)LapCounterAvg)
-/((unsigned long)20 *
-(unsigned long)100
-* (unsigned long)36)
-);
+AvgSpeedKphMph = (unsigned short)
+((KphMphFactor * (unsigned long)CircumFactor )
+/ (unsigned long)LapTimeTenthMilli);
+
+
 return AvgSpeedKphMph;
+}
+
+ void HWtimerCallback (void)
+{
+if(TimerOVFLcount < 64)
+{
+TimerOVFLcount++;
+}
 }
 

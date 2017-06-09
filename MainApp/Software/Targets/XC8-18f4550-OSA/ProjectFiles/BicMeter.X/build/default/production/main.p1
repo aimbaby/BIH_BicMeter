@@ -2890,6 +2890,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;HWIheader\HWI_func.h: 12: extern void HWI_Delay_msec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 13: extern void HWI_Delay_usec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 14: extern void HWI_Delay_nsec(unsigned short Time);
+[; ;HWIheader\HWI_func.h: 16: extern unsigned short ReloadHWtimer(unsigned char TimerId);
 [; ;App\APP.h: 2: extern void APP_INITIALIZE(void);
 [; ;App\APP.h: 3: extern void APP_MANAGE();
 [; ;SpeedCalc\SpeedCalc.h: 13: extern void SpeedCalcNotifyInitialize(void);
@@ -2900,6 +2901,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SpeedCalc\SpeedCalc.h: 23: extern unsigned long GetDistance(void);
 [; ;SpeedCalc\SpeedCalc.h: 25: extern void SetCircumfirunce(unsigned short Circum);
 [; ;SpeedCalc\SpeedCalc.h: 27: extern unsigned short GetAvgSpeed(unsigned char bIsKph);
+[; ;SpeedCalc\SpeedCalc.h: 29: extern void HWtimerCallback (void);
 [; ;BCDdisplay\BCDdisplay.h: 13: extern void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace);
 [; ;BCDdisplay\BCDdisplay.h: 15: extern void BCDManage7segment(void);
 [; ;main.c: 82: void DisplayAlphaNumeric (void);
