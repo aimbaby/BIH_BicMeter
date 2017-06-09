@@ -19,9 +19,9 @@
       //unsigned short LapTimeAvg;    
      // const unsigned short CircFactor = (unsigned short)7200;
       
-      SetCircumfirunce(2056);
+      SetCircumfirunce(2000);
  
-      AvgSpeedKph =  GetAvgSpeed(0);
+      AvgSpeedKph =  GetAvgSpeed(1);
       TravelledDistance = GetDistance();
       TravelledDistance *= (unsigned short)10;
       TravelledDistance /= (unsigned short)16;
@@ -36,7 +36,7 @@
       {
           AvgSpeedKph = (unsigned short)0;
       }*/
-      //BCDsendNumber(AvgSpeedKph,1);
-      BCDsendNumber(TravelledDistance,1);
+      BCDsendNumber(AvgSpeedKph,1);
+      //BCDsendNumber(TravelledDistance,1);
 
   }

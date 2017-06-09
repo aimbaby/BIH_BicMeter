@@ -26,5 +26,7 @@ PUBLIC void SetCircumfirunce(unsigned short Circum);
 
 PUBLIC unsigned short GetAvgSpeed(unsigned char bIsKph);
 
+PUBLIC void HWtimerCallback (void);
+
 #endif	/* SPEEDCALC_H */
 

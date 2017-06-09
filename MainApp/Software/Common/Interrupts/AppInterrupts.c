@@ -14,3 +14,8 @@ PUBLIC void APP_ISR2(void)
 {
     SensorTwoNotify();  
 }
+
+PUBLIC void APP_ISR3(void)
+{
+    HWtimerCallback();
+}
