@@ -14,34 +14,40 @@ PUBLIC void HWI_INTERRUPTS_INTITALIZE(void)
     
     INTCON = 0b11110000; 
     INTCON3 = 0b00001000;
+    
+   
    
     T0CON =0b11010001; //1:4 => 1.024 ms tick
     T1CON =0b10000101;
+    //T2CON =0b00000100;
     T3CON =0b10011101;
 
      
     INTCON2bits.INTEDG0 = 1; 
     INTCON2bits.INTEDG1 = 1;
     
-    TMR0L= 19;
-
+    TMR0IF=0;
+    TMR0IE=1;
 
     TMR1IF=0;
     TMR1IE=1;
 
+    //TMR2IF=0;
+    //TMR2IE=1;
 
     TMR3IF=0;
     TMR3IE=1;
 
-
-    TMR1L=0;
-    TMR1H=0xAA;
+    TMR0L= 19;
+    
+    TMR1 = 0;
+    
+    //TMR2 = 155;
 
     TMR3L=0;
     TMR3H=0;
 
 }
-
 
 void interrupt ISR(void)
 {
@@ -60,8 +66,13 @@ void interrupt ISR(void)
   if(TMR1IF)
   {
    TMR1IF=0;
-   TMR1L=0;
-   TMR1H=0xAA;
+   TMR1 = 0;
+   APP_ISR3();
+  }
+  if(TMR2IF)
+  {
+      TMR2IF = 0;
+      //TMR2 = 155; 
   }
   
   if((unsigned char)1 == INT0IF)
@@ -75,4 +86,22 @@ void interrupt ISR(void)
       INT1IF = 0;
       APP_ISR2();   
   }  
+}
+
+PUBLIC unsigned short ReloadHWtimer(unsigned char TimerId)
+{
+
+    unsigned short ElapsedTime = (unsigned short)0;
+    switch(TimerId)
+    {
+        case 0:
+        case 1:
+        case 2:
+            ElapsedTime = TMR1;
+            TMR1 = 0;
+            break;
+        default:
+            break;
+    }
+    return ElapsedTime;
 }
