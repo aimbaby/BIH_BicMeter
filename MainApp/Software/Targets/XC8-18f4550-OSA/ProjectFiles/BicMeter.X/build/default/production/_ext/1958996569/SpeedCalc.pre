@@ -3830,13 +3830,15 @@ extern unsigned short ReloadHWtimer(unsigned char TimerId);
  void HWtimerCallback (void);
 
 # 14 "../../../../Common/Driver/SpeedCalc/SpeedCalc.c"
-static unsigned char NotifyFlag = (unsigned char)0;
-static unsigned char LapCounter = (unsigned char)0;
+volatile unsigned char NotifyFlag = (unsigned char)0;
+volatile unsigned char LapCounter = (unsigned char)0;
 static unsigned short CircumFactor = (unsigned char)200;
 static unsigned long DistTravelCntr = (unsigned long)0;
 static unsigned short LapDistanceCounter = (unsigned short)0;
 static unsigned short LapTimeTenthMilli = (unsigned short)0;
 static unsigned char TimerOVFLcount = (unsigned char)0;
+volatile unsigned short HWtimerCount = (unsigned short)0;
+volatile unsigned char HwTimerOVFLcount = (unsigned char)0;
 
  void SpeedCalcNotifyInitialize(void)
 {
@@ -3864,11 +3866,9 @@ if( (unsigned char)0 == NotifyFlag )
 {
 NotifyFlag = (unsigned char)1;
 LapCounter++;
-LapTimeTenthMilli = ReloadHWtimer((unsigned char)1);
-LapTimeTenthMilli /= 100;
-LapTimeTenthMilli +=
-((unsigned short)TimerOVFLcount * (unsigned short)655);
-TimerOVFLcount = (unsigned char)0;
+HWtimerCount = ReloadHWtimer((unsigned char)1);
+TimerOVFLcount = HwTimerOVFLcount;
+HwTimerOVFLcount = (unsigned char)0;
 }
 else
 {
@@ -3882,6 +3882,9 @@ LapCounter--;
  void SpeedCalcManage(void)
 {
 unsigned short HundredMeterReference;
+
+LapTimeTenthMilli = (HWtimerCount/(unsigned short)100) +
+((unsigned short)TimerOVFLcount * (unsigned short)655);
 
 LapDistanceCounter += LapCounter;
 
@@ -3942,9 +3945,9 @@ return AvgSpeedKphMph;
 
  void HWtimerCallback (void)
 {
-if(TimerOVFLcount < 64)
+if(HwTimerOVFLcount < 64)
 {
-TimerOVFLcount++;
+HwTimerOVFLcount++;
 }
 }
 
