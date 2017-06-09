@@ -3,38 +3,38 @@ BicMeter.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000548  00000000  00000000  00000094  2**1
+  0 .text         000005fe  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         0000000e  00800060  00000548  000005dc  2**0
+  1 .data         0000000e  00800060  000005fe  00000692  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000044  0080006e  0080006e  000005ea  2**0
+  2 .bss          00000021  0080006e  0080006e  000006a0  2**0
                   ALLOC
-  3 .stab         000006cc  00000000  00000000  000005ec  2**2
+  3 .stab         000006cc  00000000  00000000  000006a0  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      00000085  00000000  00000000  00000cb8  2**0
+  4 .stabstr      00000085  00000000  00000000  00000d6c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_aranges 000000c0  00000000  00000000  00000d40  2**3
+  5 .debug_aranges 000000c0  00000000  00000000  00000df8  2**3
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000052e  00000000  00000000  00000e00  2**0
+  6 .debug_info   0000052e  00000000  00000000  00000eb8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000078  00000000  00000000  0000132e  2**0
+  7 .debug_abbrev 00000078  00000000  00000000  000013e6  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   0000038e  00000000  00000000  000013a6  2**0
+  8 .debug_line   0000038e  00000000  00000000  0000145e  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
    0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
-   2:	e8 c1       	rjmp	.+976    	; 0x3d4 <__vector_1>
-   4:	0a c2       	rjmp	.+1044   	; 0x41a <__vector_2>
+   2:	43 c2       	rjmp	.+1158   	; 0x48a <__vector_1>
+   4:	65 c2       	rjmp	.+1226   	; 0x4d0 <__vector_2>
    6:	2a c0       	rjmp	.+84     	; 0x5c <__bad_interrupt>
    8:	29 c0       	rjmp	.+82     	; 0x5c <__bad_interrupt>
    a:	28 c0       	rjmp	.+80     	; 0x5c <__bad_interrupt>
    c:	27 c0       	rjmp	.+78     	; 0x5c <__bad_interrupt>
    e:	26 c0       	rjmp	.+76     	; 0x5c <__bad_interrupt>
-  10:	25 c0       	rjmp	.+74     	; 0x5c <__bad_interrupt>
-  12:	bb c1       	rjmp	.+886    	; 0x38a <__vector_9>
+  10:	15 c2       	rjmp	.+1066   	; 0x43c <__vector_8>
+  12:	ef c1       	rjmp	.+990    	; 0x3f2 <__vector_9>
   14:	23 c0       	rjmp	.+70     	; 0x5c <__bad_interrupt>
   16:	22 c0       	rjmp	.+68     	; 0x5c <__bad_interrupt>
   18:	21 c0       	rjmp	.+66     	; 0x5c <__bad_interrupt>
@@ -57,7 +57,7 @@ Disassembly of section .text:
   32:	10 e0       	ldi	r17, 0x00	; 0
   34:	a0 e6       	ldi	r26, 0x60	; 96
   36:	b0 e0       	ldi	r27, 0x00	; 0
-  38:	e8 e4       	ldi	r30, 0x48	; 72
+  38:	ee ef       	ldi	r30, 0xFE	; 254
   3a:	f5 e0       	ldi	r31, 0x05	; 5
   3c:	02 c0       	rjmp	.+4      	; 0x42 <__SREG__+0x3>
   3e:	05 90       	lpm	r0, Z+
@@ -76,11 +76,11 @@ Disassembly of section .text:
   50:	1d 92       	st	X+, r1
 
 00000052 <.do_clear_bss_start>:
-  52:	a2 3b       	cpi	r26, 0xB2	; 178
+  52:	af 38       	cpi	r26, 0x8F	; 143
   54:	b1 07       	cpc	r27, r17
   56:	e1 f7       	brne	.-8      	; 0x50 <.do_clear_bss_loop>
-  58:	09 d2       	rcall	.+1042   	; 0x46c <main>
-  5a:	74 c2       	rjmp	.+1256   	; 0x544 <_exit>
+  58:	64 d2       	rcall	.+1224   	; 0x522 <main>
+  5a:	cf c2       	rjmp	.+1438   	; 0x5fa <_exit>
 
 0000005c <__bad_interrupt>:
   5c:	d1 cf       	rjmp	.-94     	; 0x0 <__vectors>
@@ -89,650 +89,745 @@ Disassembly of section .text:
   5e:	08 95       	ret
 
 00000060 <APP_MANAGE>:
-  60:	88 ec       	ldi	r24, 0xC8	; 200
-  62:	e2 d0       	rcall	.+452    	; 0x228 <SetCircumfirunce>
-  64:	f0 d0       	rcall	.+480    	; 0x246 <GetAvgSpeed>
-  66:	05 96       	adiw	r24, 0x05	; 5
-  68:	6a e0       	ldi	r22, 0x0A	; 10
-  6a:	70 e0       	ldi	r23, 0x00	; 0
-  6c:	35 d2       	rcall	.+1130   	; 0x4d8 <__udivmodhi4>
-  6e:	cb 01       	movw	r24, r22
-  70:	60 e0       	ldi	r22, 0x00	; 0
-  72:	01 d0       	rcall	.+2      	; 0x76 <BCDsendNumber>
-  74:	08 95       	ret
+  60:	cf 93       	push	r28
+  62:	df 93       	push	r29
+  64:	80 ed       	ldi	r24, 0xD0	; 208
+  66:	97 e0       	ldi	r25, 0x07	; 7
+  68:	f2 d0       	rcall	.+484    	; 0x24e <SetCircumfirunce>
+  6a:	81 e0       	ldi	r24, 0x01	; 1
+  6c:	f5 d0       	rcall	.+490    	; 0x258 <GetAvgSpeed>
+  6e:	ec 01       	movw	r28, r24
+  70:	e5 d0       	rcall	.+458    	; 0x23c <GetDistance>
+  72:	ce 01       	movw	r24, r28
+  74:	61 e0       	ldi	r22, 0x01	; 1
+  76:	03 d0       	rcall	.+6      	; 0x7e <BCDsendNumber>
+  78:	df 91       	pop	r29
+  7a:	cf 91       	pop	r28
+  7c:	08 95       	ret
 
-00000076 <BCDsendNumber>:
-  76:	0f 93       	push	r16
-  78:	1f 93       	push	r17
-  7a:	cf 93       	push	r28
-  7c:	df 93       	push	r29
-  7e:	26 2f       	mov	r18, r22
-  80:	ce e6       	ldi	r28, 0x6E	; 110
-  82:	d0 e0       	ldi	r29, 0x00	; 0
-  84:	fc 01       	movw	r30, r24
-  86:	30 e0       	ldi	r19, 0x00	; 0
-  88:	0a e0       	ldi	r16, 0x0A	; 10
-  8a:	10 e0       	ldi	r17, 0x00	; 0
-  8c:	30 97       	sbiw	r30, 0x00	; 0
-  8e:	11 f4       	brne	.+4      	; 0x94 <BCDsendNumber+0x1e>
-  90:	23 17       	cp	r18, r19
-  92:	b8 f0       	brcs	.+46     	; 0xc2 <BCDsendNumber+0x4c>
-  94:	cf 01       	movw	r24, r30
-  96:	b8 01       	movw	r22, r16
-  98:	1f d2       	rcall	.+1086   	; 0x4d8 <__udivmodhi4>
-  9a:	cb 01       	movw	r24, r22
-  9c:	ab 01       	movw	r20, r22
-  9e:	44 0f       	add	r20, r20
-  a0:	55 1f       	adc	r21, r21
-  a2:	b3 e0       	ldi	r27, 0x03	; 3
-  a4:	88 0f       	add	r24, r24
-  a6:	99 1f       	adc	r25, r25
-  a8:	ba 95       	dec	r27
-  aa:	e1 f7       	brne	.-8      	; 0xa4 <BCDsendNumber+0x2e>
-  ac:	48 0f       	add	r20, r24
-  ae:	59 1f       	adc	r21, r25
-  b0:	e4 1b       	sub	r30, r20
-  b2:	f5 0b       	sbc	r31, r21
-  b4:	e0 5a       	subi	r30, 0xA0	; 160
-  b6:	ff 4f       	sbci	r31, 0xFF	; 255
-  b8:	80 81       	ld	r24, Z
-  ba:	88 83       	st	Y, r24
-  bc:	19 82       	std	Y+1, r1	; 0x01
-  be:	fb 01       	movw	r30, r22
-  c0:	02 c0       	rjmp	.+4      	; 0xc6 <BCDsendNumber+0x50>
-  c2:	19 82       	std	Y+1, r1	; 0x01
-  c4:	18 82       	st	Y, r1
-  c6:	3f 5f       	subi	r19, 0xFF	; 255
-  c8:	22 96       	adiw	r28, 0x02	; 2
-  ca:	34 30       	cpi	r19, 0x04	; 4
-  cc:	f9 f6       	brne	.-66     	; 0x8c <BCDsendNumber+0x16>
-  ce:	22 23       	and	r18, r18
-  d0:	59 f0       	breq	.+22     	; 0xe8 <BCDsendNumber+0x72>
-  d2:	e2 2f       	mov	r30, r18
-  d4:	f0 e0       	ldi	r31, 0x00	; 0
-  d6:	ee 0f       	add	r30, r30
-  d8:	ff 1f       	adc	r31, r31
-  da:	e2 59       	subi	r30, 0x92	; 146
-  dc:	ff 4f       	sbci	r31, 0xFF	; 255
-  de:	80 81       	ld	r24, Z
-  e0:	91 81       	ldd	r25, Z+1	; 0x01
-  e2:	81 60       	ori	r24, 0x01	; 1
-  e4:	91 83       	std	Z+1, r25	; 0x01
-  e6:	80 83       	st	Z, r24
-  e8:	df 91       	pop	r29
-  ea:	cf 91       	pop	r28
-  ec:	1f 91       	pop	r17
-  ee:	0f 91       	pop	r16
-  f0:	08 95       	ret
+0000007e <BCDsendNumber>:
+  7e:	0f 93       	push	r16
+  80:	1f 93       	push	r17
+  82:	cf 93       	push	r28
+  84:	df 93       	push	r29
+  86:	26 2f       	mov	r18, r22
+  88:	ce e6       	ldi	r28, 0x6E	; 110
+  8a:	d0 e0       	ldi	r29, 0x00	; 0
+  8c:	fc 01       	movw	r30, r24
+  8e:	30 e0       	ldi	r19, 0x00	; 0
+  90:	0a e0       	ldi	r16, 0x0A	; 10
+  92:	10 e0       	ldi	r17, 0x00	; 0
+  94:	30 97       	sbiw	r30, 0x00	; 0
+  96:	11 f4       	brne	.+4      	; 0x9c <BCDsendNumber+0x1e>
+  98:	23 17       	cp	r18, r19
+  9a:	b8 f0       	brcs	.+46     	; 0xca <BCDsendNumber+0x4c>
+  9c:	cf 01       	movw	r24, r30
+  9e:	b8 01       	movw	r22, r16
+  a0:	76 d2       	rcall	.+1260   	; 0x58e <__udivmodhi4>
+  a2:	cb 01       	movw	r24, r22
+  a4:	ab 01       	movw	r20, r22
+  a6:	44 0f       	add	r20, r20
+  a8:	55 1f       	adc	r21, r21
+  aa:	b3 e0       	ldi	r27, 0x03	; 3
+  ac:	88 0f       	add	r24, r24
+  ae:	99 1f       	adc	r25, r25
+  b0:	ba 95       	dec	r27
+  b2:	e1 f7       	brne	.-8      	; 0xac <BCDsendNumber+0x2e>
+  b4:	48 0f       	add	r20, r24
+  b6:	59 1f       	adc	r21, r25
+  b8:	e4 1b       	sub	r30, r20
+  ba:	f5 0b       	sbc	r31, r21
+  bc:	e0 5a       	subi	r30, 0xA0	; 160
+  be:	ff 4f       	sbci	r31, 0xFF	; 255
+  c0:	80 81       	ld	r24, Z
+  c2:	88 83       	st	Y, r24
+  c4:	19 82       	std	Y+1, r1	; 0x01
+  c6:	fb 01       	movw	r30, r22
+  c8:	02 c0       	rjmp	.+4      	; 0xce <BCDsendNumber+0x50>
+  ca:	19 82       	std	Y+1, r1	; 0x01
+  cc:	18 82       	st	Y, r1
+  ce:	3f 5f       	subi	r19, 0xFF	; 255
+  d0:	22 96       	adiw	r28, 0x02	; 2
+  d2:	34 30       	cpi	r19, 0x04	; 4
+  d4:	f9 f6       	brne	.-66     	; 0x94 <BCDsendNumber+0x16>
+  d6:	22 23       	and	r18, r18
+  d8:	59 f0       	breq	.+22     	; 0xf0 <BCDsendNumber+0x72>
+  da:	e2 2f       	mov	r30, r18
+  dc:	f0 e0       	ldi	r31, 0x00	; 0
+  de:	ee 0f       	add	r30, r30
+  e0:	ff 1f       	adc	r31, r31
+  e2:	e2 59       	subi	r30, 0x92	; 146
+  e4:	ff 4f       	sbci	r31, 0xFF	; 255
+  e6:	80 81       	ld	r24, Z
+  e8:	91 81       	ldd	r25, Z+1	; 0x01
+  ea:	81 60       	ori	r24, 0x01	; 1
+  ec:	91 83       	std	Z+1, r25	; 0x01
+  ee:	80 83       	st	Z, r24
+  f0:	df 91       	pop	r29
+  f2:	cf 91       	pop	r28
+  f4:	1f 91       	pop	r17
+  f6:	0f 91       	pop	r16
+  f8:	08 95       	ret
 
-000000f2 <BCDManage7segment>:
-  f2:	68 e0       	ldi	r22, 0x08	; 8
-  f4:	70 e0       	ldi	r23, 0x00	; 0
-  f6:	00 90 76 00 	lds	r0, 0x0076
-  fa:	02 c0       	rjmp	.+4      	; 0x100 <BCDManage7segment+0xe>
-  fc:	75 95       	asr	r23
-  fe:	67 95       	ror	r22
- 100:	0a 94       	dec	r0
- 102:	e2 f7       	brpl	.-8      	; 0xfc <BCDManage7segment+0xa>
- 104:	60 95       	com	r22
- 106:	80 e0       	ldi	r24, 0x00	; 0
- 108:	02 d1       	rcall	.+516    	; 0x30e <HWI_4Digit_WRITE>
- 10a:	e0 91 76 00 	lds	r30, 0x0076
- 10e:	f0 e0       	ldi	r31, 0x00	; 0
- 110:	ee 0f       	add	r30, r30
- 112:	ff 1f       	adc	r31, r31
- 114:	e2 59       	subi	r30, 0x92	; 146
- 116:	ff 4f       	sbci	r31, 0xFF	; 255
- 118:	81 e0       	ldi	r24, 0x01	; 1
- 11a:	60 81       	ld	r22, Z
- 11c:	11 d1       	rcall	.+546    	; 0x340 <HWI_8Digit_WRITE>
- 11e:	80 91 76 00 	lds	r24, 0x0076
- 122:	8f 5f       	subi	r24, 0xFF	; 255
- 124:	80 93 76 00 	sts	0x0076, r24
- 128:	84 30       	cpi	r24, 0x04	; 4
- 12a:	11 f4       	brne	.+4      	; 0x130 <BCDManage7segment+0x3e>
- 12c:	10 92 76 00 	sts	0x0076, r1
- 130:	08 95       	ret
+000000fa <BCDManage7segment>:
+  fa:	68 e0       	ldi	r22, 0x08	; 8
+  fc:	70 e0       	ldi	r23, 0x00	; 0
+  fe:	00 90 76 00 	lds	r0, 0x0076
+ 102:	02 c0       	rjmp	.+4      	; 0x108 <BCDManage7segment+0xe>
+ 104:	75 95       	asr	r23
+ 106:	67 95       	ror	r22
+ 108:	0a 94       	dec	r0
+ 10a:	e2 f7       	brpl	.-8      	; 0x104 <BCDManage7segment+0xa>
+ 10c:	60 95       	com	r22
+ 10e:	80 e0       	ldi	r24, 0x00	; 0
+ 110:	18 d1       	rcall	.+560    	; 0x342 <HWI_4Digit_WRITE>
+ 112:	e0 91 76 00 	lds	r30, 0x0076
+ 116:	f0 e0       	ldi	r31, 0x00	; 0
+ 118:	ee 0f       	add	r30, r30
+ 11a:	ff 1f       	adc	r31, r31
+ 11c:	e2 59       	subi	r30, 0x92	; 146
+ 11e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 120:	81 e0       	ldi	r24, 0x01	; 1
+ 122:	60 81       	ld	r22, Z
+ 124:	27 d1       	rcall	.+590    	; 0x374 <HWI_8Digit_WRITE>
+ 126:	80 91 76 00 	lds	r24, 0x0076
+ 12a:	8f 5f       	subi	r24, 0xFF	; 255
+ 12c:	80 93 76 00 	sts	0x0076, r24
+ 130:	84 30       	cpi	r24, 0x04	; 4
+ 132:	11 f4       	brne	.+4      	; 0x138 <BCDManage7segment+0x3e>
+ 134:	10 92 76 00 	sts	0x0076, r1
+ 138:	08 95       	ret
 
-00000132 <SpeedCalcNotifyInitialize>:
- 132:	84 e2       	ldi	r24, 0x24	; 36
- 134:	e7 e7       	ldi	r30, 0x77	; 119
- 136:	f0 e0       	ldi	r31, 0x00	; 0
- 138:	df 01       	movw	r26, r30
- 13a:	1d 92       	st	X+, r1
- 13c:	8a 95       	dec	r24
- 13e:	e9 f7       	brne	.-6      	; 0x13a <SpeedCalcNotifyInitialize+0x8>
- 140:	08 95       	ret
+0000013a <SpeedCalcNotifyInitialize>:
+ 13a:	08 95       	ret
 
-00000142 <SensorOneNotify>:
- 142:	80 91 9b 00 	lds	r24, 0x009B
- 146:	81 30       	cpi	r24, 0x01	; 1
- 148:	19 f4       	brne	.+6      	; 0x150 <SensorOneNotify+0xe>
- 14a:	10 92 9b 00 	sts	0x009B, r1
- 14e:	08 95       	ret
- 150:	80 91 9c 00 	lds	r24, 0x009C
- 154:	88 23       	and	r24, r24
- 156:	19 f0       	breq	.+6      	; 0x15e <SensorOneNotify+0x1c>
- 158:	81 50       	subi	r24, 0x01	; 1
- 15a:	80 93 9c 00 	sts	0x009C, r24
- 15e:	08 95       	ret
+0000013c <SensorOneNotify>:
+ 13c:	80 91 77 00 	lds	r24, 0x0077
+ 140:	81 30       	cpi	r24, 0x01	; 1
+ 142:	19 f4       	brne	.+6      	; 0x14a <SensorOneNotify+0xe>
+ 144:	10 92 77 00 	sts	0x0077, r1
+ 148:	08 95       	ret
+ 14a:	80 91 78 00 	lds	r24, 0x0078
+ 14e:	88 23       	and	r24, r24
+ 150:	19 f0       	breq	.+6      	; 0x158 <SensorOneNotify+0x1c>
+ 152:	81 50       	subi	r24, 0x01	; 1
+ 154:	80 93 78 00 	sts	0x0078, r24
+ 158:	08 95       	ret
 
-00000160 <SensorTwoNotify>:
- 160:	90 91 9b 00 	lds	r25, 0x009B
- 164:	80 91 9c 00 	lds	r24, 0x009C
- 168:	99 23       	and	r25, r25
- 16a:	39 f4       	brne	.+14     	; 0x17a <SensorTwoNotify+0x1a>
- 16c:	91 e0       	ldi	r25, 0x01	; 1
- 16e:	90 93 9b 00 	sts	0x009B, r25
- 172:	8f 5f       	subi	r24, 0xFF	; 255
- 174:	80 93 9c 00 	sts	0x009C, r24
- 178:	08 95       	ret
- 17a:	88 23       	and	r24, r24
- 17c:	19 f0       	breq	.+6      	; 0x184 <SensorTwoNotify+0x24>
- 17e:	81 50       	subi	r24, 0x01	; 1
- 180:	80 93 9c 00 	sts	0x009C, r24
- 184:	08 95       	ret
+0000015a <SensorTwoNotify>:
+ 15a:	90 91 77 00 	lds	r25, 0x0077
+ 15e:	80 91 78 00 	lds	r24, 0x0078
+ 162:	99 23       	and	r25, r25
+ 164:	01 f5       	brne	.+64     	; 0x1a6 <SensorTwoNotify+0x4c>
+ 166:	91 e0       	ldi	r25, 0x01	; 1
+ 168:	90 93 77 00 	sts	0x0077, r25
+ 16c:	8f 5f       	subi	r24, 0xFF	; 255
+ 16e:	80 93 78 00 	sts	0x0078, r24
+ 172:	81 e0       	ldi	r24, 0x01	; 1
+ 174:	2e d1       	rcall	.+604    	; 0x3d2 <ReloadHWtimer>
+ 176:	64 e6       	ldi	r22, 0x64	; 100
+ 178:	70 e0       	ldi	r23, 0x00	; 0
+ 17a:	09 d2       	rcall	.+1042   	; 0x58e <__udivmodhi4>
+ 17c:	20 91 7b 00 	lds	r18, 0x007B
+ 180:	30 e0       	ldi	r19, 0x00	; 0
+ 182:	8f e8       	ldi	r24, 0x8F	; 143
+ 184:	92 e0       	ldi	r25, 0x02	; 2
+ 186:	28 9f       	mul	r18, r24
+ 188:	a0 01       	movw	r20, r0
+ 18a:	29 9f       	mul	r18, r25
+ 18c:	50 0d       	add	r21, r0
+ 18e:	38 9f       	mul	r19, r24
+ 190:	50 0d       	add	r21, r0
+ 192:	11 24       	eor	r1, r1
+ 194:	64 0f       	add	r22, r20
+ 196:	75 1f       	adc	r23, r21
+ 198:	70 93 7a 00 	sts	0x007A, r23
+ 19c:	60 93 79 00 	sts	0x0079, r22
+ 1a0:	10 92 7b 00 	sts	0x007B, r1
+ 1a4:	08 95       	ret
+ 1a6:	88 23       	and	r24, r24
+ 1a8:	19 f0       	breq	.+6      	; 0x1b0 <SensorTwoNotify+0x56>
+ 1aa:	81 50       	subi	r24, 0x01	; 1
+ 1ac:	80 93 78 00 	sts	0x0078, r24
+ 1b0:	08 95       	ret
 
-00000186 <SpeedCalcManage>:
- 186:	80 91 9d 00 	lds	r24, 0x009D
- 18a:	8f 5f       	subi	r24, 0xFF	; 255
- 18c:	80 93 9d 00 	sts	0x009D, r24
- 190:	8a 30       	cpi	r24, 0x0A	; 10
- 192:	a9 f5       	brne	.+106    	; 0x1fe <SpeedCalcManage+0x78>
- 194:	10 92 9d 00 	sts	0x009D, r1
- 198:	30 91 9c 00 	lds	r19, 0x009C
- 19c:	20 91 a0 00 	lds	r18, 0x00A0
- 1a0:	e2 2f       	mov	r30, r18
- 1a2:	f0 e0       	ldi	r31, 0x00	; 0
- 1a4:	80 91 9e 00 	lds	r24, 0x009E
- 1a8:	90 91 9f 00 	lds	r25, 0x009F
- 1ac:	83 0f       	add	r24, r19
- 1ae:	91 1d       	adc	r25, r1
- 1b0:	e9 58       	subi	r30, 0x89	; 137
- 1b2:	ff 4f       	sbci	r31, 0xFF	; 255
- 1b4:	40 81       	ld	r20, Z
- 1b6:	84 1b       	sub	r24, r20
- 1b8:	91 09       	sbc	r25, r1
- 1ba:	90 93 9f 00 	sts	0x009F, r25
- 1be:	80 93 9e 00 	sts	0x009E, r24
- 1c2:	30 83       	st	Z, r19
- 1c4:	10 92 9c 00 	sts	0x009C, r1
- 1c8:	80 91 a1 00 	lds	r24, 0x00A1
- 1cc:	90 91 a2 00 	lds	r25, 0x00A2
- 1d0:	a0 91 a3 00 	lds	r26, 0x00A3
- 1d4:	b0 91 a4 00 	lds	r27, 0x00A4
- 1d8:	01 96       	adiw	r24, 0x01	; 1
- 1da:	a1 1d       	adc	r26, r1
- 1dc:	b1 1d       	adc	r27, r1
- 1de:	80 93 a1 00 	sts	0x00A1, r24
- 1e2:	90 93 a2 00 	sts	0x00A2, r25
- 1e6:	a0 93 a3 00 	sts	0x00A3, r26
- 1ea:	b0 93 a4 00 	sts	0x00A4, r27
- 1ee:	82 2f       	mov	r24, r18
- 1f0:	8f 5f       	subi	r24, 0xFF	; 255
- 1f2:	80 93 a0 00 	sts	0x00A0, r24
- 1f6:	84 32       	cpi	r24, 0x24	; 36
- 1f8:	11 f4       	brne	.+4      	; 0x1fe <SpeedCalcManage+0x78>
- 1fa:	10 92 a0 00 	sts	0x00A0, r1
- 1fe:	08 95       	ret
+000001b2 <SpeedCalcManage>:
+ 1b2:	cf 93       	push	r28
+ 1b4:	df 93       	push	r29
+ 1b6:	80 91 78 00 	lds	r24, 0x0078
+ 1ba:	c0 91 7c 00 	lds	r28, 0x007C
+ 1be:	d0 91 7d 00 	lds	r29, 0x007D
+ 1c2:	c8 0f       	add	r28, r24
+ 1c4:	d1 1d       	adc	r29, r1
+ 1c6:	d0 93 7d 00 	sts	0x007D, r29
+ 1ca:	c0 93 7c 00 	sts	0x007C, r28
+ 1ce:	10 92 78 00 	sts	0x0078, r1
+ 1d2:	20 91 6b 00 	lds	r18, 0x006B
+ 1d6:	30 91 6c 00 	lds	r19, 0x006C
+ 1da:	40 e0       	ldi	r20, 0x00	; 0
+ 1dc:	50 e0       	ldi	r21, 0x00	; 0
+ 1de:	60 ea       	ldi	r22, 0xA0	; 160
+ 1e0:	76 e8       	ldi	r23, 0x86	; 134
+ 1e2:	81 e0       	ldi	r24, 0x01	; 1
+ 1e4:	90 e0       	ldi	r25, 0x00	; 0
+ 1e6:	e7 d1       	rcall	.+974    	; 0x5b6 <__udivmodsi4>
+ 1e8:	c2 17       	cp	r28, r18
+ 1ea:	d3 07       	cpc	r29, r19
+ 1ec:	c8 f0       	brcs	.+50     	; 0x220 <SpeedCalcManage+0x6e>
+ 1ee:	80 91 7e 00 	lds	r24, 0x007E
+ 1f2:	90 91 7f 00 	lds	r25, 0x007F
+ 1f6:	a0 91 80 00 	lds	r26, 0x0080
+ 1fa:	b0 91 81 00 	lds	r27, 0x0081
+ 1fe:	01 96       	adiw	r24, 0x01	; 1
+ 200:	a1 1d       	adc	r26, r1
+ 202:	b1 1d       	adc	r27, r1
+ 204:	80 93 7e 00 	sts	0x007E, r24
+ 208:	90 93 7f 00 	sts	0x007F, r25
+ 20c:	a0 93 80 00 	sts	0x0080, r26
+ 210:	b0 93 81 00 	sts	0x0081, r27
+ 214:	c2 1b       	sub	r28, r18
+ 216:	d3 0b       	sbc	r29, r19
+ 218:	d0 93 7d 00 	sts	0x007D, r29
+ 21c:	c0 93 7c 00 	sts	0x007C, r28
+ 220:	df 91       	pop	r29
+ 222:	cf 91       	pop	r28
+ 224:	08 95       	ret
 
-00000200 <SetDistance>:
- 200:	dc 01       	movw	r26, r24
- 202:	cb 01       	movw	r24, r22
- 204:	80 93 a1 00 	sts	0x00A1, r24
- 208:	90 93 a2 00 	sts	0x00A2, r25
- 20c:	a0 93 a3 00 	sts	0x00A3, r26
- 210:	b0 93 a4 00 	sts	0x00A4, r27
- 214:	08 95       	ret
+00000226 <SetDistance>:
+ 226:	dc 01       	movw	r26, r24
+ 228:	cb 01       	movw	r24, r22
+ 22a:	80 93 7e 00 	sts	0x007E, r24
+ 22e:	90 93 7f 00 	sts	0x007F, r25
+ 232:	a0 93 80 00 	sts	0x0080, r26
+ 236:	b0 93 81 00 	sts	0x0081, r27
+ 23a:	08 95       	ret
 
-00000216 <GetDistance>:
- 216:	60 91 a1 00 	lds	r22, 0x00A1
- 21a:	70 91 a2 00 	lds	r23, 0x00A2
- 21e:	80 91 a3 00 	lds	r24, 0x00A3
- 222:	90 91 a4 00 	lds	r25, 0x00A4
- 226:	08 95       	ret
+0000023c <GetDistance>:
+ 23c:	60 91 7e 00 	lds	r22, 0x007E
+ 240:	70 91 7f 00 	lds	r23, 0x007F
+ 244:	80 91 80 00 	lds	r24, 0x0080
+ 248:	90 91 81 00 	lds	r25, 0x0081
+ 24c:	08 95       	ret
 
-00000228 <SetCircumfirunce>:
- 228:	68 2f       	mov	r22, r24
- 22a:	70 e0       	ldi	r23, 0x00	; 0
- 22c:	80 e0       	ldi	r24, 0x00	; 0
- 22e:	90 e0       	ldi	r25, 0x00	; 0
- 230:	24 e2       	ldi	r18, 0x24	; 36
- 232:	30 e0       	ldi	r19, 0x00	; 0
- 234:	40 e0       	ldi	r20, 0x00	; 0
- 236:	50 e0       	ldi	r21, 0x00	; 0
- 238:	30 d1       	rcall	.+608    	; 0x49a <__mulsi3>
- 23a:	62 d1       	rcall	.+708    	; 0x500 <__udivmodsi4>
- 23c:	30 93 6c 00 	sts	0x006C, r19
- 240:	20 93 6b 00 	sts	0x006B, r18
- 244:	08 95       	ret
+0000024e <SetCircumfirunce>:
+ 24e:	90 93 6c 00 	sts	0x006C, r25
+ 252:	80 93 6b 00 	sts	0x006B, r24
+ 256:	08 95       	ret
 
-00000246 <GetAvgSpeed>:
- 246:	60 91 9e 00 	lds	r22, 0x009E
- 24a:	70 91 9f 00 	lds	r23, 0x009F
- 24e:	80 e0       	ldi	r24, 0x00	; 0
- 250:	90 e0       	ldi	r25, 0x00	; 0
- 252:	20 91 6b 00 	lds	r18, 0x006B
- 256:	30 91 6c 00 	lds	r19, 0x006C
- 25a:	40 e0       	ldi	r20, 0x00	; 0
- 25c:	50 e0       	ldi	r21, 0x00	; 0
- 25e:	1d d1       	rcall	.+570    	; 0x49a <__mulsi3>
- 260:	24 e1       	ldi	r18, 0x14	; 20
- 262:	30 e0       	ldi	r19, 0x00	; 0
- 264:	40 e0       	ldi	r20, 0x00	; 0
- 266:	50 e0       	ldi	r21, 0x00	; 0
- 268:	4b d1       	rcall	.+662    	; 0x500 <__udivmodsi4>
- 26a:	c9 01       	movw	r24, r18
- 26c:	08 95       	ret
+00000258 <GetAvgSpeed>:
+ 258:	81 30       	cpi	r24, 0x01	; 1
+ 25a:	29 f4       	brne	.+10     	; 0x266 <GetAvgSpeed+0xe>
+ 25c:	68 e6       	ldi	r22, 0x68	; 104
+ 25e:	71 e0       	ldi	r23, 0x01	; 1
+ 260:	80 e0       	ldi	r24, 0x00	; 0
+ 262:	90 e0       	ldi	r25, 0x00	; 0
+ 264:	04 c0       	rjmp	.+8      	; 0x26e <GetAvgSpeed+0x16>
+ 266:	61 ee       	ldi	r22, 0xE1	; 225
+ 268:	70 e0       	ldi	r23, 0x00	; 0
+ 26a:	80 e0       	ldi	r24, 0x00	; 0
+ 26c:	90 e0       	ldi	r25, 0x00	; 0
+ 26e:	20 91 6b 00 	lds	r18, 0x006B
+ 272:	30 91 6c 00 	lds	r19, 0x006C
+ 276:	40 e0       	ldi	r20, 0x00	; 0
+ 278:	50 e0       	ldi	r21, 0x00	; 0
+ 27a:	6a d1       	rcall	.+724    	; 0x550 <__mulsi3>
+ 27c:	20 91 79 00 	lds	r18, 0x0079
+ 280:	30 91 7a 00 	lds	r19, 0x007A
+ 284:	40 e0       	ldi	r20, 0x00	; 0
+ 286:	50 e0       	ldi	r21, 0x00	; 0
+ 288:	96 d1       	rcall	.+812    	; 0x5b6 <__udivmodsi4>
+ 28a:	c9 01       	movw	r24, r18
+ 28c:	08 95       	ret
 
-0000026e <APP_ISR1>:
- 26e:	69 df       	rcall	.-302    	; 0x142 <SensorOneNotify>
- 270:	08 95       	ret
+0000028e <HWtimerCallback>:
+ 28e:	80 91 7b 00 	lds	r24, 0x007B
+ 292:	80 34       	cpi	r24, 0x40	; 64
+ 294:	18 f4       	brcc	.+6      	; 0x29c <HWtimerCallback+0xe>
+ 296:	8f 5f       	subi	r24, 0xFF	; 255
+ 298:	80 93 7b 00 	sts	0x007B, r24
+ 29c:	08 95       	ret
 
-00000272 <APP_ISR2>:
- 272:	76 df       	rcall	.-276    	; 0x160 <SensorTwoNotify>
- 274:	08 95       	ret
+0000029e <APP_ISR1>:
+ 29e:	4e df       	rcall	.-356    	; 0x13c <SensorOneNotify>
+ 2a0:	08 95       	ret
 
-00000276 <CreateTask>:
- 276:	63 30       	cpi	r22, 0x03	; 3
- 278:	60 f4       	brcc	.+24     	; 0x292 <CreateTask+0x1c>
- 27a:	e6 2f       	mov	r30, r22
- 27c:	f0 e0       	ldi	r31, 0x00	; 0
- 27e:	ee 0f       	add	r30, r30
- 280:	ff 1f       	adc	r31, r31
- 282:	ee 0f       	add	r30, r30
- 284:	ff 1f       	adc	r31, r31
- 286:	eb 55       	subi	r30, 0x5B	; 91
- 288:	ff 4f       	sbci	r31, 0xFF	; 255
- 28a:	91 83       	std	Z+1, r25	; 0x01
- 28c:	80 83       	st	Z, r24
- 28e:	42 83       	std	Z+2, r20	; 0x02
- 290:	13 82       	std	Z+3, r1	; 0x03
- 292:	08 95       	ret
+000002a2 <APP_ISR2>:
+ 2a2:	5b df       	rcall	.-330    	; 0x15a <SensorTwoNotify>
+ 2a4:	08 95       	ret
 
-00000294 <SchedulerTick>:
- 294:	80 91 a8 00 	lds	r24, 0x00A8
- 298:	8f 5f       	subi	r24, 0xFF	; 255
- 29a:	80 93 a8 00 	sts	0x00A8, r24
- 29e:	80 91 ac 00 	lds	r24, 0x00AC
- 2a2:	8f 5f       	subi	r24, 0xFF	; 255
- 2a4:	80 93 ac 00 	sts	0x00AC, r24
- 2a8:	80 91 b0 00 	lds	r24, 0x00B0
- 2ac:	8f 5f       	subi	r24, 0xFF	; 255
- 2ae:	80 93 b0 00 	sts	0x00B0, r24
- 2b2:	08 95       	ret
+000002a6 <APP_ISR3>:
+ 2a6:	f3 df       	rcall	.-26     	; 0x28e <HWtimerCallback>
+ 2a8:	08 95       	ret
 
-000002b4 <RunScheduler>:
- 2b4:	10 92 b1 00 	sts	0x00B1, r1
- 2b8:	1e c0       	rjmp	.+60     	; 0x2f6 <RunScheduler+0x42>
- 2ba:	f0 e0       	ldi	r31, 0x00	; 0
- 2bc:	ee 0f       	add	r30, r30
- 2be:	ff 1f       	adc	r31, r31
- 2c0:	ee 0f       	add	r30, r30
- 2c2:	ff 1f       	adc	r31, r31
- 2c4:	eb 55       	subi	r30, 0x5B	; 91
- 2c6:	ff 4f       	sbci	r31, 0xFF	; 255
- 2c8:	92 81       	ldd	r25, Z+2	; 0x02
- 2ca:	83 81       	ldd	r24, Z+3	; 0x03
- 2cc:	89 17       	cp	r24, r25
- 2ce:	70 f0       	brcs	.+28     	; 0x2ec <RunScheduler+0x38>
- 2d0:	01 90       	ld	r0, Z+
- 2d2:	f0 81       	ld	r31, Z
- 2d4:	e0 2d       	mov	r30, r0
- 2d6:	09 95       	icall
- 2d8:	e0 91 b1 00 	lds	r30, 0x00B1
- 2dc:	f0 e0       	ldi	r31, 0x00	; 0
- 2de:	ee 0f       	add	r30, r30
- 2e0:	ff 1f       	adc	r31, r31
- 2e2:	ee 0f       	add	r30, r30
- 2e4:	ff 1f       	adc	r31, r31
- 2e6:	eb 55       	subi	r30, 0x5B	; 91
- 2e8:	ff 4f       	sbci	r31, 0xFF	; 255
- 2ea:	13 82       	std	Z+3, r1	; 0x03
- 2ec:	80 91 b1 00 	lds	r24, 0x00B1
- 2f0:	8f 5f       	subi	r24, 0xFF	; 255
- 2f2:	80 93 b1 00 	sts	0x00B1, r24
- 2f6:	e0 91 b1 00 	lds	r30, 0x00B1
- 2fa:	e3 30       	cpi	r30, 0x03	; 3
- 2fc:	d8 f6       	brcc	.-74     	; 0x2b4 <RunScheduler>
- 2fe:	dd cf       	rjmp	.-70     	; 0x2ba <RunScheduler+0x6>
+000002aa <CreateTask>:
+ 2aa:	63 30       	cpi	r22, 0x03	; 3
+ 2ac:	60 f4       	brcc	.+24     	; 0x2c6 <CreateTask+0x1c>
+ 2ae:	e6 2f       	mov	r30, r22
+ 2b0:	f0 e0       	ldi	r31, 0x00	; 0
+ 2b2:	ee 0f       	add	r30, r30
+ 2b4:	ff 1f       	adc	r31, r31
+ 2b6:	ee 0f       	add	r30, r30
+ 2b8:	ff 1f       	adc	r31, r31
+ 2ba:	ee 57       	subi	r30, 0x7E	; 126
+ 2bc:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2be:	91 83       	std	Z+1, r25	; 0x01
+ 2c0:	80 83       	st	Z, r24
+ 2c2:	42 83       	std	Z+2, r20	; 0x02
+ 2c4:	13 82       	std	Z+3, r1	; 0x03
+ 2c6:	08 95       	ret
 
-00000300 <HWI_DIGITAL_INITIALIZE>:
- 300:	8f ef       	ldi	r24, 0xFF	; 255
- 302:	87 bb       	out	0x17, r24	; 23
- 304:	84 bb       	out	0x14, r24	; 20
- 306:	08 95       	ret
+000002c8 <SchedulerTick>:
+ 2c8:	80 91 85 00 	lds	r24, 0x0085
+ 2cc:	8f 5f       	subi	r24, 0xFF	; 255
+ 2ce:	80 93 85 00 	sts	0x0085, r24
+ 2d2:	80 91 89 00 	lds	r24, 0x0089
+ 2d6:	8f 5f       	subi	r24, 0xFF	; 255
+ 2d8:	80 93 89 00 	sts	0x0089, r24
+ 2dc:	80 91 8d 00 	lds	r24, 0x008D
+ 2e0:	8f 5f       	subi	r24, 0xFF	; 255
+ 2e2:	80 93 8d 00 	sts	0x008D, r24
+ 2e6:	08 95       	ret
 
-00000308 <HWI_DIGI_READ>:
- 308:	80 e0       	ldi	r24, 0x00	; 0
- 30a:	08 95       	ret
+000002e8 <RunScheduler>:
+ 2e8:	10 92 8e 00 	sts	0x008E, r1
+ 2ec:	1e c0       	rjmp	.+60     	; 0x32a <RunScheduler+0x42>
+ 2ee:	f0 e0       	ldi	r31, 0x00	; 0
+ 2f0:	ee 0f       	add	r30, r30
+ 2f2:	ff 1f       	adc	r31, r31
+ 2f4:	ee 0f       	add	r30, r30
+ 2f6:	ff 1f       	adc	r31, r31
+ 2f8:	ee 57       	subi	r30, 0x7E	; 126
+ 2fa:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2fc:	92 81       	ldd	r25, Z+2	; 0x02
+ 2fe:	83 81       	ldd	r24, Z+3	; 0x03
+ 300:	89 17       	cp	r24, r25
+ 302:	70 f0       	brcs	.+28     	; 0x320 <RunScheduler+0x38>
+ 304:	01 90       	ld	r0, Z+
+ 306:	f0 81       	ld	r31, Z
+ 308:	e0 2d       	mov	r30, r0
+ 30a:	09 95       	icall
+ 30c:	e0 91 8e 00 	lds	r30, 0x008E
+ 310:	f0 e0       	ldi	r31, 0x00	; 0
+ 312:	ee 0f       	add	r30, r30
+ 314:	ff 1f       	adc	r31, r31
+ 316:	ee 0f       	add	r30, r30
+ 318:	ff 1f       	adc	r31, r31
+ 31a:	ee 57       	subi	r30, 0x7E	; 126
+ 31c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 31e:	13 82       	std	Z+3, r1	; 0x03
+ 320:	80 91 8e 00 	lds	r24, 0x008E
+ 324:	8f 5f       	subi	r24, 0xFF	; 255
+ 326:	80 93 8e 00 	sts	0x008E, r24
+ 32a:	e0 91 8e 00 	lds	r30, 0x008E
+ 32e:	e3 30       	cpi	r30, 0x03	; 3
+ 330:	d8 f6       	brcc	.-74     	; 0x2e8 <RunScheduler>
+ 332:	dd cf       	rjmp	.-70     	; 0x2ee <RunScheduler+0x6>
 
-0000030c <HWI_DIGI_WRITE>:
- 30c:	08 95       	ret
+00000334 <HWI_DIGITAL_INITIALIZE>:
+ 334:	8f ef       	ldi	r24, 0xFF	; 255
+ 336:	87 bb       	out	0x17, r24	; 23
+ 338:	84 bb       	out	0x14, r24	; 20
+ 33a:	08 95       	ret
 
-0000030e <HWI_4Digit_WRITE>:
- 30e:	88 23       	and	r24, r24
- 310:	29 f4       	brne	.+10     	; 0x31c <HWI_4Digit_WRITE+0xe>
- 312:	85 b3       	in	r24, 0x15	; 21
- 314:	80 7f       	andi	r24, 0xF0	; 240
- 316:	86 2b       	or	r24, r22
- 318:	85 bb       	out	0x15, r24	; 21
- 31a:	08 95       	ret
- 31c:	88 b3       	in	r24, 0x18	; 24
- 31e:	80 7f       	andi	r24, 0xF0	; 240
- 320:	86 2b       	or	r24, r22
- 322:	88 bb       	out	0x18, r24	; 24
- 324:	08 95       	ret
-
-00000326 <HWI_4Digit_READ>:
- 326:	88 23       	and	r24, r24
- 328:	19 f0       	breq	.+6      	; 0x330 <HWI_4Digit_READ+0xa>
- 32a:	81 30       	cpi	r24, 0x01	; 1
- 32c:	31 f4       	brne	.+12     	; 0x33a <HWI_4Digit_READ+0x14>
- 32e:	02 c0       	rjmp	.+4      	; 0x334 <HWI_4Digit_READ+0xe>
- 330:	85 b3       	in	r24, 0x15	; 21
- 332:	01 c0       	rjmp	.+2      	; 0x336 <HWI_4Digit_READ+0x10>
- 334:	88 b3       	in	r24, 0x18	; 24
- 336:	8f 70       	andi	r24, 0x0F	; 15
- 338:	08 95       	ret
- 33a:	88 b3       	in	r24, 0x18	; 24
- 33c:	8f 70       	andi	r24, 0x0F	; 15
+0000033c <HWI_DIGI_READ>:
+ 33c:	80 e0       	ldi	r24, 0x00	; 0
  33e:	08 95       	ret
 
-00000340 <HWI_8Digit_WRITE>:
- 340:	88 23       	and	r24, r24
- 342:	11 f4       	brne	.+4      	; 0x348 <HWI_8Digit_WRITE+0x8>
- 344:	65 bb       	out	0x15, r22	; 21
- 346:	08 95       	ret
- 348:	68 bb       	out	0x18, r22	; 24
- 34a:	08 95       	ret
+00000340 <HWI_DIGI_WRITE>:
+ 340:	08 95       	ret
 
-0000034c <HWI8Digit_READ>:
- 34c:	88 23       	and	r24, r24
- 34e:	11 f0       	breq	.+4      	; 0x354 <HWI8Digit_READ+0x8>
+00000342 <HWI_4Digit_WRITE>:
+ 342:	88 23       	and	r24, r24
+ 344:	29 f4       	brne	.+10     	; 0x350 <HWI_4Digit_WRITE+0xe>
+ 346:	85 b3       	in	r24, 0x15	; 21
+ 348:	80 7f       	andi	r24, 0xF0	; 240
+ 34a:	86 2b       	or	r24, r22
+ 34c:	85 bb       	out	0x15, r24	; 21
+ 34e:	08 95       	ret
  350:	88 b3       	in	r24, 0x18	; 24
- 352:	08 95       	ret
- 354:	85 b3       	in	r24, 0x15	; 21
- 356:	08 95       	ret
+ 352:	80 7f       	andi	r24, 0xF0	; 240
+ 354:	86 2b       	or	r24, r22
+ 356:	88 bb       	out	0x18, r24	; 24
+ 358:	08 95       	ret
 
-00000358 <HWI_INTERRUPTS_INTITALIZE>:
- 358:	83 b7       	in	r24, 0x33	; 51
- 35a:	83 60       	ori	r24, 0x03	; 3
- 35c:	83 bf       	out	0x33, r24	; 51
- 35e:	82 ec       	ldi	r24, 0xC2	; 194
- 360:	82 bf       	out	0x32, r24	; 50
- 362:	89 b7       	in	r24, 0x39	; 57
- 364:	81 60       	ori	r24, 0x01	; 1
- 366:	89 bf       	out	0x39, r24	; 57
- 368:	8b b7       	in	r24, 0x3b	; 59
- 36a:	80 64       	ori	r24, 0x40	; 64
- 36c:	8b bf       	out	0x3b, r24	; 59
- 36e:	85 b7       	in	r24, 0x35	; 53
- 370:	83 60       	ori	r24, 0x03	; 3
- 372:	85 bf       	out	0x35, r24	; 53
- 374:	8b b7       	in	r24, 0x3b	; 59
- 376:	80 68       	ori	r24, 0x80	; 128
- 378:	8b bf       	out	0x3b, r24	; 59
- 37a:	85 b7       	in	r24, 0x35	; 53
- 37c:	8c 60       	ori	r24, 0x0C	; 12
- 37e:	85 bf       	out	0x35, r24	; 53
- 380:	81 b3       	in	r24, 0x11	; 17
- 382:	8c 60       	ori	r24, 0x0C	; 12
- 384:	81 bb       	out	0x11, r24	; 17
- 386:	78 94       	sei
- 388:	08 95       	ret
+0000035a <HWI_4Digit_READ>:
+ 35a:	88 23       	and	r24, r24
+ 35c:	19 f0       	breq	.+6      	; 0x364 <HWI_4Digit_READ+0xa>
+ 35e:	81 30       	cpi	r24, 0x01	; 1
+ 360:	31 f4       	brne	.+12     	; 0x36e <HWI_4Digit_READ+0x14>
+ 362:	02 c0       	rjmp	.+4      	; 0x368 <HWI_4Digit_READ+0xe>
+ 364:	85 b3       	in	r24, 0x15	; 21
+ 366:	01 c0       	rjmp	.+2      	; 0x36a <HWI_4Digit_READ+0x10>
+ 368:	88 b3       	in	r24, 0x18	; 24
+ 36a:	8f 70       	andi	r24, 0x0F	; 15
+ 36c:	08 95       	ret
+ 36e:	88 b3       	in	r24, 0x18	; 24
+ 370:	8f 70       	andi	r24, 0x0F	; 15
+ 372:	08 95       	ret
 
-0000038a <__vector_9>:
- 38a:	1f 92       	push	r1
- 38c:	0f 92       	push	r0
- 38e:	0f b6       	in	r0, 0x3f	; 63
- 390:	0f 92       	push	r0
- 392:	11 24       	eor	r1, r1
- 394:	2f 93       	push	r18
- 396:	3f 93       	push	r19
- 398:	4f 93       	push	r20
- 39a:	5f 93       	push	r21
- 39c:	6f 93       	push	r22
- 39e:	7f 93       	push	r23
- 3a0:	8f 93       	push	r24
- 3a2:	9f 93       	push	r25
- 3a4:	af 93       	push	r26
- 3a6:	bf 93       	push	r27
- 3a8:	ef 93       	push	r30
- 3aa:	ff 93       	push	r31
- 3ac:	82 ec       	ldi	r24, 0xC2	; 194
- 3ae:	82 bf       	out	0x32, r24	; 50
- 3b0:	71 df       	rcall	.-286    	; 0x294 <SchedulerTick>
- 3b2:	ff 91       	pop	r31
- 3b4:	ef 91       	pop	r30
- 3b6:	bf 91       	pop	r27
- 3b8:	af 91       	pop	r26
- 3ba:	9f 91       	pop	r25
- 3bc:	8f 91       	pop	r24
- 3be:	7f 91       	pop	r23
- 3c0:	6f 91       	pop	r22
- 3c2:	5f 91       	pop	r21
- 3c4:	4f 91       	pop	r20
- 3c6:	3f 91       	pop	r19
- 3c8:	2f 91       	pop	r18
- 3ca:	0f 90       	pop	r0
- 3cc:	0f be       	out	0x3f, r0	; 63
- 3ce:	0f 90       	pop	r0
- 3d0:	1f 90       	pop	r1
- 3d2:	18 95       	reti
+00000374 <HWI_8Digit_WRITE>:
+ 374:	88 23       	and	r24, r24
+ 376:	11 f4       	brne	.+4      	; 0x37c <HWI_8Digit_WRITE+0x8>
+ 378:	65 bb       	out	0x15, r22	; 21
+ 37a:	08 95       	ret
+ 37c:	68 bb       	out	0x18, r22	; 24
+ 37e:	08 95       	ret
 
-000003d4 <__vector_1>:
- 3d4:	1f 92       	push	r1
- 3d6:	0f 92       	push	r0
- 3d8:	0f b6       	in	r0, 0x3f	; 63
- 3da:	0f 92       	push	r0
- 3dc:	11 24       	eor	r1, r1
- 3de:	2f 93       	push	r18
- 3e0:	3f 93       	push	r19
- 3e2:	4f 93       	push	r20
- 3e4:	5f 93       	push	r21
- 3e6:	6f 93       	push	r22
- 3e8:	7f 93       	push	r23
- 3ea:	8f 93       	push	r24
- 3ec:	9f 93       	push	r25
- 3ee:	af 93       	push	r26
- 3f0:	bf 93       	push	r27
- 3f2:	ef 93       	push	r30
- 3f4:	ff 93       	push	r31
- 3f6:	3b df       	rcall	.-394    	; 0x26e <APP_ISR1>
- 3f8:	ff 91       	pop	r31
- 3fa:	ef 91       	pop	r30
- 3fc:	bf 91       	pop	r27
- 3fe:	af 91       	pop	r26
- 400:	9f 91       	pop	r25
- 402:	8f 91       	pop	r24
- 404:	7f 91       	pop	r23
- 406:	6f 91       	pop	r22
- 408:	5f 91       	pop	r21
- 40a:	4f 91       	pop	r20
- 40c:	3f 91       	pop	r19
- 40e:	2f 91       	pop	r18
- 410:	0f 90       	pop	r0
- 412:	0f be       	out	0x3f, r0	; 63
- 414:	0f 90       	pop	r0
- 416:	1f 90       	pop	r1
- 418:	18 95       	reti
+00000380 <HWI8Digit_READ>:
+ 380:	88 23       	and	r24, r24
+ 382:	11 f0       	breq	.+4      	; 0x388 <HWI8Digit_READ+0x8>
+ 384:	88 b3       	in	r24, 0x18	; 24
+ 386:	08 95       	ret
+ 388:	85 b3       	in	r24, 0x15	; 21
+ 38a:	08 95       	ret
 
-0000041a <__vector_2>:
- 41a:	1f 92       	push	r1
- 41c:	0f 92       	push	r0
- 41e:	0f b6       	in	r0, 0x3f	; 63
- 420:	0f 92       	push	r0
- 422:	11 24       	eor	r1, r1
- 424:	2f 93       	push	r18
- 426:	3f 93       	push	r19
- 428:	4f 93       	push	r20
- 42a:	5f 93       	push	r21
- 42c:	6f 93       	push	r22
- 42e:	7f 93       	push	r23
- 430:	8f 93       	push	r24
- 432:	9f 93       	push	r25
- 434:	af 93       	push	r26
- 436:	bf 93       	push	r27
- 438:	ef 93       	push	r30
- 43a:	ff 93       	push	r31
- 43c:	1a df       	rcall	.-460    	; 0x272 <APP_ISR2>
- 43e:	ff 91       	pop	r31
- 440:	ef 91       	pop	r30
- 442:	bf 91       	pop	r27
- 444:	af 91       	pop	r26
- 446:	9f 91       	pop	r25
- 448:	8f 91       	pop	r24
- 44a:	7f 91       	pop	r23
- 44c:	6f 91       	pop	r22
- 44e:	5f 91       	pop	r21
- 450:	4f 91       	pop	r20
- 452:	3f 91       	pop	r19
- 454:	2f 91       	pop	r18
- 456:	0f 90       	pop	r0
- 458:	0f be       	out	0x3f, r0	; 63
- 45a:	0f 90       	pop	r0
- 45c:	1f 90       	pop	r1
- 45e:	18 95       	reti
+0000038c <HWI_INTERRUPTS_INTITALIZE>:
+ 38c:	8e b5       	in	r24, 0x2e	; 46
+ 38e:	82 60       	ori	r24, 0x02	; 2
+ 390:	8e bd       	out	0x2e, r24	; 46
+ 392:	8f ef       	ldi	r24, 0xFF	; 255
+ 394:	9f e7       	ldi	r25, 0x7F	; 127
+ 396:	9d bd       	out	0x2d, r25	; 45
+ 398:	8c bd       	out	0x2c, r24	; 44
+ 39a:	83 b7       	in	r24, 0x33	; 51
+ 39c:	83 60       	ori	r24, 0x03	; 3
+ 39e:	83 bf       	out	0x33, r24	; 51
+ 3a0:	82 ec       	ldi	r24, 0xC2	; 194
+ 3a2:	82 bf       	out	0x32, r24	; 50
+ 3a4:	89 b7       	in	r24, 0x39	; 57
+ 3a6:	81 60       	ori	r24, 0x01	; 1
+ 3a8:	89 bf       	out	0x39, r24	; 57
+ 3aa:	89 b7       	in	r24, 0x39	; 57
+ 3ac:	84 60       	ori	r24, 0x04	; 4
+ 3ae:	89 bf       	out	0x39, r24	; 57
+ 3b0:	8b b7       	in	r24, 0x3b	; 59
+ 3b2:	80 64       	ori	r24, 0x40	; 64
+ 3b4:	8b bf       	out	0x3b, r24	; 59
+ 3b6:	85 b7       	in	r24, 0x35	; 53
+ 3b8:	83 60       	ori	r24, 0x03	; 3
+ 3ba:	85 bf       	out	0x35, r24	; 53
+ 3bc:	8b b7       	in	r24, 0x3b	; 59
+ 3be:	80 68       	ori	r24, 0x80	; 128
+ 3c0:	8b bf       	out	0x3b, r24	; 59
+ 3c2:	85 b7       	in	r24, 0x35	; 53
+ 3c4:	8c 60       	ori	r24, 0x0C	; 12
+ 3c6:	85 bf       	out	0x35, r24	; 53
+ 3c8:	81 b3       	in	r24, 0x11	; 17
+ 3ca:	8c 60       	ori	r24, 0x0C	; 12
+ 3cc:	81 bb       	out	0x11, r24	; 17
+ 3ce:	78 94       	sei
+ 3d0:	08 95       	ret
 
-00000460 <ManageSpeedCalc>:
- 460:	92 de       	rcall	.-732    	; 0x186 <SpeedCalcManage>
- 462:	08 95       	ret
+000003d2 <ReloadHWtimer>:
+ 3d2:	83 30       	cpi	r24, 0x03	; 3
+ 3d4:	58 f4       	brcc	.+22     	; 0x3ec <ReloadHWtimer+0x1a>
+ 3d6:	8c b5       	in	r24, 0x2c	; 44
+ 3d8:	9d b5       	in	r25, 0x2d	; 45
+ 3da:	8f 5f       	subi	r24, 0xFF	; 255
+ 3dc:	9f 47       	sbci	r25, 0x7F	; 127
+ 3de:	88 0f       	add	r24, r24
+ 3e0:	99 1f       	adc	r25, r25
+ 3e2:	2f ef       	ldi	r18, 0xFF	; 255
+ 3e4:	3f e7       	ldi	r19, 0x7F	; 127
+ 3e6:	3d bd       	out	0x2d, r19	; 45
+ 3e8:	2c bd       	out	0x2c, r18	; 44
+ 3ea:	08 95       	ret
+ 3ec:	80 e0       	ldi	r24, 0x00	; 0
+ 3ee:	90 e0       	ldi	r25, 0x00	; 0
+ 3f0:	08 95       	ret
 
-00000464 <ManageApplication>:
- 464:	fd dd       	rcall	.-1030   	; 0x60 <APP_MANAGE>
- 466:	08 95       	ret
+000003f2 <__vector_9>:
+ 3f2:	1f 92       	push	r1
+ 3f4:	0f 92       	push	r0
+ 3f6:	0f b6       	in	r0, 0x3f	; 63
+ 3f8:	0f 92       	push	r0
+ 3fa:	11 24       	eor	r1, r1
+ 3fc:	2f 93       	push	r18
+ 3fe:	3f 93       	push	r19
+ 400:	4f 93       	push	r20
+ 402:	5f 93       	push	r21
+ 404:	6f 93       	push	r22
+ 406:	7f 93       	push	r23
+ 408:	8f 93       	push	r24
+ 40a:	9f 93       	push	r25
+ 40c:	af 93       	push	r26
+ 40e:	bf 93       	push	r27
+ 410:	ef 93       	push	r30
+ 412:	ff 93       	push	r31
+ 414:	82 ec       	ldi	r24, 0xC2	; 194
+ 416:	82 bf       	out	0x32, r24	; 50
+ 418:	57 df       	rcall	.-338    	; 0x2c8 <SchedulerTick>
+ 41a:	ff 91       	pop	r31
+ 41c:	ef 91       	pop	r30
+ 41e:	bf 91       	pop	r27
+ 420:	af 91       	pop	r26
+ 422:	9f 91       	pop	r25
+ 424:	8f 91       	pop	r24
+ 426:	7f 91       	pop	r23
+ 428:	6f 91       	pop	r22
+ 42a:	5f 91       	pop	r21
+ 42c:	4f 91       	pop	r20
+ 42e:	3f 91       	pop	r19
+ 430:	2f 91       	pop	r18
+ 432:	0f 90       	pop	r0
+ 434:	0f be       	out	0x3f, r0	; 63
+ 436:	0f 90       	pop	r0
+ 438:	1f 90       	pop	r1
+ 43a:	18 95       	reti
 
-00000468 <DisplayAlphaNumeric>:
- 468:	44 de       	rcall	.-888    	; 0xf2 <BCDManage7segment>
- 46a:	08 95       	ret
+0000043c <__vector_8>:
+ 43c:	1f 92       	push	r1
+ 43e:	0f 92       	push	r0
+ 440:	0f b6       	in	r0, 0x3f	; 63
+ 442:	0f 92       	push	r0
+ 444:	11 24       	eor	r1, r1
+ 446:	2f 93       	push	r18
+ 448:	3f 93       	push	r19
+ 44a:	4f 93       	push	r20
+ 44c:	5f 93       	push	r21
+ 44e:	6f 93       	push	r22
+ 450:	7f 93       	push	r23
+ 452:	8f 93       	push	r24
+ 454:	9f 93       	push	r25
+ 456:	af 93       	push	r26
+ 458:	bf 93       	push	r27
+ 45a:	ef 93       	push	r30
+ 45c:	ff 93       	push	r31
+ 45e:	8f ef       	ldi	r24, 0xFF	; 255
+ 460:	9f e7       	ldi	r25, 0x7F	; 127
+ 462:	9d bd       	out	0x2d, r25	; 45
+ 464:	8c bd       	out	0x2c, r24	; 44
+ 466:	1f df       	rcall	.-450    	; 0x2a6 <APP_ISR3>
+ 468:	ff 91       	pop	r31
+ 46a:	ef 91       	pop	r30
+ 46c:	bf 91       	pop	r27
+ 46e:	af 91       	pop	r26
+ 470:	9f 91       	pop	r25
+ 472:	8f 91       	pop	r24
+ 474:	7f 91       	pop	r23
+ 476:	6f 91       	pop	r22
+ 478:	5f 91       	pop	r21
+ 47a:	4f 91       	pop	r20
+ 47c:	3f 91       	pop	r19
+ 47e:	2f 91       	pop	r18
+ 480:	0f 90       	pop	r0
+ 482:	0f be       	out	0x3f, r0	; 63
+ 484:	0f 90       	pop	r0
+ 486:	1f 90       	pop	r1
+ 488:	18 95       	reti
 
-0000046c <main>:
- 46c:	75 df       	rcall	.-278    	; 0x358 <HWI_INTERRUPTS_INTITALIZE>
- 46e:	48 df       	rcall	.-368    	; 0x300 <HWI_DIGITAL_INITIALIZE>
- 470:	60 de       	rcall	.-832    	; 0x132 <SpeedCalcNotifyInitialize>
- 472:	f5 dd       	rcall	.-1046   	; 0x5e <APP_INITIALIZE>
- 474:	80 e3       	ldi	r24, 0x30	; 48
- 476:	92 e0       	ldi	r25, 0x02	; 2
- 478:	60 e0       	ldi	r22, 0x00	; 0
- 47a:	44 e1       	ldi	r20, 0x14	; 20
- 47c:	fc de       	rcall	.-520    	; 0x276 <CreateTask>
- 47e:	82 e3       	ldi	r24, 0x32	; 50
- 480:	92 e0       	ldi	r25, 0x02	; 2
- 482:	62 e0       	ldi	r22, 0x02	; 2
- 484:	44 e6       	ldi	r20, 0x64	; 100
- 486:	f7 de       	rcall	.-530    	; 0x276 <CreateTask>
- 488:	84 e3       	ldi	r24, 0x34	; 52
- 48a:	92 e0       	ldi	r25, 0x02	; 2
- 48c:	61 e0       	ldi	r22, 0x01	; 1
- 48e:	42 e3       	ldi	r20, 0x32	; 50
- 490:	f2 de       	rcall	.-540    	; 0x276 <CreateTask>
- 492:	10 df       	rcall	.-480    	; 0x2b4 <RunScheduler>
- 494:	80 e0       	ldi	r24, 0x00	; 0
- 496:	90 e0       	ldi	r25, 0x00	; 0
- 498:	08 95       	ret
+0000048a <__vector_1>:
+ 48a:	1f 92       	push	r1
+ 48c:	0f 92       	push	r0
+ 48e:	0f b6       	in	r0, 0x3f	; 63
+ 490:	0f 92       	push	r0
+ 492:	11 24       	eor	r1, r1
+ 494:	2f 93       	push	r18
+ 496:	3f 93       	push	r19
+ 498:	4f 93       	push	r20
+ 49a:	5f 93       	push	r21
+ 49c:	6f 93       	push	r22
+ 49e:	7f 93       	push	r23
+ 4a0:	8f 93       	push	r24
+ 4a2:	9f 93       	push	r25
+ 4a4:	af 93       	push	r26
+ 4a6:	bf 93       	push	r27
+ 4a8:	ef 93       	push	r30
+ 4aa:	ff 93       	push	r31
+ 4ac:	f8 de       	rcall	.-528    	; 0x29e <APP_ISR1>
+ 4ae:	ff 91       	pop	r31
+ 4b0:	ef 91       	pop	r30
+ 4b2:	bf 91       	pop	r27
+ 4b4:	af 91       	pop	r26
+ 4b6:	9f 91       	pop	r25
+ 4b8:	8f 91       	pop	r24
+ 4ba:	7f 91       	pop	r23
+ 4bc:	6f 91       	pop	r22
+ 4be:	5f 91       	pop	r21
+ 4c0:	4f 91       	pop	r20
+ 4c2:	3f 91       	pop	r19
+ 4c4:	2f 91       	pop	r18
+ 4c6:	0f 90       	pop	r0
+ 4c8:	0f be       	out	0x3f, r0	; 63
+ 4ca:	0f 90       	pop	r0
+ 4cc:	1f 90       	pop	r1
+ 4ce:	18 95       	reti
 
-0000049a <__mulsi3>:
- 49a:	62 9f       	mul	r22, r18
- 49c:	d0 01       	movw	r26, r0
- 49e:	73 9f       	mul	r23, r19
- 4a0:	f0 01       	movw	r30, r0
- 4a2:	82 9f       	mul	r24, r18
- 4a4:	e0 0d       	add	r30, r0
- 4a6:	f1 1d       	adc	r31, r1
- 4a8:	64 9f       	mul	r22, r20
- 4aa:	e0 0d       	add	r30, r0
- 4ac:	f1 1d       	adc	r31, r1
- 4ae:	92 9f       	mul	r25, r18
- 4b0:	f0 0d       	add	r31, r0
- 4b2:	83 9f       	mul	r24, r19
- 4b4:	f0 0d       	add	r31, r0
- 4b6:	74 9f       	mul	r23, r20
- 4b8:	f0 0d       	add	r31, r0
- 4ba:	65 9f       	mul	r22, r21
- 4bc:	f0 0d       	add	r31, r0
- 4be:	99 27       	eor	r25, r25
- 4c0:	72 9f       	mul	r23, r18
- 4c2:	b0 0d       	add	r27, r0
- 4c4:	e1 1d       	adc	r30, r1
- 4c6:	f9 1f       	adc	r31, r25
- 4c8:	63 9f       	mul	r22, r19
- 4ca:	b0 0d       	add	r27, r0
- 4cc:	e1 1d       	adc	r30, r1
- 4ce:	f9 1f       	adc	r31, r25
- 4d0:	bd 01       	movw	r22, r26
- 4d2:	cf 01       	movw	r24, r30
- 4d4:	11 24       	eor	r1, r1
- 4d6:	08 95       	ret
+000004d0 <__vector_2>:
+ 4d0:	1f 92       	push	r1
+ 4d2:	0f 92       	push	r0
+ 4d4:	0f b6       	in	r0, 0x3f	; 63
+ 4d6:	0f 92       	push	r0
+ 4d8:	11 24       	eor	r1, r1
+ 4da:	2f 93       	push	r18
+ 4dc:	3f 93       	push	r19
+ 4de:	4f 93       	push	r20
+ 4e0:	5f 93       	push	r21
+ 4e2:	6f 93       	push	r22
+ 4e4:	7f 93       	push	r23
+ 4e6:	8f 93       	push	r24
+ 4e8:	9f 93       	push	r25
+ 4ea:	af 93       	push	r26
+ 4ec:	bf 93       	push	r27
+ 4ee:	ef 93       	push	r30
+ 4f0:	ff 93       	push	r31
+ 4f2:	d7 de       	rcall	.-594    	; 0x2a2 <APP_ISR2>
+ 4f4:	ff 91       	pop	r31
+ 4f6:	ef 91       	pop	r30
+ 4f8:	bf 91       	pop	r27
+ 4fa:	af 91       	pop	r26
+ 4fc:	9f 91       	pop	r25
+ 4fe:	8f 91       	pop	r24
+ 500:	7f 91       	pop	r23
+ 502:	6f 91       	pop	r22
+ 504:	5f 91       	pop	r21
+ 506:	4f 91       	pop	r20
+ 508:	3f 91       	pop	r19
+ 50a:	2f 91       	pop	r18
+ 50c:	0f 90       	pop	r0
+ 50e:	0f be       	out	0x3f, r0	; 63
+ 510:	0f 90       	pop	r0
+ 512:	1f 90       	pop	r1
+ 514:	18 95       	reti
 
-000004d8 <__udivmodhi4>:
- 4d8:	aa 1b       	sub	r26, r26
- 4da:	bb 1b       	sub	r27, r27
- 4dc:	51 e1       	ldi	r21, 0x11	; 17
- 4de:	07 c0       	rjmp	.+14     	; 0x4ee <__udivmodhi4_ep>
+00000516 <ManageSpeedCalc>:
+ 516:	4d de       	rcall	.-870    	; 0x1b2 <SpeedCalcManage>
+ 518:	08 95       	ret
 
-000004e0 <__udivmodhi4_loop>:
- 4e0:	aa 1f       	adc	r26, r26
- 4e2:	bb 1f       	adc	r27, r27
- 4e4:	a6 17       	cp	r26, r22
- 4e6:	b7 07       	cpc	r27, r23
- 4e8:	10 f0       	brcs	.+4      	; 0x4ee <__udivmodhi4_ep>
- 4ea:	a6 1b       	sub	r26, r22
- 4ec:	b7 0b       	sbc	r27, r23
+0000051a <ManageApplication>:
+ 51a:	a2 dd       	rcall	.-1212   	; 0x60 <APP_MANAGE>
+ 51c:	08 95       	ret
 
-000004ee <__udivmodhi4_ep>:
- 4ee:	88 1f       	adc	r24, r24
- 4f0:	99 1f       	adc	r25, r25
- 4f2:	5a 95       	dec	r21
- 4f4:	a9 f7       	brne	.-22     	; 0x4e0 <__udivmodhi4_loop>
- 4f6:	80 95       	com	r24
- 4f8:	90 95       	com	r25
- 4fa:	bc 01       	movw	r22, r24
- 4fc:	cd 01       	movw	r24, r26
- 4fe:	08 95       	ret
+0000051e <DisplayAlphaNumeric>:
+ 51e:	ed dd       	rcall	.-1062   	; 0xfa <BCDManage7segment>
+ 520:	08 95       	ret
 
-00000500 <__udivmodsi4>:
- 500:	a1 e2       	ldi	r26, 0x21	; 33
- 502:	1a 2e       	mov	r1, r26
- 504:	aa 1b       	sub	r26, r26
- 506:	bb 1b       	sub	r27, r27
- 508:	fd 01       	movw	r30, r26
- 50a:	0d c0       	rjmp	.+26     	; 0x526 <__udivmodsi4_ep>
+00000522 <main>:
+ 522:	34 df       	rcall	.-408    	; 0x38c <HWI_INTERRUPTS_INTITALIZE>
+ 524:	07 df       	rcall	.-498    	; 0x334 <HWI_DIGITAL_INITIALIZE>
+ 526:	09 de       	rcall	.-1006   	; 0x13a <SpeedCalcNotifyInitialize>
+ 528:	9a dd       	rcall	.-1228   	; 0x5e <APP_INITIALIZE>
+ 52a:	8b e8       	ldi	r24, 0x8B	; 139
+ 52c:	92 e0       	ldi	r25, 0x02	; 2
+ 52e:	60 e0       	ldi	r22, 0x00	; 0
+ 530:	44 e1       	ldi	r20, 0x14	; 20
+ 532:	bb de       	rcall	.-650    	; 0x2aa <CreateTask>
+ 534:	8d e8       	ldi	r24, 0x8D	; 141
+ 536:	92 e0       	ldi	r25, 0x02	; 2
+ 538:	62 e0       	ldi	r22, 0x02	; 2
+ 53a:	44 e6       	ldi	r20, 0x64	; 100
+ 53c:	b6 de       	rcall	.-660    	; 0x2aa <CreateTask>
+ 53e:	8f e8       	ldi	r24, 0x8F	; 143
+ 540:	92 e0       	ldi	r25, 0x02	; 2
+ 542:	61 e0       	ldi	r22, 0x01	; 1
+ 544:	42 e3       	ldi	r20, 0x32	; 50
+ 546:	b1 de       	rcall	.-670    	; 0x2aa <CreateTask>
+ 548:	cf de       	rcall	.-610    	; 0x2e8 <RunScheduler>
+ 54a:	80 e0       	ldi	r24, 0x00	; 0
+ 54c:	90 e0       	ldi	r25, 0x00	; 0
+ 54e:	08 95       	ret
 
-0000050c <__udivmodsi4_loop>:
- 50c:	aa 1f       	adc	r26, r26
- 50e:	bb 1f       	adc	r27, r27
- 510:	ee 1f       	adc	r30, r30
- 512:	ff 1f       	adc	r31, r31
- 514:	a2 17       	cp	r26, r18
- 516:	b3 07       	cpc	r27, r19
- 518:	e4 07       	cpc	r30, r20
- 51a:	f5 07       	cpc	r31, r21
- 51c:	20 f0       	brcs	.+8      	; 0x526 <__udivmodsi4_ep>
- 51e:	a2 1b       	sub	r26, r18
- 520:	b3 0b       	sbc	r27, r19
- 522:	e4 0b       	sbc	r30, r20
- 524:	f5 0b       	sbc	r31, r21
+00000550 <__mulsi3>:
+ 550:	62 9f       	mul	r22, r18
+ 552:	d0 01       	movw	r26, r0
+ 554:	73 9f       	mul	r23, r19
+ 556:	f0 01       	movw	r30, r0
+ 558:	82 9f       	mul	r24, r18
+ 55a:	e0 0d       	add	r30, r0
+ 55c:	f1 1d       	adc	r31, r1
+ 55e:	64 9f       	mul	r22, r20
+ 560:	e0 0d       	add	r30, r0
+ 562:	f1 1d       	adc	r31, r1
+ 564:	92 9f       	mul	r25, r18
+ 566:	f0 0d       	add	r31, r0
+ 568:	83 9f       	mul	r24, r19
+ 56a:	f0 0d       	add	r31, r0
+ 56c:	74 9f       	mul	r23, r20
+ 56e:	f0 0d       	add	r31, r0
+ 570:	65 9f       	mul	r22, r21
+ 572:	f0 0d       	add	r31, r0
+ 574:	99 27       	eor	r25, r25
+ 576:	72 9f       	mul	r23, r18
+ 578:	b0 0d       	add	r27, r0
+ 57a:	e1 1d       	adc	r30, r1
+ 57c:	f9 1f       	adc	r31, r25
+ 57e:	63 9f       	mul	r22, r19
+ 580:	b0 0d       	add	r27, r0
+ 582:	e1 1d       	adc	r30, r1
+ 584:	f9 1f       	adc	r31, r25
+ 586:	bd 01       	movw	r22, r26
+ 588:	cf 01       	movw	r24, r30
+ 58a:	11 24       	eor	r1, r1
+ 58c:	08 95       	ret
 
-00000526 <__udivmodsi4_ep>:
- 526:	66 1f       	adc	r22, r22
- 528:	77 1f       	adc	r23, r23
- 52a:	88 1f       	adc	r24, r24
- 52c:	99 1f       	adc	r25, r25
- 52e:	1a 94       	dec	r1
- 530:	69 f7       	brne	.-38     	; 0x50c <__udivmodsi4_loop>
- 532:	60 95       	com	r22
- 534:	70 95       	com	r23
- 536:	80 95       	com	r24
- 538:	90 95       	com	r25
- 53a:	9b 01       	movw	r18, r22
- 53c:	ac 01       	movw	r20, r24
- 53e:	bd 01       	movw	r22, r26
- 540:	cf 01       	movw	r24, r30
- 542:	08 95       	ret
+0000058e <__udivmodhi4>:
+ 58e:	aa 1b       	sub	r26, r26
+ 590:	bb 1b       	sub	r27, r27
+ 592:	51 e1       	ldi	r21, 0x11	; 17
+ 594:	07 c0       	rjmp	.+14     	; 0x5a4 <__udivmodhi4_ep>
 
-00000544 <_exit>:
- 544:	f8 94       	cli
+00000596 <__udivmodhi4_loop>:
+ 596:	aa 1f       	adc	r26, r26
+ 598:	bb 1f       	adc	r27, r27
+ 59a:	a6 17       	cp	r26, r22
+ 59c:	b7 07       	cpc	r27, r23
+ 59e:	10 f0       	brcs	.+4      	; 0x5a4 <__udivmodhi4_ep>
+ 5a0:	a6 1b       	sub	r26, r22
+ 5a2:	b7 0b       	sbc	r27, r23
 
-00000546 <__stop_program>:
- 546:	ff cf       	rjmp	.-2      	; 0x546 <__stop_program>
+000005a4 <__udivmodhi4_ep>:
+ 5a4:	88 1f       	adc	r24, r24
+ 5a6:	99 1f       	adc	r25, r25
+ 5a8:	5a 95       	dec	r21
+ 5aa:	a9 f7       	brne	.-22     	; 0x596 <__udivmodhi4_loop>
+ 5ac:	80 95       	com	r24
+ 5ae:	90 95       	com	r25
+ 5b0:	bc 01       	movw	r22, r24
+ 5b2:	cd 01       	movw	r24, r26
+ 5b4:	08 95       	ret
+
+000005b6 <__udivmodsi4>:
+ 5b6:	a1 e2       	ldi	r26, 0x21	; 33
+ 5b8:	1a 2e       	mov	r1, r26
+ 5ba:	aa 1b       	sub	r26, r26
+ 5bc:	bb 1b       	sub	r27, r27
+ 5be:	fd 01       	movw	r30, r26
+ 5c0:	0d c0       	rjmp	.+26     	; 0x5dc <__udivmodsi4_ep>
+
+000005c2 <__udivmodsi4_loop>:
+ 5c2:	aa 1f       	adc	r26, r26
+ 5c4:	bb 1f       	adc	r27, r27
+ 5c6:	ee 1f       	adc	r30, r30
+ 5c8:	ff 1f       	adc	r31, r31
+ 5ca:	a2 17       	cp	r26, r18
+ 5cc:	b3 07       	cpc	r27, r19
+ 5ce:	e4 07       	cpc	r30, r20
+ 5d0:	f5 07       	cpc	r31, r21
+ 5d2:	20 f0       	brcs	.+8      	; 0x5dc <__udivmodsi4_ep>
+ 5d4:	a2 1b       	sub	r26, r18
+ 5d6:	b3 0b       	sbc	r27, r19
+ 5d8:	e4 0b       	sbc	r30, r20
+ 5da:	f5 0b       	sbc	r31, r21
+
+000005dc <__udivmodsi4_ep>:
+ 5dc:	66 1f       	adc	r22, r22
+ 5de:	77 1f       	adc	r23, r23
+ 5e0:	88 1f       	adc	r24, r24
+ 5e2:	99 1f       	adc	r25, r25
+ 5e4:	1a 94       	dec	r1
+ 5e6:	69 f7       	brne	.-38     	; 0x5c2 <__udivmodsi4_loop>
+ 5e8:	60 95       	com	r22
+ 5ea:	70 95       	com	r23
+ 5ec:	80 95       	com	r24
+ 5ee:	90 95       	com	r25
+ 5f0:	9b 01       	movw	r18, r22
+ 5f2:	ac 01       	movw	r20, r24
+ 5f4:	bd 01       	movw	r22, r26
+ 5f6:	cf 01       	movw	r24, r30
+ 5f8:	08 95       	ret
+
+000005fa <_exit>:
+ 5fa:	f8 94       	cli
+
+000005fc <__stop_program>:
+ 5fc:	ff cf       	rjmp	.-2      	; 0x5fc <__stop_program>
