@@ -11,13 +11,15 @@
 #define HundredMetersFactor (unsigned long)100000
 #define HW_TIMER_ID  (unsigned char)1
 
-static unsigned char NotifyFlag = (unsigned char)0;
-static unsigned char LapCounter = (unsigned char)0;
+volatile unsigned char NotifyFlag = (unsigned char)0;
+volatile unsigned char LapCounter = (unsigned char)0;
 static unsigned short CircumFactor = (unsigned char)200;
 static unsigned long DistTravelCntr = (unsigned long)0;
 static unsigned short LapDistanceCounter = (unsigned short)0;
 static unsigned short LapTimeTenthMilli = (unsigned short)0;
 static unsigned char TimerOVFLcount = (unsigned char)0;
+volatile unsigned short HWtimerCount = (unsigned short)0;
+volatile unsigned char HwTimerOVFLcount = (unsigned char)0;
  
 PUBLIC void SpeedCalcNotifyInitialize(void)
 {
@@ -45,11 +47,9 @@ PUBLIC void SensorTwoNotify(void)
     {
         NotifyFlag = (unsigned char)1;
         LapCounter++; 
-        LapTimeTenthMilli = ReloadHWtimer(HW_TIMER_ID);
-        LapTimeTenthMilli /= 100;
-        LapTimeTenthMilli += 
-                        ((unsigned short)TimerOVFLcount * (unsigned short)655);         
-        TimerOVFLcount = (unsigned char)0;
+        HWtimerCount = ReloadHWtimer(HW_TIMER_ID);
+        TimerOVFLcount = HwTimerOVFLcount;       
+        HwTimerOVFLcount = (unsigned char)0;
     }
     else
     {
@@ -63,6 +63,9 @@ PUBLIC void SensorTwoNotify(void)
 PUBLIC void SpeedCalcManage(void)
 {  
     unsigned short HundredMeterReference; 
+    
+    LapTimeTenthMilli = (HWtimerCount/(unsigned short)100) +
+                        ((unsigned short)TimerOVFLcount * (unsigned short)655);       
     
     LapDistanceCounter += LapCounter;  
     
@@ -123,9 +126,9 @@ PUBLIC unsigned short GetAvgSpeed(unsigned char bIsKph)
 
 PUBLIC void HWtimerCallback (void)
 {
-    if(TimerOVFLcount < 64)
+    if(HwTimerOVFLcount < 64)
     {
-        TimerOVFLcount++;
+        HwTimerOVFLcount++;
     }
 }
 
