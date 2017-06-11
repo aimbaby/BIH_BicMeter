@@ -24,6 +24,7 @@ int main(void)
  HWI_INTERRUPTS_INTITALIZE();
  HWI_DIGITAL_INITIALIZE();
  SpeedCalcNotifyInitialize();
+ BCDInitialize(1);
  APP_INITIALIZE();
  
  CreateTask( ManageSpeedCalc, (unsigned char)0  , (unsigned char) 20);
