@@ -10,7 +10,9 @@
 #ifndef BCDDISPLAY_H
 #define	BCDDISPLAY_H
 
-PUBLIC void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace);
+PUBLIC void BCDInitialize( unsigned char bIsCommonAnode);
+
+PUBLIC void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace );
 
 PUBLIC void BCDManage7segment(void);
 

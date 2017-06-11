@@ -104,7 +104,7 @@ PUBLIC void SetCircumfirunce(unsigned short Circum)
 // Time Ms 
 PUBLIC unsigned short GetAvgSpeed(unsigned char bIsKph)
 {
-    unsigned short AvgSpeedKphMph;
+    unsigned short AvgSpeedKphMph = (unsigned short)0;
     unsigned long KphMphFactor;
     
     if( (unsigned char)1 == bIsKph )
@@ -116,11 +116,17 @@ PUBLIC unsigned short GetAvgSpeed(unsigned char bIsKph)
         KphMphFactor = (unsigned long)225;
     }
  
-    AvgSpeedKphMph = (unsigned short)
-                     ((KphMphFactor * (unsigned long)CircumFactor )
-                        /  (unsigned long)LapTimeTenthMilli);
-            
+    if(LapTimeTenthMilli != (unsigned short)0)
+	{
+		AvgSpeedKphMph = (unsigned short)
+		                 ((KphMphFactor * (unsigned long)CircumFactor )
+		                              /  (unsigned long)LapTimeTenthMilli);
+	}		
     
+	if( (unsigned char)64 == HwTimerOVFLcount)
+	{
+		AvgSpeedKphMph = (unsigned short)0;
+	}		
     return AvgSpeedKphMph;
 }
 

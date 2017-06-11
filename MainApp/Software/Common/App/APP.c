@@ -36,7 +36,7 @@
       {
           AvgSpeedKph = (unsigned short)0;
       }*/
-      BCDsendNumber(AvgSpeedKph,1);
-      //BCDsendNumber(TravelledDistance,1);
+      BCDsendNumber(AvgSpeedKph,1 );
+      //BCDsendNumber(TravelledDistance,1 );
 
   }
