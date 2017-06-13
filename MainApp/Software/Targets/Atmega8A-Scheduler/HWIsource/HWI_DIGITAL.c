@@ -9,6 +9,8 @@ PUBLIC void HWI_DIGITAL_INITIALIZE(void)
 {
 	DDRB = 0xFF;
 	DDRC = 0xFF;
+	DDRD = 0x0;
+	PORTD = 0xFF;
 }
   
 PUBLIC unsigned char HWI_DIGI_READ(unsigned char pin)
