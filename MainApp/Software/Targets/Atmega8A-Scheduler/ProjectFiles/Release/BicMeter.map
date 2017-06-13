@@ -132,7 +132,7 @@ LOAD e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x66c
+.text           0x00000000      0x670
  *(.vectors)
  .vectors       0x00000000       0x26 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr4/crtm8a.o
                 0x00000000                __vector_default
@@ -228,49 +228,49 @@ LOAD e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
                 0x00000314                CreateTask
                 0x00000332                SchedulerTick
                 0x00000352                RunScheduler
- .text          0x0000039e       0x58 HWI_DIGITAL.o
+ .text          0x0000039e       0x5c HWI_DIGITAL.o
                 0x0000039e                HWI_DIGITAL_INITIALIZE
-                0x000003a6                HWI_DIGI_READ
-                0x000003aa                HWI_DIGI_WRITE
-                0x000003ac                HWI_4Digit_WRITE
-                0x000003c4                HWI_4Digit_READ
-                0x000003de                HWI_8Digit_WRITE
-                0x000003ea                HWI8Digit_READ
- .text          0x000003f6      0x18a HWI_Interrupts.o
-                0x000003f6                HWI_INTERRUPTS_INTITALIZE
-                0x0000043c                ReloadHWtimer
-                0x0000045c                __vector_9
-                0x000004a6                __vector_8
-                0x000004f4                __vector_1
-                0x0000053a                __vector_2
- .text          0x00000580        0xc BicMeter.o
-                0x00000580                ManageSpeedCalc
-                0x00000584                ManageApplication
-                0x00000588                DisplayAlphaNumeric
- .text          0x0000058c        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_mulsi3.o)
- .text          0x0000058c        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodhi4.o)
- .text          0x0000058c        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodsi4.o)
- .text          0x0000058c        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
- .text          0x0000058c        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_copy_data.o)
- .text          0x0000058c        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_clear_bss.o)
-                0x0000058c                . = ALIGN (0x2)
+                0x000003aa                HWI_DIGI_READ
+                0x000003ae                HWI_DIGI_WRITE
+                0x000003b0                HWI_4Digit_WRITE
+                0x000003c8                HWI_4Digit_READ
+                0x000003e2                HWI_8Digit_WRITE
+                0x000003ee                HWI8Digit_READ
+ .text          0x000003fa      0x18a HWI_Interrupts.o
+                0x000003fa                HWI_INTERRUPTS_INTITALIZE
+                0x00000440                ReloadHWtimer
+                0x00000460                __vector_9
+                0x000004aa                __vector_8
+                0x000004f8                __vector_1
+                0x0000053e                __vector_2
+ .text          0x00000584        0xc BicMeter.o
+                0x00000584                ManageSpeedCalc
+                0x00000588                ManageApplication
+                0x0000058c                DisplayAlphaNumeric
+ .text          0x00000590        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_mulsi3.o)
+ .text          0x00000590        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodhi4.o)
+ .text          0x00000590        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodsi4.o)
+ .text          0x00000590        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
+ .text          0x00000590        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_copy_data.o)
+ .text          0x00000590        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_clear_bss.o)
+                0x00000590                . = ALIGN (0x2)
  *(.text.*)
- .text.startup  0x0000058c       0x32 BicMeter.o
-                0x0000058c                main
- .text.libgcc   0x000005be       0x3e e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_mulsi3.o)
-                0x000005be                __mulsi3
- .text.libgcc   0x000005fc       0x28 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodhi4.o)
-                0x000005fc                __udivmodhi4
- .text.libgcc   0x00000624       0x44 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodsi4.o)
-                0x00000624                __udivmodsi4
- .text.libgcc   0x00000668        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
- .text.libgcc   0x00000668        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000668        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_clear_bss.o)
-                0x00000668                . = ALIGN (0x2)
+ .text.startup  0x00000590       0x32 BicMeter.o
+                0x00000590                main
+ .text.libgcc   0x000005c2       0x3e e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_mulsi3.o)
+                0x000005c2                __mulsi3
+ .text.libgcc   0x00000600       0x28 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodhi4.o)
+                0x00000600                __udivmodhi4
+ .text.libgcc   0x00000628       0x44 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodsi4.o)
+                0x00000628                __udivmodsi4
+ .text.libgcc   0x0000066c        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
+ .text.libgcc   0x0000066c        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000066c        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_clear_bss.o)
+                0x0000066c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000668        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
-                0x00000668                _exit
-                0x00000668                exit
+ .fini9         0x0000066c        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
+                0x0000066c                _exit
+                0x0000066c                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -289,11 +289,11 @@ LOAD e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000668        0x4 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
+ .fini0         0x0000066c        0x4 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000066c                _etext = .
+                0x00000670                _etext = .
 
-.data           0x00800060        0xe load address 0x0000066c
+.data           0x00800060        0xe load address 0x00000670
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr4/crtm8a.o
@@ -346,8 +346,8 @@ LOAD e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
  *(.bss*)
  *(COMMON)
                 0x00800093                PROVIDE (__bss_end, .)
-                0x0000066c                __data_load_start = LOADADDR (.data)
-                0x0000067a                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000670                __data_load_start = LOADADDR (.data)
+                0x0000067e                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800093        0x0
                 0x00800093                PROVIDE (__noinit_start, .)
