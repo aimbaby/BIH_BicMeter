@@ -4,6 +4,7 @@
   #include "HWI_func.h"
   #include "SpeedCalc.h"
   #include "BCDdisplay.h"
+  #include "Key.h"
 #include "Alloc.h"
   #include "APP.h"
   
@@ -16,6 +17,8 @@
   {
       unsigned short AvgSpeedKph;
       unsigned short TravelledDistance;
+      unsigned char keystatus;
+      
       //unsigned short LapTimeAvg;    
      // const unsigned short CircFactor = (unsigned short)7200;
       
@@ -38,5 +41,21 @@
       }*/
       BCDsendNumber(AvgSpeedKph,1 );
       //BCDsendNumber(TravelledDistance,1 );
+      
+      keystatus = GetKeyStatus(0);
+      //PORTB = (LATB & 0xf) |( (0xf & keystatus) << 4) | (keystatus & 0x80); 
+      if( keystatus == NEW_STATE_SHORT_PRESS)
+      {
+          PORTBbits.RB6 ^= 1;
+      }
+      else if( keystatus == NEW_STATE_LONG_PRESS)
+      {
+          PORTBbits.RB7 ^= 1;
+      }
+    /*  else
+      {
+          PORTBbits.RB6 = 0;
+          PORTBbits.RB7 = 0;
+      }*/
 
   }
