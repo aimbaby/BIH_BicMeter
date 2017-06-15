@@ -9,6 +9,6 @@
 #define	SCHEDULER_P_H
 
 
-#define NUM_TASKS 3 
+#define NUM_TASKS 4
 #endif	/* SCHEDULER_P_H */
 
