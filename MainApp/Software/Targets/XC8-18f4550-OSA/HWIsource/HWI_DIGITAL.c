@@ -78,11 +78,29 @@ PUBLIC void HWI_DIGITAL_INITIALIZE(void)
     PORTD = 0x0;
     
     TRISC = 0x0;
+    TRISBbits.RB2 = 1;
+    TRISBbits.RB3 = 1;
+    
+    TRISBbits.RB6 =0;
+    TRISBbits.RB7 =0;
 }
   
 PUBLIC unsigned char HWI_DIGI_READ(unsigned char pin)
 {
- return (0);
+    unsigned char HWIread;
+    
+    switch (pin)
+    {
+        case 15:
+            HWIread = PORTBbits.RB2;
+            break;
+        case 16:
+            HWIread = PORTBbits.RB3;
+            break;
+        default:
+            break;
+    }
+ return HWIread;
 }
 PUBLIC void HWI_DIGI_WRITE(unsigned char pin,unsigned char value)
 {
