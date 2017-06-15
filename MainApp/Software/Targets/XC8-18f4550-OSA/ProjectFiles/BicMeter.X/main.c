@@ -76,12 +76,14 @@
 #include "APP.h"
 #include "SpeedCalc.h"
 #include "BCDdisplay.h"
+#include "Key.h"
 
 
 
 void DisplayAlphaNumeric (void);
 void ManageApplication (void);
 void ManageSpeedCalc(void);
+void ManageDrivers(void);
 
 void main(void) {
     HWI_INTERRUPTS_INTITALIZE();
@@ -94,6 +96,8 @@ void main(void) {
     CreateTask( ManageApplication, (unsigned char)2  , (unsigned char) 100);
     
     CreateTask( DisplayAlphaNumeric, (unsigned char)1  , (unsigned char) 4);
+    
+    CreateTask( ManageDrivers , (unsigned char)3 , (unsigned char) 10);
 
 
     RunScheduler();
@@ -114,3 +118,12 @@ void ManageSpeedCalc(void)
     SpeedCalcManage();
 }
 
+void ManageDrivers(void)
+{
+    unsigned char LoopIndex;
+    for(LoopIndex = (unsigned char)0 ; LoopIndex < NUMBER_KEYS ; LoopIndex++)
+    {
+        MangeKeys(LoopIndex);
+    }
+    
+}
