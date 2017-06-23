@@ -15,36 +15,54 @@
   
   PUBLIC void APP_MANAGE(void)
   {
+      static unsigned blinkIndex = (unsigned char)0;
+      static unsigned bIsBlinkMode = (unsigned char)0;
       unsigned short AvgSpeedKph;
       unsigned short TravelledDistance;
       unsigned char keystatus;
       
-      //unsigned short LapTimeAvg;    
-     // const unsigned short CircFactor = (unsigned short)7200;
-      
-      SetCircumfirunce(2000);
+     
+      SetCircumfirunce(2056);
  
       AvgSpeedKph =  GetAvgSpeed(1);
       TravelledDistance = GetDistance();
       TravelledDistance *= (unsigned short)10;
       TravelledDistance /= (unsigned short)16;
-      //AvgSpeedKph = (AvgSpeedKph + (unsigned short)5)/(unsigned short)10;
-      
-   /*   LapTimeAvg /= ((unsigned short)SpeedCalFilterBufferSize);
-
-      AvgSpeedKph = (unsigned short)10 * (CircFactor/(unsigned short)SpeedCalcTaskRate);
-      AvgSpeedKph /= LapTimeAvg;
-
-      if(AvgSpeedKph < (unsigned short)29)
-      {
-          AvgSpeedKph = (unsigned short)0;
-      }*/
+   
       BCDsendNumber(AvgSpeedKph,1 );
-      //BCDsendNumber(TravelledDistance,1 );
-      
-      keystatus = GetKeyStatus(0);
-      //PORTB = (LATB & 0xf) |( (0xf & keystatus) << 4) | (keystatus & 0x80); 
-      if( keystatus == NEW_STATE_SHORT_PRESS)
+     
+      if(bIsBlinkMode == (unsigned char)0)
+      {
+          keystatus = GetKeyStatus(0);
+          if( keystatus == NEW_STATE_LONG_PRESS)
+          {
+              bIsBlinkMode = (unsigned char)1;
+          }
+      }
+      else
+      {
+          BlinkDigit(blinkIndex,100);
+          keystatus = GetKeyStatus(0);
+          if( keystatus == NEW_STATE_SHORT_PRESS)
+          {
+              blinkIndex++;
+              if(blinkIndex == 4)
+              {
+                  blinkIndex=0;
+              }
+          }
+          else
+          {
+              keystatus = GetKeyStatus(1);
+              if(keystatus == NEW_STATE_LONG_PRESS )
+              {
+                  BlinkDigit(1,0);
+                  bIsBlinkMode = (unsigned char)0;
+              }
+          }   
+      }
+
+      /*if( keystatus == NEW_STATE_SHORT_PRESS)
       {
           PORTBbits.RB6 ^= 1;
       }
@@ -52,10 +70,17 @@
       {
           PORTBbits.RB7 ^= 1;
       }
-    /*  else
+      
+      keystatus = GetKeyStatus(1);
+      if( keystatus == NEW_STATE_SHORT_PRESS)
       {
-          PORTBbits.RB6 = 0;
-          PORTBbits.RB7 = 0;
+          PORTBbits.RB4 ^= 1;
+      }
+      else if( keystatus == NEW_STATE_LONG_PRESS)
+      {
+          PORTBbits.RB5 ^= 1;
       }*/
+      
+   
 
   }
