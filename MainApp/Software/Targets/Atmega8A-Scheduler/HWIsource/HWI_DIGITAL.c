@@ -15,7 +15,21 @@ PUBLIC void HWI_DIGITAL_INITIALIZE(void)
   
 PUBLIC unsigned char HWI_DIGI_READ(unsigned char pin)
 {
- return (0);
+	unsigned char HWIread;
+	    
+	switch (pin)
+	{
+		case 15:
+			HWIread = PIND & (1 << PIND4);
+			break;
+		case 16:
+			HWIread = PIND & (1 << PIND5);
+			break;
+		default:
+		    HWIread = (unsigned char)0;
+			break;
+	}
+	return HWIread;
 }
 PUBLIC void HWI_DIGI_WRITE(unsigned char pin,unsigned char value)
 {
@@ -23,17 +37,18 @@ PUBLIC void HWI_DIGI_WRITE(unsigned char pin,unsigned char value)
 
 PUBLIC void HWI_4Digit_WRITE(unsigned char port,unsigned char value)
 {
-	  switch (port)
-	  {
-		  case 0:
-		  PORTC = (PORTC & 0xF0) | value;
-		  break;
-		  case 1:
-		  PORTB = (PORTB & 0xF0) | value;
-		  break;
-		  default:
-		  PORTB = (PORTB & 0xF0) | value;
-	  }
+	switch (port)
+	{
+		case 0:
+			PORTC = (PORTC & 0xF0) | value;
+			break;
+		case 1:
+			PORTB = (PORTB & 0xF0) | value;
+			break;
+		default:
+			PORTB = (PORTB & 0xF0) | value;
+			break;
+	}
 	
 }
 PUBLIC unsigned char HWI_4Digit_READ(unsigned char port)
@@ -42,14 +57,14 @@ PUBLIC unsigned char HWI_4Digit_READ(unsigned char port)
 	switch (port)
 	{
 		case 0:
-		PortValue = PORTC & 0x0f;
-		break;
+			PortValue = PINC & 0x0f;
+			break;
 		case 1:
-		PortValue = PORTB & 0x0f;
-		break;
+			PortValue = PINB & 0x0f;
+			break;
 		default:
-		PortValue = PORTB & 0x0f;
-		break;
+			PortValue = PINB & 0x0f;
+			break;
 	}
 	return PortValue;
 }
@@ -59,13 +74,14 @@ PUBLIC void HWI_8Digit_WRITE(unsigned char port,unsigned char value)
 	switch (port)
 	{
 		case 0:
-		PORTC = value;
-		break;
+			PORTC = value;
+			break;
 		case 1:
-		PORTB = value;
-		break;
+			PORTB = value;
+			break;
 		default:
-		PORTB = value;
+			PORTB = value;
+			break;
 	}
 	
 }
@@ -75,14 +91,14 @@ PUBLIC unsigned char HWI8Digit_READ(unsigned char port)
 	switch (port)
 	{
 		case 0:
-		PortValue = PORTC;
-		break;
+			PortValue = PINC;
+			break;
 		case 1:
-		PortValue = PORTB;
-		break;
+			PortValue = PINB;
+			break;
 		default:
-		PortValue = PORTB;
-		break;
+			PortValue = PINB;
+			break;
 	}
 	return PortValue;
 	
