@@ -81,6 +81,9 @@ PUBLIC void HWI_DIGITAL_INITIALIZE(void)
     TRISBbits.RB2 = 1;
     TRISBbits.RB3 = 1;
     
+    
+    TRISBbits.RB4 =0;
+    TRISBbits.RB5 =0;
     TRISBbits.RB6 =0;
     TRISBbits.RB7 =0;
 }
@@ -98,6 +101,7 @@ PUBLIC unsigned char HWI_DIGI_READ(unsigned char pin)
             HWIread = PORTBbits.RB3;
             break;
         default:
+		    HWIread = (unsigned char)0;
             break;
     }
  return HWIread;
