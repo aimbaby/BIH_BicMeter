@@ -16,5 +16,8 @@ PUBLIC void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace );
 
 PUBLIC void BCDManage7segment(void);
 
+PUBLIC void BlinkDigit(unsigned char Index , unsigned char duration);
+
+
 #endif	/* BCDDISPLAY_H */
 
