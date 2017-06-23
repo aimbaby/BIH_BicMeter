@@ -10,13 +10,7 @@ BicMeter.d BicMeter.o: .././BicMeter.c .././TargetFile.h \
  e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr/4.6.2/../../../../avr/include/avr/version.h \
  e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr/4.6.2/../../../../avr/include/avr/fuse.h \
  e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr/4.6.2/../../../../avr/include/avr/lock.h \
- ../../../../Common/Link/Extern.h ../../../../OS/Scheduler/Scheduler.h \
- ../../../../OS/Scheduler/Scheduler_p.h \
- ../../../../Common/HWIheader/HWI_func.h ../../../../Common/App/APP.h \
- ../../../../Common/Driver/SpeedCalc/SpeedCalc.h \
- ../../../../Common/Driver/SpeedCalc/SpeedCalc_p.h \
- ../../../../Common/Driver/BCDdisplay/BCDdisplay.h \
- ../../../../Common/Driver/BCDdisplay/BCDdisplay_p.h
+ ../../../../Common/Link/Extern.h ../../../../OS/OS_manage/OS_manage.h
 
 .././TargetFile.h:
 
@@ -44,18 +38,4 @@ e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrt
 
 ../../../../Common/Link/Extern.h:
 
-../../../../OS/Scheduler/Scheduler.h:
-
-../../../../OS/Scheduler/Scheduler_p.h:
-
-../../../../Common/HWIheader/HWI_func.h:
-
-../../../../Common/App/APP.h:
-
-../../../../Common/Driver/SpeedCalc/SpeedCalc.h:
-
-../../../../Common/Driver/SpeedCalc/SpeedCalc_p.h:
-
-../../../../Common/Driver/BCDdisplay/BCDdisplay.h:
-
-../../../../Common/Driver/BCDdisplay/BCDdisplay_p.h:
+../../../../OS/OS_manage/OS_manage.h:
