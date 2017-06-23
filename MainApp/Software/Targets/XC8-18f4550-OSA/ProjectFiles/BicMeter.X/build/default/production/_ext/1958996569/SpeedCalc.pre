@@ -3923,7 +3923,7 @@ CircumFactor = (unsigned short)Circum;
 
  unsigned short GetAvgSpeed(unsigned char bIsKph)
 {
-unsigned short AvgSpeedKphMph;
+unsigned short AvgSpeedKphMph = (unsigned short)0;
 unsigned long KphMphFactor;
 
 if( (unsigned char)1 == bIsKph )
@@ -3935,11 +3935,17 @@ else
 KphMphFactor = (unsigned long)225;
 }
 
+if(LapTimeTenthMilli != (unsigned short)0)
+{
 AvgSpeedKphMph = (unsigned short)
 ((KphMphFactor * (unsigned long)CircumFactor )
 / (unsigned long)LapTimeTenthMilli);
+}
 
-
+if( (unsigned char)64 == HwTimerOVFLcount)
+{
+AvgSpeedKphMph = (unsigned short)0;
+}
 return AvgSpeedKphMph;
 }
 

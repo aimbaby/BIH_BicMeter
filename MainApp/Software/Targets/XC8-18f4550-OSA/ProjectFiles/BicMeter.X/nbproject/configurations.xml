@@ -24,6 +24,13 @@
               <itemPath>../../../../Common/Driver/BCDdisplay/BCDdisplay.c</itemPath>
               <itemPath>../../../../Common/Driver/BCDdisplay/BCDdisplay_p.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="Key" displayName="Key" projectFiles="true">
+              <itemPath>../../../../Common/Driver/Key/Key.c</itemPath>
+              <itemPath>../../../../Common/Driver/Key/Key.h</itemPath>
+              <itemPath>../../../../Common/Driver/Key/Key_p.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="LEDout" displayName="LEDout" projectFiles="true">
+            </logicalFolder>
             <logicalFolder name="SpeedCalc" displayName="SpeedCalc" projectFiles="true">
               <itemPath>../../../../Common/Driver/SpeedCalc/SpeedCalc.c</itemPath>
               <itemPath>../../../../Common/Driver/SpeedCalc/SpeedCalc.h</itemPath>
@@ -43,6 +50,10 @@
           </logicalFolder>
         </logicalFolder>
         <logicalFolder name="OS" displayName="OS" projectFiles="true">
+          <logicalFolder name="OS_manage" displayName="OS_manage" projectFiles="true">
+            <itemPath>../../../../OS/OS_manage/OS_manage.c</itemPath>
+            <itemPath>../../../../OS/OS_manage/OS_manage.h</itemPath>
+          </logicalFolder>
           <logicalFolder name="Scheduler" displayName="Scheduler" projectFiles="true">
             <itemPath>../../../../OS/Scheduler/Scheduler.c</itemPath>
             <itemPath>../../../../OS/Scheduler/Scheduler.h</itemPath>
@@ -124,7 +135,7 @@
         <property key="define-macros" value=""/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
-                  value="..\..\..\..\;..\..\..\..\Common\Link;..\..\..\..\Common\Interrupts;..\..\..\..\Common\App;..\..\..\..\Common\HWIheader;..\..\..\..\OS\Scheduler;..\..\..\..\Common\Driver;..\..\..\..\Common\Driver\SpeedCalc;..\..\HWIsource;..\..\..\..\Common\Driver\BCDdisplay"/>
+                  value="..\..\..\..\;..\..\..\..\Common\Link;..\..\..\..\Common\Interrupts;..\..\..\..\Common\App;..\..\..\..\Common\HWIheader;..\..\..\..\OS\Scheduler;..\..\..\..\Common\Driver;..\..\..\..\Common\Driver\SpeedCalc;..\..\HWIsource;..\..\..\..\Common\Driver\BCDdisplay;..\..\..\..\Common\Driver\Key;..\..\..\..\OS\OS_manage"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="identifier-length" value="255"/>
         <property key="local-generation" value="false"/>

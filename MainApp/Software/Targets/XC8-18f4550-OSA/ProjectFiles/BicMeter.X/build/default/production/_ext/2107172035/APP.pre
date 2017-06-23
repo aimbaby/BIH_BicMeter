@@ -3795,15 +3795,41 @@ extern unsigned short GetAvgSpeed(unsigned char bIsKph);
 extern void HWtimerCallback (void);
 
 # 13 "../../../../Common/Driver/BCDdisplay\BCDdisplay.h"
-extern void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace);
+extern void BCDInitialize( unsigned char bIsCommonAnode);
+
+extern void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace );
 
 extern void BCDManage7segment(void);
+
+extern void BlinkDigit(unsigned char Index , unsigned char duration);
+
+# 21 "../../../../Common/Driver/Key\Key.h"
+typedef struct
+{
+unsigned char HWI_ID;
+unsigned char ActiveValue;
+unsigned short ReleaseTicks;
+unsigned short ShortPress;
+unsigned short LongPress;
+}strKeyConfig;
+
+typedef struct
+{
+unsigned char KeyState;
+unsigned short KeyCounter;
+}strKeyData;
+
+extern void KeyInitialize(void);
+
+extern unsigned char GetKeyStatus(unsigned char KeyID);
+
+extern void MangeKeys(unsigned char KeyID);
 
 # 2 "../../../../Common/App/APP.h"
  void APP_INITIALIZE(void);
  void APP_MANAGE();
 
-# 10 "../../../../Common/App/APP.c"
+# 11 "../../../../Common/App/APP.c"
  void APP_INITIALIZE(void)
 {
 
@@ -3811,20 +3837,52 @@ extern void BCDManage7segment(void);
 
  void APP_MANAGE(void)
 {
+static unsigned blinkIndex = (unsigned char)0;
+static unsigned bIsBlinkMode = (unsigned char)0;
 unsigned short AvgSpeedKph;
 unsigned short TravelledDistance;
+unsigned char keystatus;
 
 
-
-SetCircumfirunce(2000);
+SetCircumfirunce(2056);
 
 AvgSpeedKph = GetAvgSpeed(1);
 TravelledDistance = GetDistance();
 TravelledDistance *= (unsigned short)10;
 TravelledDistance /= (unsigned short)16;
 
-# 39
-BCDsendNumber(AvgSpeedKph,1);
+BCDsendNumber(AvgSpeedKph,1 );
 
+if(bIsBlinkMode == (unsigned char)0)
+{
+keystatus = GetKeyStatus(0);
+if( keystatus == (unsigned char)0x82)
+{
+bIsBlinkMode = (unsigned char)1;
+}
+}
+else
+{
+BlinkDigit(blinkIndex,100);
+keystatus = GetKeyStatus(0);
+if( keystatus == (unsigned char)0x81)
+{
+blinkIndex++;
+if(blinkIndex == 4)
+{
+blinkIndex=0;
+}
+}
+else
+{
+keystatus = GetKeyStatus(1);
+if(keystatus == (unsigned char)0x82 )
+{
+BlinkDigit(1,0);
+bIsBlinkMode = (unsigned char)0;
+}
+}
+}
 
+# 86
 }

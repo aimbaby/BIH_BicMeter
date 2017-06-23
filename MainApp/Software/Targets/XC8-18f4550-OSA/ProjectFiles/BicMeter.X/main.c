@@ -71,59 +71,12 @@
 #include "TargetFile.h"
 
 #include "Extern.h"
-#include "Scheduler.h"
-#include "HWI_func.h"
-#include "APP.h"
-#include "SpeedCalc.h"
-#include "BCDdisplay.h"
-#include "Key.h"
+   #include "OS_manage.h"
 
 
-
-void DisplayAlphaNumeric (void);
-void ManageApplication (void);
-void ManageSpeedCalc(void);
-void ManageDrivers(void);
 
 void main(void) {
-    HWI_INTERRUPTS_INTITALIZE();
-    HWI_DIGITAL_INITIALIZE();
-    SpeedCalcNotifyInitialize();
-    APP_INITIALIZE();
-   
-    CreateTask( ManageSpeedCalc, (unsigned char)0  , (unsigned char) 20);
-    
-    CreateTask( ManageApplication, (unsigned char)2  , (unsigned char) 100);
-    
-    CreateTask( DisplayAlphaNumeric, (unsigned char)1  , (unsigned char) 4);
-    
-    CreateTask( ManageDrivers , (unsigned char)3 , (unsigned char) 10);
-
-
-    RunScheduler();
-    
+  
+    Start_App();
     return;
-}
-
-void DisplayAlphaNumeric (void)
-{
-    BCDManage7segment();
-}
-void ManageApplication (void)
-{      
-    APP_MANAGE();
-}
-void ManageSpeedCalc(void)
-{       
-    SpeedCalcManage();
-}
-
-void ManageDrivers(void)
-{
-    unsigned char LoopIndex;
-    for(LoopIndex = (unsigned char)0 ; LoopIndex < NUMBER_KEYS ; LoopIndex++)
-    {
-        MangeKeys(LoopIndex);
-    }
-    
 }

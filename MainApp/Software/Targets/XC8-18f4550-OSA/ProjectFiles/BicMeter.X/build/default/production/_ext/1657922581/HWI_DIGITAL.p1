@@ -11,6 +11,37 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
 "1906
 [v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
+"1696
+[s S61 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S61 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"1706
+[s S62 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S62 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"1695
+[u S60 `S61 1 `S62 1 ]
+[n S60 . . . ]
+"1717
+[v _TRISBbits `VS60 ~T0 @X0 0 e@3987 ]
+"273
+[s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S12 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"283
+[s S13 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S13 . INT0 INT1 INT2 CCP2 KBI0 KBI1 KBI2 KBI3 ]
+"293
+[s S14 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S14 . AN12 AN10 AN8 AN9 AN11 PGM PGC PGD ]
+"303
+[s S15 :1 `uc 1 ]
+[n S15 . FLT0 ]
+"306
+[s S16 :3 `uc 1 :1 `uc 1 ]
+[n S16 . . CCP2_PA2 ]
+"272
+[u S11 `S12 1 `S13 1 `S14 1 `S15 1 `S16 1 ]
+[n S11 . . . . . . ]
+"311
+[v _PORTBbits `VS11 ~T0 @X0 0 e@3969 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3064,42 +3095,107 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;HWI_DIGITAL.c: 80: TRISC = 0x0;
 "80
 [e = _TRISC -> -> 0 `i `uc ]
-[; ;HWI_DIGITAL.c: 81: }
+[; ;HWI_DIGITAL.c: 81: TRISBbits.RB2 = 1;
 "81
-[e :UE 300 ]
-}
-"83
-[v _HWI_DIGI_READ `(uc ~T0 @X0 1 ef1`uc ]
-"84
-{
-[; ;HWI_DIGITAL.c: 83: unsigned char HWI_DIGI_READ(unsigned char pin)
-[; ;HWI_DIGITAL.c: 84: {
-[e :U _HWI_DIGI_READ ]
-"83
-[v _pin `uc ~T0 @X0 1 r1 ]
-"84
-[f ]
-[; ;HWI_DIGITAL.c: 85: return (0);
+[e = . . _TRISBbits 1 2 -> -> 1 `i `uc ]
+[; ;HWI_DIGITAL.c: 82: TRISBbits.RB3 = 1;
+"82
+[e = . . _TRISBbits 1 3 -> -> 1 `i `uc ]
+[; ;HWI_DIGITAL.c: 85: TRISBbits.RB4 =0;
 "85
-[e ) -> -> 0 `i `uc ]
-[e $UE 301  ]
-[; ;HWI_DIGITAL.c: 86: }
+[e = . . _TRISBbits 1 4 -> -> 0 `i `uc ]
+[; ;HWI_DIGITAL.c: 86: TRISBbits.RB5 =0;
 "86
-[e :UE 301 ]
-}
+[e = . . _TRISBbits 1 5 -> -> 0 `i `uc ]
+[; ;HWI_DIGITAL.c: 87: TRISBbits.RB6 =0;
 "87
-[v _HWI_DIGI_WRITE `(v ~T0 @X0 1 ef2`uc`uc ]
+[e = . . _TRISBbits 1 6 -> -> 0 `i `uc ]
+[; ;HWI_DIGITAL.c: 88: TRISBbits.RB7 =0;
 "88
-{
-[; ;HWI_DIGITAL.c: 87: void HWI_DIGI_WRITE(unsigned char pin,unsigned char value)
-[; ;HWI_DIGITAL.c: 88: {
-[e :U _HWI_DIGI_WRITE ]
-"87
-[v _pin `uc ~T0 @X0 1 r1 ]
-[v _value `uc ~T0 @X0 1 r2 ]
-"88
-[f ]
+[e = . . _TRISBbits 1 7 -> -> 0 `i `uc ]
 [; ;HWI_DIGITAL.c: 89: }
 "89
-[e :UE 302 ]
+[e :UE 300 ]
+}
+"91
+[v _HWI_DIGI_READ `(uc ~T0 @X0 1 ef1`uc ]
+"92
+{
+[; ;HWI_DIGITAL.c: 91: unsigned char HWI_DIGI_READ(unsigned char pin)
+[; ;HWI_DIGITAL.c: 92: {
+[e :U _HWI_DIGI_READ ]
+"91
+[v _pin `uc ~T0 @X0 1 r1 ]
+"92
+[f ]
+"93
+[v _HWIread `uc ~T0 @X0 1 a ]
+[; ;HWI_DIGITAL.c: 93: unsigned char HWIread;
+[; ;HWI_DIGITAL.c: 95: switch (pin)
+"95
+[e $U 303  ]
+[; ;HWI_DIGITAL.c: 96: {
+"96
+{
+[; ;HWI_DIGITAL.c: 97: case 15:
+"97
+[e :U 304 ]
+[; ;HWI_DIGITAL.c: 98: HWIread = PORTBbits.RB2;
+"98
+[e = _HWIread . . _PORTBbits 0 2 ]
+[; ;HWI_DIGITAL.c: 99: break;
+"99
+[e $U 302  ]
+[; ;HWI_DIGITAL.c: 100: case 16:
+"100
+[e :U 305 ]
+[; ;HWI_DIGITAL.c: 101: HWIread = PORTBbits.RB3;
+"101
+[e = _HWIread . . _PORTBbits 0 3 ]
+[; ;HWI_DIGITAL.c: 102: break;
+"102
+[e $U 302  ]
+[; ;HWI_DIGITAL.c: 103: default:
+"103
+[e :U 306 ]
+[; ;HWI_DIGITAL.c: 104: HWIread = (unsigned char)0;
+"104
+[e = _HWIread -> -> 0 `i `uc ]
+[; ;HWI_DIGITAL.c: 105: break;
+"105
+[e $U 302  ]
+"106
+}
+[; ;HWI_DIGITAL.c: 106: }
+[e $U 302  ]
+"95
+[e :U 303 ]
+[e [\ _pin , $ -> -> 15 `i `uc 304
+ , $ -> -> 16 `i `uc 305
+ 306 ]
+"106
+[e :U 302 ]
+[; ;HWI_DIGITAL.c: 107: return HWIread;
+"107
+[e ) _HWIread ]
+[e $UE 301  ]
+[; ;HWI_DIGITAL.c: 108: }
+"108
+[e :UE 301 ]
+}
+"109
+[v _HWI_DIGI_WRITE `(v ~T0 @X0 1 ef2`uc`uc ]
+"110
+{
+[; ;HWI_DIGITAL.c: 109: void HWI_DIGI_WRITE(unsigned char pin,unsigned char value)
+[; ;HWI_DIGITAL.c: 110: {
+[e :U _HWI_DIGI_WRITE ]
+"109
+[v _pin `uc ~T0 @X0 1 r1 ]
+[v _value `uc ~T0 @X0 1 r2 ]
+"110
+[f ]
+[; ;HWI_DIGITAL.c: 111: }
+"111
+[e :UE 307 ]
 }

@@ -1,30 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"1 ../../../../Common/HWIheader\HWI_func.h
-[v _HWI_INTERRUPTS_INTITALIZE `(v ~T0 @X0 0 ef ]
-"2
-[v _HWI_DIGITAL_INITIALIZE `(v ~T0 @X0 0 ef ]
-"13 ../../../../Common/Driver/SpeedCalc\SpeedCalc.h
-[v _SpeedCalcNotifyInitialize `(v ~T0 @X0 0 ef ]
-"2 ../../../../Common/App\APP.h
-[v _APP_INITIALIZE `(v ~T0 @X0 0 ef ]
-[v F2999 `(v ~T0 @X0 0 tf ]
-"23 ../../../../OS/Scheduler\Scheduler.h
-[v _CreateTask `(v ~T0 @X0 0 ef3`*F2999`uc`uc ]
-"84 main.c
-[v _ManageSpeedCalc `(v ~T0 @X0 0 ef ]
-"83
-[v _ManageApplication `(v ~T0 @X0 0 ef ]
-"82
-[v _DisplayAlphaNumeric `(v ~T0 @X0 0 ef ]
-"25 ../../../../OS/Scheduler\Scheduler.h
-[v _RunScheduler `(v ~T0 @X0 0 ef ]
-"15 ../../../../Common/Driver/BCDdisplay\BCDdisplay.h
-[v _BCDManage7segment `(v ~T0 @X0 0 ef ]
-"3 ../../../../Common/App\APP.h
-[v _APP_MANAGE `(v ~T0 @X0 0 ef ]
-"19 ../../../../Common/Driver/SpeedCalc\SpeedCalc.h
-[v _SpeedCalcManage `(v ~T0 @X0 0 ef ]
+"10 ../../../../OS/OS_manage\OS_manage.h
+[v _Start_App `(v ~T0 @X0 0 ef ]
 "14 main.c
 [p x OSC=XT ]
 "15
@@ -2869,123 +2846,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;Scheduler\Scheduler.h: 14: typedef void (*PointerVoid)(void);
-[; ;Scheduler\Scheduler.h: 16: typedef struct
-[; ;Scheduler\Scheduler.h: 17: {
-[; ;Scheduler\Scheduler.h: 18: PointerVoid ManageFunction;
-[; ;Scheduler\Scheduler.h: 19: unsigned char Period;
-[; ;Scheduler\Scheduler.h: 20: unsigned char TickCounter;
-[; ;Scheduler\Scheduler.h: 21: }TaskConfig;
-[; ;Scheduler\Scheduler.h: 23: extern void CreateTask( PointerVoid MangeFunction , unsigned char TaskId , unsigned char Period);
-[; ;Scheduler\Scheduler.h: 25: extern void RunScheduler(void);
-[; ;Scheduler\Scheduler.h: 27: extern void SchedulerTick(void);
-[; ;HWIheader\HWI_func.h: 1: extern void HWI_INTERRUPTS_INTITALIZE(void);
-[; ;HWIheader\HWI_func.h: 2: extern void HWI_DIGITAL_INITIALIZE(void);
-[; ;HWIheader\HWI_func.h: 3: extern unsigned char HWI_DIGI_READ(unsigned char pin);
-[; ;HWIheader\HWI_func.h: 4: extern void HWI_DIGI_WRITE(unsigned char pin,unsigned char value);
-[; ;HWIheader\HWI_func.h: 6: extern void HWI_4Digit_WRITE(unsigned char port,unsigned char value);
-[; ;HWIheader\HWI_func.h: 7: extern unsigned char HWI_4Digit_READ(unsigned char port);
-[; ;HWIheader\HWI_func.h: 9: extern void HWI_8Digit_WRITE(unsigned char port,unsigned char value);
-[; ;HWIheader\HWI_func.h: 10: extern unsigned char HWI8Digit_READ(unsigned char port);
-[; ;HWIheader\HWI_func.h: 12: extern void HWI_Delay_msec(unsigned short Time);
-[; ;HWIheader\HWI_func.h: 13: extern void HWI_Delay_usec(unsigned short Time);
-[; ;HWIheader\HWI_func.h: 14: extern void HWI_Delay_nsec(unsigned short Time);
-[; ;HWIheader\HWI_func.h: 16: extern unsigned short ReloadHWtimer(unsigned char TimerId);
-[; ;App\APP.h: 2: extern void APP_INITIALIZE(void);
-[; ;App\APP.h: 3: extern void APP_MANAGE();
-[; ;SpeedCalc\SpeedCalc.h: 13: extern void SpeedCalcNotifyInitialize(void);
-[; ;SpeedCalc\SpeedCalc.h: 15: extern void SensorOneNotify(void);
-[; ;SpeedCalc\SpeedCalc.h: 17: extern void SensorTwoNotify(void);
-[; ;SpeedCalc\SpeedCalc.h: 19: extern void SpeedCalcManage(void);
-[; ;SpeedCalc\SpeedCalc.h: 21: extern void SetDistance(unsigned long Distance);
-[; ;SpeedCalc\SpeedCalc.h: 23: extern unsigned long GetDistance(void);
-[; ;SpeedCalc\SpeedCalc.h: 25: extern void SetCircumfirunce(unsigned short Circum);
-[; ;SpeedCalc\SpeedCalc.h: 27: extern unsigned short GetAvgSpeed(unsigned char bIsKph);
-[; ;SpeedCalc\SpeedCalc.h: 29: extern void HWtimerCallback (void);
-[; ;BCDdisplay\BCDdisplay.h: 13: extern void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace);
-[; ;BCDdisplay\BCDdisplay.h: 15: extern void BCDManage7segment(void);
-[; ;main.c: 82: void DisplayAlphaNumeric (void);
-[; ;main.c: 83: void ManageApplication (void);
-[; ;main.c: 84: void ManageSpeedCalc(void);
-"86 main.c
+[; ;OS_manage\OS_manage.h: 10: extern void Start_App(void);
+"78 main.c
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 86: void main(void) {
+[; ;main.c: 78: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 87: HWI_INTERRUPTS_INTITALIZE();
-"87
-[e ( _HWI_INTERRUPTS_INTITALIZE ..  ]
-[; ;main.c: 88: HWI_DIGITAL_INITIALIZE();
-"88
-[e ( _HWI_DIGITAL_INITIALIZE ..  ]
-[; ;main.c: 89: SpeedCalcNotifyInitialize();
-"89
-[e ( _SpeedCalcNotifyInitialize ..  ]
-[; ;main.c: 90: APP_INITIALIZE();
-"90
-[e ( _APP_INITIALIZE ..  ]
-[; ;main.c: 92: CreateTask( ManageSpeedCalc, (unsigned char)0 , (unsigned char) 20);
-"92
-[e ( _CreateTask (3 , , &U _ManageSpeedCalc -> -> 0 `i `uc -> -> 20 `i `uc ]
-[; ;main.c: 94: CreateTask( ManageApplication, (unsigned char)2 , (unsigned char) 100);
-"94
-[e ( _CreateTask (3 , , &U _ManageApplication -> -> 2 `i `uc -> -> 100 `i `uc ]
-[; ;main.c: 96: CreateTask( DisplayAlphaNumeric, (unsigned char)1 , (unsigned char) 50);
-"96
-[e ( _CreateTask (3 , , &U _DisplayAlphaNumeric -> -> 1 `i `uc -> -> 50 `i `uc ]
-[; ;main.c: 99: RunScheduler();
-"99
-[e ( _RunScheduler ..  ]
-[; ;main.c: 101: return;
-"101
-[e $UE 277  ]
-[; ;main.c: 102: }
-"102
-[e :UE 277 ]
-}
-"104
-[v _DisplayAlphaNumeric `(v ~T0 @X0 1 ef ]
-"105
-{
-[; ;main.c: 104: void DisplayAlphaNumeric (void)
-[; ;main.c: 105: {
-[e :U _DisplayAlphaNumeric ]
-[f ]
-[; ;main.c: 106: BCDManage7segment();
-"106
-[e ( _BCDManage7segment ..  ]
-[; ;main.c: 107: }
-"107
-[e :UE 278 ]
-}
-"108
-[v _ManageApplication `(v ~T0 @X0 1 ef ]
-"109
-{
-[; ;main.c: 108: void ManageApplication (void)
-[; ;main.c: 109: {
-[e :U _ManageApplication ]
-[f ]
-[; ;main.c: 110: APP_MANAGE();
-"110
-[e ( _APP_MANAGE ..  ]
-[; ;main.c: 111: }
-"111
-[e :UE 279 ]
-}
-"112
-[v _ManageSpeedCalc `(v ~T0 @X0 1 ef ]
-"113
-{
-[; ;main.c: 112: void ManageSpeedCalc(void)
-[; ;main.c: 113: {
-[e :U _ManageSpeedCalc ]
-[f ]
-[; ;main.c: 114: SpeedCalcManage();
-"114
-[e ( _SpeedCalcManage ..  ]
-[; ;main.c: 115: }
-"115
-[e :UE 280 ]
+[; ;main.c: 80: Start_App();
+"80
+[e ( _Start_App ..  ]
+[; ;main.c: 81: return;
+"81
+[e $UE 276  ]
+[; ;main.c: 82: }
+"82
+[e :UE 276 ]
 }

@@ -3813,101 +3813,12 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 14 "../../../../OS/Scheduler\Scheduler.h"
-typedef void (*PointerVoid)(void);
+# 10 "../../../../OS/OS_manage\OS_manage.h"
+extern void Start_App(void);
 
-typedef struct
-{
-PointerVoid ManageFunction;
-unsigned char Period;
-unsigned char TickCounter;
-}TaskConfig;
-
-extern void CreateTask( PointerVoid MangeFunction , unsigned char TaskId , unsigned char Period);
-
-extern void RunScheduler(void);
-
-extern void SchedulerTick(void);
-
-# 1 "../../../../Common/HWIheader\HWI_func.h"
-extern void HWI_INTERRUPTS_INTITALIZE(void);
-extern void HWI_DIGITAL_INITIALIZE(void);
-extern unsigned char HWI_DIGI_READ(unsigned char pin);
-extern void HWI_DIGI_WRITE(unsigned char pin,unsigned char value);
-
-extern void HWI_4Digit_WRITE(unsigned char port,unsigned char value);
-extern unsigned char HWI_4Digit_READ(unsigned char port);
-
-extern void HWI_8Digit_WRITE(unsigned char port,unsigned char value);
-extern unsigned char HWI8Digit_READ(unsigned char port);
-
-extern void HWI_Delay_msec(unsigned short Time);
-extern void HWI_Delay_usec(unsigned short Time);
-extern void HWI_Delay_nsec(unsigned short Time);
-
-extern unsigned short ReloadHWtimer(unsigned char TimerId);
-
-# 2 "../../../../Common/App\APP.h"
-extern void APP_INITIALIZE(void);
-extern void APP_MANAGE();
-
-# 13 "../../../../Common/Driver/SpeedCalc\SpeedCalc.h"
-extern void SpeedCalcNotifyInitialize(void);
-
-extern void SensorOneNotify(void);
-
-extern void SensorTwoNotify(void);
-
-extern void SpeedCalcManage(void);
-
-extern void SetDistance(unsigned long Distance);
-
-extern unsigned long GetDistance(void);
-
-extern void SetCircumfirunce(unsigned short Circum);
-
-extern unsigned short GetAvgSpeed(unsigned char bIsKph);
-
-extern void HWtimerCallback (void);
-
-# 13 "../../../../Common/Driver/BCDdisplay\BCDdisplay.h"
-extern void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace);
-
-extern void BCDManage7segment(void);
-
-# 82 "main.c"
-void DisplayAlphaNumeric (void);
-void ManageApplication (void);
-void ManageSpeedCalc(void);
-
+# 78 "main.c"
 void main(void) {
-HWI_INTERRUPTS_INTITALIZE();
-HWI_DIGITAL_INITIALIZE();
-SpeedCalcNotifyInitialize();
-APP_INITIALIZE();
 
-CreateTask( ManageSpeedCalc, (unsigned char)0 , (unsigned char) 20);
-
-CreateTask( ManageApplication, (unsigned char)2 , (unsigned char) 100);
-
-CreateTask( DisplayAlphaNumeric, (unsigned char)1 , (unsigned char) 50);
-
-
-RunScheduler();
-
+Start_App();
 return;
 }
-
-void DisplayAlphaNumeric (void)
-{
-BCDManage7segment();
-}
-void ManageApplication (void)
-{
-APP_MANAGE();
-}
-void ManageSpeedCalc(void)
-{
-SpeedCalcManage();
-}
-

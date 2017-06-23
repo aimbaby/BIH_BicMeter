@@ -14,8 +14,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Scheduler.h: 25: void RunScheduler(void);
 [; ;Scheduler.h: 27: void SchedulerTick(void);
 "4 ../../../../OS/Scheduler/Scheduler.c
-[v _ArrayTask `S1 ~T0 @X0 -> 3 `i s ]
-[; ;Scheduler.c: 4: static TaskConfig ArrayTask[3];
+[v _ArrayTask `S1 ~T0 @X0 -> 4 `i s ]
+[; ;Scheduler.c: 4: static TaskConfig ArrayTask[4];
 "6
 [v _CreateTask `(v ~T0 @X0 1 ef3`*F2`uc`uc ]
 "7
@@ -29,9 +29,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Period `uc ~T0 @X0 1 r3 ]
 "7
 [f ]
-[; ;Scheduler.c: 8: if(TaskId < 3)
+[; ;Scheduler.c: 8: if(TaskId < 4)
 "8
-[e $ ! < -> _TaskId `i -> 3 `i 3  ]
+[e $ ! < -> _TaskId `i -> 4 `i 3  ]
 [; ;Scheduler.c: 9: {
 "9
 {
@@ -63,11 +63,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "18
 [v _TaskIndex `uc ~T0 @X0 1 a ]
 [; ;Scheduler.c: 18: unsigned char TaskIndex;
-[; ;Scheduler.c: 19: for(TaskIndex = (unsigned char)0 ;TaskIndex < 3 ; TaskIndex++)
+[; ;Scheduler.c: 19: for(TaskIndex = (unsigned char)0 ;TaskIndex < 4 ; TaskIndex++)
 "19
 {
 [e = _TaskIndex -> -> 0 `i `uc ]
-[e $ < -> _TaskIndex `i -> 3 `i 5  ]
+[e $ < -> _TaskIndex `i -> 4 `i 5  ]
 [e $U 6  ]
 "20
 [e :U 5 ]
@@ -80,7 +80,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "19
 [e ++ _TaskIndex -> -> 1 `i `uc ]
-[e $ < -> _TaskIndex `i -> 3 `i 5  ]
+[e $ < -> _TaskIndex `i -> 4 `i 5  ]
 [e :U 6 ]
 "22
 }
@@ -107,11 +107,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 9 ]
 [; ;Scheduler.c: 29: {
 {
-[; ;Scheduler.c: 30: for(TaskIndex = (unsigned char)0 ; TaskIndex < 3 ; TaskIndex++)
+[; ;Scheduler.c: 30: for(TaskIndex = (unsigned char)0 ; TaskIndex < 4 ; TaskIndex++)
 "30
 {
 [e = F26 -> -> 0 `i `uc ]
-[e $ < -> F26 `i -> 3 `i 12  ]
+[e $ < -> F26 `i -> 4 `i 12  ]
 [e $U 13  ]
 "31
 [e :U 12 ]
@@ -136,7 +136,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "30
 [e ++ F26 -> -> 1 `i `uc ]
-[e $ < -> F26 `i -> 3 `i 12  ]
+[e $ < -> F26 `i -> 4 `i 12  ]
 [e :U 13 ]
 "38
 }

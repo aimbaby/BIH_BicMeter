@@ -18,11 +18,11 @@ unsigned char TickCounter;
  void SchedulerTick(void);
 
 # 4 "../../../../OS/Scheduler/Scheduler.c"
-static TaskConfig ArrayTask[3];
+static TaskConfig ArrayTask[4];
 
  void CreateTask( PointerVoid MangeFunction , unsigned char TaskId , unsigned char Period)
 {
-if(TaskId < 3)
+if(TaskId < 4)
 {
 ArrayTask[TaskId].ManageFunction = MangeFunction;
 ArrayTask[TaskId].Period = Period;
@@ -33,7 +33,7 @@ ArrayTask[TaskId].TickCounter = (unsigned char)0;
  void SchedulerTick(void)
 {
 unsigned char TaskIndex;
-for(TaskIndex = (unsigned char)0 ;TaskIndex < 3 ; TaskIndex++)
+for(TaskIndex = (unsigned char)0 ;TaskIndex < 4 ; TaskIndex++)
 {
 ArrayTask[TaskIndex].TickCounter ++;
 }
@@ -44,7 +44,7 @@ ArrayTask[TaskIndex].TickCounter ++;
 static unsigned char TaskIndex;
 for(;;)
 {
-for(TaskIndex = (unsigned char)0 ; TaskIndex < 3 ; TaskIndex++)
+for(TaskIndex = (unsigned char)0 ; TaskIndex < 4 ; TaskIndex++)
 {
 if(ArrayTask[TaskIndex].Period <= ArrayTask[TaskIndex].TickCounter)
 {

@@ -3849,11 +3849,33 @@ TRISD = 0x0;
 PORTD = 0x0;
 
 TRISC = 0x0;
+TRISBbits.RB2 = 1;
+TRISBbits.RB3 = 1;
+
+
+TRISBbits.RB4 =0;
+TRISBbits.RB5 =0;
+TRISBbits.RB6 =0;
+TRISBbits.RB7 =0;
 }
 
  unsigned char HWI_DIGI_READ(unsigned char pin)
 {
-return (0);
+unsigned char HWIread;
+
+switch (pin)
+{
+case 15:
+HWIread = PORTBbits.RB2;
+break;
+case 16:
+HWIread = PORTBbits.RB3;
+break;
+default:
+HWIread = (unsigned char)0;
+break;
+}
+return HWIread;
 }
  void HWI_DIGI_WRITE(unsigned char pin,unsigned char value)
 {

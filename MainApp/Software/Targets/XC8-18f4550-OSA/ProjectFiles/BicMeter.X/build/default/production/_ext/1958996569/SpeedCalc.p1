@@ -3121,9 +3121,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 "107
 [v _AvgSpeedKphMph `us ~T0 @X0 1 a ]
+[; ;SpeedCalc.c: 107: unsigned short AvgSpeedKphMph = (unsigned short)0;
+[e = _AvgSpeedKphMph -> -> 0 `i `us ]
 "108
 [v _KphMphFactor `ul ~T0 @X0 1 a ]
-[; ;SpeedCalc.c: 107: unsigned short AvgSpeedKphMph;
 [; ;SpeedCalc.c: 108: unsigned long KphMphFactor;
 [; ;SpeedCalc.c: 110: if( (unsigned char)1 == bIsKph )
 "110
@@ -3151,41 +3152,64 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 293 ]
 [; ;SpeedCalc.c: 117: }
-[; ;SpeedCalc.c: 119: AvgSpeedKphMph = (unsigned short)
-[; ;SpeedCalc.c: 120: ((KphMphFactor * (unsigned long)CircumFactor )
-[; ;SpeedCalc.c: 121: / (unsigned long)LapTimeTenthMilli);
-"121
+[; ;SpeedCalc.c: 119: if(LapTimeTenthMilli != (unsigned short)0)
+"119
+[e $ ! != -> _LapTimeTenthMilli `ui -> -> -> 0 `i `us `ui 294  ]
+[; ;SpeedCalc.c: 120: {
+"120
+{
+[; ;SpeedCalc.c: 121: AvgSpeedKphMph = (unsigned short)
+[; ;SpeedCalc.c: 122: ((KphMphFactor * (unsigned long)CircumFactor )
+[; ;SpeedCalc.c: 123: / (unsigned long)LapTimeTenthMilli);
+"123
 [e = _AvgSpeedKphMph -> / * _KphMphFactor -> _CircumFactor `ul -> _LapTimeTenthMilli `ul `us ]
-[; ;SpeedCalc.c: 124: return AvgSpeedKphMph;
 "124
-[e ) _AvgSpeedKphMph ]
-[e $UE 291  ]
-[; ;SpeedCalc.c: 125: }
-"125
-[e :UE 291 ]
 }
+[e :U 294 ]
+[; ;SpeedCalc.c: 124: }
+[; ;SpeedCalc.c: 126: if( (unsigned char)64 == HwTimerOVFLcount)
+"126
+[e $ ! == -> -> -> 64 `i `uc `i -> _HwTimerOVFLcount `i 295  ]
+[; ;SpeedCalc.c: 127: {
 "127
-[v _HWtimerCallback `(v ~T0 @X0 1 ef ]
+{
+[; ;SpeedCalc.c: 128: AvgSpeedKphMph = (unsigned short)0;
 "128
-{
-[; ;SpeedCalc.c: 127: void HWtimerCallback (void)
-[; ;SpeedCalc.c: 128: {
-[e :U _HWtimerCallback ]
-[f ]
-[; ;SpeedCalc.c: 129: if(HwTimerOVFLcount < 64)
+[e = _AvgSpeedKphMph -> -> 0 `i `us ]
 "129
-[e $ ! < -> _HwTimerOVFLcount `i -> 64 `i 295  ]
-[; ;SpeedCalc.c: 130: {
-"130
-{
-[; ;SpeedCalc.c: 131: HwTimerOVFLcount++;
-"131
-[e ++ _HwTimerOVFLcount -> -> 1 `i `uc ]
-"132
 }
 [e :U 295 ]
-[; ;SpeedCalc.c: 132: }
-[; ;SpeedCalc.c: 133: }
+[; ;SpeedCalc.c: 129: }
+[; ;SpeedCalc.c: 130: return AvgSpeedKphMph;
+"130
+[e ) _AvgSpeedKphMph ]
+[e $UE 291  ]
+[; ;SpeedCalc.c: 131: }
+"131
+[e :UE 291 ]
+}
 "133
-[e :UE 294 ]
+[v _HWtimerCallback `(v ~T0 @X0 1 ef ]
+"134
+{
+[; ;SpeedCalc.c: 133: void HWtimerCallback (void)
+[; ;SpeedCalc.c: 134: {
+[e :U _HWtimerCallback ]
+[f ]
+[; ;SpeedCalc.c: 135: if(HwTimerOVFLcount < 64)
+"135
+[e $ ! < -> _HwTimerOVFLcount `i -> 64 `i 297  ]
+[; ;SpeedCalc.c: 136: {
+"136
+{
+[; ;SpeedCalc.c: 137: HwTimerOVFLcount++;
+"137
+[e ++ _HwTimerOVFLcount -> -> 1 `i `uc ]
+"138
+}
+[e :U 297 ]
+[; ;SpeedCalc.c: 138: }
+[; ;SpeedCalc.c: 139: }
+"139
+[e :UE 296 ]
 }
