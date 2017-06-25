@@ -5,8 +5,10 @@
   #include "SpeedCalc.h"
   #include "BCDdisplay.h"
   #include "Key.h"
+  #include "Eeprom.h"
 #include "Alloc.h"
   #include "APP.h"
+
   
   PUBLIC void APP_INITIALIZE(void)
   {
@@ -20,15 +22,17 @@
       unsigned short AvgSpeedKph;
       unsigned short TravelledDistance;
       unsigned char keystatus;
-      
-     
+         
       SetCircumfirunce(2056);
  
       AvgSpeedKph =  GetAvgSpeed(1);
       TravelledDistance = GetDistance();
       TravelledDistance *= (unsigned short)10;
       TravelledDistance /= (unsigned short)16;
-   
+      
+      Eeprom_Write_Block(1,(unsigned char*)&TravelledDistance , (unsigned char)2);
+      
+      Eeprom_Read_Block(1 , (unsigned char*)&AvgSpeedKph , (unsigned char)2);
       BCDsendNumber(AvgSpeedKph,1 );
      
       if(bIsBlinkMode == (unsigned char)0)
