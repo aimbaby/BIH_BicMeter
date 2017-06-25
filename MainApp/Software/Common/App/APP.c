@@ -20,19 +20,24 @@
       static unsigned blinkIndex = (unsigned char)0;
       static unsigned bIsBlinkMode = (unsigned char)0;
       unsigned short AvgSpeedKph;
-      unsigned short TravelledDistance;
+      unsigned long TravelledDistance;
       unsigned char keystatus;
          
+      unsigned char const stringX[5] = {'a','h','m','e','d'};
+      
       SetCircumfirunce(2056);
  
       AvgSpeedKph =  GetAvgSpeed(1);
       TravelledDistance = GetDistance();
-      TravelledDistance *= (unsigned short)10;
-      TravelledDistance /= (unsigned short)16;
+      TravelledDistance *= (unsigned long)10;
+      TravelledDistance /= (unsigned long)16;
       
-      Eeprom_Write_Block(1,(unsigned char*)&TravelledDistance , (unsigned char)2);
+          Eeprom_Write_Block(8,(unsigned char*)&stringX , (unsigned char)sizeof(stringX));
       
-      Eeprom_Read_Block(1 , (unsigned char*)&AvgSpeedKph , (unsigned char)2);
+      
+      Eeprom_Write_Block(1,(unsigned char*)&TravelledDistance , (unsigned char)sizeof(TravelledDistance));
+  
+      Eeprom_Read_Block(1 , (unsigned char*)&AvgSpeedKph , (unsigned char)sizeof(TravelledDistance));
       BCDsendNumber(AvgSpeedKph,1 );
      
       if(bIsBlinkMode == (unsigned char)0)
