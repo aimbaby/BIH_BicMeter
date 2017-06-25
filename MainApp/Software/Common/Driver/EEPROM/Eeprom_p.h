@@ -8,6 +8,6 @@
 #ifndef EEPROM_P_H
 #define	EEPROM_P_H
 
-#define EEPROM_BUFFER_SIZE    10
+#define EEPROM_BUFFER_SIZE    50
 #endif	/* EEPROM_P_H */
 
