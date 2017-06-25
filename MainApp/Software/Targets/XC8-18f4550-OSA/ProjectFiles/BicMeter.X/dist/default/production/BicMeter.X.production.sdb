@@ -3,9 +3,9 @@
 [d edition pro ]
 [d chip 18F4520 ]
 [d frameptr 4065 ]
-"11 E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+"13 E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
 [v _APP_INITIALIZE APP_INITIALIZE `(v  1 e 1 0 ]
-"16
+"18
 [v _APP_MANAGE APP_MANAGE `(v  1 e 1 0 ]
 "29 E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
 [v _BCDInitialize BCDInitialize `(v  1 e 1 0 ]
@@ -15,6 +15,12 @@
 [v _BCDManage7segment BCDManage7segment `(v  1 e 1 0 ]
 "121
 [v _BlinkDigit BlinkDigit `(v  1 e 1 0 ]
+"12 E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+[v _Eeprom_Write_Block Eeprom_Write_Block `(uc  1 e 1 0 ]
+"39
+[v _Eeprom_Read_Block Eeprom_Read_Block `(v  1 e 1 0 ]
+"60
+[v _EepromManage EepromManage `(v  1 e 1 0 ]
 "19 E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
 [v _GetKeyStatus GetKeyStatus `(uc  1 e 1 0 ]
 "29
@@ -57,6 +63,10 @@
 [v _SchedulerTick SchedulerTick `(v  1 e 1 0 ]
 "25
 [v _RunScheduler RunScheduler `(v  1 e 1 0 ]
+"6 E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+[v _HWIeeprom_Write HWIeeprom_Write `(uc  1 e 1 0 ]
+"31
+[v _HWIeeprom_Read HWIeeprom_Read `(uc  1 e 1 0 ]
 "8 E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
 [v _HWI_4Digit_WRITE HWI_4Digit_WRITE `(v  1 e 1 0 ]
 "41
@@ -113,12 +123,20 @@
 [v _BlinkDuration BlinkDuration `uc  1 s 1 BlinkDuration ]
 "27
 [v _BlinkFlag BlinkFlag `uc  1 s 1 BlinkFlag ]
-[s S94 . 8 `uc 1 HWI_ID 1 0 `uc 1 ActiveValue 1 1 `us 1 ReleaseTicks 2 2 `us 1 ShortPress 2 4 `us 1 LongPress 2 6 ]
+"7 E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+[v _WriteRequest WriteRequest `uc  1 s 1 WriteRequest ]
+"8
+[v _DataArray DataArray `[10]uc  1 s 10 DataArray ]
+"9
+[v _EEPROMaddr EEPROMaddr `uc  1 s 1 EEPROMaddr ]
+"10
+[v _DataSize DataSize `uc  1 s 1 DataSize ]
+[s S139 . 8 `uc 1 HWI_ID 1 0 `uc 1 ActiveValue 1 1 `us 1 ReleaseTicks 2 2 `us 1 ShortPress 2 4 `us 1 LongPress 2 6 ]
 "11 E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
-[v _KeyArrayConfig KeyArrayConfig `C[2]S94  1 e 16 0 ]
-[s S100 . 3 `uc 1 KeyState 1 0 `us 1 KeyCounter 2 1 ]
+[v _KeyArrayConfig KeyArrayConfig `C[2]S139  1 e 16 0 ]
+[s S145 . 3 `uc 1 KeyState 1 0 `us 1 KeyCounter 2 1 ]
 "12
-[v _KeyInternalData KeyInternalData `[2]S100  1 s 6 KeyInternalData ]
+[v _KeyInternalData KeyInternalData `[2]S145  1 s 6 KeyInternalData ]
 "14 E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
 [v _NotifyFlag NotifyFlag `VEuc  1 e 1 0 ]
 "15
@@ -137,10 +155,10 @@
 [v _HWtimerCount HWtimerCount `VEus  1 e 2 0 ]
 "22
 [v _HwTimerOVFLcount HwTimerOVFLcount `VEuc  1 e 1 0 ]
-[s S227 . 4 `*.37(v 1 ManageFunction 2 0 `uc 1 Period 1 2 `uc 1 TickCounter 1 3 ]
+[s S274 . 4 `*.37(v 1 ManageFunction 2 0 `uc 1 Period 1 2 `uc 1 TickCounter 1 3 ]
 "4 E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
-[v _ArrayTask ArrayTask `[4]S227  1 s 16 ArrayTask ]
-[s S259 . 1 `uc 1 RB0 1 0 :1:0 
+[v _ArrayTask ArrayTask `[4]S274  1 s 16 ArrayTask ]
+[s S410 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -150,7 +168,7 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 "311 C:\Program Files\Microchip\xc8\v1.41\include\pic18f4520.h
-[s S299 . 1 `uc 1 INT0 1 0 :1:0 
+[s S450 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 CCP2 1 0 :1:3 
@@ -159,7 +177,7 @@
 `uc 1 KBI2 1 0 :1:6 
 `uc 1 KBI3 1 0 :1:7 
 ]
-[s S308 . 1 `uc 1 AN12 1 0 :1:0 
+[s S459 . 1 `uc 1 AN12 1 0 :1:0 
 `uc 1 AN10 1 0 :1:1 
 `uc 1 AN8 1 0 :1:2 
 `uc 1 AN9 1 0 :1:3 
@@ -168,13 +186,13 @@
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S317 . 1 `uc 1 FLT0 1 0 :1:0 
+[s S468 . 1 `uc 1 FLT0 1 0 :1:0 
 ]
-[s S319 . 1 `uc 1 . 1 0 :3:0 
+[s S470 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S322 . 1 `S259 1 . 1 0 `S299 1 . 1 0 `S308 1 . 1 0 `S317 1 . 1 0 `S319 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES322  1 e 1 @3969 ]
+[u S473 . 1 `S410 1 . 1 0 `S450 1 . 1 0 `S459 1 . 1 0 `S468 1 . 1 0 `S470 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES473  1 e 1 @3969 ]
 "445
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
 "626
@@ -183,7 +201,7 @@
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
 "1302
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
-[s S250 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S401 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -193,12 +211,33 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "1717
-[u S268 . 1 `S250 1 . 1 0 `S259 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES268  1 e 1 @3987 ]
+[u S419 . 1 `S401 1 . 1 0 `S410 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES419  1 e 1 @3987 ]
 "1906
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "2127
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+[s S291 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 WREN 1 0 :1:2 
+`uc 1 WRERR 1 0 :1:3 
+`uc 1 FREE 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CFGS 1 0 :1:6 
+`uc 1 EEPGD 1 0 :1:7 
+]
+"3019
+[s S300 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 EEFS 1 0 :1:6 
+]
+[u S303 . 1 `S291 1 . 1 0 `S300 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES303  1 e 1 @4006 ]
+"3063
+[v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
+"3069
+[v _EEDATA EEDATA `VEuc  1 e 1 @4008 ]
+"3075
+[v _EEADR EEADR `VEuc  1 e 1 @4009 ]
 "3584
 [v _T3CON T3CON `VEuc  1 e 1 @4017 ]
 "3701
@@ -215,11 +254,11 @@
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "6425
 [v _INTCON3 INTCON3 `VEuc  1 e 1 @4080 ]
-[s S423 . 1 `uc 1 . 1 0 :7:0 
+[s S574 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "6541
-[s S426 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S577 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -228,13 +267,38 @@
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S435 . 1 `uc 1 . 1 0 :7:0 
+[s S586 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S438 . 1 `S423 1 . 1 0 `S426 1 . 1 0 `S435 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES438  1 e 1 @4081 ]
+[u S589 . 1 `S574 1 . 1 0 `S577 1 . 1 0 `S586 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES589  1 e 1 @4081 ]
 "6585
 [v _INTCON INTCON `VEuc  1 e 1 @4082 ]
+[s S321 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"6617
+[s S330 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S339 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S343 . 1 `S321 1 . 1 0 `S330 1 . 1 0 `S339 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES343  1 e 1 @4082 ]
 "7203
 [v _INT0IF INT0IF `VEb  1 e 0 @32657 ]
 "7213
@@ -280,7 +344,7 @@
 {
 "56
 [v ManageDrivers@LoopIndex LoopIndex `uc  1 a 1 26 ]
-"62
+"63
 } 0
 "41
 [v _DisplayAlphaNumeric DisplayAlphaNumeric `(v  1 e 1 0 ]
@@ -301,7 +365,7 @@
 [v _SpeedCalcManage SpeedCalcManage `(v  1 e 1 0 ]
 {
 "65
-[v SpeedCalcManage@HundredMeterReference HundredMeterReference `us  1 a 2 46 ]
+[v SpeedCalcManage@HundredMeterReference HundredMeterReference `us  1 a 2 0 ]
 "86
 } 0
 "29 E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
@@ -329,20 +393,42 @@
 [v HWI_DIGI_READ@pin pin `uc  1 a 1 19 ]
 "108
 } 0
-"16 E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+"60 E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+[v _EepromManage EepromManage `(v  1 e 1 0 ]
+{
+"63
+[v EepromManage@WriteSuccess WriteSuccess `uc  1 a 1 22 ]
+"62
+[v EepromManage@WriteIndex WriteIndex `uc  1 s 1 WriteIndex ]
+"81
+} 0
+"6 E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+[v _HWIeeprom_Write HWIeeprom_Write `(uc  1 e 1 0 ]
+{
+[v HWIeeprom_Write@address address `uc  1 a 1 wreg ]
+"8
+[v HWIeeprom_Write@WriteSuccess WriteSuccess `uc  1 a 1 21 ]
+"6
+[v HWIeeprom_Write@address address `uc  1 a 1 wreg ]
+[v HWIeeprom_Write@Data Data `uc  1 p 1 19 ]
+"9
+[v HWIeeprom_Write@address address `uc  1 a 1 20 ]
+"30
+} 0
+"18 E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
 [v _APP_MANAGE APP_MANAGE `(v  1 e 1 0 ]
 {
-"21
+"23
 [v APP_MANAGE@TravelledDistance TravelledDistance `us  1 a 2 9 ]
-"20
-[v APP_MANAGE@AvgSpeedKph AvgSpeedKph `us  1 a 2 7 ]
 "22
+[v APP_MANAGE@AvgSpeedKph AvgSpeedKph `us  1 a 2 7 ]
+"24
 [v APP_MANAGE@keystatus keystatus `uc  1 a 1 11 ]
-"18
+"20
 [v APP_MANAGE@blinkIndex blinkIndex `ui  1 s 2 blinkIndex ]
-"19
+"21
 [v APP_MANAGE@bIsBlinkMode bIsBlinkMode `ui  1 s 2 bIsBlinkMode ]
-"86
+"90
 } 0
 "99 E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
 [v _SetCircumfirunce SetCircumfirunce `(v  1 e 1 0 ]
@@ -402,6 +488,57 @@
 [v ___lldiv@dividend dividend `ul  1 p 4 31 ]
 [v ___lldiv@divisor divisor `ul  1 p 4 35 ]
 "31
+} 0
+"12 E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+[v _Eeprom_Write_Block Eeprom_Write_Block `(uc  1 e 1 0 ]
+{
+"14
+[v Eeprom_Write_Block@address address `uc  1 a 1 wreg ]
+"20
+[v Eeprom_Write_Block@LoopIndex LoopIndex `uc  1 a 1 24 ]
+"19
+[v Eeprom_Write_Block@WriteGranted WriteGranted `uc  1 a 1 22 ]
+"14
+[v Eeprom_Write_Block@address address `uc  1 a 1 wreg ]
+"15
+[v Eeprom_Write_Block@DataPtr DataPtr `*.39uc  1 p 2 19 ]
+"16
+[v Eeprom_Write_Block@BlockSize BlockSize `uc  1 p 1 21 ]
+"21
+[v Eeprom_Write_Block@address address `uc  1 a 1 23 ]
+"38
+} 0
+"39
+[v _Eeprom_Read_Block Eeprom_Read_Block `(v  1 e 1 0 ]
+{
+"41
+[v Eeprom_Read_Block@address address `uc  1 a 1 wreg ]
+"46
+[v Eeprom_Read_Block@LoopIndex LoopIndex `uc  1 a 1 28 ]
+"47
+[v Eeprom_Read_Block@ReadSuccess ReadSuccess `uc  1 a 1 27 ]
+"41
+[v Eeprom_Read_Block@address address `uc  1 a 1 wreg ]
+"42
+[v Eeprom_Read_Block@DataPtr DataPtr `*.39uc  1 p 2 23 ]
+"43
+[v Eeprom_Read_Block@BlockSize BlockSize `uc  1 p 1 25 ]
+"46
+[v Eeprom_Read_Block@address address `uc  1 a 1 26 ]
+"58
+} 0
+"31 E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+[v _HWIeeprom_Read HWIeeprom_Read `(uc  1 e 1 0 ]
+{
+[v HWIeeprom_Read@address address `uc  1 a 1 wreg ]
+"33
+[v HWIeeprom_Read@ReadSuccess ReadSuccess `uc  1 a 1 22 ]
+"31
+[v HWIeeprom_Read@address address `uc  1 a 1 wreg ]
+[v HWIeeprom_Read@Data Data `*.39uc  1 p 2 19 ]
+"34
+[v HWIeeprom_Read@address address `uc  1 a 1 21 ]
+"49
 } 0
 "121 E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
 [v _BlinkDigit BlinkDigit `(v  1 e 1 0 ]
@@ -507,10 +644,10 @@
 [v BCDInitialize@bIsCommonAnode bIsCommonAnode `uc  1 a 1 19 ]
 "32
 } 0
-"11 E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+"13 E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
 [v _APP_INITIALIZE APP_INITIALIZE `(v  1 e 1 0 ]
 {
-"14
+"16
 } 0
 "52 E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
 [v _ISR ISR `II(v  1 e 1 0 ]

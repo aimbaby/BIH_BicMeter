@@ -3845,6 +3845,23 @@ extern unsigned char GetKeyStatus(unsigned char KeyID);
 
 extern void MangeKeys(unsigned char KeyID);
 
+# 12 "../../../../Common/Driver/EEPROM\Eeprom.h"
+ unsigned char Eeprom_Write_Block
+(
+unsigned char address ,
+unsigned char *DataPtr ,
+unsigned char BlockSize
+);
+
+ void Eeprom_Read_Block
+(
+unsigned char address ,
+unsigned char *DataPtr ,
+unsigned char BlockSize
+);
+
+ void EepromManage(void);
+
 # 10 "../../../../OS/OS_manage/OS_manage.h"
  void Start_App(void);
 
@@ -3894,5 +3911,6 @@ for(LoopIndex = (unsigned char)0 ; LoopIndex < (unsigned char)2 ; LoopIndex++)
 {
 MangeKeys(LoopIndex);
 }
+EepromManage();
 
 }

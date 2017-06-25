@@ -5,6 +5,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _GetAvgSpeed `(us ~T0 @X0 0 ef1`uc ]
 "23
 [v _GetDistance `(ul ~T0 @X0 0 ef ]
+"12 ../../../../Common/Driver/EEPROM\Eeprom.h
+[v _Eeprom_Write_Block `(uc ~T0 @X0 0 ef3`uc`*uc`uc ]
+"19
+[v _Eeprom_Read_Block `(v ~T0 @X0 0 ef3`uc`*uc`uc ]
 "15 ../../../../Common/Driver/BCDdisplay\BCDdisplay.h
 [v _BCDsendNumber `(v ~T0 @X0 0 ef2`us`uc ]
 "38 ../../../../Common/Driver/Key\Key.h
@@ -2830,165 +2834,184 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Key\Key.h: 36: extern void KeyInitialize(void);
 [; ;Key\Key.h: 38: extern unsigned char GetKeyStatus(unsigned char KeyID);
 [; ;Key\Key.h: 40: extern void MangeKeys(unsigned char KeyID);
+[; ;EEPROM\Eeprom.h: 12: extern unsigned char Eeprom_Write_Block
+[; ;EEPROM\Eeprom.h: 13: (
+[; ;EEPROM\Eeprom.h: 14: unsigned char address ,
+[; ;EEPROM\Eeprom.h: 15: unsigned char *DataPtr ,
+[; ;EEPROM\Eeprom.h: 16: unsigned char BlockSize
+[; ;EEPROM\Eeprom.h: 17: );
+[; ;EEPROM\Eeprom.h: 19: extern void Eeprom_Read_Block
+[; ;EEPROM\Eeprom.h: 20: (
+[; ;EEPROM\Eeprom.h: 21: unsigned char address ,
+[; ;EEPROM\Eeprom.h: 22: unsigned char *DataPtr ,
+[; ;EEPROM\Eeprom.h: 23: unsigned char BlockSize
+[; ;EEPROM\Eeprom.h: 24: );
+[; ;EEPROM\Eeprom.h: 26: extern void EepromManage(void);
 [; ;APP.h: 2: void APP_INITIALIZE(void);
 [; ;APP.h: 3: void APP_MANAGE();
-"11 ../../../../Common/App/APP.c
+"13 ../../../../Common/App/APP.c
 [v _APP_INITIALIZE `(v ~T0 @X0 1 ef ]
-"12
+"14
 {
-[; ;APP.c: 11: void APP_INITIALIZE(void)
-[; ;APP.c: 12: {
+[; ;APP.c: 13: void APP_INITIALIZE(void)
+[; ;APP.c: 14: {
 [e :U _APP_INITIALIZE ]
 [f ]
-[; ;APP.c: 14: }
-"14
+[; ;APP.c: 16: }
+"16
 [e :UE 278 ]
 }
-"16
+"18
 [v _APP_MANAGE `(v ~T0 @X0 1 ef ]
-"17
+"19
 {
-[; ;APP.c: 16: void APP_MANAGE(void)
-[; ;APP.c: 17: {
+[; ;APP.c: 18: void APP_MANAGE(void)
+[; ;APP.c: 19: {
 [e :U _APP_MANAGE ]
 [f ]
-"18
-[v F3075 `ui ~T0 @X0 1 s blinkIndex ]
-[i F3075
--> -> -> 0 `i `uc `ui
-]
-"19
-[v F3077 `ui ~T0 @X0 1 s bIsBlinkMode ]
-[i F3077
--> -> -> 0 `i `uc `ui
-]
 "20
-[v _AvgSpeedKph `us ~T0 @X0 1 a ]
+[v F3085 `ui ~T0 @X0 1 s blinkIndex ]
+[i F3085
+-> -> -> 0 `i `uc `ui
+]
 "21
-[v _TravelledDistance `us ~T0 @X0 1 a ]
+[v F3087 `ui ~T0 @X0 1 s bIsBlinkMode ]
+[i F3087
+-> -> -> 0 `i `uc `ui
+]
 "22
+[v _AvgSpeedKph `us ~T0 @X0 1 a ]
+"23
+[v _TravelledDistance `us ~T0 @X0 1 a ]
+"24
 [v _keystatus `uc ~T0 @X0 1 a ]
-[; ;APP.c: 18: static unsigned blinkIndex = (unsigned char)0;
-[; ;APP.c: 19: static unsigned bIsBlinkMode = (unsigned char)0;
-[; ;APP.c: 20: unsigned short AvgSpeedKph;
-[; ;APP.c: 21: unsigned short TravelledDistance;
-[; ;APP.c: 22: unsigned char keystatus;
-[; ;APP.c: 25: SetCircumfirunce(2056);
-"25
+[; ;APP.c: 20: static unsigned blinkIndex = (unsigned char)0;
+[; ;APP.c: 21: static unsigned bIsBlinkMode = (unsigned char)0;
+[; ;APP.c: 22: unsigned short AvgSpeedKph;
+[; ;APP.c: 23: unsigned short TravelledDistance;
+[; ;APP.c: 24: unsigned char keystatus;
+[; ;APP.c: 26: SetCircumfirunce(2056);
+"26
 [e ( _SetCircumfirunce (1 -> -> 2056 `i `us ]
-[; ;APP.c: 27: AvgSpeedKph = GetAvgSpeed(1);
-"27
-[e = _AvgSpeedKph ( _GetAvgSpeed (1 -> -> 1 `i `uc ]
-[; ;APP.c: 28: TravelledDistance = GetDistance();
+[; ;APP.c: 28: AvgSpeedKph = GetAvgSpeed(1);
 "28
-[e = _TravelledDistance -> ( _GetDistance ..  `us ]
-[; ;APP.c: 29: TravelledDistance *= (unsigned short)10;
+[e = _AvgSpeedKph ( _GetAvgSpeed (1 -> -> 1 `i `uc ]
+[; ;APP.c: 29: TravelledDistance = GetDistance();
 "29
-[e =* _TravelledDistance -> -> 10 `i `us ]
-[; ;APP.c: 30: TravelledDistance /= (unsigned short)16;
+[e = _TravelledDistance -> ( _GetDistance ..  `us ]
+[; ;APP.c: 30: TravelledDistance *= (unsigned short)10;
 "30
+[e =* _TravelledDistance -> -> 10 `i `us ]
+[; ;APP.c: 31: TravelledDistance /= (unsigned short)16;
+"31
 [e =/ _TravelledDistance -> -> -> 16 `i `us `us ]
-[; ;APP.c: 32: BCDsendNumber(AvgSpeedKph,1 );
-"32
-[e ( _BCDsendNumber (2 , _AvgSpeedKph -> -> 1 `i `uc ]
-[; ;APP.c: 34: if(bIsBlinkMode == (unsigned char)0)
-"34
-[e $ ! == F3077 -> -> -> 0 `i `uc `ui 280  ]
-[; ;APP.c: 35: {
+[; ;APP.c: 33: Eeprom_Write_Block(1,(unsigned char*)&TravelledDistance , (unsigned char)2);
+"33
+[e ( _Eeprom_Write_Block (3 , , -> -> 1 `i `uc -> &U _TravelledDistance `*uc -> -> 2 `i `uc ]
+[; ;APP.c: 35: Eeprom_Read_Block(1 , (unsigned char*)&AvgSpeedKph , (unsigned char)2);
 "35
-{
-[; ;APP.c: 36: keystatus = GetKeyStatus(0);
+[e ( _Eeprom_Read_Block (3 , , -> -> 1 `i `uc -> &U _AvgSpeedKph `*uc -> -> 2 `i `uc ]
+[; ;APP.c: 36: BCDsendNumber(AvgSpeedKph,1 );
 "36
-[e = _keystatus ( _GetKeyStatus (1 -> -> 0 `i `uc ]
-[; ;APP.c: 37: if( keystatus == (unsigned char)0x82)
-"37
-[e $ ! == -> _keystatus `i -> -> -> 130 `i `uc `i 281  ]
-[; ;APP.c: 38: {
+[e ( _BCDsendNumber (2 , _AvgSpeedKph -> -> 1 `i `uc ]
+[; ;APP.c: 38: if(bIsBlinkMode == (unsigned char)0)
 "38
-{
-[; ;APP.c: 39: bIsBlinkMode = (unsigned char)1;
+[e $ ! == F3087 -> -> -> 0 `i `uc `ui 280  ]
+[; ;APP.c: 39: {
 "39
-[e = F3077 -> -> -> 1 `i `uc `ui ]
+{
+[; ;APP.c: 40: keystatus = GetKeyStatus(0);
 "40
+[e = _keystatus ( _GetKeyStatus (1 -> -> 0 `i `uc ]
+[; ;APP.c: 41: if( keystatus == (unsigned char)0x82)
+"41
+[e $ ! == -> _keystatus `i -> -> -> 130 `i `uc `i 281  ]
+[; ;APP.c: 42: {
+"42
+{
+[; ;APP.c: 43: bIsBlinkMode = (unsigned char)1;
+"43
+[e = F3087 -> -> -> 1 `i `uc `ui ]
+"44
 }
 [e :U 281 ]
-"41
-}
-[; ;APP.c: 40: }
-[; ;APP.c: 41: }
-[e $U 282  ]
-"42
-[e :U 280 ]
-[; ;APP.c: 42: else
-[; ;APP.c: 43: {
-"43
-{
-[; ;APP.c: 44: BlinkDigit(blinkIndex,100);
-"44
-[e ( _BlinkDigit (2 , -> F3075 `uc -> -> 100 `i `uc ]
-[; ;APP.c: 45: keystatus = GetKeyStatus(0);
 "45
-[e = _keystatus ( _GetKeyStatus (1 -> -> 0 `i `uc ]
-[; ;APP.c: 46: if( keystatus == (unsigned char)0x81)
+}
+[; ;APP.c: 44: }
+[; ;APP.c: 45: }
+[e $U 282  ]
 "46
-[e $ ! == -> _keystatus `i -> -> -> 129 `i `uc `i 283  ]
+[e :U 280 ]
+[; ;APP.c: 46: else
 [; ;APP.c: 47: {
 "47
 {
-[; ;APP.c: 48: blinkIndex++;
+[; ;APP.c: 48: BlinkDigit(blinkIndex,100);
 "48
-[e ++ F3075 -> -> 1 `i `ui ]
-[; ;APP.c: 49: if(blinkIndex == 4)
+[e ( _BlinkDigit (2 , -> F3085 `uc -> -> 100 `i `uc ]
+[; ;APP.c: 49: keystatus = GetKeyStatus(0);
 "49
-[e $ ! == F3075 -> -> 4 `i `ui 284  ]
-[; ;APP.c: 50: {
+[e = _keystatus ( _GetKeyStatus (1 -> -> 0 `i `uc ]
+[; ;APP.c: 50: if( keystatus == (unsigned char)0x81)
 "50
-{
-[; ;APP.c: 51: blinkIndex=0;
+[e $ ! == -> _keystatus `i -> -> -> 129 `i `uc `i 283  ]
+[; ;APP.c: 51: {
 "51
-[e = F3075 -> -> 0 `i `ui ]
+{
+[; ;APP.c: 52: blinkIndex++;
 "52
+[e ++ F3085 -> -> 1 `i `ui ]
+[; ;APP.c: 53: if(blinkIndex == 4)
+"53
+[e $ ! == F3085 -> -> 4 `i `ui 284  ]
+[; ;APP.c: 54: {
+"54
+{
+[; ;APP.c: 55: blinkIndex=0;
+"55
+[e = F3085 -> -> 0 `i `ui ]
+"56
 }
 [e :U 284 ]
-"53
-}
-[; ;APP.c: 52: }
-[; ;APP.c: 53: }
-[e $U 285  ]
-"54
-[e :U 283 ]
-[; ;APP.c: 54: else
-[; ;APP.c: 55: {
-"55
-{
-[; ;APP.c: 56: keystatus = GetKeyStatus(1);
-"56
-[e = _keystatus ( _GetKeyStatus (1 -> -> 1 `i `uc ]
-[; ;APP.c: 57: if(keystatus == (unsigned char)0x82 )
 "57
-[e $ ! == -> _keystatus `i -> -> -> 130 `i `uc `i 286  ]
-[; ;APP.c: 58: {
+}
+[; ;APP.c: 56: }
+[; ;APP.c: 57: }
+[e $U 285  ]
 "58
-{
-[; ;APP.c: 59: BlinkDigit(1,0);
+[e :U 283 ]
+[; ;APP.c: 58: else
+[; ;APP.c: 59: {
 "59
-[e ( _BlinkDigit (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;APP.c: 60: bIsBlinkMode = (unsigned char)0;
+{
+[; ;APP.c: 60: keystatus = GetKeyStatus(1);
 "60
-[e = F3077 -> -> -> 0 `i `uc `ui ]
+[e = _keystatus ( _GetKeyStatus (1 -> -> 1 `i `uc ]
+[; ;APP.c: 61: if(keystatus == (unsigned char)0x82 )
 "61
+[e $ ! == -> _keystatus `i -> -> -> 130 `i `uc `i 286  ]
+[; ;APP.c: 62: {
+"62
+{
+[; ;APP.c: 63: BlinkDigit(1,0);
+"63
+[e ( _BlinkDigit (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
+[; ;APP.c: 64: bIsBlinkMode = (unsigned char)0;
+"64
+[e = F3087 -> -> -> 0 `i `uc `ui ]
+"65
 }
 [e :U 286 ]
-"62
+"66
 }
 [e :U 285 ]
-"63
+"67
 }
 [e :U 282 ]
-[; ;APP.c: 61: }
-[; ;APP.c: 62: }
-[; ;APP.c: 63: }
-[; ;APP.c: 86: }
-"86
+[; ;APP.c: 65: }
+[; ;APP.c: 66: }
+[; ;APP.c: 67: }
+[; ;APP.c: 90: }
+"90
 [e :UE 279 ]
 }

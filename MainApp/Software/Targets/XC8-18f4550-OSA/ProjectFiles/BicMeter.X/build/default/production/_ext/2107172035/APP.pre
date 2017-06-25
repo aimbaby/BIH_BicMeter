@@ -3825,11 +3825,28 @@ extern unsigned char GetKeyStatus(unsigned char KeyID);
 
 extern void MangeKeys(unsigned char KeyID);
 
+# 12 "../../../../Common/Driver/EEPROM\Eeprom.h"
+extern unsigned char Eeprom_Write_Block
+(
+unsigned char address ,
+unsigned char *DataPtr ,
+unsigned char BlockSize
+);
+
+extern void Eeprom_Read_Block
+(
+unsigned char address ,
+unsigned char *DataPtr ,
+unsigned char BlockSize
+);
+
+extern void EepromManage(void);
+
 # 2 "../../../../Common/App/APP.h"
  void APP_INITIALIZE(void);
  void APP_MANAGE();
 
-# 11 "../../../../Common/App/APP.c"
+# 13 "../../../../Common/App/APP.c"
  void APP_INITIALIZE(void)
 {
 
@@ -3843,7 +3860,6 @@ unsigned short AvgSpeedKph;
 unsigned short TravelledDistance;
 unsigned char keystatus;
 
-
 SetCircumfirunce(2056);
 
 AvgSpeedKph = GetAvgSpeed(1);
@@ -3851,6 +3867,9 @@ TravelledDistance = GetDistance();
 TravelledDistance *= (unsigned short)10;
 TravelledDistance /= (unsigned short)16;
 
+Eeprom_Write_Block(1,(unsigned char*)&TravelledDistance , (unsigned char)2);
+
+Eeprom_Read_Block(1 , (unsigned char*)&AvgSpeedKph , (unsigned char)2);
 BCDsendNumber(AvgSpeedKph,1 );
 
 if(bIsBlinkMode == (unsigned char)0)
@@ -3884,5 +3903,5 @@ bIsBlinkMode = (unsigned char)0;
 }
 }
 
-# 86
+# 90
 }

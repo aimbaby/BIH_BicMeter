@@ -30,6 +30,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SpeedCalcManage `(v ~T0 @X0 0 ef ]
 "40 ../../../../Common/Driver/Key\Key.h
 [v _MangeKeys `(v ~T0 @X0 0 ef1`uc ]
+"26 ../../../../Common/Driver/EEPROM\Eeprom.h
+[v _EepromManage `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2861,6 +2863,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Key\Key.h: 36: extern void KeyInitialize(void);
 [; ;Key\Key.h: 38: extern unsigned char GetKeyStatus(unsigned char KeyID);
 [; ;Key\Key.h: 40: extern void MangeKeys(unsigned char KeyID);
+[; ;EEPROM\Eeprom.h: 12: unsigned char Eeprom_Write_Block
+[; ;EEPROM\Eeprom.h: 13: (
+[; ;EEPROM\Eeprom.h: 14: unsigned char address ,
+[; ;EEPROM\Eeprom.h: 15: unsigned char *DataPtr ,
+[; ;EEPROM\Eeprom.h: 16: unsigned char BlockSize
+[; ;EEPROM\Eeprom.h: 17: );
+[; ;EEPROM\Eeprom.h: 19: void Eeprom_Read_Block
+[; ;EEPROM\Eeprom.h: 20: (
+[; ;EEPROM\Eeprom.h: 21: unsigned char address ,
+[; ;EEPROM\Eeprom.h: 22: unsigned char *DataPtr ,
+[; ;EEPROM\Eeprom.h: 23: unsigned char BlockSize
+[; ;EEPROM\Eeprom.h: 24: );
+[; ;EEPROM\Eeprom.h: 26: void EepromManage(void);
 [; ;OS_manage.h: 10: void Start_App(void);
 [; ;OS_manage.c: 16: void DisplayAlphaNumeric (void);
 [; ;OS_manage.c: 17: void ManageApplication (void);
@@ -2986,7 +3001,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "60
 }
 [; ;OS_manage.c: 60: }
-[; ;OS_manage.c: 62: }
-"62
+[; ;OS_manage.c: 61: EepromManage();
+"61
+[e ( _EepromManage ..  ]
+[; ;OS_manage.c: 63: }
+"63
 [e :UE 283 ]
 }

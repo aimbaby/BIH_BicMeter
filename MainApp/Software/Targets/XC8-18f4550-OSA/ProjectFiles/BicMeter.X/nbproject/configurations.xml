@@ -24,6 +24,11 @@
               <itemPath>../../../../Common/Driver/BCDdisplay/BCDdisplay.c</itemPath>
               <itemPath>../../../../Common/Driver/BCDdisplay/BCDdisplay_p.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
+              <itemPath>../../../../Common/Driver/EEPROM/Eeprom.c</itemPath>
+              <itemPath>../../../../Common/Driver/EEPROM/Eeprom.h</itemPath>
+              <itemPath>../../../../Common/Driver/EEPROM/Eeprom_p.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="Key" displayName="Key" projectFiles="true">
               <itemPath>../../../../Common/Driver/Key/Key.c</itemPath>
               <itemPath>../../../../Common/Driver/Key/Key.h</itemPath>
@@ -39,6 +44,7 @@
           </logicalFolder>
           <logicalFolder name="HWIheader" displayName="HWIheader" projectFiles="true">
             <itemPath>../../../../Common/HWIheader/HWI_func.h</itemPath>
+            <itemPath>../../../../Common/HWIheader/HWIeeprom.h</itemPath>
           </logicalFolder>
           <logicalFolder name="Interrupts" displayName="Interrupts" projectFiles="true">
             <itemPath>../../../../Common/Interrupts/AppInterrupts.c</itemPath>
@@ -64,6 +70,9 @@
           <logicalFolder name="XC8-18f4550-OSA"
                          displayName="XC8-18f4550-OSA"
                          projectFiles="true">
+            <logicalFolder name="HWIeeprom" displayName="HWIeeprom" projectFiles="true">
+              <itemPath>../../HWIeeprom/HWIeeprom.c</itemPath>
+            </logicalFolder>
             <logicalFolder name="HWIsource" displayName="HWIsource" projectFiles="true">
               <itemPath>../../HWIsource/HWI_DIGITAL.c</itemPath>
               <itemPath>../../HWIsource/HWI_Interrupts.c</itemPath>
@@ -135,7 +144,7 @@
         <property key="define-macros" value=""/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
-                  value="..\..\..\..\;..\..\..\..\Common\Link;..\..\..\..\Common\Interrupts;..\..\..\..\Common\App;..\..\..\..\Common\HWIheader;..\..\..\..\OS\Scheduler;..\..\..\..\Common\Driver;..\..\..\..\Common\Driver\SpeedCalc;..\..\HWIsource;..\..\..\..\Common\Driver\BCDdisplay;..\..\..\..\Common\Driver\Key;..\..\..\..\OS\OS_manage"/>
+                  value="..\..\..\..\;..\..\..\..\Common\Link;..\..\..\..\Common\Interrupts;..\..\..\..\Common\App;..\..\..\..\Common\HWIheader;..\..\..\..\OS\Scheduler;..\..\..\..\Common\Driver;..\..\..\..\Common\Driver\SpeedCalc;..\..\HWIsource;..\..\..\..\Common\Driver\BCDdisplay;..\..\..\..\Common\Driver\Key;..\..\..\..\OS\OS_manage;..\..\HWIeeprom;..\..\..\..\Common\Driver\EEPROM"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="identifier-length" value="255"/>
         <property key="local-generation" value="false"/>

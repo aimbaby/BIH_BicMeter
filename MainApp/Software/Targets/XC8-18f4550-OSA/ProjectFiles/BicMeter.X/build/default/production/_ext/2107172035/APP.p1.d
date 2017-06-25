@@ -8,7 +8,9 @@
 ../../HWIsource/TargetFile.h  \
 ../../../../Common/Link/Alloc.h  \
 ../../../../Common/Driver/BCDdisplay/BCDdisplay.h  \
+../../../../Common/Driver/EEPROM/Eeprom_p.h  \
 ../../../../Common/App/APP.h  \
 ../../../../Common/Driver/SpeedCalc/SpeedCalc.h  \
 ../../../../Common/HWIheader/HWI_func.h  \
-../../../../Common/Driver/Key/Key_p.h 
+../../../../Common/Driver/Key/Key_p.h  \
+../../../../Common/Driver/EEPROM/Eeprom.h 
