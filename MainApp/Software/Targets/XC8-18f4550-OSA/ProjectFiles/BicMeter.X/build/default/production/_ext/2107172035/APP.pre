@@ -3833,7 +3833,7 @@ unsigned char *DataPtr ,
 unsigned char BlockSize
 );
 
-extern void Eeprom_Read_Block
+extern unsigned char Eeprom_Read_Block
 (
 unsigned char address ,
 unsigned char *DataPtr ,
@@ -3849,7 +3849,8 @@ extern void EepromManage(void);
 # 13 "../../../../Common/App/APP.c"
  void APP_INITIALIZE(void)
 {
-
+unsigned char const stringX[] = "ahmed imbaby SW EEPROM OK :D";
+Eeprom_Write_Block(8,(unsigned char*)&stringX , (unsigned char)sizeof(stringX));
 }
 
  void APP_MANAGE(void)
@@ -3857,19 +3858,19 @@ extern void EepromManage(void);
 static unsigned blinkIndex = (unsigned char)0;
 static unsigned bIsBlinkMode = (unsigned char)0;
 unsigned short AvgSpeedKph;
-unsigned short TravelledDistance;
+unsigned long TravelledDistance;
 unsigned char keystatus;
 
 SetCircumfirunce(2056);
 
 AvgSpeedKph = GetAvgSpeed(1);
 TravelledDistance = GetDistance();
-TravelledDistance *= (unsigned short)10;
-TravelledDistance /= (unsigned short)16;
+TravelledDistance *= (unsigned long)10;
+TravelledDistance /= (unsigned long)16;
 
-Eeprom_Write_Block(1,(unsigned char*)&TravelledDistance , (unsigned char)2);
+Eeprom_Write_Block(1,(unsigned char*)&AvgSpeedKph , (unsigned char)sizeof(AvgSpeedKph));
 
-Eeprom_Read_Block(1 , (unsigned char*)&AvgSpeedKph , (unsigned char)2);
+Eeprom_Read_Block(1 , (unsigned char*)&AvgSpeedKph , (unsigned char)sizeof(AvgSpeedKph));
 BCDsendNumber(AvgSpeedKph,1 );
 
 if(bIsBlinkMode == (unsigned char)0)
@@ -3903,5 +3904,5 @@ bIsBlinkMode = (unsigned char)0;
 }
 }
 
-# 90
+# 91
 }

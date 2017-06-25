@@ -3853,7 +3853,7 @@ unsigned char *DataPtr ,
 unsigned char BlockSize
 );
 
- void Eeprom_Read_Block
+ unsigned char Eeprom_Read_Block
 (
 unsigned char address ,
 unsigned char *DataPtr ,

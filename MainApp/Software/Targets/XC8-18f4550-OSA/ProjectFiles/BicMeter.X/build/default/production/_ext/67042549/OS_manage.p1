@@ -2869,7 +2869,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;EEPROM\Eeprom.h: 15: unsigned char *DataPtr ,
 [; ;EEPROM\Eeprom.h: 16: unsigned char BlockSize
 [; ;EEPROM\Eeprom.h: 17: );
-[; ;EEPROM\Eeprom.h: 19: void Eeprom_Read_Block
+[; ;EEPROM\Eeprom.h: 19: unsigned char Eeprom_Read_Block
 [; ;EEPROM\Eeprom.h: 20: (
 [; ;EEPROM\Eeprom.h: 21: unsigned char address ,
 [; ;EEPROM\Eeprom.h: 22: unsigned char *DataPtr ,
