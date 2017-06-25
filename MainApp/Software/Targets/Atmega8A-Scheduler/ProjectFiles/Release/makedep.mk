@@ -6,6 +6,8 @@
 
 ..\..\..\Common\Driver\BCDdisplay\BCDdisplay.c
 
+..\..\..\Common\Driver\EEPROM\Eeprom.c
+
 ..\..\..\Common\Driver\Key\Key.c
 
 ..\..\..\Common\Driver\SpeedCalc\SpeedCalc.c
@@ -15,6 +17,8 @@
 ..\..\..\OS\OS_manage\OS_manage.c
 
 ..\..\..\OS\Scheduler\Scheduler.c
+
+..\HWIeeprom\HWIeeprom.c
 
 ..\HWIsource\HWI_DIGITAL.c
 

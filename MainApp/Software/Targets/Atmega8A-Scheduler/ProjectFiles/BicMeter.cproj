@@ -59,6 +59,8 @@
       <Value>../../HWIsource</Value>
       <Value>../../../../OS/OS_manage</Value>
       <Value>../../../../Common/Driver/Key</Value>
+      <Value>../../../../Common/Driver/EEPROM</Value>
+      <Value>../../HWIeeprom</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
@@ -129,6 +131,18 @@
       <SubType>compile</SubType>
       <Link>BCDdisplay_p.h</Link>
     </Compile>
+    <Compile Include="..\..\..\Common\Driver\EEPROM\Eeprom.c">
+      <SubType>compile</SubType>
+      <Link>Eeprom.c</Link>
+    </Compile>
+    <Compile Include="..\..\..\Common\Driver\EEPROM\Eeprom.h">
+      <SubType>compile</SubType>
+      <Link>Eeprom.h</Link>
+    </Compile>
+    <Compile Include="..\..\..\Common\Driver\EEPROM\Eeprom_p.h">
+      <SubType>compile</SubType>
+      <Link>Eeprom_p.h</Link>
+    </Compile>
     <Compile Include="..\..\..\Common\Driver\Key\Key.c">
       <SubType>compile</SubType>
       <Link>Key.c</Link>
@@ -152,6 +166,10 @@
     <Compile Include="..\..\..\Common\Driver\SpeedCalc\SpeedCalc_p.h">
       <SubType>compile</SubType>
       <Link>SpeedCalc_p.h</Link>
+    </Compile>
+    <Compile Include="..\..\..\Common\HWIheader\HWIeeprom.h">
+      <SubType>compile</SubType>
+      <Link>HWIeeprom.h</Link>
     </Compile>
     <Compile Include="..\..\..\Common\HWIheader\HWI_func.h">
       <SubType>compile</SubType>
@@ -192,6 +210,10 @@
     <Compile Include="..\..\..\OS\Scheduler\Scheduler_p.h">
       <SubType>compile</SubType>
       <Link>Scheduler_p.h</Link>
+    </Compile>
+    <Compile Include="..\HWIeeprom\HWIeeprom.c">
+      <SubType>compile</SubType>
+      <Link>HWIeeprom.c</Link>
     </Compile>
     <Compile Include="..\HWIsource\HWI_DIGITAL.c">
       <SubType>compile</SubType>

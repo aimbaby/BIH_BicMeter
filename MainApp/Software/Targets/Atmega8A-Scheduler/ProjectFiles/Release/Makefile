@@ -37,11 +37,13 @@ SUBDIRS :=
 C_SRCS +=  \
 ../../../../Common/App/APP.c \
 ../../../../Common/Driver/BCDdisplay/BCDdisplay.c \
+../../../../Common/Driver/EEPROM/Eeprom.c \
 ../../../../Common/Driver/Key/Key.c \
 ../../../../Common/Driver/SpeedCalc/SpeedCalc.c \
 ../../../../Common/Interrupts/AppInterrupts.c \
 ../../../../OS/OS_manage/OS_manage.c \
 ../../../../OS/Scheduler/Scheduler.c \
+../../HWIeeprom/HWIeeprom.c \
 ../../HWIsource/HWI_DIGITAL.c \
 ../../HWIsource/HWI_Interrupts.c \
 ../BicMeter.c
@@ -56,11 +58,13 @@ ASM_SRCS +=
 OBJS +=  \
 APP.o \
 BCDdisplay.o \
+Eeprom.o \
 Key.o \
 SpeedCalc.o \
 AppInterrupts.o \
 OS_manage.o \
 Scheduler.o \
+HWIeeprom.o \
 HWI_DIGITAL.o \
 HWI_Interrupts.o \
 BicMeter.o
@@ -69,11 +73,13 @@ BicMeter.o
 OBJS_AS_ARGS +=  \
 APP.o \
 BCDdisplay.o \
+Eeprom.o \
 Key.o \
 SpeedCalc.o \
 AppInterrupts.o \
 OS_manage.o \
 Scheduler.o \
+HWIeeprom.o \
 HWI_DIGITAL.o \
 HWI_Interrupts.o \
 BicMeter.o
@@ -82,11 +88,13 @@ BicMeter.o
 C_DEPS +=  \
 APP.d \
 BCDdisplay.d \
+Eeprom.d \
 Key.d \
 SpeedCalc.d \
 AppInterrupts.d \
 OS_manage.d \
 Scheduler.d \
+HWIeeprom.d \
 HWI_DIGITAL.d \
 HWI_Interrupts.d \
 BicMeter.d
@@ -95,11 +103,13 @@ BicMeter.d
 C_DEPS_AS_ARGS +=  \
 APP.d \
 BCDdisplay.d \
+Eeprom.d \
 Key.d \
 SpeedCalc.d \
 AppInterrupts.d \
 OS_manage.d \
 Scheduler.d \
+HWIeeprom.d \
 HWI_DIGITAL.d \
 HWI_Interrupts.d \
 BicMeter.d
@@ -135,58 +145,74 @@ OUTPUT_FILE_DEP:= ./makedep.mk
 
 
 
+
+
+
+
 ./%.o: ../../../../Common/App/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.0_663) 4.6.2
-	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
+	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key" -I"../../../../Common/Driver/EEPROM" -I"../../HWIeeprom"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
 	@echo Finished building: $<
 
 ./%.o: ../../../../Common/Driver/BCDdisplay/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.0_663) 4.6.2
-	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
+	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key" -I"../../../../Common/Driver/EEPROM" -I"../../HWIeeprom"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
+	@echo Finished building: $<
+
+./%.o: ../../../../Common/Driver/EEPROM/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.0_663) 4.6.2
+	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key" -I"../../../../Common/Driver/EEPROM" -I"../../HWIeeprom"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
 	@echo Finished building: $<
 
 ./%.o: ../../../../Common/Driver/Key/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.0_663) 4.6.2
-	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
+	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key" -I"../../../../Common/Driver/EEPROM" -I"../../HWIeeprom"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
 	@echo Finished building: $<
 
 ./%.o: ../../../../Common/Driver/SpeedCalc/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.0_663) 4.6.2
-	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
+	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key" -I"../../../../Common/Driver/EEPROM" -I"../../HWIeeprom"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
 	@echo Finished building: $<
 
 ./%.o: ../../../../Common/Interrupts/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.0_663) 4.6.2
-	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
+	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key" -I"../../../../Common/Driver/EEPROM" -I"../../HWIeeprom"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
 	@echo Finished building: $<
 
 ./%.o: ../../../../OS/OS_manage/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.0_663) 4.6.2
-	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
+	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key" -I"../../../../Common/Driver/EEPROM" -I"../../HWIeeprom"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
 	@echo Finished building: $<
 
 ./%.o: ../../../../OS/Scheduler/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.0_663) 4.6.2
-	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
+	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key" -I"../../../../Common/Driver/EEPROM" -I"../../HWIeeprom"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
+	@echo Finished building: $<
+
+./%.o: ../../HWIeeprom/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.0_663) 4.6.2
+	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key" -I"../../../../Common/Driver/EEPROM" -I"../../HWIeeprom"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
 	@echo Finished building: $<
 
 ./%.o: ../../HWIsource/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.0_663) 4.6.2
-	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
+	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key" -I"../../../../Common/Driver/EEPROM" -I"../../HWIeeprom"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
 	@echo Finished building: $<
 
 ./%.o: .././%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.0_663) 4.6.2
-	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
+	$(QUOTE)E:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -I"../../../../.." -I"../../../../Common/Link" -I"../../../../Common/Interrupts" -I"../../../../Common/Driver/SpeedCalc" -I"../../../../Common/App" -I"../../../../OS/Scheduler" -I"../../../../Common/Driver/BCDdisplay" -I"../../../../Common/HWIheader" -I"../../HWIsource" -I"../../../../OS/OS_manage" -I"../../../../Common/Driver/Key" -I"../../../../Common/Driver/EEPROM" -I"../../HWIeeprom"  -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega8a   -o"$@" "$<" 
 	@echo Finished building: $<
 
 

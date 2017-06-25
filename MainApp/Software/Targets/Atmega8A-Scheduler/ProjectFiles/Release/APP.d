@@ -17,8 +17,10 @@ APP.d APP.o: ../../../../Common/App/APP.c ../../HWIsource/TargetFile.h \
  ../../../../Common/Driver/BCDdisplay/BCDdisplay.h \
  ../../../../Common/Driver/BCDdisplay/BCDdisplay_p.h \
  ../../../../Common/Driver/Key/Key.h \
- ../../../../Common/Driver/Key/Key_p.h ../../../../Common/Link/Alloc.h \
- ../../../../Common/App/APP.h
+ ../../../../Common/Driver/Key/Key_p.h \
+ ../../../../Common/Driver/EEPROM/Eeprom.h \
+ ../../../../Common/Driver/EEPROM/Eeprom_p.h \
+ ../../../../Common/Link/Alloc.h ../../../../Common/App/APP.h
 
 ../../HWIsource/TargetFile.h:
 
@@ -61,6 +63,10 @@ e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrt
 ../../../../Common/Driver/Key/Key.h:
 
 ../../../../Common/Driver/Key/Key_p.h:
+
+../../../../Common/Driver/EEPROM/Eeprom.h:
+
+../../../../Common/Driver/EEPROM/Eeprom_p.h:
 
 ../../../../Common/Link/Alloc.h:
 
