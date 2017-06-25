@@ -9,7 +9,7 @@
     #include "Key.h"    
     #include "Alloc.h"
     #include "BCDdisplay.h"
-
+    #include "Eeprom.h"
 #include "Alloc.h" 
     #include "OS_manage.h"
 
@@ -58,5 +58,6 @@ void ManageDrivers(void)
     {
         MangeKeys(LoopIndex);
     }
+    EepromManage();
     
 }
