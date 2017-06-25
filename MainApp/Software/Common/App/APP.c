@@ -12,7 +12,8 @@
   
   PUBLIC void APP_INITIALIZE(void)
   {
- 
+	  unsigned char const stringX[] = "ahmed imbaby SW EEPROM OK :D";
+	  Eeprom_Write_Block(8,(unsigned char*)&stringX , (unsigned char)sizeof(stringX));
   }
   
   PUBLIC void APP_MANAGE(void)
@@ -22,8 +23,6 @@
       unsigned short AvgSpeedKph;
       unsigned long TravelledDistance;
       unsigned char keystatus;
-         
-      unsigned char const stringX[5] = {'a','h','m','e','d'};
       
       SetCircumfirunce(2056);
  
@@ -31,13 +30,10 @@
       TravelledDistance = GetDistance();
       TravelledDistance *= (unsigned long)10;
       TravelledDistance /= (unsigned long)16;
-      
-          Eeprom_Write_Block(8,(unsigned char*)&stringX , (unsigned char)sizeof(stringX));
-      
-      
-      Eeprom_Write_Block(1,(unsigned char*)&TravelledDistance , (unsigned char)sizeof(TravelledDistance));
+         
+      Eeprom_Write_Block(1,(unsigned char*)&AvgSpeedKph , (unsigned char)sizeof(AvgSpeedKph));
   
-      Eeprom_Read_Block(1 , (unsigned char*)&AvgSpeedKph , (unsigned char)sizeof(TravelledDistance));
+      Eeprom_Read_Block(1 , (unsigned char*)&AvgSpeedKph , (unsigned char)sizeof(AvgSpeedKph));
       BCDsendNumber(AvgSpeedKph,1 );
      
       if(bIsBlinkMode == (unsigned char)0)
