@@ -16,7 +16,7 @@ PUBLIC unsigned char Eeprom_Write_Block
     unsigned char BlockSize
 );
 
-PUBLIC void Eeprom_Read_Block
+PUBLIC unsigned char Eeprom_Read_Block
 (   
     unsigned char address , 
     unsigned char *DataPtr , 

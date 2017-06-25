@@ -18,7 +18,7 @@ PUBLIC unsigned char Eeprom_Write_Block
 {
     unsigned char WriteGranted;
     unsigned char LoopIndex;
-    if( (unsigned char)0 == WriteRequest)
+    if( ((unsigned char)0 == WriteRequest)&& (BlockSize <= EEPROM_BUFFER_SIZE))
     {
         WriteRequest = (unsigned char)1;
 
@@ -36,7 +36,7 @@ PUBLIC unsigned char Eeprom_Write_Block
     }
     return WriteGranted;
 }
-PUBLIC void Eeprom_Read_Block
+PUBLIC unsigned char Eeprom_Read_Block
 (   
     unsigned char address , 
     unsigned char *DataPtr , 
@@ -45,15 +45,26 @@ PUBLIC void Eeprom_Read_Block
 {
     unsigned char LoopIndex = (unsigned char)0 ;
     unsigned char ReadSuccess;
+    unsigned char ReadGranted;
     
-    while(LoopIndex < BlockSize  )
-    {
-       ReadSuccess = HWIeeprom_Read(address + LoopIndex , &DataPtr[LoopIndex]); 
-       if((unsigned char)1 == ReadSuccess)
-       {
-            LoopIndex++;
-       }
+    if( (unsigned char)0 == WriteRequest)
+    {     
+        while(LoopIndex < BlockSize  )
+        {
+           ReadSuccess = HWIeeprom_Read(address + LoopIndex , &DataPtr[LoopIndex]); 
+           if((unsigned char)1 == ReadSuccess)
+           {
+                LoopIndex++;
+           }
+        } 
+        ReadGranted = (unsigned char)1;
     }
+    else
+    {
+        ReadGranted = (unsigned char)0;
+    }
+    
+    return ReadGranted;
     
 }
 
