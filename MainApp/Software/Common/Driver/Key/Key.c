@@ -6,7 +6,7 @@
 #include "Alloc.h"  
       #include "Key.h"
 
-#define STATE_MASK             (unsigned char)0x7F
+#define STATE_MASK             (unsigned char)0x3F
 
 const strKeyConfig KeyArrayConfig[NUMBER_KEYS] =  KEYS_CONFIG;
 static strKeyData KeyInternalData[NUMBER_KEYS];
@@ -87,7 +87,7 @@ PUBLIC void MangeKeys(unsigned char KeyID)
                     KeyInternalData[KeyID].KeyCounter--;
                     if(KeyInternalData[KeyID].KeyCounter == (unsigned short)0)
                     {
-                        KeyInternalData[KeyID].KeyState = NEW_STATE_NOT_PRESSED;
+                        KeyInternalData[KeyID].KeyState = CAPTURE_STATE_SHORT_PRESSED;
                     }
                 }
             }
@@ -103,7 +103,7 @@ PUBLIC void MangeKeys(unsigned char KeyID)
                 KeyInternalData[KeyID].KeyCounter--;
                 if(KeyInternalData[KeyID].KeyCounter == (unsigned short)0)
                 {
-                    KeyInternalData[KeyID].KeyState = NEW_STATE_NOT_PRESSED;
+                    KeyInternalData[KeyID].KeyState = CAPTURE_STATE_LONG_PRESSED;
                 }
             }
             break;
