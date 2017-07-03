@@ -1,20 +1,49 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"12 ../../../../Common/Driver/EEPROM\Eeprom.h
-[v _Eeprom_Write_Block `(uc ~T0 @X0 0 ef3`uc`*uc`uc ]
+"20 ../../../../Common/Driver/EEPROM\Eeprom.h
+[v _Eeprom_Read_Block `(uc ~T0 @X0 0 ef3`uc`*uc`uc ]
 "25 ../../../../Common/Driver/SpeedCalc\SpeedCalc.h
 [v _SetCircumfirunce `(v ~T0 @X0 0 ef1`us ]
 "27
 [v _GetAvgSpeed `(us ~T0 @X0 0 ef1`uc ]
 "23
 [v _GetDistance `(ul ~T0 @X0 0 ef ]
-"19 ../../../../Common/Driver/EEPROM\Eeprom.h
-[v _Eeprom_Read_Block `(uc ~T0 @X0 0 ef3`uc`*uc`uc ]
 "15 ../../../../Common/Driver/BCDdisplay\BCDdisplay.h
-[v _BCDsendNumber `(v ~T0 @X0 0 ef2`us`uc ]
-"38 ../../../../Common/Driver/Key\Key.h
+[v _BCDsendNumber `(v ~T0 @X0 0 ef3`us`uc`uc ]
+"39 ../../../../Common/Driver/Key\Key.h
 [v _GetKeyStatus `(uc ~T0 @X0 0 ef1`uc ]
-"19 ../../../../Common/Driver/BCDdisplay\BCDdisplay.h
+"24 ../../../../Common/Driver/BCDdisplay\BCDdisplay.h
 [v _BlinkDigit `(v ~T0 @X0 0 ef2`uc`uc ]
+[v F3144 `(v ~T0 @X0 0 tf ]
+"12 ../../../../Common/Driver/EEPROM\Eeprom.h
+[v _Eeprom_Write_Block `(uc ~T0 @X0 0 ef4`uc`*uc`uc`*F3144 ]
+"25 ../../../../Common/App/APP.c
+[v _IncrementDecrementSingleDigit `(us ~T0 @X0 0 sf3`us`uc`uc ]
+[; ;math.h: 30: extern double fabs(double);
+[; ;math.h: 31: extern double floor(double);
+[; ;math.h: 32: extern double ceil(double);
+[; ;math.h: 33: extern double modf(double, double *);
+[; ;math.h: 34: extern double sqrt(double);
+[; ;math.h: 35: extern double atof(const char *);
+[; ;math.h: 36: extern double sin(double) ;
+[; ;math.h: 37: extern double cos(double) ;
+[; ;math.h: 38: extern double tan(double) ;
+[; ;math.h: 39: extern double asin(double) ;
+[; ;math.h: 40: extern double acos(double) ;
+[; ;math.h: 41: extern double atan(double);
+[; ;math.h: 42: extern double atan2(double, double) ;
+[; ;math.h: 43: extern double log(double);
+[; ;math.h: 44: extern double log10(double);
+[; ;math.h: 45: extern double pow(double, double) ;
+[; ;math.h: 46: extern double exp(double) ;
+[; ;math.h: 47: extern double sinh(double) ;
+[; ;math.h: 48: extern double cosh(double) ;
+[; ;math.h: 49: extern double tanh(double);
+[; ;math.h: 50: extern double eval_poly(double, const double *, int);
+[; ;math.h: 51: extern double frexp(double, int *);
+[; ;math.h: 52: extern double ldexp(double, int);
+[; ;math.h: 53: extern double fmod(double, double);
+[; ;math.h: 54: extern double trunc(double);
+[; ;math.h: 55: extern double round(double);
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2815,244 +2844,533 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SpeedCalc\SpeedCalc.h: 27: extern unsigned short GetAvgSpeed(unsigned char bIsKph);
 [; ;SpeedCalc\SpeedCalc.h: 29: extern void HWtimerCallback (void);
 [; ;BCDdisplay\BCDdisplay.h: 13: extern void BCDInitialize( unsigned char bIsCommonAnode);
-[; ;BCDdisplay\BCDdisplay.h: 15: extern void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace );
-[; ;BCDdisplay\BCDdisplay.h: 17: extern void BCDManage7segment(void);
-[; ;BCDdisplay\BCDdisplay.h: 19: extern void BlinkDigit(unsigned char Index , unsigned char duration);
-[; ;Key\Key.h: 21: typedef struct
-[; ;Key\Key.h: 22: {
-[; ;Key\Key.h: 23: unsigned char HWI_ID;
-[; ;Key\Key.h: 24: unsigned char ActiveValue;
-[; ;Key\Key.h: 25: unsigned short ReleaseTicks;
-[; ;Key\Key.h: 26: unsigned short ShortPress;
-[; ;Key\Key.h: 27: unsigned short LongPress;
-[; ;Key\Key.h: 28: }strKeyConfig;
-[; ;Key\Key.h: 30: typedef struct
-[; ;Key\Key.h: 31: {
-[; ;Key\Key.h: 32: unsigned char KeyState;
-[; ;Key\Key.h: 33: unsigned short KeyCounter;
-[; ;Key\Key.h: 34: }strKeyData;
-[; ;Key\Key.h: 36: extern void KeyInitialize(void);
-[; ;Key\Key.h: 38: extern unsigned char GetKeyStatus(unsigned char KeyID);
-[; ;Key\Key.h: 40: extern void MangeKeys(unsigned char KeyID);
+[; ;BCDdisplay\BCDdisplay.h: 15: extern void BCDsendNumber
+[; ;BCDdisplay\BCDdisplay.h: 16: (
+[; ;BCDdisplay\BCDdisplay.h: 17: unsigned short Number ,
+[; ;BCDdisplay\BCDdisplay.h: 18: unsigned char DecimalPlace,
+[; ;BCDdisplay\BCDdisplay.h: 19: unsigned char EnableTranc
+[; ;BCDdisplay\BCDdisplay.h: 20: );
+[; ;BCDdisplay\BCDdisplay.h: 22: extern void BCDManage7segment(void);
+[; ;BCDdisplay\BCDdisplay.h: 24: extern void BlinkDigit(unsigned char Index , unsigned char duration);
+[; ;BCDdisplay\BCDdisplay.h: 26: extern void Segment7SendString
+[; ;BCDdisplay\BCDdisplay.h: 27: (
+[; ;BCDdisplay\BCDdisplay.h: 28: unsigned char Position,
+[; ;BCDdisplay\BCDdisplay.h: 29: unsigned char * Data,
+[; ;BCDdisplay\BCDdisplay.h: 30: unsigned char Length
+[; ;BCDdisplay\BCDdisplay.h: 31: );
+[; ;BCDdisplay\DisplayManage.h: 11: extern void DisplaySendString
+[; ;BCDdisplay\DisplayManage.h: 12: (
+[; ;BCDdisplay\DisplayManage.h: 13: unsigned char Position,
+[; ;BCDdisplay\DisplayManage.h: 14: unsigned char * Data,
+[; ;BCDdisplay\DisplayManage.h: 15: unsigned char Length
+[; ;BCDdisplay\DisplayManage.h: 16: );
+[; ;Key\Key.h: 22: typedef struct
+[; ;Key\Key.h: 23: {
+[; ;Key\Key.h: 24: unsigned char HWI_ID;
+[; ;Key\Key.h: 25: unsigned char ActiveValue;
+[; ;Key\Key.h: 26: unsigned short ReleaseTicks;
+[; ;Key\Key.h: 27: unsigned short ShortPress;
+[; ;Key\Key.h: 28: unsigned short LongPress;
+[; ;Key\Key.h: 29: }strKeyConfig;
+[; ;Key\Key.h: 31: typedef struct
+[; ;Key\Key.h: 32: {
+[; ;Key\Key.h: 33: unsigned char KeyState;
+[; ;Key\Key.h: 34: unsigned short KeyCounter;
+[; ;Key\Key.h: 35: }strKeyData;
+[; ;Key\Key.h: 37: extern void KeyInitialize(void);
+[; ;Key\Key.h: 39: extern unsigned char GetKeyStatus(unsigned char KeyID);
+[; ;Key\Key.h: 41: extern void MangeKeys(unsigned char KeyID);
 [; ;EEPROM\Eeprom.h: 12: extern unsigned char Eeprom_Write_Block
 [; ;EEPROM\Eeprom.h: 13: (
 [; ;EEPROM\Eeprom.h: 14: unsigned char address ,
 [; ;EEPROM\Eeprom.h: 15: unsigned char *DataPtr ,
-[; ;EEPROM\Eeprom.h: 16: unsigned char BlockSize
-[; ;EEPROM\Eeprom.h: 17: );
-[; ;EEPROM\Eeprom.h: 19: extern unsigned char Eeprom_Read_Block
-[; ;EEPROM\Eeprom.h: 20: (
-[; ;EEPROM\Eeprom.h: 21: unsigned char address ,
-[; ;EEPROM\Eeprom.h: 22: unsigned char *DataPtr ,
-[; ;EEPROM\Eeprom.h: 23: unsigned char BlockSize
-[; ;EEPROM\Eeprom.h: 24: );
-[; ;EEPROM\Eeprom.h: 26: extern void EepromManage(void);
+[; ;EEPROM\Eeprom.h: 16: unsigned char BlockSize,
+[; ;EEPROM\Eeprom.h: 17: void (*ptrFnCallback)(void)
+[; ;EEPROM\Eeprom.h: 18: );
+[; ;EEPROM\Eeprom.h: 20: extern unsigned char Eeprom_Read_Block
+[; ;EEPROM\Eeprom.h: 21: (
+[; ;EEPROM\Eeprom.h: 22: unsigned char address ,
+[; ;EEPROM\Eeprom.h: 23: unsigned char *DataPtr ,
+[; ;EEPROM\Eeprom.h: 24: unsigned char BlockSize
+[; ;EEPROM\Eeprom.h: 25: );
+[; ;EEPROM\Eeprom.h: 27: extern void EepromManage(void);
 [; ;APP.h: 2: void APP_INITIALIZE(void);
 [; ;APP.h: 3: void APP_MANAGE();
-"13 ../../../../Common/App/APP.c
+"16 ../../../../Common/App/APP.c
+[v _WriteFlag `uc ~T0 @X0 1 s ]
+[i _WriteFlag
+-> -> 0 `i `uc
+]
+[; ;APP.c: 16: static unsigned char WriteFlag = (unsigned char)0;
+"17
+[v _Circum `us ~T0 @X0 1 s ]
+[; ;APP.c: 17: static unsigned short Circum;
+[; ;APP.c: 25: static unsigned short IncrementDecrementSingleDigit
+[; ;APP.c: 26: (
+[; ;APP.c: 27: unsigned short Number,
+[; ;APP.c: 28: unsigned char Index,
+[; ;APP.c: 29: unsigned char bIsincrement
+[; ;APP.c: 30: );
+"34
 [v _APP_INITIALIZE `(v ~T0 @X0 1 ef ]
-"14
+"35
 {
-[; ;APP.c: 13: void APP_INITIALIZE(void)
-[; ;APP.c: 14: {
+[; ;APP.c: 34: void APP_INITIALIZE(void)
+[; ;APP.c: 35: {
 [e :U _APP_INITIALIZE ]
 [f ]
-[v F3085 `Cuc ~T0 @X0 -> 0 `x s ]
-[i F3085
-:U ..
--> 97 `c
--> 104 `c
--> 109 `c
--> 101 `c
--> 100 `c
--> 32 `c
--> 105 `c
--> 109 `c
--> 98 `c
--> 97 `c
--> 98 `c
--> 121 `c
--> 32 `c
--> 83 `c
--> 87 `c
--> 32 `c
--> 69 `c
--> 69 `c
--> 80 `c
--> 82 `c
--> 79 `c
--> 77 `c
--> 32 `c
--> 79 `c
--> 75 `c
--> 32 `c
--> 58 `c
--> 68 `c
--> 0 `c
-..
-]
-"15
-[v _stringX `Cuc ~T0 @X0 29  a ]
-[; ;APP.c: 15: unsigned char const stringX[] = "ahmed imbaby SW EEPROM OK :D";
-[e = _stringX F3085 ]
-[; ;APP.c: 16: Eeprom_Write_Block(8,(unsigned char*)&stringX , (unsigned char)sizeof(stringX));
-"16
-[e ( _Eeprom_Write_Block (3 , , -> -> 8 `i `uc -> &U _stringX `*uc -> -> # _stringX `ui `uc ]
-[; ;APP.c: 17: }
-"17
+[; ;APP.c: 37: Eeprom_Read_Block(1 , (unsigned char*)&Circum , (unsigned char)sizeof(Circum));
+"37
+[e ( _Eeprom_Read_Block (3 , , -> -> 1 `i `uc -> &U _Circum `*uc -> -> # _Circum `ui `uc ]
+[; ;APP.c: 46: if(Circum > (unsigned short)9999)
+"46
+[e $ ! > -> _Circum `ui -> -> -> 9999 `i `us `ui 279  ]
+[; ;APP.c: 47: {
+"47
+{
+[; ;APP.c: 48: Circum = (unsigned short)0;
+"48
+[e = _Circum -> -> 0 `i `us ]
+"49
+}
+[e :U 279 ]
+[; ;APP.c: 49: }
+[; ;APP.c: 50: }
+"50
 [e :UE 278 ]
 }
-"19
+"52
 [v _APP_MANAGE `(v ~T0 @X0 1 ef ]
-"20
+"53
 {
-[; ;APP.c: 19: void APP_MANAGE(void)
-[; ;APP.c: 20: {
+[; ;APP.c: 52: void APP_MANAGE(void)
+[; ;APP.c: 53: {
 [e :U _APP_MANAGE ]
 [f ]
-"21
-[v F3089 `ui ~T0 @X0 1 s blinkIndex ]
-[i F3089
--> -> -> 0 `i `uc `ui
-]
-"22
-[v F3091 `ui ~T0 @X0 1 s bIsBlinkMode ]
-[i F3091
--> -> -> 0 `i `uc `ui
-]
-"23
-[v _AvgSpeedKph `us ~T0 @X0 1 a ]
-"24
-[v _TravelledDistance `ul ~T0 @X0 1 a ]
-"25
-[v _keystatus `uc ~T0 @X0 1 a ]
-[; ;APP.c: 21: static unsigned blinkIndex = (unsigned char)0;
-[; ;APP.c: 22: static unsigned bIsBlinkMode = (unsigned char)0;
-[; ;APP.c: 23: unsigned short AvgSpeedKph;
-[; ;APP.c: 24: unsigned long TravelledDistance;
-[; ;APP.c: 25: unsigned char keystatus;
-[; ;APP.c: 27: SetCircumfirunce(2056);
-"27
-[e ( _SetCircumfirunce (1 -> -> 2056 `i `us ]
-[; ;APP.c: 29: AvgSpeedKph = GetAvgSpeed(1);
-"29
-[e = _AvgSpeedKph ( _GetAvgSpeed (1 -> -> 1 `i `uc ]
-[; ;APP.c: 30: TravelledDistance = GetDistance();
-"30
-[e = _TravelledDistance ( _GetDistance ..  ]
-[; ;APP.c: 31: TravelledDistance *= (unsigned long)10;
-"31
-[e =* _TravelledDistance -> -> 10 `i `ul ]
-[; ;APP.c: 32: TravelledDistance /= (unsigned long)16;
-"32
-[e =/ _TravelledDistance -> -> -> 16 `i `ul `ul ]
-[; ;APP.c: 34: Eeprom_Write_Block(1,(unsigned char*)&AvgSpeedKph , (unsigned char)sizeof(AvgSpeedKph));
-"34
-[e ( _Eeprom_Write_Block (3 , , -> -> 1 `i `uc -> &U _AvgSpeedKph `*uc -> -> # _AvgSpeedKph `ui `uc ]
-[; ;APP.c: 36: Eeprom_Read_Block(1 , (unsigned char*)&AvgSpeedKph , (unsigned char)sizeof(AvgSpeedKph));
-"36
-[e ( _Eeprom_Read_Block (3 , , -> -> 1 `i `uc -> &U _AvgSpeedKph `*uc -> -> # _AvgSpeedKph `ui `uc ]
-[; ;APP.c: 37: BCDsendNumber(AvgSpeedKph,1 );
-"37
-[e ( _BCDsendNumber (2 , _AvgSpeedKph -> -> 1 `i `uc ]
-[; ;APP.c: 39: if(bIsBlinkMode == (unsigned char)0)
-"39
-[e $ ! == F3091 -> -> -> 0 `i `uc `ui 280  ]
-[; ;APP.c: 40: {
-"40
-{
-[; ;APP.c: 41: keystatus = GetKeyStatus(0);
-"41
-[e = _keystatus ( _GetKeyStatus (1 -> -> 0 `i `uc ]
-[; ;APP.c: 42: if( keystatus == (unsigned char)0x82)
-"42
-[e $ ! == -> _keystatus `i -> -> -> 130 `i `uc `i 281  ]
-[; ;APP.c: 43: {
-"43
-{
-[; ;APP.c: 44: bIsBlinkMode = (unsigned char)1;
-"44
-[e = F3091 -> -> -> 1 `i `uc `ui ]
-"45
-}
-[e :U 281 ]
-"46
-}
-[; ;APP.c: 45: }
-[; ;APP.c: 46: }
-[e $U 282  ]
-"47
-[e :U 280 ]
-[; ;APP.c: 47: else
-[; ;APP.c: 48: {
-"48
-{
-[; ;APP.c: 49: BlinkDigit(blinkIndex,100);
-"49
-[e ( _BlinkDigit (2 , -> F3089 `uc -> -> 100 `i `uc ]
-[; ;APP.c: 50: keystatus = GetKeyStatus(0);
-"50
-[e = _keystatus ( _GetKeyStatus (1 -> -> 0 `i `uc ]
-[; ;APP.c: 51: if( keystatus == (unsigned char)0x81)
-"51
-[e $ ! == -> _keystatus `i -> -> -> 129 `i `uc `i 283  ]
-[; ;APP.c: 52: {
-"52
-{
-[; ;APP.c: 53: blinkIndex++;
-"53
-[e ++ F3089 -> -> 1 `i `ui ]
-[; ;APP.c: 54: if(blinkIndex == 4)
 "54
-[e $ ! == F3089 -> -> 4 `i `ui 284  ]
-[; ;APP.c: 55: {
+[v F3168 `ui ~T0 @X0 1 s blinkIndex ]
+[i F3168
+-> -> -> 0 `i `uc `ui
+]
 "55
-{
-[; ;APP.c: 56: blinkIndex=0;
+[v F3170 `ui ~T0 @X0 1 s bIsBlinkMode ]
+[i F3170
+-> -> -> 0 `i `uc `ui
+]
 "56
-[e = F3089 -> -> 0 `i `ui ]
+[v _AvgSpeedKph `us ~T0 @X0 1 a ]
 "57
-}
-[e :U 284 ]
+[v _TravelledDistance `ul ~T0 @X0 1 a ]
 "58
-}
-[; ;APP.c: 57: }
-[; ;APP.c: 58: }
-[e $U 285  ]
+[v _keystatus `uc ~T0 @X0 1 a ]
 "59
-[e :U 283 ]
-[; ;APP.c: 59: else
-[; ;APP.c: 60: {
-"60
-{
-[; ;APP.c: 61: keystatus = GetKeyStatus(1);
-"61
-[e = _keystatus ( _GetKeyStatus (1 -> -> 1 `i `uc ]
-[; ;APP.c: 62: if(keystatus == (unsigned char)0x82 )
-"62
-[e $ ! == -> _keystatus `i -> -> -> 130 `i `uc `i 286  ]
-[; ;APP.c: 63: {
-"63
-{
-[; ;APP.c: 64: BlinkDigit(1,0);
+[v _keystatus2 `uc ~T0 @X0 1 a ]
+[; ;APP.c: 54: static unsigned blinkIndex = (unsigned char)0;
+[; ;APP.c: 55: static unsigned bIsBlinkMode = (unsigned char)0;
+[; ;APP.c: 56: unsigned short AvgSpeedKph;
+[; ;APP.c: 57: unsigned long TravelledDistance;
+[; ;APP.c: 58: unsigned char keystatus;
+[; ;APP.c: 59: unsigned char keystatus2;
+[; ;APP.c: 64: SetCircumfirunce(Circum);
 "64
-[e ( _BlinkDigit (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;APP.c: 65: bIsBlinkMode = (unsigned char)0;
-"65
-[e = F3091 -> -> -> 0 `i `uc `ui ]
+[e ( _SetCircumfirunce (1 _Circum ]
+[; ;APP.c: 66: AvgSpeedKph = GetAvgSpeed(1);
 "66
+[e = _AvgSpeedKph ( _GetAvgSpeed (1 -> -> 1 `i `uc ]
+[; ;APP.c: 67: TravelledDistance = GetDistance();
+"67
+[e = _TravelledDistance ( _GetDistance ..  ]
+[; ;APP.c: 68: TravelledDistance *= (unsigned long)10;
+"68
+[e =* _TravelledDistance -> -> 10 `i `ul ]
+[; ;APP.c: 69: TravelledDistance /= (unsigned long)16;
+"69
+[e =/ _TravelledDistance -> -> -> 16 `i `ul `ul ]
+[; ;APP.c: 71: if( (unsigned char)0 == WriteFlag)
+"71
+[e $ ! == -> -> -> 0 `i `uc `i -> _WriteFlag `i 281  ]
+[; ;APP.c: 72: {
+"72
+{
+[; ;APP.c: 73: if(bIsBlinkMode == (unsigned char)0)
+"73
+[e $ ! == F3170 -> -> -> 0 `i `uc `ui 282  ]
+[; ;APP.c: 74: {
+"74
+{
+[; ;APP.c: 75: BCDsendNumber(AvgSpeedKph,1 ,1);
+"75
+[e ( _BCDsendNumber (3 , , _AvgSpeedKph -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;APP.c: 76: keystatus = GetKeyStatus(0);
+"76
+[e = _keystatus ( _GetKeyStatus (1 -> -> 0 `i `uc ]
+[; ;APP.c: 77: if( keystatus == (unsigned char)0x82)
+"77
+[e $ ! == -> _keystatus `i -> -> -> 130 `i `uc `i 283  ]
+[; ;APP.c: 78: {
+"78
+{
+[; ;APP.c: 79: bIsBlinkMode = (unsigned char)1;
+"79
+[e = F3170 -> -> -> 1 `i `uc `ui ]
+"80
+}
+[e :U 283 ]
+"81
+}
+[; ;APP.c: 80: }
+[; ;APP.c: 81: }
+[e $U 284  ]
+"82
+[e :U 282 ]
+[; ;APP.c: 82: else
+[; ;APP.c: 83: {
+"83
+{
+[; ;APP.c: 85: BCDsendNumber(Circum,0 ,0);
+"85
+[e ( _BCDsendNumber (3 , , _Circum -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;APP.c: 86: BlinkDigit(blinkIndex,100);
+"86
+[e ( _BlinkDigit (2 , -> F3168 `uc -> -> 100 `i `uc ]
+[; ;APP.c: 87: keystatus = GetKeyStatus(0);
+"87
+[e = _keystatus ( _GetKeyStatus (1 -> -> 0 `i `uc ]
+[; ;APP.c: 88: if( keystatus == (unsigned char)0x40)
+"88
+[e $ ! == -> _keystatus `i -> -> -> 64 `i `uc `i 285  ]
+[; ;APP.c: 89: {
+"89
+{
+[; ;APP.c: 90: blinkIndex++;
+"90
+[e ++ F3168 -> -> 1 `i `ui ]
+[; ;APP.c: 91: if(blinkIndex == 4)
+"91
+[e $ ! == F3168 -> -> 4 `i `ui 286  ]
+[; ;APP.c: 92: {
+"92
+{
+[; ;APP.c: 93: blinkIndex=0;
+"93
+[e = F3168 -> -> 0 `i `ui ]
+"94
 }
 [e :U 286 ]
-"67
+"95
 }
+[; ;APP.c: 94: }
+[; ;APP.c: 95: }
+[e $U 287  ]
+"96
 [e :U 285 ]
-"68
+[; ;APP.c: 96: else
+[; ;APP.c: 97: {
+"97
+{
+[; ;APP.c: 98: keystatus = GetKeyStatus(1);
+"98
+[e = _keystatus ( _GetKeyStatus (1 -> -> 1 `i `uc ]
+[; ;APP.c: 99: keystatus2 = GetKeyStatus(2);
+"99
+[e = _keystatus2 ( _GetKeyStatus (1 -> -> 2 `i `uc ]
+[; ;APP.c: 100: if(keystatus == (unsigned char)0x82 )
+"100
+[e $ ! == -> _keystatus `i -> -> -> 130 `i `uc `i 288  ]
+[; ;APP.c: 101: {
+"101
+{
+[; ;APP.c: 102: Eeprom_Write_Block(1,(unsigned char*)&Circum ,
+[; ;APP.c: 103: (unsigned char)sizeof(Circum),(void*)0);
+"103
+[e ( _Eeprom_Write_Block (4 , , , -> -> 1 `i `uc -> &U _Circum `*uc -> -> # _Circum `ui `uc -> -> -> 0 `i `*v `*F3144 ]
+[; ;APP.c: 104: BlinkDigit(1,0);
+"104
+[e ( _BlinkDigit (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
+[; ;APP.c: 105: bIsBlinkMode = (unsigned char)0;
+"105
+[e = F3170 -> -> -> 0 `i `uc `ui ]
+"108
 }
-[e :U 282 ]
-[; ;APP.c: 66: }
-[; ;APP.c: 67: }
-[; ;APP.c: 68: }
-[; ;APP.c: 91: }
-"91
-[e :UE 279 ]
+[; ;APP.c: 108: }
+[e $U 289  ]
+"109
+[e :U 288 ]
+[; ;APP.c: 109: else if(keystatus == (unsigned char)0x40)
+[e $ ! == -> _keystatus `i -> -> -> 64 `i `uc `i 290  ]
+[; ;APP.c: 110: {
+"110
+{
+[; ;APP.c: 111: Circum = IncrementDecrementSingleDigit(
+[; ;APP.c: 112: Circum,blinkIndex,(unsigned char)0);
+"112
+[e = _Circum ( _IncrementDecrementSingleDigit (3 , , _Circum -> F3168 `uc -> -> 0 `i `uc ]
+"113
+}
+[; ;APP.c: 113: }
+[e $U 291  ]
+"114
+[e :U 290 ]
+[; ;APP.c: 114: else if(keystatus2 == (unsigned char)0x40)
+[e $ ! == -> _keystatus2 `i -> -> -> 64 `i `uc `i 292  ]
+[; ;APP.c: 115: {
+"115
+{
+[; ;APP.c: 116: Circum = IncrementDecrementSingleDigit(
+[; ;APP.c: 117: Circum,blinkIndex,(unsigned char)1);
+"117
+[e = _Circum ( _IncrementDecrementSingleDigit (3 , , _Circum -> F3168 `uc -> -> 1 `i `uc ]
+"118
+}
+[e :U 292 ]
+"119
+[e :U 291 ]
+[e :U 289 ]
+}
+[e :U 287 ]
+"120
+}
+[e :U 284 ]
+"121
+}
+[; ;APP.c: 118: }
+[; ;APP.c: 119: }
+[; ;APP.c: 120: }
+[; ;APP.c: 121: }
+[e $U 293  ]
+"122
+[e :U 281 ]
+[; ;APP.c: 122: else
+[; ;APP.c: 123: {
+"123
+{
+"125
+}
+[e :U 293 ]
+[; ;APP.c: 125: }
+[; ;APP.c: 126: }
+"126
+[e :UE 280 ]
+}
+"154
+[v _IncrementDecrementSingleDigit `(us ~T0 @X0 1 sf3`us`uc`uc ]
+"160
+{
+[; ;APP.c: 154: static unsigned short IncrementDecrementSingleDigit
+[; ;APP.c: 155: (
+[; ;APP.c: 156: unsigned short Number,
+[; ;APP.c: 157: unsigned char Index,
+[; ;APP.c: 158: unsigned char bIsincrement
+[; ;APP.c: 159: )
+[; ;APP.c: 160: {
+[e :U _IncrementDecrementSingleDigit ]
+"156
+[v _Number `us ~T0 @X0 1 r1 ]
+"157
+[v _Index `uc ~T0 @X0 1 r2 ]
+"158
+[v _bIsincrement `uc ~T0 @X0 1 r3 ]
+"160
+[f ]
+"161
+[v _NumberReturned `us ~T0 @X0 1 a ]
+[; ;APP.c: 161: unsigned short NumberReturned = (unsigned short)0;
+[e = _NumberReturned -> -> 0 `i `us ]
+"162
+[v _Link `us ~T0 @X0 1 a ]
+"163
+[v _LoopIndex `uc ~T0 @X0 1 a ]
+"164
+[v _PowIndex `uc ~T0 @X0 1 a ]
+"165
+[v _Output `uc ~T0 @X0 -> 4 `i a ]
+"166
+[v _unitPosition `us ~T0 @X0 1 a ]
+[; ;APP.c: 162: unsigned short Link;
+[; ;APP.c: 163: unsigned char LoopIndex;
+[; ;APP.c: 164: unsigned char PowIndex;
+[; ;APP.c: 165: unsigned char Output[4];
+[; ;APP.c: 166: unsigned short unitPosition = (unsigned short)1;
+[e = _unitPosition -> -> 1 `i `us ]
+[; ;APP.c: 169: for( LoopIndex = (unsigned char)0; LoopIndex < 4 ; LoopIndex++)
+"169
+{
+[e = _LoopIndex -> -> 0 `i `uc ]
+[e $ < -> _LoopIndex `i -> 4 `i 295  ]
+[e $U 296  ]
+"170
+[e :U 295 ]
+[; ;APP.c: 170: {
+{
+[; ;APP.c: 171: if((Number != (unsigned short)0) )
+"171
+[e $ ! != -> _Number `ui -> -> -> 0 `i `us `ui 298  ]
+[; ;APP.c: 172: {
+"172
+{
+[; ;APP.c: 173: Link = Number;
+"173
+[e = _Link _Number ]
+[; ;APP.c: 174: Number = (unsigned short)(Number/(unsigned short)10);
+"174
+[e = _Number -> / -> _Number `ui -> -> -> 10 `i `us `ui `us ]
+[; ;APP.c: 175: Output[LoopIndex] = Link -
+[; ;APP.c: 176: (unsigned short)(Number * (unsigned short)10);
+"176
+[e = *U + &U _Output * -> _LoopIndex `ux -> -> # *U &U _Output `ui `ux -> - -> _Link `ui -> -> * -> _Number `ui -> -> -> 10 `i `us `ui `us `ui `uc ]
+"177
+}
+[; ;APP.c: 177: }
+[e $U 299  ]
+"178
+[e :U 298 ]
+[; ;APP.c: 178: else
+[; ;APP.c: 179: {
+"179
+{
+[; ;APP.c: 180: Output[LoopIndex] = (unsigned short)0;
+"180
+[e = *U + &U _Output * -> _LoopIndex `ux -> -> # *U &U _Output `ui `ux -> -> -> 0 `i `us `uc ]
+"181
+}
+[e :U 299 ]
+"182
+}
+"169
+[e ++ _LoopIndex -> -> 1 `i `uc ]
+[e $ < -> _LoopIndex `i -> 4 `i 295  ]
+[e :U 296 ]
+"182
+}
+[; ;APP.c: 181: }
+[; ;APP.c: 182: }
+[; ;APP.c: 184: if((unsigned char)0 == bIsincrement)
+"184
+[e $ ! == -> -> -> 0 `i `uc `i -> _bIsincrement `i 300  ]
+[; ;APP.c: 185: {
+"185
+{
+[; ;APP.c: 186: if((unsigned char)0 == Output[Index])
+"186
+[e $ ! == -> -> -> 0 `i `uc `i -> *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux `i 301  ]
+[; ;APP.c: 187: {
+"187
+{
+[; ;APP.c: 188: Output[Index] =(unsigned char)9;
+"188
+[e = *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux -> -> 9 `i `uc ]
+"189
+}
+[; ;APP.c: 189: }
+[e $U 302  ]
+"190
+[e :U 301 ]
+[; ;APP.c: 190: else
+[; ;APP.c: 191: {
+"191
+{
+[; ;APP.c: 192: Output[Index]--;
+"192
+[e -- *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux -> -> 1 `i `uc ]
+"193
+}
+[e :U 302 ]
+"194
+}
+[; ;APP.c: 193: }
+[; ;APP.c: 194: }
+[e $U 303  ]
+"195
+[e :U 300 ]
+[; ;APP.c: 195: else
+[; ;APP.c: 196: {
+"196
+{
+[; ;APP.c: 197: if( (unsigned char)9 == Output[Index])
+"197
+[e $ ! == -> -> -> 9 `i `uc `i -> *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux `i 304  ]
+[; ;APP.c: 198: {
+"198
+{
+[; ;APP.c: 199: Output[Index] = (unsigned char)0;
+"199
+[e = *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux -> -> 0 `i `uc ]
+"200
+}
+[; ;APP.c: 200: }
+[e $U 305  ]
+"201
+[e :U 304 ]
+[; ;APP.c: 201: else
+[; ;APP.c: 202: {
+"202
+{
+[; ;APP.c: 203: Output[Index]++;
+"203
+[e ++ *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux -> -> 1 `i `uc ]
+"204
+}
+[e :U 305 ]
+"205
+}
+[e :U 303 ]
+[; ;APP.c: 204: }
+[; ;APP.c: 205: }
+[; ;APP.c: 207: for(LoopIndex=(unsigned char)0;LoopIndex < 4; LoopIndex++)
+"207
+{
+[e = _LoopIndex -> -> 0 `i `uc ]
+[e $ < -> _LoopIndex `i -> 4 `i 306  ]
+[e $U 307  ]
+"208
+[e :U 306 ]
+[; ;APP.c: 208: {
+{
+[; ;APP.c: 209: for(PowIndex = (unsigned char)0 ; PowIndex < LoopIndex ;
+"209
+{
+[e = _PowIndex -> -> 0 `i `uc ]
+[; ;APP.c: 210: PowIndex++ )
+[e $U 312  ]
+"211
+[e :U 309 ]
+[; ;APP.c: 211: {
+{
+[; ;APP.c: 212: unitPosition *=(unsigned short)10;
+"212
+[e =* _unitPosition -> -> 10 `i `us ]
+"213
+}
+"210
+[e ++ _PowIndex -> -> 1 `i `uc ]
+"209
+[e :U 312 ]
+[e $ < -> _PowIndex `i -> _LoopIndex `i 309  ]
+[e :U 310 ]
+"213
+}
+[; ;APP.c: 213: }
+[; ;APP.c: 214: NumberReturned +=
+[; ;APP.c: 215: (((unsigned short)Output[LoopIndex]) * unitPosition);
+"215
+[e =+ _NumberReturned -> * -> -> *U + &U _Output * -> _LoopIndex `ux -> -> # *U &U _Output `ui `ux `us `ui -> _unitPosition `ui `us ]
+[; ;APP.c: 216: unitPosition = (unsigned short)1;
+"216
+[e = _unitPosition -> -> 1 `i `us ]
+"217
+}
+"207
+[e ++ _LoopIndex -> -> 1 `i `uc ]
+[e $ < -> _LoopIndex `i -> 4 `i 306  ]
+[e :U 307 ]
+"217
+}
+[; ;APP.c: 217: }
+[; ;APP.c: 219: return NumberReturned;
+"219
+[e ) _NumberReturned ]
+[e $UE 294  ]
+[; ;APP.c: 220: }
+"220
+[e :UE 294 ]
 }

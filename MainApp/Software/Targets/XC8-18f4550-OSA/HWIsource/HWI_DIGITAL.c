@@ -50,6 +50,7 @@ PUBLIC void HWI_8Digit_WRITE(unsigned char port,unsigned char value)
             break;
         default:
             PORTD = value;
+            break;
     }
 }
 PUBLIC unsigned char HWI8Digit_READ(unsigned char port)
@@ -82,7 +83,7 @@ PUBLIC void HWI_DIGITAL_INITIALIZE(void)
     TRISBbits.RB3 = 1;
     
     
-    TRISBbits.RB4 =0;
+    TRISBbits.RB4 =1;
     TRISBbits.RB5 =0;
     TRISBbits.RB6 =0;
     TRISBbits.RB7 =0;
@@ -99,6 +100,9 @@ PUBLIC unsigned char HWI_DIGI_READ(unsigned char pin)
             break;
         case 16:
             HWIread = PORTBbits.RB3;
+            break;
+        case 17:
+            HWIread = PORTBbits.RB4;
             break;
         default:
 		    HWIread = (unsigned char)0;

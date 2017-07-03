@@ -3821,6 +3821,7 @@ PORTD = value;
 break;
 default:
 PORTD = value;
+break;
 }
 }
  unsigned char HWI8Digit_READ(unsigned char port)
@@ -3853,7 +3854,7 @@ TRISBbits.RB2 = 1;
 TRISBbits.RB3 = 1;
 
 
-TRISBbits.RB4 =0;
+TRISBbits.RB4 =1;
 TRISBbits.RB5 =0;
 TRISBbits.RB6 =0;
 TRISBbits.RB7 =0;
@@ -3870,6 +3871,9 @@ HWIread = PORTBbits.RB2;
 break;
 case 16:
 HWIread = PORTBbits.RB3;
+break;
+case 17:
+HWIread = PORTBbits.RB4;
 break;
 default:
 HWIread = (unsigned char)0;

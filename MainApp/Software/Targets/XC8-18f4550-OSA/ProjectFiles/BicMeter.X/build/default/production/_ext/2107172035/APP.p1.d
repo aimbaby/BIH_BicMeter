@@ -8,6 +8,7 @@
 ../../HWIsource/TargetFile.h  \
 ../../../../Common/Link/Alloc.h  \
 ../../../../Common/Driver/BCDdisplay/BCDdisplay.h  \
+../../../../Common/Driver/BCDdisplay/DisplayManage.h  \
 ../../../../Common/Driver/EEPROM/Eeprom_p.h  \
 ../../../../Common/App/APP.h  \
 ../../../../Common/Driver/SpeedCalc/SpeedCalc.h  \

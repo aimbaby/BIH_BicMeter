@@ -2794,9 +2794,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;HWIheader\HWI_func.h: 14: extern void HWI_Delay_nsec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 16: extern unsigned short ReloadHWtimer(unsigned char TimerId);
 [; ;BCDdisplay.h: 13: void BCDInitialize( unsigned char bIsCommonAnode);
-[; ;BCDdisplay.h: 15: void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace );
-[; ;BCDdisplay.h: 17: void BCDManage7segment(void);
-[; ;BCDdisplay.h: 19: void BlinkDigit(unsigned char Index , unsigned char duration);
+[; ;BCDdisplay.h: 15: void BCDsendNumber
+[; ;BCDdisplay.h: 16: (
+[; ;BCDdisplay.h: 17: unsigned short Number ,
+[; ;BCDdisplay.h: 18: unsigned char DecimalPlace,
+[; ;BCDdisplay.h: 19: unsigned char EnableTranc
+[; ;BCDdisplay.h: 20: );
+[; ;BCDdisplay.h: 22: void BCDManage7segment(void);
+[; ;BCDdisplay.h: 24: void BlinkDigit(unsigned char Index , unsigned char duration);
+[; ;BCDdisplay.h: 26: void Segment7SendString
+[; ;BCDdisplay.h: 27: (
+[; ;BCDdisplay.h: 28: unsigned char Position,
+[; ;BCDdisplay.h: 29: unsigned char * Data,
+[; ;BCDdisplay.h: 30: unsigned char Length
+[; ;BCDdisplay.h: 31: );
 "8 ../../../../Common/Driver/BCDdisplay/BCDdisplay.c
 [v _SevenSegmentMAP `Cuc ~T0 @X0 -> 11 `i e ]
 [i _SevenSegmentMAP
@@ -2840,8 +2851,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;BCDdisplay.c: 20: 0b00000001
 [; ;BCDdisplay.c: 21: };
 "23
-[v _BCDNumber `us ~T0 @X0 -> 4 `i s ]
-[; ;BCDdisplay.c: 23: static unsigned short BCDNumber[4];
+[v _BCDAlpha `us ~T0 @X0 -> 4 `i s ]
+[; ;BCDdisplay.c: 23: static unsigned short BCDAlpha[4];
 "24
 [v _bIsAnodeUsed `uc ~T0 @X0 1 s ]
 [i _bIsAnodeUsed
@@ -2885,274 +2896,343 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 276 ]
 }
 "34
-[v _BCDsendNumber `(v ~T0 @X0 1 ef2`us`uc ]
-"35
+[v _BCDsendNumber `(v ~T0 @X0 1 ef3`us`uc`uc ]
+"40
 {
-[; ;BCDdisplay.c: 34: void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace )
-[; ;BCDdisplay.c: 35: {
+[; ;BCDdisplay.c: 34: void BCDsendNumber
+[; ;BCDdisplay.c: 35: (
+[; ;BCDdisplay.c: 36: unsigned short Number ,
+[; ;BCDdisplay.c: 37: unsigned char DecimalPlace,
+[; ;BCDdisplay.c: 38: unsigned char EnableTranc
+[; ;BCDdisplay.c: 39: )
+[; ;BCDdisplay.c: 40: {
 [e :U _BCDsendNumber ]
-"34
-[v _Number `us ~T0 @X0 1 r1 ]
-[v _DecimalPlace `uc ~T0 @X0 1 r2 ]
-"35
-[f ]
 "36
+[v _Number `us ~T0 @X0 1 r1 ]
+"37
+[v _DecimalPlace `uc ~T0 @X0 1 r2 ]
+"38
+[v _EnableTranc `uc ~T0 @X0 1 r3 ]
+"40
+[f ]
+"41
 [v _Link `us ~T0 @X0 1 a ]
 [v _Output `us ~T0 @X0 1 a ]
 [v _Buffer `us ~T0 @X0 1 a ]
-"37
+"42
 [v _LoopIndex `uc ~T0 @X0 1 a ]
-[; ;BCDdisplay.c: 36: unsigned short Link,Output,Buffer;
-[; ;BCDdisplay.c: 37: unsigned char LoopIndex;
-[; ;BCDdisplay.c: 39: Buffer = Number;
-"39
+[; ;BCDdisplay.c: 41: unsigned short Link,Output,Buffer;
+[; ;BCDdisplay.c: 42: unsigned char LoopIndex;
+[; ;BCDdisplay.c: 44: Buffer = Number;
+"44
 [e = _Buffer _Number ]
-[; ;BCDdisplay.c: 40: for( LoopIndex = (unsigned char)0; LoopIndex < 4 ; LoopIndex++)
-"40
+[; ;BCDdisplay.c: 45: for( LoopIndex = (unsigned char)0; LoopIndex < 4 ; LoopIndex++)
+"45
 {
 [e = _LoopIndex -> -> 0 `i `uc ]
 [e $ < -> _LoopIndex `i -> 4 `i 278  ]
 [e $U 279  ]
-"41
-[e :U 278 ]
-[; ;BCDdisplay.c: 41: {
-{
-[; ;BCDdisplay.c: 42: if((Buffer != (unsigned short)0)|| (LoopIndex <= DecimalPlace) )
-"42
-[e $ ! || != -> _Buffer `ui -> -> -> 0 `i `us `ui <= -> _LoopIndex `i -> _DecimalPlace `i 281  ]
-[; ;BCDdisplay.c: 43: {
-"43
-{
-[; ;BCDdisplay.c: 44: Link = Buffer;
-"44
-[e = _Link _Buffer ]
-[; ;BCDdisplay.c: 45: Buffer = (unsigned short)(Buffer/(unsigned short)10);
-"45
-[e = _Buffer -> / -> _Buffer `ui -> -> -> 10 `i `us `ui `us ]
-[; ;BCDdisplay.c: 46: Output = Link - (unsigned short)(Buffer * (unsigned short)10);
 "46
-[e = _Output -> - -> _Link `ui -> -> * -> _Buffer `ui -> -> -> 10 `i `us `ui `us `ui `us ]
-[; ;BCDdisplay.c: 48: BCDNumber[LoopIndex] = SevenSegmentMAP[Output];
+[e :U 278 ]
+[; ;BCDdisplay.c: 46: {
+{
+[; ;BCDdisplay.c: 47: if((Buffer != (unsigned short)0)|| (LoopIndex <= DecimalPlace) )
+"47
+[e $ ! || != -> _Buffer `ui -> -> -> 0 `i `us `ui <= -> _LoopIndex `i -> _DecimalPlace `i 281  ]
+[; ;BCDdisplay.c: 48: {
 "48
-[e = *U + &U _BCDNumber * -> _LoopIndex `ux -> -> # *U &U _BCDNumber `ui `ux -> *U + &U _SevenSegmentMAP * -> _Output `ux -> -> # *U &U _SevenSegmentMAP `ui `ux `us ]
+{
+[; ;BCDdisplay.c: 49: Link = Buffer;
 "49
-}
-[; ;BCDdisplay.c: 49: }
-[e $U 282  ]
+[e = _Link _Buffer ]
+[; ;BCDdisplay.c: 50: Buffer = (unsigned short)(Buffer/(unsigned short)10);
 "50
-[e :U 281 ]
-[; ;BCDdisplay.c: 50: else if (LoopIndex <= DecimalPlace)
-[e $ ! <= -> _LoopIndex `i -> _DecimalPlace `i 283  ]
-[; ;BCDdisplay.c: 51: {
+[e = _Buffer -> / -> _Buffer `ui -> -> -> 10 `i `us `ui `us ]
+[; ;BCDdisplay.c: 51: Output = Link - (unsigned short)(Buffer * (unsigned short)10);
 "51
-{
-[; ;BCDdisplay.c: 52: BCDNumber[LoopIndex] = SevenSegmentMAP[0];
-"52
-[e = *U + &U _BCDNumber * -> _LoopIndex `ux -> -> # *U &U _BCDNumber `ui `ux -> *U + &U _SevenSegmentMAP * -> -> -> 0 `i `ui `ux -> -> # *U &U _SevenSegmentMAP `ui `ux `us ]
+[e = _Output -> - -> _Link `ui -> -> * -> _Buffer `ui -> -> -> 10 `i `us `ui `us `ui `us ]
+[; ;BCDdisplay.c: 53: BCDAlpha[LoopIndex] = SevenSegmentMAP[Output];
 "53
-}
-[; ;BCDdisplay.c: 53: }
-[e $U 284  ]
+[e = *U + &U _BCDAlpha * -> _LoopIndex `ux -> -> # *U &U _BCDAlpha `ui `ux -> *U + &U _SevenSegmentMAP * -> _Output `ux -> -> # *U &U _SevenSegmentMAP `ui `ux `us ]
 "54
-[e :U 283 ]
-[; ;BCDdisplay.c: 54: else
-[; ;BCDdisplay.c: 55: {
+}
+[; ;BCDdisplay.c: 54: }
+[e $U 282  ]
 "55
-{
-[; ;BCDdisplay.c: 56: BCDNumber[LoopIndex] = 0x0;
+[e :U 281 ]
+[; ;BCDdisplay.c: 55: else if ((LoopIndex <= DecimalPlace)
+[; ;BCDdisplay.c: 56: ||( (unsigned char)0) == EnableTranc)
 "56
-[e = *U + &U _BCDNumber * -> _LoopIndex `ux -> -> # *U &U _BCDNumber `ui `ux -> -> 0 `i `us ]
+[e $ ! || <= -> _LoopIndex `i -> _DecimalPlace `i == -> -> -> 0 `i `uc `i -> _EnableTranc `i 283  ]
+[; ;BCDdisplay.c: 57: {
 "57
+{
+[; ;BCDdisplay.c: 58: BCDAlpha[LoopIndex] = SevenSegmentMAP[0];
+"58
+[e = *U + &U _BCDAlpha * -> _LoopIndex `ux -> -> # *U &U _BCDAlpha `ui `ux -> *U + &U _SevenSegmentMAP * -> -> -> 0 `i `ui `ux -> -> # *U &U _SevenSegmentMAP `ui `ux `us ]
+"59
+}
+[; ;BCDdisplay.c: 59: }
+[e $U 284  ]
+"60
+[e :U 283 ]
+[; ;BCDdisplay.c: 60: else
+[; ;BCDdisplay.c: 61: {
+"61
+{
+[; ;BCDdisplay.c: 62: BCDAlpha[LoopIndex] = 0x0;
+"62
+[e = *U + &U _BCDAlpha * -> _LoopIndex `ux -> -> # *U &U _BCDAlpha `ui `ux -> -> 0 `i `us ]
+"63
 }
 [e :U 284 ]
 [e :U 282 ]
-"58
+"64
 }
-"40
+"45
 [e ++ _LoopIndex -> -> 1 `i `uc ]
 [e $ < -> _LoopIndex `i -> 4 `i 278  ]
 [e :U 279 ]
-"58
+"64
 }
-[; ;BCDdisplay.c: 57: }
-[; ;BCDdisplay.c: 58: }
-[; ;BCDdisplay.c: 59: if(DecimalPlace != (unsigned char)0)
-"59
-[e $ ! != -> _DecimalPlace `i -> -> -> 0 `i `uc `i 285  ]
-[; ;BCDdisplay.c: 60: {
-"60
-{
-[; ;BCDdisplay.c: 61: BCDNumber[DecimalPlace] |= SevenSegmentMAP[10];
-"61
-[e =| *U + &U _BCDNumber * -> _DecimalPlace `ux -> -> # *U &U _BCDNumber `ui `ux -> *U + &U _SevenSegmentMAP * -> -> -> 10 `i `ui `ux -> -> # *U &U _SevenSegmentMAP `ui `ux `us ]
-"62
-}
-[e :U 285 ]
-[; ;BCDdisplay.c: 62: }
 [; ;BCDdisplay.c: 63: }
-"63
-[e :UE 277 ]
-}
+[; ;BCDdisplay.c: 64: }
+[; ;BCDdisplay.c: 65: if(DecimalPlace != (unsigned char)0)
 "65
-[v _BCDManage7segment `(v ~T0 @X0 1 ef ]
+[e $ ! != -> _DecimalPlace `i -> -> -> 0 `i `uc `i 285  ]
+[; ;BCDdisplay.c: 66: {
 "66
 {
-[; ;BCDdisplay.c: 65: void BCDManage7segment(void)
-[; ;BCDdisplay.c: 66: {
+[; ;BCDdisplay.c: 67: BCDAlpha[DecimalPlace] |= SevenSegmentMAP[10];
+"67
+[e =| *U + &U _BCDAlpha * -> _DecimalPlace `ux -> -> # *U &U _BCDAlpha `ui `ux -> *U + &U _SevenSegmentMAP * -> -> -> 10 `i `ui `ux -> -> # *U &U _SevenSegmentMAP `ui `ux `us ]
+"68
+}
+[e :U 285 ]
+[; ;BCDdisplay.c: 68: }
+[; ;BCDdisplay.c: 69: }
+"69
+[e :UE 277 ]
+}
+"71
+[v _BCDManage7segment `(v ~T0 @X0 1 ef ]
+"72
+{
+[; ;BCDdisplay.c: 71: void BCDManage7segment(void)
+[; ;BCDdisplay.c: 72: {
 [e :U _BCDManage7segment ]
 [f ]
-"67
-[v F3060 `uc ~T0 @X0 1 s DigitIndex ]
-[i F3060
--> -> 0 `i `uc
-]
-"68
-[v F3062 `uc ~T0 @X0 1 s BlinkCounter ]
-[i F3062
--> -> 0 `i `uc
-]
-"69
-[v _Index `uc ~T0 @X0 1 a ]
-"70
-[v _BCD `uc ~T0 @X0 1 a ]
-[; ;BCDdisplay.c: 67: static unsigned char DigitIndex = (unsigned char)0;
-[; ;BCDdisplay.c: 68: static unsigned char BlinkCounter = (unsigned char)0;
-[; ;BCDdisplay.c: 69: unsigned char Index;
-[; ;BCDdisplay.c: 70: unsigned char BCD = (unsigned char)0;
-[e = _BCD -> -> 0 `i `uc ]
-[; ;BCDdisplay.c: 73: if( BlinkDuration != (unsigned char)0)
 "73
-[e $ ! != -> _BlinkDuration `i -> -> -> 0 `i `uc `i 287  ]
-[; ;BCDdisplay.c: 74: {
+[v F3067 `uc ~T0 @X0 1 s DigitIndex ]
+[i F3067
+-> -> 0 `i `uc
+]
 "74
-{
-[; ;BCDdisplay.c: 75: BlinkCounter++;
+[v F3069 `uc ~T0 @X0 1 s BlinkCounter ]
+[i F3069
+-> -> 0 `i `uc
+]
 "75
-[e ++ F3062 -> -> 1 `i `uc ]
-[; ;BCDdisplay.c: 76: if(BlinkCounter == BlinkDuration)
+[v _Index `uc ~T0 @X0 1 a ]
 "76
-[e $ ! == -> F3062 `i -> _BlinkDuration `i 288  ]
-[; ;BCDdisplay.c: 77: {
-"77
-{
-[; ;BCDdisplay.c: 78: BlinkFlag ^= (unsigned char)1;
-"78
-[e =^ _BlinkFlag -> -> 1 `i `uc ]
-[; ;BCDdisplay.c: 79: BlinkCounter = (unsigned char)0;
+[v _BCD `uc ~T0 @X0 1 a ]
+[; ;BCDdisplay.c: 73: static unsigned char DigitIndex = (unsigned char)0;
+[; ;BCDdisplay.c: 74: static unsigned char BlinkCounter = (unsigned char)0;
+[; ;BCDdisplay.c: 75: unsigned char Index;
+[; ;BCDdisplay.c: 76: unsigned char BCD = (unsigned char)0;
+[e = _BCD -> -> 0 `i `uc ]
+[; ;BCDdisplay.c: 79: if( BlinkDuration != (unsigned char)0)
 "79
-[e = F3062 -> -> 0 `i `uc ]
+[e $ ! != -> _BlinkDuration `i -> -> -> 0 `i `uc `i 287  ]
+[; ;BCDdisplay.c: 80: {
 "80
-}
-[e :U 288 ]
+{
+[; ;BCDdisplay.c: 81: BlinkCounter++;
 "81
-}
-[; ;BCDdisplay.c: 80: }
-[; ;BCDdisplay.c: 81: }
-[e $U 289  ]
+[e ++ F3069 -> -> 1 `i `uc ]
+[; ;BCDdisplay.c: 82: if(BlinkCounter == BlinkDuration)
 "82
-[e :U 287 ]
-[; ;BCDdisplay.c: 82: else
+[e $ ! == -> F3069 `i -> _BlinkDuration `i 288  ]
 [; ;BCDdisplay.c: 83: {
 "83
 {
-[; ;BCDdisplay.c: 84: BlinkFlag = (unsigned char)0;
+[; ;BCDdisplay.c: 84: BlinkFlag ^= (unsigned char)1;
 "84
-[e = _BlinkFlag -> -> 0 `i `uc ]
+[e =^ _BlinkFlag -> -> 1 `i `uc ]
+[; ;BCDdisplay.c: 85: BlinkCounter = (unsigned char)0;
 "85
+[e = F3069 -> -> 0 `i `uc ]
+"86
+}
+[e :U 288 ]
+"87
+}
+[; ;BCDdisplay.c: 86: }
+[; ;BCDdisplay.c: 87: }
+[e $U 289  ]
+"88
+[e :U 287 ]
+[; ;BCDdisplay.c: 88: else
+[; ;BCDdisplay.c: 89: {
+"89
+{
+[; ;BCDdisplay.c: 90: BlinkFlag = (unsigned char)0;
+"90
+[e = _BlinkFlag -> -> 0 `i `uc ]
+"91
 }
 [e :U 289 ]
-[; ;BCDdisplay.c: 85: }
-[; ;BCDdisplay.c: 87: if( ((unsigned char)1 == BlinkFlag)&& (DigitIndex == BlinkIndex))
-"87
-[e $ ! && == -> -> -> 1 `i `uc `i -> _BlinkFlag `i == -> F3060 `i -> _BlinkIndex `i 290  ]
-[; ;BCDdisplay.c: 88: {
-"88
-{
-[; ;BCDdisplay.c: 89: Index = (unsigned char)0xF;
-"89
-[e = _Index -> -> 15 `i `uc ]
-"90
-}
-[; ;BCDdisplay.c: 90: }
-[e $U 291  ]
-"91
-[e :U 290 ]
-[; ;BCDdisplay.c: 91: else
-[; ;BCDdisplay.c: 92: {
-"92
-{
-[; ;BCDdisplay.c: 93: Index = (~(((unsigned char) 0x1 << ((4 - DigitIndex)
-[; ;BCDdisplay.c: 94: - (unsigned char)1))));
+[; ;BCDdisplay.c: 91: }
+[; ;BCDdisplay.c: 93: if( ((unsigned char)1 == BlinkFlag)&& (DigitIndex == BlinkIndex))
+"93
+[e $ ! && == -> -> -> 1 `i `uc `i -> _BlinkFlag `i == -> F3067 `i -> _BlinkIndex `i 290  ]
+[; ;BCDdisplay.c: 94: {
 "94
-[e = _Index -> ~ << -> -> -> 1 `i `uc `i - - -> 4 `i -> F3060 `i -> -> -> 1 `i `uc `i `uc ]
-[; ;BCDdisplay.c: 95: BCD = BCDNumber[DigitIndex];
+{
+[; ;BCDdisplay.c: 95: Index = (unsigned char)0xF;
 "95
-[e = _BCD -> *U + &U _BCDNumber * -> F3060 `ux -> -> # *U &U _BCDNumber `ui `ux `uc ]
+[e = _Index -> -> 15 `i `uc ]
 "96
 }
-[e :U 291 ]
 [; ;BCDdisplay.c: 96: }
-[; ;BCDdisplay.c: 98: if( (unsigned char)1 == bIsAnodeUsed)
+[e $U 291  ]
+"97
+[e :U 290 ]
+[; ;BCDdisplay.c: 97: else
+[; ;BCDdisplay.c: 98: {
 "98
-[e $ ! == -> -> -> 1 `i `uc `i -> _bIsAnodeUsed `i 292  ]
-[; ;BCDdisplay.c: 99: {
-"99
 {
-[; ;BCDdisplay.c: 100: Index = (unsigned char)~Index;
+[; ;BCDdisplay.c: 99: Index = (~(((unsigned char) 0x1 << ((4 - DigitIndex)
+[; ;BCDdisplay.c: 100: - (unsigned char)1))));
 "100
-[e = _Index -> ~ -> _Index `i `uc ]
-[; ;BCDdisplay.c: 101: BCD = (unsigned char)~BCD;
+[e = _Index -> ~ << -> -> -> 1 `i `uc `i - - -> 4 `i -> F3067 `i -> -> -> 1 `i `uc `i `uc ]
+[; ;BCDdisplay.c: 101: BCD = BCDAlpha[DigitIndex];
 "101
-[e = _BCD -> ~ -> _BCD `i `uc ]
+[e = _BCD -> *U + &U _BCDAlpha * -> F3067 `ux -> -> # *U &U _BCDAlpha `ui `ux `uc ]
 "102
 }
-[e :U 292 ]
+[e :U 291 ]
 [; ;BCDdisplay.c: 102: }
-[; ;BCDdisplay.c: 104: HWI_4Digit_WRITE(0,Index);
+[; ;BCDdisplay.c: 104: if( (unsigned char)1 == bIsAnodeUsed)
 "104
-[e ( _HWI_4Digit_WRITE (2 , -> -> 0 `i `uc _Index ]
-[; ;BCDdisplay.c: 105: HWI_8Digit_WRITE(1,BCD);
+[e $ ! == -> -> -> 1 `i `uc `i -> _bIsAnodeUsed `i 292  ]
+[; ;BCDdisplay.c: 105: {
 "105
-[e ( _HWI_8Digit_WRITE (2 , -> -> 1 `i `uc _BCD ]
-[; ;BCDdisplay.c: 112: DigitIndex ++;
-"112
-[e ++ F3060 -> -> 1 `i `uc ]
-[; ;BCDdisplay.c: 113: if(DigitIndex == 4)
-"113
-[e $ ! == -> F3060 `i -> 4 `i 293  ]
-[; ;BCDdisplay.c: 114: {
-"114
 {
-[; ;BCDdisplay.c: 115: DigitIndex = (unsigned char)0;
-"115
-[e = F3060 -> -> 0 `i `uc ]
-"116
+[; ;BCDdisplay.c: 106: Index = (unsigned char)~Index;
+"106
+[e = _Index -> ~ -> _Index `i `uc ]
+[; ;BCDdisplay.c: 107: BCD = (unsigned char)~BCD;
+"107
+[e = _BCD -> ~ -> _BCD `i `uc ]
+"108
+}
+[e :U 292 ]
+[; ;BCDdisplay.c: 108: }
+[; ;BCDdisplay.c: 110: HWI_4Digit_WRITE(0,Index);
+"110
+[e ( _HWI_4Digit_WRITE (2 , -> -> 0 `i `uc _Index ]
+[; ;BCDdisplay.c: 111: HWI_8Digit_WRITE(1,BCD);
+"111
+[e ( _HWI_8Digit_WRITE (2 , -> -> 1 `i `uc _BCD ]
+[; ;BCDdisplay.c: 118: DigitIndex ++;
+"118
+[e ++ F3067 -> -> 1 `i `uc ]
+[; ;BCDdisplay.c: 119: if(DigitIndex == 4)
+"119
+[e $ ! == -> F3067 `i -> 4 `i 293  ]
+[; ;BCDdisplay.c: 120: {
+"120
+{
+[; ;BCDdisplay.c: 121: DigitIndex = (unsigned char)0;
+"121
+[e = F3067 -> -> 0 `i `uc ]
+"122
 }
 [e :U 293 ]
-[; ;BCDdisplay.c: 116: }
-[; ;BCDdisplay.c: 118: }
-"118
+[; ;BCDdisplay.c: 122: }
+[; ;BCDdisplay.c: 124: }
+"124
 [e :UE 286 ]
 }
-"121
+"127
 [v _BlinkDigit `(v ~T0 @X0 1 ef2`uc`uc ]
-"122
+"128
 {
-[; ;BCDdisplay.c: 121: void BlinkDigit(unsigned char Index , unsigned char duration)
-[; ;BCDdisplay.c: 122: {
+[; ;BCDdisplay.c: 127: void BlinkDigit(unsigned char Index , unsigned char duration)
+[; ;BCDdisplay.c: 128: {
 [e :U _BlinkDigit ]
-"121
+"127
 [v _Index `uc ~T0 @X0 1 r1 ]
 [v _duration `uc ~T0 @X0 1 r2 ]
-"122
+"128
 [f ]
-[; ;BCDdisplay.c: 123: BlinkIndex = Index;
-"123
+[; ;BCDdisplay.c: 129: BlinkIndex = Index;
+"129
 [e = _BlinkIndex _Index ]
-[; ;BCDdisplay.c: 124: BlinkDuration = duration;
-"124
+[; ;BCDdisplay.c: 130: BlinkDuration = duration;
+"130
 [e = _BlinkDuration _duration ]
-[; ;BCDdisplay.c: 125: }
-"125
+[; ;BCDdisplay.c: 131: }
+"131
 [e :UE 294 ]
+}
+"134
+[v _Segment7SendString `(v ~T0 @X0 1 ef3`uc`*uc`uc ]
+"140
+{
+[; ;BCDdisplay.c: 134: void Segment7SendString
+[; ;BCDdisplay.c: 135: (
+[; ;BCDdisplay.c: 136: unsigned char Position,
+[; ;BCDdisplay.c: 137: unsigned char * Data,
+[; ;BCDdisplay.c: 138: unsigned char Length
+[; ;BCDdisplay.c: 139: )
+[; ;BCDdisplay.c: 140: {
+[e :U _Segment7SendString ]
+"136
+[v _Position `uc ~T0 @X0 1 r1 ]
+"137
+[v _Data `*uc ~T0 @X0 1 r2 ]
+"138
+[v _Length `uc ~T0 @X0 1 r3 ]
+"140
+[f ]
+"141
+[v _LoopIndex `uc ~T0 @X0 1 a ]
+[; ;BCDdisplay.c: 141: unsigned char LoopIndex;
+[; ;BCDdisplay.c: 142: if((Position + Length ) <= 4)
+"142
+[e $ ! <= + -> _Position `i -> _Length `i -> 4 `i 296  ]
+[; ;BCDdisplay.c: 143: {
+"143
+{
+[; ;BCDdisplay.c: 144: for(LoopIndex = Position ; LoopIndex < (Position+Length) ;LoopIndex++)
+"144
+{
+[e = _LoopIndex _Position ]
+[e $U 300  ]
+"145
+[e :U 297 ]
+[; ;BCDdisplay.c: 145: {
+{
+[; ;BCDdisplay.c: 146: BCDAlpha[LoopIndex] = Data[LoopIndex];
+"146
+[e = *U + &U _BCDAlpha * -> _LoopIndex `ux -> -> # *U &U _BCDAlpha `ui `ux -> *U + _Data * -> _LoopIndex `ux -> -> # *U _Data `ui `ux `us ]
+"147
+}
+"144
+[e ++ _LoopIndex -> -> 1 `i `uc ]
+[e :U 300 ]
+[e $ < -> _LoopIndex `i + -> _Position `i -> _Length `i 297  ]
+[e :U 298 ]
+"147
+}
+"148
+}
+[e :U 296 ]
+[; ;BCDdisplay.c: 147: }
+[; ;BCDdisplay.c: 148: }
+[; ;BCDdisplay.c: 149: }
+"149
+[e :UE 295 ]
 }

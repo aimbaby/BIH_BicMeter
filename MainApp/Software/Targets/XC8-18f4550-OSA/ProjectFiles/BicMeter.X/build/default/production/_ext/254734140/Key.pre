@@ -3810,7 +3810,7 @@ extern void HWI_Delay_nsec(unsigned short Time);
 
 extern unsigned short ReloadHWtimer(unsigned char TimerId);
 
-# 21 "../../../../Common/Driver/Key/Key.h"
+# 22 "../../../../Common/Driver/Key/Key.h"
 typedef struct
 {
 unsigned char HWI_ID;
@@ -3833,8 +3833,8 @@ unsigned short KeyCounter;
  void MangeKeys(unsigned char KeyID);
 
 # 11 "../../../../Common/Driver/Key/Key.c"
-const strKeyConfig KeyArrayConfig[(unsigned char)2] = { { (unsigned char)15, (unsigned char)0, (unsigned short)4, (unsigned short)4, (unsigned short)100 }, { (unsigned char)16, (unsigned char)0, (unsigned short)4, (unsigned short)4, (unsigned short)100 } };
-static strKeyData KeyInternalData[(unsigned char)2];
+const strKeyConfig KeyArrayConfig[(unsigned char)3] = { { (unsigned char)15, (unsigned char)0, (unsigned short)6, (unsigned short)6, (unsigned short)100 }, { (unsigned char)16, (unsigned char)0, (unsigned short)6, (unsigned short)6, (unsigned short)100 }, { (unsigned char)17, (unsigned char)0, (unsigned short)6, (unsigned short)6, (unsigned short)100 } };
+static strKeyData KeyInternalData[(unsigned char)3];
 
  void KeyInitialize(void)
 {
@@ -3846,7 +3846,7 @@ memset(KeyInternalData , 0 ,sizeof(KeyInternalData));
 unsigned char KeyStatus;
 
 KeyStatus = KeyInternalData[KeyID].KeyState;
-KeyInternalData[KeyID].KeyState &= (unsigned char)0x7F;
+KeyInternalData[KeyID].KeyState &= (unsigned char)0x3F;
 
 return KeyStatus;
 }
@@ -3856,7 +3856,7 @@ return KeyStatus;
 unsigned char HWIreading;
 unsigned char KeyState;
 
-KeyState = KeyInternalData[KeyID].KeyState & (unsigned char)0x7F;
+KeyState = KeyInternalData[KeyID].KeyState & (unsigned char)0x3F;
 HWIreading = HWI_DIGI_READ(KeyArrayConfig[KeyID].HWI_ID);
 
 switch(KeyState)
@@ -3912,7 +3912,7 @@ else
 KeyInternalData[KeyID].KeyCounter--;
 if(KeyInternalData[KeyID].KeyCounter == (unsigned short)0)
 {
-KeyInternalData[KeyID].KeyState = (unsigned char)0x80;
+KeyInternalData[KeyID].KeyState = (unsigned char)0x40;
 }
 }
 }

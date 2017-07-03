@@ -3817,13 +3817,25 @@ extern void HWtimerCallback (void);
 # 13 "../../../../Common/Driver/BCDdisplay\BCDdisplay.h"
 extern void BCDInitialize( unsigned char bIsCommonAnode);
 
-extern void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace );
+extern void BCDsendNumber
+(
+unsigned short Number ,
+unsigned char DecimalPlace,
+unsigned char EnableTranc
+);
 
 extern void BCDManage7segment(void);
 
 extern void BlinkDigit(unsigned char Index , unsigned char duration);
 
-# 21 "../../../../Common/Driver/Key\Key.h"
+extern void Segment7SendString
+(
+unsigned char Position,
+unsigned char * Data,
+unsigned char Length
+);
+
+# 22 "../../../../Common/Driver/Key\Key.h"
 typedef struct
 {
 unsigned char HWI_ID;
@@ -3850,7 +3862,8 @@ extern void MangeKeys(unsigned char KeyID);
 (
 unsigned char address ,
 unsigned char *DataPtr ,
-unsigned char BlockSize
+unsigned char BlockSize,
+void (*ptrFnCallback)(void)
 );
 
  unsigned char Eeprom_Read_Block
@@ -3907,7 +3920,7 @@ SpeedCalcManage();
 void ManageDrivers(void)
 {
 unsigned char LoopIndex;
-for(LoopIndex = (unsigned char)0 ; LoopIndex < (unsigned char)2 ; LoopIndex++)
+for(LoopIndex = (unsigned char)0 ; LoopIndex < (unsigned char)3 ; LoopIndex++)
 {
 MangeKeys(LoopIndex);
 }

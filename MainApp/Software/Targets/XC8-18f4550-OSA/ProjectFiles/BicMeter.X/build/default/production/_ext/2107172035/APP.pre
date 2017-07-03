@@ -1,6 +1,34 @@
 
 # 1 "../../../../Common/App/APP.c"
 
+# 30 "C:\Program Files\Microchip\xc8\v1.41\include\math.h"
+extern double fabs(double);
+extern double floor(double);
+extern double ceil(double);
+extern double modf(double, double *);
+extern double sqrt(double);
+extern double atof(const char *);
+extern double sin(double) ;
+extern double cos(double) ;
+extern double tan(double) ;
+extern double asin(double) ;
+extern double acos(double) ;
+extern double atan(double);
+extern double atan2(double, double) ;
+extern double log(double);
+extern double log10(double);
+extern double pow(double, double) ;
+extern double exp(double) ;
+extern double sinh(double) ;
+extern double cosh(double) ;
+extern double tanh(double);
+extern double eval_poly(double, const double *, int);
+extern double frexp(double, int *);
+extern double ldexp(double, int);
+extern double fmod(double, double);
+extern double trunc(double);
+extern double round(double);
+
 # 26 "C:\Program Files\Microchip\xc8\v1.41\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
@@ -3797,13 +3825,33 @@ extern void HWtimerCallback (void);
 # 13 "../../../../Common/Driver/BCDdisplay\BCDdisplay.h"
 extern void BCDInitialize( unsigned char bIsCommonAnode);
 
-extern void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace );
+extern void BCDsendNumber
+(
+unsigned short Number ,
+unsigned char DecimalPlace,
+unsigned char EnableTranc
+);
 
 extern void BCDManage7segment(void);
 
 extern void BlinkDigit(unsigned char Index , unsigned char duration);
 
-# 21 "../../../../Common/Driver/Key\Key.h"
+extern void Segment7SendString
+(
+unsigned char Position,
+unsigned char * Data,
+unsigned char Length
+);
+
+# 11 "../../../../Common/Driver/BCDdisplay\DisplayManage.h"
+extern void DisplaySendString
+(
+unsigned char Position,
+unsigned char * Data,
+unsigned char Length
+);
+
+# 22 "../../../../Common/Driver/Key\Key.h"
 typedef struct
 {
 unsigned char HWI_ID;
@@ -3830,7 +3878,8 @@ extern unsigned char Eeprom_Write_Block
 (
 unsigned char address ,
 unsigned char *DataPtr ,
-unsigned char BlockSize
+unsigned char BlockSize,
+void (*ptrFnCallback)(void)
 );
 
 extern unsigned char Eeprom_Read_Block
@@ -3846,11 +3895,30 @@ extern void EepromManage(void);
  void APP_INITIALIZE(void);
  void APP_MANAGE();
 
-# 13 "../../../../Common/App/APP.c"
+# 16 "../../../../Common/App/APP.c"
+static unsigned char WriteFlag = (unsigned char)0;
+static unsigned short Circum;
+
+# 25
+static unsigned short IncrementDecrementSingleDigit
+(
+unsigned short Number,
+unsigned char Index,
+unsigned char bIsincrement
+);
+
+
+
  void APP_INITIALIZE(void)
 {
-unsigned char const stringX[] = "ahmed imbaby SW EEPROM OK :D";
-Eeprom_Write_Block(8,(unsigned char*)&stringX , (unsigned char)sizeof(stringX));
+
+Eeprom_Read_Block(1 , (unsigned char*)&Circum , (unsigned char)sizeof(Circum));
+
+# 46
+if(Circum > (unsigned short)9999)
+{
+Circum = (unsigned short)0;
+}
 }
 
  void APP_MANAGE(void)
@@ -3860,21 +3928,23 @@ static unsigned bIsBlinkMode = (unsigned char)0;
 unsigned short AvgSpeedKph;
 unsigned long TravelledDistance;
 unsigned char keystatus;
+unsigned char keystatus2;
 
-SetCircumfirunce(2056);
+
+
+
+SetCircumfirunce(Circum);
 
 AvgSpeedKph = GetAvgSpeed(1);
 TravelledDistance = GetDistance();
 TravelledDistance *= (unsigned long)10;
 TravelledDistance /= (unsigned long)16;
 
-Eeprom_Write_Block(1,(unsigned char*)&AvgSpeedKph , (unsigned char)sizeof(AvgSpeedKph));
-
-Eeprom_Read_Block(1 , (unsigned char*)&AvgSpeedKph , (unsigned char)sizeof(AvgSpeedKph));
-BCDsendNumber(AvgSpeedKph,1 );
-
+if( (unsigned char)0 == WriteFlag)
+{
 if(bIsBlinkMode == (unsigned char)0)
 {
+BCDsendNumber(AvgSpeedKph,1 ,1);
 keystatus = GetKeyStatus(0);
 if( keystatus == (unsigned char)0x82)
 {
@@ -3883,9 +3953,11 @@ bIsBlinkMode = (unsigned char)1;
 }
 else
 {
+
+BCDsendNumber(Circum,0 ,0);
 BlinkDigit(blinkIndex,100);
 keystatus = GetKeyStatus(0);
-if( keystatus == (unsigned char)0x81)
+if( keystatus == (unsigned char)0x40)
 {
 blinkIndex++;
 if(blinkIndex == 4)
@@ -3896,13 +3968,101 @@ blinkIndex=0;
 else
 {
 keystatus = GetKeyStatus(1);
+keystatus2 = GetKeyStatus(2);
 if(keystatus == (unsigned char)0x82 )
 {
+Eeprom_Write_Block(1,(unsigned char*)&Circum ,
+(unsigned char)sizeof(Circum),(void*)0);
 BlinkDigit(1,0);
 bIsBlinkMode = (unsigned char)0;
+
+
 }
+else if(keystatus == (unsigned char)0x40)
+{
+Circum = IncrementDecrementSingleDigit(
+Circum,blinkIndex,(unsigned char)0);
+}
+else if(keystatus2 == (unsigned char)0x40)
+{
+Circum = IncrementDecrementSingleDigit(
+Circum,blinkIndex,(unsigned char)1);
+}
+}
+}
+}
+else
+{
+
 }
 }
 
-# 91
+# 154
+static unsigned short IncrementDecrementSingleDigit
+(
+unsigned short Number,
+unsigned char Index,
+unsigned char bIsincrement
+)
+{
+unsigned short NumberReturned = (unsigned short)0;
+unsigned short Link;
+unsigned char LoopIndex;
+unsigned char PowIndex;
+unsigned char Output[4];
+unsigned short unitPosition = (unsigned short)1;
+
+
+for( LoopIndex = (unsigned char)0; LoopIndex < 4 ; LoopIndex++)
+{
+if((Number != (unsigned short)0) )
+{
+Link = Number;
+Number = (unsigned short)(Number/(unsigned short)10);
+Output[LoopIndex] = Link -
+(unsigned short)(Number * (unsigned short)10);
 }
+else
+{
+Output[LoopIndex] = (unsigned short)0;
+}
+}
+
+if((unsigned char)0 == bIsincrement)
+{
+if((unsigned char)0 == Output[Index])
+{
+Output[Index] =(unsigned char)9;
+}
+else
+{
+Output[Index]--;
+}
+}
+else
+{
+if( (unsigned char)9 == Output[Index])
+{
+Output[Index] = (unsigned char)0;
+}
+else
+{
+Output[Index]++;
+}
+}
+
+for(LoopIndex=(unsigned char)0;LoopIndex < 4; LoopIndex++)
+{
+for(PowIndex = (unsigned char)0 ; PowIndex < LoopIndex ;
+PowIndex++ )
+{
+unitPosition *=(unsigned short)10;
+}
+NumberReturned +=
+(((unsigned short)Output[LoopIndex]) * unitPosition);
+unitPosition = (unsigned short)1;
+}
+
+return NumberReturned;
+}
+

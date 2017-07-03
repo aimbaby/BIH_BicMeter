@@ -1,8 +1,8 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"22 ../../../../Common/Driver/Key/Key.h
+"23 ../../../../Common/Driver/Key/Key.h
 [s S276 `uc 1 `uc 1 `us 1 `us 1 `us 1 ]
 [n S276 . HWI_ID ActiveValue ReleaseTicks ShortPress LongPress ]
-"31
+"32
 [s S277 `uc 1 `us 1 ]
 [n S277 . KeyState KeyCounter ]
 "16 C:\Program Files\Microchip\xc8\v1.41\include\string.h
@@ -2826,46 +2826,53 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;HWIheader\HWI_func.h: 13: extern void HWI_Delay_usec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 14: extern void HWI_Delay_nsec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 16: extern unsigned short ReloadHWtimer(unsigned char TimerId);
-[; ;Key.h: 21: typedef struct
-[; ;Key.h: 22: {
-[; ;Key.h: 23: unsigned char HWI_ID;
-[; ;Key.h: 24: unsigned char ActiveValue;
-[; ;Key.h: 25: unsigned short ReleaseTicks;
-[; ;Key.h: 26: unsigned short ShortPress;
-[; ;Key.h: 27: unsigned short LongPress;
-[; ;Key.h: 28: }strKeyConfig;
-[; ;Key.h: 30: typedef struct
-[; ;Key.h: 31: {
-[; ;Key.h: 32: unsigned char KeyState;
-[; ;Key.h: 33: unsigned short KeyCounter;
-[; ;Key.h: 34: }strKeyData;
-[; ;Key.h: 36: void KeyInitialize(void);
-[; ;Key.h: 38: unsigned char GetKeyStatus(unsigned char KeyID);
-[; ;Key.h: 40: void MangeKeys(unsigned char KeyID);
+[; ;Key.h: 22: typedef struct
+[; ;Key.h: 23: {
+[; ;Key.h: 24: unsigned char HWI_ID;
+[; ;Key.h: 25: unsigned char ActiveValue;
+[; ;Key.h: 26: unsigned short ReleaseTicks;
+[; ;Key.h: 27: unsigned short ShortPress;
+[; ;Key.h: 28: unsigned short LongPress;
+[; ;Key.h: 29: }strKeyConfig;
+[; ;Key.h: 31: typedef struct
+[; ;Key.h: 32: {
+[; ;Key.h: 33: unsigned char KeyState;
+[; ;Key.h: 34: unsigned short KeyCounter;
+[; ;Key.h: 35: }strKeyData;
+[; ;Key.h: 37: void KeyInitialize(void);
+[; ;Key.h: 39: unsigned char GetKeyStatus(unsigned char KeyID);
+[; ;Key.h: 41: void MangeKeys(unsigned char KeyID);
 "11 ../../../../Common/Driver/Key/Key.c
-[v _KeyArrayConfig `CS276 ~T0 @X0 -> -> -> 2 `i `uc `ux e ]
+[v _KeyArrayConfig `CS276 ~T0 @X0 -> -> -> 3 `i `uc `ux e ]
 [i _KeyArrayConfig
 :U ..
 :U ..
 -> -> 15 `i `uc
 -> -> 0 `i `uc
--> -> 4 `i `us
--> -> 4 `i `us
+-> -> 6 `i `us
+-> -> 6 `i `us
 -> -> 100 `i `us
 ..
 :U ..
 -> -> 16 `i `uc
 -> -> 0 `i `uc
--> -> 4 `i `us
--> -> 4 `i `us
+-> -> 6 `i `us
+-> -> 6 `i `us
+-> -> 100 `i `us
+..
+:U ..
+-> -> 17 `i `uc
+-> -> 0 `i `uc
+-> -> 6 `i `us
+-> -> 6 `i `us
 -> -> 100 `i `us
 ..
 ..
 ]
-[; ;Key.c: 11: const strKeyConfig KeyArrayConfig[(unsigned char)2] = { { (unsigned char)15, (unsigned char)0, (unsigned short)4, (unsigned short)4, (unsigned short)100 }, { (unsigned char)16, (unsigned char)0, (unsigned short)4, (unsigned short)4, (unsigned short)1
+[; ;Key.c: 11: const strKeyConfig KeyArrayConfig[(unsigned char)3] = { { (unsigned char)15, (unsigned char)0, (unsigned short)6, (unsigned short)6, (unsigned short)100 }, { (unsigned char)16, (unsigned char)0, (unsigned short)6, (unsigned short)6, (unsigned short)1
 "12
-[v _KeyInternalData `S277 ~T0 @X0 -> -> -> 2 `i `uc `ux s ]
-[; ;Key.c: 12: static strKeyData KeyInternalData[(unsigned char)2];
+[v _KeyInternalData `S277 ~T0 @X0 -> -> -> 3 `i `uc `ux s ]
+[; ;Key.c: 12: static strKeyData KeyInternalData[(unsigned char)3];
 "14
 [v _KeyInitialize `(v ~T0 @X0 1 ef ]
 "15
@@ -2898,9 +2905,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Key.c: 23: KeyStatus = KeyInternalData[KeyID].KeyState;
 "23
 [e = _KeyStatus . *U + &U _KeyInternalData * -> _KeyID `ux -> -> # *U &U _KeyInternalData `ui `ux 0 ]
-[; ;Key.c: 24: KeyInternalData[KeyID].KeyState &= (unsigned char)0x7F;
+[; ;Key.c: 24: KeyInternalData[KeyID].KeyState &= (unsigned char)0x3F;
 "24
-[e =& . *U + &U _KeyInternalData * -> _KeyID `ux -> -> # *U &U _KeyInternalData `ui `ux 0 -> -> 127 `i `uc ]
+[e =& . *U + &U _KeyInternalData * -> _KeyID `ux -> -> # *U &U _KeyInternalData `ui `ux 0 -> -> 63 `i `uc ]
 [; ;Key.c: 26: return KeyStatus;
 "26
 [e ) _KeyStatus ]
@@ -2926,9 +2933,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _KeyState `uc ~T0 @X0 1 a ]
 [; ;Key.c: 31: unsigned char HWIreading;
 [; ;Key.c: 32: unsigned char KeyState;
-[; ;Key.c: 34: KeyState = KeyInternalData[KeyID].KeyState & (unsigned char)0x7F;
+[; ;Key.c: 34: KeyState = KeyInternalData[KeyID].KeyState & (unsigned char)0x3F;
 "34
-[e = _KeyState -> & -> . *U + &U _KeyInternalData * -> _KeyID `ux -> -> # *U &U _KeyInternalData `ui `ux 0 `i -> -> -> 127 `i `uc `i `uc ]
+[e = _KeyState -> & -> . *U + &U _KeyInternalData * -> _KeyID `ux -> -> # *U &U _KeyInternalData `ui `ux 0 `i -> -> -> 63 `i `uc `i `uc ]
 [; ;Key.c: 35: HWIreading = HWI_DIGI_READ(KeyArrayConfig[KeyID].HWI_ID);
 "35
 [e = _HWIreading ( _HWI_DIGI_READ (1 . *U + &U _KeyArrayConfig * -> _KeyID `ux -> -> # *U &U _KeyArrayConfig `ui `ux 0 ]
@@ -3083,9 +3090,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Key.c: 89: {
 "89
 {
-[; ;Key.c: 90: KeyInternalData[KeyID].KeyState = (unsigned char)0x80;
+[; ;Key.c: 90: KeyInternalData[KeyID].KeyState = (unsigned char)0x40;
 "90
-[e = . *U + &U _KeyInternalData * -> _KeyID `ux -> -> # *U &U _KeyInternalData `ui `ux 0 -> -> 128 `i `uc ]
+[e = . *U + &U _KeyInternalData * -> _KeyID `ux -> -> # *U &U _KeyInternalData `ui `ux 0 -> -> 64 `i `uc ]
 "91
 }
 [e :U 295 ]

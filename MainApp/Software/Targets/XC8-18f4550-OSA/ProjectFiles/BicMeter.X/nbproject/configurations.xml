@@ -23,6 +23,11 @@
               <itemPath>../../../../Common/Driver/BCDdisplay/BCDdisplay.h</itemPath>
               <itemPath>../../../../Common/Driver/BCDdisplay/BCDdisplay.c</itemPath>
               <itemPath>../../../../Common/Driver/BCDdisplay/BCDdisplay_p.h</itemPath>
+              <itemPath>../../../../Common/Driver/BCDdisplay/DisplayManage.c</itemPath>
+              <itemPath>../../../../Common/Driver/BCDdisplay/DisplayManage.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="Buzzer" displayName="Buzzer" projectFiles="true">
+              <itemPath>../../../../Common/Driver/Buzzer/Buzzer.c</itemPath>
             </logicalFolder>
             <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
               <itemPath>../../../../Common/Driver/EEPROM/Eeprom.c</itemPath>
@@ -144,7 +149,7 @@
         <property key="define-macros" value=""/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
-                  value="..\..\..\..\;..\..\..\..\Common\Link;..\..\..\..\Common\Interrupts;..\..\..\..\Common\App;..\..\..\..\Common\HWIheader;..\..\..\..\OS\Scheduler;..\..\..\..\Common\Driver;..\..\..\..\Common\Driver\SpeedCalc;..\..\HWIsource;..\..\..\..\Common\Driver\BCDdisplay;..\..\..\..\Common\Driver\Key;..\..\..\..\OS\OS_manage;..\..\HWIeeprom;..\..\..\..\Common\Driver\EEPROM"/>
+                  value="..\..\..\..\;..\..\..\..\Common\Link;..\..\..\..\Common\Interrupts;..\..\..\..\Common\App;..\..\..\..\Common\HWIheader;..\..\..\..\OS\Scheduler;..\..\..\..\Common\Driver;..\..\..\..\Common\Driver\SpeedCalc;..\..\HWIsource;..\..\..\..\Common\Driver\BCDdisplay;..\..\..\..\Common\Driver\Key;..\..\..\..\OS\OS_manage;..\..\HWIeeprom;..\..\..\..\Common\Driver\EEPROM;..\..\..\..\Common\Driver\Buzzer"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="identifier-length" value="255"/>
         <property key="local-generation" value="false"/>

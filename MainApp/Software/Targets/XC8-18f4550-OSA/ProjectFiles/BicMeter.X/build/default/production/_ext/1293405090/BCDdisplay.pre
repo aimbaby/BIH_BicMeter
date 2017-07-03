@@ -3778,11 +3778,23 @@ extern unsigned short ReloadHWtimer(unsigned char TimerId);
 # 13 "../../../../Common/Driver/BCDdisplay/BCDdisplay.h"
  void BCDInitialize( unsigned char bIsCommonAnode);
 
- void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace );
+ void BCDsendNumber
+(
+unsigned short Number ,
+unsigned char DecimalPlace,
+unsigned char EnableTranc
+);
 
  void BCDManage7segment(void);
 
  void BlinkDigit(unsigned char Index , unsigned char duration);
+
+ void Segment7SendString
+(
+unsigned char Position,
+unsigned char * Data,
+unsigned char Length
+);
 
 # 8 "../../../../Common/Driver/BCDdisplay/BCDdisplay.c"
 const unsigned char SevenSegmentMAP[11] =
@@ -3800,7 +3812,7 @@ const unsigned char SevenSegmentMAP[11] =
 0b00000001
 };
 
-static unsigned short BCDNumber[4];
+static unsigned short BCDAlpha[4];
 static unsigned char bIsAnodeUsed = (unsigned char)0;
 static unsigned char BlinkIndex = (unsigned char)0;
 static unsigned char BlinkDuration = (unsigned char)0;
@@ -3811,7 +3823,12 @@ static unsigned char BlinkFlag = (unsigned char)0;
 bIsAnodeUsed = bIsCommonAnode;
 }
 
- void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace )
+ void BCDsendNumber
+(
+unsigned short Number ,
+unsigned char DecimalPlace,
+unsigned char EnableTranc
+)
 {
 unsigned short Link,Output,Buffer;
 unsigned char LoopIndex;
@@ -3825,20 +3842,21 @@ Link = Buffer;
 Buffer = (unsigned short)(Buffer/(unsigned short)10);
 Output = Link - (unsigned short)(Buffer * (unsigned short)10);
 
-BCDNumber[LoopIndex] = SevenSegmentMAP[Output];
+BCDAlpha[LoopIndex] = SevenSegmentMAP[Output];
 }
-else if (LoopIndex <= DecimalPlace)
+else if ((LoopIndex <= DecimalPlace)
+||( (unsigned char)0) == EnableTranc)
 {
-BCDNumber[LoopIndex] = SevenSegmentMAP[0];
+BCDAlpha[LoopIndex] = SevenSegmentMAP[0];
 }
 else
 {
-BCDNumber[LoopIndex] = 0x0;
+BCDAlpha[LoopIndex] = 0x0;
 }
 }
 if(DecimalPlace != (unsigned char)0)
 {
-BCDNumber[DecimalPlace] |= SevenSegmentMAP[10];
+BCDAlpha[DecimalPlace] |= SevenSegmentMAP[10];
 }
 }
 
@@ -3872,7 +3890,7 @@ else
 {
 Index = (~(((unsigned char) 0x1 << ((4 - DigitIndex)
 - (unsigned char)1))));
-BCD = BCDNumber[DigitIndex];
+BCD = BCDAlpha[DigitIndex];
 }
 
 if( (unsigned char)1 == bIsAnodeUsed)
@@ -3884,7 +3902,7 @@ BCD = (unsigned char)~BCD;
 HWI_4Digit_WRITE(0,Index);
 HWI_8Digit_WRITE(1,BCD);
 
-# 112
+# 118
 DigitIndex ++;
 if(DigitIndex == 4)
 {
@@ -3900,3 +3918,20 @@ BlinkIndex = Index;
 BlinkDuration = duration;
 }
 
+
+ void Segment7SendString
+(
+unsigned char Position,
+unsigned char * Data,
+unsigned char Length
+)
+{
+unsigned char LoopIndex;
+if((Position + Length ) <= 4)
+{
+for(LoopIndex = Position ; LoopIndex < (Position+Length) ;LoopIndex++)
+{
+BCDAlpha[LoopIndex] = Data[LoopIndex];
+}
+}
+}

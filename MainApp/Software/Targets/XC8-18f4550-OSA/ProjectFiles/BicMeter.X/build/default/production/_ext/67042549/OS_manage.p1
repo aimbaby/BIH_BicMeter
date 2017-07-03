@@ -22,15 +22,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ManageDrivers `(v ~T0 @X0 0 ef ]
 "25 ../../../../OS/Scheduler\Scheduler.h
 [v _RunScheduler `(v ~T0 @X0 0 ef ]
-"17 ../../../../Common/Driver/BCDdisplay\BCDdisplay.h
+"22 ../../../../Common/Driver/BCDdisplay\BCDdisplay.h
 [v _BCDManage7segment `(v ~T0 @X0 0 ef ]
 "3 ../../../../Common/App\APP.h
 [v _APP_MANAGE `(v ~T0 @X0 0 ef ]
 "19 ../../../../Common/Driver/SpeedCalc\SpeedCalc.h
 [v _SpeedCalcManage `(v ~T0 @X0 0 ef ]
-"40 ../../../../Common/Driver/Key\Key.h
+"41 ../../../../Common/Driver/Key\Key.h
 [v _MangeKeys `(v ~T0 @X0 0 ef1`uc ]
-"26 ../../../../Common/Driver/EEPROM\Eeprom.h
+"27 ../../../../Common/Driver/EEPROM\Eeprom.h
 [v _EepromManage `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -2844,38 +2844,50 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SpeedCalc\SpeedCalc.h: 27: extern unsigned short GetAvgSpeed(unsigned char bIsKph);
 [; ;SpeedCalc\SpeedCalc.h: 29: extern void HWtimerCallback (void);
 [; ;BCDdisplay\BCDdisplay.h: 13: extern void BCDInitialize( unsigned char bIsCommonAnode);
-[; ;BCDdisplay\BCDdisplay.h: 15: extern void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace );
-[; ;BCDdisplay\BCDdisplay.h: 17: extern void BCDManage7segment(void);
-[; ;BCDdisplay\BCDdisplay.h: 19: extern void BlinkDigit(unsigned char Index , unsigned char duration);
-[; ;Key\Key.h: 21: typedef struct
-[; ;Key\Key.h: 22: {
-[; ;Key\Key.h: 23: unsigned char HWI_ID;
-[; ;Key\Key.h: 24: unsigned char ActiveValue;
-[; ;Key\Key.h: 25: unsigned short ReleaseTicks;
-[; ;Key\Key.h: 26: unsigned short ShortPress;
-[; ;Key\Key.h: 27: unsigned short LongPress;
-[; ;Key\Key.h: 28: }strKeyConfig;
-[; ;Key\Key.h: 30: typedef struct
-[; ;Key\Key.h: 31: {
-[; ;Key\Key.h: 32: unsigned char KeyState;
-[; ;Key\Key.h: 33: unsigned short KeyCounter;
-[; ;Key\Key.h: 34: }strKeyData;
-[; ;Key\Key.h: 36: extern void KeyInitialize(void);
-[; ;Key\Key.h: 38: extern unsigned char GetKeyStatus(unsigned char KeyID);
-[; ;Key\Key.h: 40: extern void MangeKeys(unsigned char KeyID);
+[; ;BCDdisplay\BCDdisplay.h: 15: extern void BCDsendNumber
+[; ;BCDdisplay\BCDdisplay.h: 16: (
+[; ;BCDdisplay\BCDdisplay.h: 17: unsigned short Number ,
+[; ;BCDdisplay\BCDdisplay.h: 18: unsigned char DecimalPlace,
+[; ;BCDdisplay\BCDdisplay.h: 19: unsigned char EnableTranc
+[; ;BCDdisplay\BCDdisplay.h: 20: );
+[; ;BCDdisplay\BCDdisplay.h: 22: extern void BCDManage7segment(void);
+[; ;BCDdisplay\BCDdisplay.h: 24: extern void BlinkDigit(unsigned char Index , unsigned char duration);
+[; ;BCDdisplay\BCDdisplay.h: 26: extern void Segment7SendString
+[; ;BCDdisplay\BCDdisplay.h: 27: (
+[; ;BCDdisplay\BCDdisplay.h: 28: unsigned char Position,
+[; ;BCDdisplay\BCDdisplay.h: 29: unsigned char * Data,
+[; ;BCDdisplay\BCDdisplay.h: 30: unsigned char Length
+[; ;BCDdisplay\BCDdisplay.h: 31: );
+[; ;Key\Key.h: 22: typedef struct
+[; ;Key\Key.h: 23: {
+[; ;Key\Key.h: 24: unsigned char HWI_ID;
+[; ;Key\Key.h: 25: unsigned char ActiveValue;
+[; ;Key\Key.h: 26: unsigned short ReleaseTicks;
+[; ;Key\Key.h: 27: unsigned short ShortPress;
+[; ;Key\Key.h: 28: unsigned short LongPress;
+[; ;Key\Key.h: 29: }strKeyConfig;
+[; ;Key\Key.h: 31: typedef struct
+[; ;Key\Key.h: 32: {
+[; ;Key\Key.h: 33: unsigned char KeyState;
+[; ;Key\Key.h: 34: unsigned short KeyCounter;
+[; ;Key\Key.h: 35: }strKeyData;
+[; ;Key\Key.h: 37: extern void KeyInitialize(void);
+[; ;Key\Key.h: 39: extern unsigned char GetKeyStatus(unsigned char KeyID);
+[; ;Key\Key.h: 41: extern void MangeKeys(unsigned char KeyID);
 [; ;EEPROM\Eeprom.h: 12: unsigned char Eeprom_Write_Block
 [; ;EEPROM\Eeprom.h: 13: (
 [; ;EEPROM\Eeprom.h: 14: unsigned char address ,
 [; ;EEPROM\Eeprom.h: 15: unsigned char *DataPtr ,
-[; ;EEPROM\Eeprom.h: 16: unsigned char BlockSize
-[; ;EEPROM\Eeprom.h: 17: );
-[; ;EEPROM\Eeprom.h: 19: unsigned char Eeprom_Read_Block
-[; ;EEPROM\Eeprom.h: 20: (
-[; ;EEPROM\Eeprom.h: 21: unsigned char address ,
-[; ;EEPROM\Eeprom.h: 22: unsigned char *DataPtr ,
-[; ;EEPROM\Eeprom.h: 23: unsigned char BlockSize
-[; ;EEPROM\Eeprom.h: 24: );
-[; ;EEPROM\Eeprom.h: 26: void EepromManage(void);
+[; ;EEPROM\Eeprom.h: 16: unsigned char BlockSize,
+[; ;EEPROM\Eeprom.h: 17: void (*ptrFnCallback)(void)
+[; ;EEPROM\Eeprom.h: 18: );
+[; ;EEPROM\Eeprom.h: 20: unsigned char Eeprom_Read_Block
+[; ;EEPROM\Eeprom.h: 21: (
+[; ;EEPROM\Eeprom.h: 22: unsigned char address ,
+[; ;EEPROM\Eeprom.h: 23: unsigned char *DataPtr ,
+[; ;EEPROM\Eeprom.h: 24: unsigned char BlockSize
+[; ;EEPROM\Eeprom.h: 25: );
+[; ;EEPROM\Eeprom.h: 27: void EepromManage(void);
 [; ;OS_manage.h: 10: void Start_App(void);
 [; ;OS_manage.c: 16: void DisplayAlphaNumeric (void);
 [; ;OS_manage.c: 17: void ManageApplication (void);
@@ -2979,11 +2991,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "56
 [v _LoopIndex `uc ~T0 @X0 1 a ]
 [; ;OS_manage.c: 56: unsigned char LoopIndex;
-[; ;OS_manage.c: 57: for(LoopIndex = (unsigned char)0 ; LoopIndex < (unsigned char)2 ; LoopIndex++)
+[; ;OS_manage.c: 57: for(LoopIndex = (unsigned char)0 ; LoopIndex < (unsigned char)3 ; LoopIndex++)
 "57
 {
 [e = _LoopIndex -> -> 0 `i `uc ]
-[e $ < -> _LoopIndex `i -> -> -> 2 `i `uc `i 284  ]
+[e $ < -> _LoopIndex `i -> -> -> 3 `i `uc `i 284  ]
 [e $U 285  ]
 "58
 [e :U 284 ]
@@ -2996,7 +3008,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "57
 [e ++ _LoopIndex -> -> 1 `i `uc ]
-[e $ < -> _LoopIndex `i -> -> -> 2 `i `uc `i 284  ]
+[e $ < -> _LoopIndex `i -> -> -> 3 `i `uc `i 284  ]
 [e :U 285 ]
 "60
 }
