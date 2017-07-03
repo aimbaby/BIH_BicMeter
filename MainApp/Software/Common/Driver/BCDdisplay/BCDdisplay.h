@@ -12,11 +12,23 @@
 
 PUBLIC void BCDInitialize( unsigned char bIsCommonAnode);
 
-PUBLIC void BCDsendNumber( unsigned short Number , unsigned char DecimalPlace );
+PUBLIC void BCDsendNumber
+(
+    unsigned short Number , 
+    unsigned char DecimalPlace,
+    unsigned char EnableTranc
+);
 
 PUBLIC void BCDManage7segment(void);
 
 PUBLIC void BlinkDigit(unsigned char Index , unsigned char duration);
+
+PUBLIC void Segment7SendString
+( 
+    unsigned char Position, 
+    unsigned char * Data, 
+    unsigned char Length
+);
 
 
 #endif	/* BCDDISPLAY_H */

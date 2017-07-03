@@ -8,12 +8,14 @@ static unsigned char WriteRequest;
 static unsigned char DataArray[EEPROM_BUFFER_SIZE];
 static unsigned char EEPROMaddr;
 static unsigned char DataSize;
+static void (*WriteFnCallback)(void);
 
 PUBLIC unsigned char Eeprom_Write_Block
 (
     unsigned char address , 
     unsigned char *DataPtr ,                                               
-    unsigned char BlockSize
+    unsigned char BlockSize,
+    void (*ptrFnCallback)(void)
 )
 {
     unsigned char WriteGranted;
@@ -28,6 +30,7 @@ PUBLIC unsigned char Eeprom_Write_Block
         }
         DataSize = BlockSize;
         EEPROMaddr = address;
+        WriteFnCallback = ptrFnCallback;
         WriteGranted = (unsigned char)1;
     }
     else
@@ -79,6 +82,10 @@ PUBLIC void EepromManage(void)
         {
             WriteIndex = (unsigned char)0;
             WriteRequest = (unsigned char)0;
+            if(WriteFnCallback != (void*)0)
+            {
+                WriteFnCallback();
+            }          
         }
         else
         {

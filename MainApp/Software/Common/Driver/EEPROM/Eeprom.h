@@ -13,14 +13,15 @@ PUBLIC unsigned char Eeprom_Write_Block
 (
     unsigned char address , 
     unsigned char *DataPtr ,                                               
-    unsigned char BlockSize
+    unsigned char BlockSize,
+    void (*ptrFnCallback)(void)
 );
 
 PUBLIC unsigned char Eeprom_Read_Block
 (   
     unsigned char address , 
     unsigned char *DataPtr , 
-    unsigned char BlockSize
+    unsigned char BlockSize 
 );
 
 PUBLIC void EepromManage(void);
