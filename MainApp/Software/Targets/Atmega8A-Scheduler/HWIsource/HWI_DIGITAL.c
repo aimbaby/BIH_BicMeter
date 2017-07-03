@@ -25,6 +25,9 @@ PUBLIC unsigned char HWI_DIGI_READ(unsigned char pin)
 		case 16:
 			HWIread = PIND & (1 << PIND5);
 			break;
+		case 17:
+			HWIread = PIND & (1 << PIND6);
+			break;
 		default:
 		    HWIread = (unsigned char)0;
 			break;

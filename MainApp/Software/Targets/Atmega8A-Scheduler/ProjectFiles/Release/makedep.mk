@@ -6,6 +6,8 @@
 
 ..\..\..\Common\Driver\BCDdisplay\BCDdisplay.c
 
+..\..\..\Common\Driver\BCDdisplay\DisplayManage.c
+
 ..\..\..\Common\Driver\EEPROM\Eeprom.c
 
 ..\..\..\Common\Driver\Key\Key.c

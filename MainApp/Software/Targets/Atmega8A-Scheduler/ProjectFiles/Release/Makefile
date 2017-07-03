@@ -37,6 +37,7 @@ SUBDIRS :=
 C_SRCS +=  \
 ../../../../Common/App/APP.c \
 ../../../../Common/Driver/BCDdisplay/BCDdisplay.c \
+../../../../Common/Driver/BCDdisplay/DisplayManage.c \
 ../../../../Common/Driver/EEPROM/Eeprom.c \
 ../../../../Common/Driver/Key/Key.c \
 ../../../../Common/Driver/SpeedCalc/SpeedCalc.c \
@@ -58,6 +59,7 @@ ASM_SRCS +=
 OBJS +=  \
 APP.o \
 BCDdisplay.o \
+DisplayManage.o \
 Eeprom.o \
 Key.o \
 SpeedCalc.o \
@@ -73,6 +75,7 @@ BicMeter.o
 OBJS_AS_ARGS +=  \
 APP.o \
 BCDdisplay.o \
+DisplayManage.o \
 Eeprom.o \
 Key.o \
 SpeedCalc.o \
@@ -88,6 +91,7 @@ BicMeter.o
 C_DEPS +=  \
 APP.d \
 BCDdisplay.d \
+DisplayManage.d \
 Eeprom.d \
 Key.d \
 SpeedCalc.d \
@@ -103,6 +107,7 @@ BicMeter.d
 C_DEPS_AS_ARGS +=  \
 APP.d \
 BCDdisplay.d \
+DisplayManage.d \
 Eeprom.d \
 Key.d \
 SpeedCalc.d \
@@ -124,6 +129,8 @@ ADDITIONAL_DEPENDENCIES:=
 OUTPUT_FILE_DEP:= ./makedep.mk
 
 # AVR32/GNU C Compiler
+
+
 
 
 
