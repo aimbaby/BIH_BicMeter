@@ -65,14 +65,15 @@
  
       AvgSpeedKph =  GetAvgSpeed(1);
       TravelledDistance = GetDistance();
-      TravelledDistance *= (unsigned long)10;
-      TravelledDistance /= (unsigned long)16;
+      //TravelledDistance *= (unsigned long)10;
+      //TravelledDistance /= (unsigned long)16;
     
       if( (unsigned char)0 == WriteFlag)
       {
         if(bIsBlinkMode == (unsigned char)0)
         {
-            BCDsendNumber(AvgSpeedKph,1 ,1);
+            BCDsendNumber(AvgSpeedKph,0,1 ,1);
+			BCDsendNumber(TravelledDistance,1,1 ,1);
             keystatus = GetKeyStatus(0);
             if( keystatus == NEW_STATE_LONG_PRESS)
             {
@@ -82,8 +83,8 @@
         else
         {
             //DisplaySendString(0 , &Save[0] , 4);
-            BCDsendNumber(Circum,0 ,0);
-            BlinkDigit(blinkIndex,100);
+            BCDsendNumber(Circum,1,0 ,0);
+            BlinkDigit(blinkIndex,1,100);
             keystatus = GetKeyStatus(0);
             if( keystatus == CAPTURE_STATE_SHORT_PRESSED)
             {
@@ -101,7 +102,7 @@
                 {
                     Eeprom_Write_Block(1,(unsigned char*)&Circum , 
                                  (unsigned char)sizeof(Circum),(void*)0);
-                    BlinkDigit(1,0);
+                    BlinkDigit(1,1,0);
                     bIsBlinkMode = (unsigned char)0;
                     //WriteFlag = (unsigned char)1;
                     //DisplaySendString(0 , &Save[0] , 4);
