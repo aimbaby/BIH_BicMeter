@@ -11,76 +11,76 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$dist/default/production\BicMeter.X.production.obj
-cinit CODE 0 1456 1456 3E 1
-intcode_body CODE 0 E82 E82 BC 1
-text0 CODE 0 174A 174A 8 1
-text1 CODE 0 1206 1206 6C 1
-text2 CODE 0 1780 1780 2 1
-text3 CODE 0 10F8 10F8 8C 1
-text4 CODE 0 16CC 16CC 1C 1
-text5 CODE 0 175A 175A 6 1
-text6 CODE 0 1760 1760 6 1
-text7 CODE 0 1766 1766 6 1
-text8 CODE 0 1068 1068 90 1
-text9 CODE 0 640 640 42E 1
-text10 CODE 0 14D2 14D2 3C 1
-text11 CODE 0 1416 1416 40 1
-text12 CODE 0 157C 157C 2E 1
-text13 CODE 0 A6E A6E 19C 1
-text14 CODE 0 1736 1736 A 1
-text15 CODE 0 C0A C0A 17C 1
-text16 CODE 0 15AA 15AA 2E 1
-text17 CODE 0 1718 1718 12 1
-text18 CODE 0 FD6 FD6 92 1
-text19 CODE 0 132C 132C 56 1
-text20 CODE 0 1184 1184 82 1
-text21 CODE 0 1272 1272 62 1
-text22 CODE 0 172A 172A C 1
-text23 CODE 0 D86 D86 FC 1
-text24 CODE 0 1680 1680 26 1
-text25 CODE 0 1382 1382 52 1
-text26 CODE 0 F3E F3E 98 1
-text27 CODE 0 16A6 16A6 26 1
-text28 CODE 0 154A 154A 32 1
-text29 CODE 0 1494 1494 3E 1
-text30 CODE 0 16E8 16E8 1A 1
-text31 CODE 0 12D4 12D4 58 1
-text32 CODE 0 1752 1752 8 1
-text33 CODE 0 1630 1630 28 1
-text34 CODE 0 13D4 13D4 42 1
-text35 CODE 0 1658 1658 28 1
-text37 CODE 0 1606 1606 2A 1
-text38 CODE 0 176C 176C 6 1
-text39 CODE 0 1740 1740 A 1
-text40 CODE 0 1772 1772 6 1
-text41 CODE 0 15D8 15D8 2E 1
-text42 CODE 0 150E 150E 3C 1
-text43 CODE 0 1778 1778 6 1
-text44 CODE 0 1702 1702 16 1
-idataCOMRAM CODE 0 177E 177E 2 1
-cstackCOMRAM COMRAM 1 1 1 36 1
-cstackBANK0 BANK0 1 C2 C2 A 1
-temp COMRAM 1 6C 6C 1 1
-bssBANK0 BANK0 1 80 80 42 1
-intcode CODE 0 8 8 6 1
-smallconst SMALLCONST 0 600 600 40 1
-dataCOMRAM COMRAM 1 6A 6A 2 1
-bssCOMRAM COMRAM 1 37 37 33 1
-$C:\Users\0E57~1\AppData\Local\Temp\s390.obj
+$C:\Users\0E57~1\AppData\Local\Temp\s3rs.obj
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 E E 4 1
 reset_vec CODE 0 0 0 4 1
 config CONFIG 0 300000 300000 E 1
+$dist/default/production\BicMeter.X.production.obj
+cinit CODE 0 14AC 14AC 3E 1
+intcode_body CODE 0 ECE ECE BC 1
+text0 CODE 0 17A4 17A4 8 1
+text1 CODE 0 125C 125C 6C 1
+text2 CODE 0 17DA 17DA 2 1
+text3 CODE 0 114E 114E 8C 1
+text4 CODE 0 1722 1722 1C 1
+text5 CODE 0 17B4 17B4 6 1
+text6 CODE 0 17BA 17BA 6 1
+text7 CODE 0 17C0 17C0 6 1
+text8 CODE 0 10BE 10BE 90 1
+text9 CODE 0 640 640 42E 1
+text10 CODE 0 1528 1528 3C 1
+text11 CODE 0 146C 146C 40 1
+text12 CODE 0 15D2 15D2 2E 1
+text13 CODE 0 A6E A6E 1AC 1
+text14 CODE 0 1790 1790 A 1
+text15 CODE 0 C1A C1A 17C 1
+text16 CODE 0 1600 1600 2E 1
+text17 CODE 0 176E 176E 12 1
+text18 CODE 0 102C 102C 92 1
+text19 CODE 0 1382 1382 56 1
+text20 CODE 0 11DA 11DA 82 1
+text21 CODE 0 12C8 12C8 62 1
+text22 CODE 0 1780 1780 10 1
+text23 CODE 0 D96 D96 138 1
+text24 CODE 0 16D6 16D6 26 1
+text25 CODE 0 13D8 13D8 52 1
+text26 CODE 0 F8A F8A A2 1
+text27 CODE 0 16FC 16FC 26 1
+text28 CODE 0 15A0 15A0 32 1
+text29 CODE 0 14EA 14EA 3E 1
+text30 CODE 0 173E 173E 1A 1
+text31 CODE 0 132A 132A 58 1
+text32 CODE 0 17AC 17AC 8 1
+text33 CODE 0 1686 1686 28 1
+text34 CODE 0 142A 142A 42 1
+text35 CODE 0 16AE 16AE 28 1
+text37 CODE 0 165C 165C 2A 1
+text38 CODE 0 17C6 17C6 6 1
+text39 CODE 0 179A 179A A 1
+text40 CODE 0 17CC 17CC 6 1
+text41 CODE 0 162E 162E 2E 1
+text42 CODE 0 1564 1564 3C 1
+text43 CODE 0 17D2 17D2 6 1
+text44 CODE 0 1758 1758 16 1
+idataCOMRAM CODE 0 17D8 17D8 2 1
+cstackCOMRAM COMRAM 1 1 1 38 1
+cstackBANK0 BANK0 1 D2 D2 8 1
+temp COMRAM 1 68 68 1 1
+bssBANK0 BANK0 1 80 80 52 1
+intcode CODE 0 8 8 6 1
+smallconst SMALLCONST 0 600 600 40 1
+dataCOMRAM COMRAM 1 66 66 2 1
+bssCOMRAM COMRAM 1 39 39 2D 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM CC-5FF 1
+RAM DA-5FF 1
 SFR F80-FFF 1
-BANK0 CC-FF 1
+BANK0 DA-FF 1
 BANK1 100-1FF 1
 BANK2 200-2FF 1
 BANK3 300-3FF 1
@@ -88,17 +88,17 @@ BANK4 400-4FF 1
 BANK5 500-5FF 1
 CONST 4-7 1
 CONST 12-5FF 1
-CONST 1782-7FFF 1
-STACK CC-5FF 1
-SMALLCONST 1782-7FFF 1
+CONST 17DC-7FFF 1
+STACK DA-5FF 1
+SMALLCONST 17DC-7FFF 1
 CODE 4-7 1
 CODE 12-5FF 1
-CODE 1782-7FFF 1
-BIGRAM 6D-7F 1
-BIGRAM CC-5FF 1
-COMRAM 6D-7F 1
+CODE 17DC-7FFF 1
+BIGRAM 69-7F 1
+BIGRAM DA-5FF 1
+COMRAM 69-7F 1
 EEDATA F00000-F000FF 1
-MEDIUMCONST 1782-7FFF 1
+MEDIUMCONST 17DC-7FFF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -115,312 +115,315 @@ MEDIUMCONST 1782-7FFF 1
 $dist/default/production\BicMeter.X.production.obj
 8 intcode CODE >49:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
 8 intcode CODE >52:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-1702 text44 CODE >29:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1702 text44 CODE >31:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1708 text44 CODE >33:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-170C text44 CODE >34:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-170E text44 CODE >37:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1714 text44 CODE >39:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1716 text44 CODE >40:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1778 text43 CODE >8:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
-1778 text43 CODE >10:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
-177C text43 CODE >11:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
-150E text42 CODE >91:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-1510 text42 CODE >94:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-1518 text42 CODE >95:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-151A text42 CODE >99:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-151A text42 CODE >100:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-1522 text42 CODE >101:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-152A text42 CODE >105:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-152C text42 CODE >95:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-1540 text42 CODE >105:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-1540 text42 CODE >106:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-1548 text42 CODE >107:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-15D8 text41 CODE >44:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-15D8 text41 CODE >46:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-15DE text41 CODE >48:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-15E2 text41 CODE >49:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-15E4 text41 CODE >50:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-15F2 text41 CODE >51:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-15F6 text41 CODE >52:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-15FA text41 CODE >53:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-15FC text41 CODE >56:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1602 text41 CODE >58:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1604 text41 CODE >59:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1772 text40 CODE >13:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
-1772 text40 CODE >15:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
-1776 text40 CODE >16:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
-1740 text39 CODE >133:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1740 text39 CODE >135:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1746 text39 CODE >137:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-176C text38 CODE >18:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
-176C text38 CODE >20:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
-1770 text38 CODE >21:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
-1606 text37 CODE >16:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
-1606 text37 CODE >19:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
-1612 text37 CODE >21:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
-162C text37 CODE >19:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
-E82 intcode_body CODE >52:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-EBC intcode_body CODE >54:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-EC0 intcode_body CODE >56:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-EC2 intcode_body CODE >57:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-EC6 intcode_body CODE >58:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-ECA intcode_body CODE >60:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-ECE intcode_body CODE >62:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-ED0 intcode_body CODE >63:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-ED4 intcode_body CODE >64:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-ED8 intcode_body CODE >66:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-EDC intcode_body CODE >68:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-EDE intcode_body CODE >69:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-EE6 intcode_body CODE >70:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-EEA intcode_body CODE >72:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-EEC intcode_body CODE >74:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-EEE intcode_body CODE >78:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-EF2 intcode_body CODE >80:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-EF4 intcode_body CODE >81:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-EF8 intcode_body CODE >84:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-EFC intcode_body CODE >86:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-EFE intcode_body CODE >87:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-F02 intcode_body CODE >89:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-1658 text35 CODE >31:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-165A text35 CODE >34:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-165E text35 CODE >36:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-1662 text35 CODE >37:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-1664 text35 CODE >38:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-1666 text35 CODE >39:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-1668 text35 CODE >40:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-1674 text35 CODE >41:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-1678 text35 CODE >45:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-167C text35 CODE >48:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-13D4 text34 CODE >42:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-13D4 text34 CODE >44:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-13D6 text34 CODE >49:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-13DA text34 CODE >53:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-13E2 text34 CODE >57:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-13FC text34 CODE >58:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-1400 text34 CODE >60:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-1402 text34 CODE >55:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-140A text34 CODE >63:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-140E text34 CODE >64:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-1410 text34 CODE >67:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-1414 text34 CODE >68:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-1630 text33 CODE >34:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-1630 text33 CODE >37:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-1642 text33 CODE >46:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-164E text33 CODE >48:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-1752 text32 CODE >29:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-1754 text32 CODE >31:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-1758 text32 CODE >32:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-12D4 text31 CODE >6:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
-12D4 text31 CODE >8:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
-12DA text31 CODE >10:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
-12F2 text31 CODE >11:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
-130E text31 CODE >12:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
-16E8 text30 CODE >75:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16E8 text30 CODE >78:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16EC text30 CODE >79:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16F0 text30 CODE >81:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16F4 text30 CODE >82:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16F6 text30 CODE >83:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16F8 text30 CODE >86:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16FA text30 CODE >87:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16FC text30 CODE >88:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16FE text30 CODE >89:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-1700 text30 CODE >90:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-1494 text29 CODE >10:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-1494 text29 CODE >12:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-1496 text29 CODE >13:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-1498 text29 CODE >15:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-149C text29 CODE >16:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-14A0 text29 CODE >20:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-14A4 text29 CODE >21:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-14A8 text29 CODE >23:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-14AC text29 CODE >26:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-14AE text29 CODE >27:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-14B0 text29 CODE >29:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-14B2 text29 CODE >30:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-14B4 text29 CODE >32:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-14B6 text29 CODE >33:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-14B8 text29 CODE >38:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-14BA text29 CODE >39:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-14BC text29 CODE >41:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-14C0 text29 CODE >43:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-14C8 text29 CODE >47:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-14CC text29 CODE >48:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-14D0 text29 CODE >50:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
-154A text28 CODE >8:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-154C text28 CODE >10:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-154E text28 CODE >13:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-1556 text28 CODE >14:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-1558 text28 CODE >16:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-1560 text28 CODE >17:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-1562 text28 CODE >19:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-156A text28 CODE >20:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-156C text28 CODE >10:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16A6 text27 CODE >41:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16A8 text27 CODE >43:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16AA text27 CODE >45:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16AA text27 CODE >46:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16AE text27 CODE >47:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16B0 text27 CODE >48:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16B0 text27 CODE >49:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16B4 text27 CODE >50:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16B6 text27 CODE >51:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16B6 text27 CODE >52:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16BA text27 CODE >54:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-16BC text27 CODE >43:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-F3E text26 CODE >71:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-F3E text26 CODE >76:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-F42 text26 CODE >79:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-F48 text26 CODE >81:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-F4A text26 CODE >82:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-F52 text26 CODE >84:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-F56 text26 CODE >85:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-F5A text26 CODE >87:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-F5C text26 CODE >90:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-F60 text26 CODE >93:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-F6E text26 CODE >95:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-F72 text26 CODE >96:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-F74 text26 CODE >100:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-F94 text26 CODE >101:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-FA8 text26 CODE >104:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-FAE text26 CODE >106:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-FB0 text26 CODE >107:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-FB2 text26 CODE >110:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-FBC text26 CODE >111:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-FC6 text26 CODE >118:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-FC8 text26 CODE >119:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-FD0 text26 CODE >121:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-1382 text25 CODE >8:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
-1382 text25 CODE >14:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
-138A text25 CODE >15:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
-1392 text25 CODE >16:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
-1396 text25 CODE >17:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
-1398 text25 CODE >18:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
-139E text25 CODE >19:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
-13A0 text25 CODE >17:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
-13A4 text25 CODE >22:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
-13AA text25 CODE >23:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
-13B6 text25 CODE >24:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
-13BE text25 CODE >25:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
-13C0 text25 CODE >27:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
-13C6 text25 CODE >28:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
-13CA text25 CODE >29:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
-13CA text25 CODE >30:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
-13D2 text25 CODE >31:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
-1680 text24 CODE >15:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul16.c
-1680 text24 CODE >37:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul16.c
-168C text24 CODE >38:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul16.c
-1694 text24 CODE >39:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul16.c
-169C text24 CODE >52:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul16.c
-D86 text23 CODE >34:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-D86 text23 CODE >44:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-D8E text23 CODE >45:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-D9A text23 CODE >47:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+1758 text44 CODE >29:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1758 text44 CODE >31:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+175E text44 CODE >33:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1762 text44 CODE >34:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1764 text44 CODE >37:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+176A text44 CODE >39:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+176C text44 CODE >40:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+17D2 text43 CODE >8:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
+17D2 text43 CODE >10:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
+17D6 text43 CODE >11:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
+1564 text42 CODE >91:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+1566 text42 CODE >94:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+156E text42 CODE >95:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+1570 text42 CODE >99:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+1570 text42 CODE >100:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+1578 text42 CODE >101:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+1580 text42 CODE >105:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+1582 text42 CODE >95:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+1596 text42 CODE >105:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+1596 text42 CODE >106:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+159E text42 CODE >107:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+162E text41 CODE >44:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+162E text41 CODE >46:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1634 text41 CODE >48:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1638 text41 CODE >49:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+163A text41 CODE >50:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1648 text41 CODE >51:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+164C text41 CODE >52:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1650 text41 CODE >53:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1652 text41 CODE >56:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1658 text41 CODE >58:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+165A text41 CODE >59:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+17CC text40 CODE >13:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
+17CC text40 CODE >15:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
+17D0 text40 CODE >16:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
+179A text39 CODE >133:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+179A text39 CODE >135:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+17A0 text39 CODE >137:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+17C6 text38 CODE >18:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
+17C6 text38 CODE >20:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
+17CA text38 CODE >21:E:\BIH_BicMeter\MainApp\Software/Common/Interrupts/AppInterrupts.c
+165C text37 CODE >16:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
+165C text37 CODE >19:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
+1668 text37 CODE >21:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
+1682 text37 CODE >19:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
+ECE intcode_body CODE >52:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F08 intcode_body CODE >54:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F0C intcode_body CODE >56:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F0E intcode_body CODE >57:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F12 intcode_body CODE >58:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F16 intcode_body CODE >60:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F1A intcode_body CODE >62:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F1C intcode_body CODE >63:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F20 intcode_body CODE >64:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F24 intcode_body CODE >66:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F28 intcode_body CODE >68:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F2A intcode_body CODE >69:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F32 intcode_body CODE >70:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F36 intcode_body CODE >72:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F38 intcode_body CODE >74:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F3A intcode_body CODE >78:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F3E intcode_body CODE >80:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F40 intcode_body CODE >81:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F44 intcode_body CODE >84:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F48 intcode_body CODE >86:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F4A intcode_body CODE >87:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+F4E intcode_body CODE >89:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+16AE text35 CODE >31:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+16B0 text35 CODE >34:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+16B4 text35 CODE >36:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+16B8 text35 CODE >37:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+16BA text35 CODE >38:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+16BC text35 CODE >39:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+16BE text35 CODE >40:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+16CA text35 CODE >41:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+16CE text35 CODE >45:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+16D2 text35 CODE >48:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+142A text34 CODE >42:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+142A text34 CODE >44:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+142C text34 CODE >49:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1430 text34 CODE >53:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1438 text34 CODE >57:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1452 text34 CODE >58:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1456 text34 CODE >60:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1458 text34 CODE >55:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1460 text34 CODE >63:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1464 text34 CODE >64:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1466 text34 CODE >67:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+146A text34 CODE >68:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1686 text33 CODE >34:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+1686 text33 CODE >37:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+1698 text33 CODE >46:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+16A4 text33 CODE >48:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+17AC text32 CODE >30:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+17AE text32 CODE >32:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+17B2 text32 CODE >33:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+132A text31 CODE >6:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
+132A text31 CODE >8:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
+1330 text31 CODE >10:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
+1348 text31 CODE >11:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
+1364 text31 CODE >12:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
+173E text30 CODE >75:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+173E text30 CODE >78:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1742 text30 CODE >79:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1746 text30 CODE >81:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+174A text30 CODE >82:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+174C text30 CODE >83:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+174E text30 CODE >86:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1750 text30 CODE >87:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1752 text30 CODE >88:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1754 text30 CODE >89:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1756 text30 CODE >90:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+14EA text29 CODE >10:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+14EA text29 CODE >12:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+14EC text29 CODE >13:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+14EE text29 CODE >15:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+14F2 text29 CODE >16:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+14F6 text29 CODE >20:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+14FA text29 CODE >21:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+14FE text29 CODE >23:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+1502 text29 CODE >26:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+1504 text29 CODE >27:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+1506 text29 CODE >29:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+1508 text29 CODE >30:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+150A text29 CODE >32:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+150C text29 CODE >33:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+150E text29 CODE >38:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+1510 text29 CODE >39:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+1512 text29 CODE >41:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+1516 text29 CODE >43:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+151E text29 CODE >47:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+1522 text29 CODE >48:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+1526 text29 CODE >50:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_Interrupts.c
+15A0 text28 CODE >8:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+15A2 text28 CODE >10:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+15A4 text28 CODE >13:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+15AC text28 CODE >14:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+15AE text28 CODE >16:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+15B6 text28 CODE >17:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+15B8 text28 CODE >19:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+15C0 text28 CODE >20:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+15C2 text28 CODE >10:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+16FC text27 CODE >41:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+16FE text27 CODE >43:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1700 text27 CODE >45:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1700 text27 CODE >46:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1704 text27 CODE >47:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1706 text27 CODE >48:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1706 text27 CODE >49:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+170A text27 CODE >50:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+170C text27 CODE >51:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+170C text27 CODE >52:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1710 text27 CODE >54:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1712 text27 CODE >43:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+F8A text26 CODE >73:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+F8A text26 CODE >83:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+F90 text26 CODE >85:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+F92 text26 CODE >86:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+F9A text26 CODE >88:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+F9E text26 CODE >89:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+FA2 text26 CODE >91:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+FA4 text26 CODE >94:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+FA8 text26 CODE >98:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+FBE text26 CODE >100:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+FC2 text26 CODE >104:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+FEA text26 CODE >107:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+FEE text26 CODE >110:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+FF0 text26 CODE >115:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+FFA text26 CODE >117:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+1004 text26 CODE >118:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+100E text26 CODE >125:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+1010 text26 CODE >126:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+1018 text26 CODE >128:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+101C text26 CODE >129:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+101E text26 CODE >130:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+1026 text26 CODE >132:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+102A text26 CODE >133:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+13D8 text25 CODE >8:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
+13D8 text25 CODE >14:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
+13E0 text25 CODE >15:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
+13E8 text25 CODE >16:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
+13EC text25 CODE >17:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
+13EE text25 CODE >18:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
+13F4 text25 CODE >19:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
+13F6 text25 CODE >17:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
+13FA text25 CODE >22:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
+1400 text25 CODE >23:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
+140C text25 CODE >24:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
+1414 text25 CODE >25:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
+1416 text25 CODE >27:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
+141C text25 CODE >28:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
+1420 text25 CODE >29:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
+1420 text25 CODE >30:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
+1428 text25 CODE >31:C:\Program Files\Microchip\xc8\v1.41\sources\common\lwdiv.c
+16D6 text24 CODE >15:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul16.c
+16D6 text24 CODE >37:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul16.c
+16E2 text24 CODE >38:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul16.c
+16EA text24 CODE >39:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul16.c
+16F2 text24 CODE >52:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul16.c
+D96 text23 CODE >35:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+D96 text23 CODE >46:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+D9E text23 CODE >47:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
 DAA text23 CODE >49:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-DB2 text23 CODE >50:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-DCE text23 CODE >51:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-DF6 text23 CODE >53:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-E04 text23 CODE >56:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-E12 text23 CODE >58:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-E3A text23 CODE >59:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-E3C text23 CODE >62:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-E54 text23 CODE >45:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-E58 text23 CODE >65:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-E5E text23 CODE >67:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-172A text22 CODE >127:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-172C text22 CODE >129:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-1730 text22 CODE >130:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-1734 text22 CODE >131:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
-1272 text21 CODE >13:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-1272 text21 CODE >15:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-1274 text21 CODE >23:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-1280 text21 CODE >25:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-1284 text21 CODE >27:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-128A text21 CODE >29:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-12AE text21 CODE >27:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-12B8 text21 CODE >31:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-12BC text21 CODE >32:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-12C0 text21 CODE >33:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-12C8 text21 CODE >34:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-12CC text21 CODE >35:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-12CE text21 CODE >38:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-12D2 text21 CODE >39:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-1184 text20 CODE >8:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
-1184 text20 CODE >14:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
-1194 text20 CODE >15:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
-11A0 text20 CODE >16:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
-11A4 text20 CODE >17:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
-11A6 text20 CODE >18:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
-11B0 text20 CODE >19:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
-11B2 text20 CODE >17:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
-11B6 text20 CODE >22:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
-11C0 text20 CODE >23:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
-11D4 text20 CODE >24:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
-11E4 text20 CODE >25:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
-11E6 text20 CODE >27:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
-11F0 text20 CODE >28:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
-11F4 text20 CODE >29:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
-11F4 text20 CODE >30:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
-1204 text20 CODE >31:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
-132C text19 CODE >15:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
-132C text19 CODE >119:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
-133C text19 CODE >121:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
-1340 text19 CODE >122:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
-1350 text19 CODE >123:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
-135A text19 CODE >124:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
-1364 text19 CODE >125:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
-1370 text19 CODE >128:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
-1380 text19 CODE >129:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
-FD6 text18 CODE >105:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-FD8 text18 CODE >107:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-FE0 text18 CODE >110:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-FE6 text18 CODE >112:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-FEE text18 CODE >116:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-FFE text18 CODE >119:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1006 text18 CODE >123:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-104E text18 CODE >126:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1056 text18 CODE >128:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-105E text18 CODE >130:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1718 text17 CODE >93:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1718 text17 CODE >95:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1728 text17 CODE >96:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-15AA text16 CODE >19:E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
-15AC text16 CODE >23:E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
-15C0 text16 CODE >24:E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
-15D4 text16 CODE >26:E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
-C0A text15 CODE >154:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-C0A text15 CODE >161:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-C12 text15 CODE >166:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-C1A text15 CODE >169:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-C26 text15 CODE >171:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-C2E text15 CODE >173:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-C36 text15 CODE >174:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-C52 text15 CODE >176:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-C6E text15 CODE >180:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-C82 text15 CODE >169:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-C86 text15 CODE >184:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-C8C text15 CODE >186:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-CA2 text15 CODE >188:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-CB6 text15 CODE >192:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-CC8 text15 CODE >194:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-CCA text15 CODE >197:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-CE2 text15 CODE >199:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-CF6 text15 CODE >200:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-CF8 text15 CODE >203:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-D0A text15 CODE >207:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-D16 text15 CODE >209:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-D1C text15 CODE >212:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-D38 text15 CODE >210:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-D3A text15 CODE >209:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-D42 text15 CODE >215:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-D70 text15 CODE >216:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-D78 text15 CODE >207:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-D7C text15 CODE >219:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-D84 text15 CODE >220:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-1736 text14 CODE >99:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1736 text14 CODE >101:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-173E text14 CODE >102:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+DBA text23 CODE >51:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+DC2 text23 CODE >52:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+DDE text23 CODE >53:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+E06 text23 CODE >55:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+E14 text23 CODE >58:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+E22 text23 CODE >60:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+E5E text23 CODE >61:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+E60 text23 CODE >64:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+E8C text23 CODE >47:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+E90 text23 CODE >67:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+E96 text23 CODE >69:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+1780 text22 CODE >139:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+1780 text22 CODE >141:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+1782 text22 CODE >146:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+1786 text22 CODE >147:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+178A text22 CODE >148:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+178E text22 CODE >149:E:\BIH_BicMeter\MainApp\Software/Common/Driver/BCDdisplay/BCDdisplay.c
+12C8 text21 CODE >13:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+12C8 text21 CODE >15:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+12CA text21 CODE >23:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+12D6 text21 CODE >25:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+12DA text21 CODE >27:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+12E0 text21 CODE >29:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1304 text21 CODE >27:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+130E text21 CODE >31:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1312 text21 CODE >32:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1316 text21 CODE >33:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+131E text21 CODE >34:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1322 text21 CODE >35:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1324 text21 CODE >38:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1328 text21 CODE >39:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+11DA text20 CODE >8:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
+11DA text20 CODE >14:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
+11EA text20 CODE >15:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
+11F6 text20 CODE >16:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
+11FA text20 CODE >17:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
+11FC text20 CODE >18:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
+1206 text20 CODE >19:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
+1208 text20 CODE >17:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
+120C text20 CODE >22:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
+1216 text20 CODE >23:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
+122A text20 CODE >24:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
+123A text20 CODE >25:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
+123C text20 CODE >27:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
+1246 text20 CODE >28:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
+124A text20 CODE >29:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
+124A text20 CODE >30:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
+125A text20 CODE >31:C:\Program Files\Microchip\xc8\v1.41\sources\common\lldiv.c
+1382 text19 CODE >15:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
+1382 text19 CODE >119:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
+1392 text19 CODE >121:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
+1396 text19 CODE >122:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
+13A6 text19 CODE >123:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
+13B0 text19 CODE >124:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
+13BA text19 CODE >125:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
+13C6 text19 CODE >128:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
+13D6 text19 CODE >129:C:\Program Files\Microchip\xc8\v1.41\sources\common\Umul32.c
+102C text18 CODE >105:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+102E text18 CODE >107:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1036 text18 CODE >110:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+103C text18 CODE >112:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1044 text18 CODE >116:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1054 text18 CODE >119:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+105C text18 CODE >123:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+10A4 text18 CODE >126:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+10AC text18 CODE >128:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+10B4 text18 CODE >130:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+176E text17 CODE >93:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+176E text17 CODE >95:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+177E text17 CODE >96:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1600 text16 CODE >19:E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
+1602 text16 CODE >23:E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
+1616 text16 CODE >24:E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
+162A text16 CODE >26:E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
+C1A text15 CODE >154:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+C1A text15 CODE >161:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+C22 text15 CODE >166:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+C2A text15 CODE >169:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+C36 text15 CODE >171:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+C3E text15 CODE >173:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+C46 text15 CODE >174:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+C62 text15 CODE >176:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+C7E text15 CODE >180:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+C92 text15 CODE >169:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+C96 text15 CODE >184:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+C9C text15 CODE >186:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+CB2 text15 CODE >188:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+CC6 text15 CODE >192:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+CD8 text15 CODE >194:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+CDA text15 CODE >197:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+CF2 text15 CODE >199:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+D06 text15 CODE >200:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+D08 text15 CODE >203:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+D1A text15 CODE >207:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+D26 text15 CODE >209:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+D2C text15 CODE >212:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+D48 text15 CODE >210:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+D4A text15 CODE >209:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+D52 text15 CODE >215:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+D80 text15 CODE >216:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+D88 text15 CODE >207:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+D8C text15 CODE >219:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+D94 text15 CODE >220:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+1790 text14 CODE >99:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1790 text14 CODE >101:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1798 text14 CODE >102:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
 A6E text13 CODE >52:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
 A6E text13 CODE >64:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
 A7A text13 CODE >66:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
@@ -430,70 +433,70 @@ AD0 text13 CODE >69:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
 AE4 text13 CODE >71:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
 AEA text13 CODE >73:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
 AF2 text13 CODE >75:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-B06 text13 CODE >76:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-B10 text13 CODE >77:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-B1A text13 CODE >79:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-B22 text13 CODE >81:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-B24 text13 CODE >85:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-B38 text13 CODE >86:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-B42 text13 CODE >87:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-B4C text13 CODE >88:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-B56 text13 CODE >90:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-B5A text13 CODE >91:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-B64 text13 CODE >93:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-B6C text13 CODE >95:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-B6E text13 CODE >98:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-B78 text13 CODE >99:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-B82 text13 CODE >100:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-B8C text13 CODE >103:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-BA6 text13 CODE >104:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-BB0 text13 CODE >105:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-BB8 text13 CODE >108:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-BBA text13 CODE >109:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-BC4 text13 CODE >112:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-BE0 text13 CODE >113:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-BE2 text13 CODE >114:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-BEC text13 CODE >117:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-C08 text13 CODE >122:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
-157C text12 CODE >6:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-157E text12 CODE >9:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-1582 text12 CODE >11:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-1586 text12 CODE >12:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-158A text12 CODE >13:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-158C text12 CODE >14:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-158E text12 CODE >15:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-1590 text12 CODE >17:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-1592 text12 CODE >18:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-1596 text12 CODE >19:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-159A text12 CODE >20:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-159C text12 CODE >21:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-159E text12 CODE >22:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-15A2 text12 CODE >26:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-15A6 text12 CODE >29:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
-1416 text11 CODE >74:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-1416 text11 CODE >79:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-141C text11 CODE >81:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-1424 text11 CODE >83:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-1428 text11 CODE >84:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-142C text11 CODE >89:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-142E text11 CODE >92:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-144C text11 CODE >93:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-1452 text11 CODE >95:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-1454 text11 CODE >97:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
-14D2 text10 CODE >92:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-14D4 text10 CODE >96:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-14D6 text10 CODE >98:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-14D6 text10 CODE >99:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-14DE text10 CODE >101:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-14DE text10 CODE >102:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-14E6 text10 CODE >104:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-14E6 text10 CODE >105:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-14EE text10 CODE >108:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-14F2 text10 CODE >110:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-14F4 text10 CODE >96:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-150A text10 CODE >110:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-150A text10 CODE >111:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
-150C text10 CODE >112:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+B0A text13 CODE >76:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+B14 text13 CODE >77:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+B1E text13 CODE >79:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+B26 text13 CODE >81:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+B28 text13 CODE >85:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+B40 text13 CODE >86:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+B4E text13 CODE >87:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+B58 text13 CODE >88:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+B62 text13 CODE >90:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+B66 text13 CODE >91:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+B70 text13 CODE >93:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+B78 text13 CODE >95:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+B7A text13 CODE >98:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+B84 text13 CODE >99:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+B8E text13 CODE >100:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+B98 text13 CODE >103:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+BB2 text13 CODE >104:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+BC0 text13 CODE >105:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+BC8 text13 CODE >108:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+BCA text13 CODE >109:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+BD4 text13 CODE >112:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+BF0 text13 CODE >113:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+BF2 text13 CODE >114:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+BFC text13 CODE >117:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+C18 text13 CODE >122:E:\BIH_BicMeter\MainApp\Software/Common/App/APP.c
+15D2 text12 CODE >6:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+15D4 text12 CODE >9:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+15D8 text12 CODE >11:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+15DC text12 CODE >12:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+15E0 text12 CODE >13:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+15E2 text12 CODE >14:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+15E4 text12 CODE >15:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+15E6 text12 CODE >17:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+15E8 text12 CODE >18:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+15EC text12 CODE >19:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+15F0 text12 CODE >20:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+15F2 text12 CODE >21:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+15F4 text12 CODE >22:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+15F8 text12 CODE >26:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+15FC text12 CODE >29:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIeeprom/HWIeeprom.c
+146C text11 CODE >74:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+146C text11 CODE >79:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1472 text11 CODE >81:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+147A text11 CODE >83:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+147E text11 CODE >84:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1482 text11 CODE >89:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1484 text11 CODE >92:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+14A2 text11 CODE >93:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+14A8 text11 CODE >95:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+14AA text11 CODE >97:E:\BIH_BicMeter\MainApp\Software/Common/Driver/EEPROM/Eeprom.c
+1528 text10 CODE >92:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+152A text10 CODE >96:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+152C text10 CODE >98:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+152C text10 CODE >99:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1534 text10 CODE >101:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1534 text10 CODE >102:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+153C text10 CODE >104:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+153C text10 CODE >105:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1544 text10 CODE >108:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1548 text10 CODE >110:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+154A text10 CODE >96:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1560 text10 CODE >110:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1560 text10 CODE >111:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
+1562 text10 CODE >112:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA/HWIsource/HWI_DIGITAL.c
 640 text9 CODE >29:E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
 642 text9 CODE >34:E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
 658 text9 CODE >35:E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
@@ -532,85 +535,85 @@ A40 text9 CODE >109:E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
 A42 text9 CODE >111:E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
 A56 text9 CODE >113:E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
 A58 text9 CODE >37:E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
-1068 text8 CODE >63:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1068 text8 CODE >68:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-10A2 text8 CODE >70:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-10AA text8 CODE >72:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-10AE text8 CODE >75:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-10D6 text8 CODE >77:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-10E2 text8 CODE >79:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-10EE text8 CODE >80:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-10F6 text8 CODE >82:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1766 text7 CODE >49:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-1766 text7 CODE >51:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-176A text7 CODE >52:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-1760 text6 CODE >45:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-1760 text6 CODE >47:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-1764 text6 CODE >48:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-175A text5 CODE >41:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-175A text5 CODE >43:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-175E text5 CODE >44:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-16CC text4 CODE >54:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-16CC text4 CODE >57:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-16D8 text4 CODE >59:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-16DE text4 CODE >57:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-16E2 text4 CODE >61:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-16E6 text4 CODE >63:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-10F8 text3 CODE >25:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
-10F8 text3 CODE >30:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
-1104 text3 CODE >32:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
-113C text3 CODE >34:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
-1164 text3 CODE >35:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
-1180 text3 CODE >30:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
-1780 text2 CODE >24:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1780 text2 CODE >27:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
-1206 text1 CODE >21:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-1206 text1 CODE >23:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-120A text1 CODE >24:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-120E text1 CODE >25:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-1212 text1 CODE >26:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-1216 text1 CODE >27:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-121C text1 CODE >29:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-1230 text1 CODE >31:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-1244 text1 CODE >33:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-1258 text1 CODE >35:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-126C text1 CODE >37:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-1270 text1 CODE >38:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
-174A text0 CODE >78:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA\ProjectFiles\BicMeter.X\main.c
-174A text0 CODE >80:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA\ProjectFiles\BicMeter.X\main.c
-174E text0 CODE >82:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA\ProjectFiles\BicMeter.X\main.c
-1456 cinit CODE >3109:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1456 cinit CODE >3111:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1456 cinit CODE >3114:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1456 cinit CODE >3194:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1458 cinit CODE >3195:C:\Users\0E57~1\AppData\Local\Temp\s390.
-145A cinit CODE >3196:C:\Users\0E57~1\AppData\Local\Temp\s390.
-145C cinit CODE >3197:C:\Users\0E57~1\AppData\Local\Temp\s390.
-145E cinit CODE >3198:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1460 cinit CODE >3199:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1462 cinit CODE >3200:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1464 cinit CODE >3201:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1468 cinit CODE >3202:C:\Users\0E57~1\AppData\Local\Temp\s390.
-146A cinit CODE >3203:C:\Users\0E57~1\AppData\Local\Temp\s390.
-146E cinit CODE >3207:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1472 cinit CODE >3208:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1474 cinit CODE >3209:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1474 cinit CODE >3210:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1476 cinit CODE >3211:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1478 cinit CODE >3212:C:\Users\0E57~1\AppData\Local\Temp\s390.
-147A cinit CODE >3215:C:\Users\0E57~1\AppData\Local\Temp\s390.
-147E cinit CODE >3216:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1480 cinit CODE >3217:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1480 cinit CODE >3218:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1482 cinit CODE >3219:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1484 cinit CODE >3220:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1486 cinit CODE >3226:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1486 cinit CODE >3228:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1488 cinit CODE >3229:C:\Users\0E57~1\AppData\Local\Temp\s390.
-148A cinit CODE >3231:C:\Users\0E57~1\AppData\Local\Temp\s390.
-148C cinit CODE >3232:C:\Users\0E57~1\AppData\Local\Temp\s390.
-148E cinit CODE >3233:C:\Users\0E57~1\AppData\Local\Temp\s390.
-1490 cinit CODE >3234:C:\Users\0E57~1\AppData\Local\Temp\s390.
+10BE text8 CODE >63:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+10BE text8 CODE >68:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+10F8 text8 CODE >70:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1100 text8 CODE >72:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1104 text8 CODE >75:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+112C text8 CODE >77:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1138 text8 CODE >79:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+1144 text8 CODE >80:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+114C text8 CODE >82:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+17C0 text7 CODE >49:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+17C0 text7 CODE >51:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+17C4 text7 CODE >52:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+17BA text6 CODE >45:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+17BA text6 CODE >47:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+17BE text6 CODE >48:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+17B4 text5 CODE >41:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+17B4 text5 CODE >43:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+17B8 text5 CODE >44:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+1722 text4 CODE >54:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+1722 text4 CODE >57:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+172E text4 CODE >59:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+1734 text4 CODE >57:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+1738 text4 CODE >61:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+173C text4 CODE >63:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+114E text3 CODE >25:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
+114E text3 CODE >30:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
+115A text3 CODE >32:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
+1192 text3 CODE >34:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
+11BA text3 CODE >35:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
+11D6 text3 CODE >30:E:\BIH_BicMeter\MainApp\Software/OS/Scheduler/Scheduler.c
+17DA text2 CODE >24:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+17DA text2 CODE >27:E:\BIH_BicMeter\MainApp\Software/Common/Driver/SpeedCalc/SpeedCalc.c
+125C text1 CODE >21:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+125C text1 CODE >23:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+1260 text1 CODE >24:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+1264 text1 CODE >25:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+1268 text1 CODE >26:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+126C text1 CODE >27:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+1272 text1 CODE >29:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+1286 text1 CODE >31:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+129A text1 CODE >33:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+12AE text1 CODE >35:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+12C2 text1 CODE >37:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+12C6 text1 CODE >38:E:\BIH_BicMeter\MainApp\Software/OS/OS_manage/OS_manage.c
+17A4 text0 CODE >78:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA\ProjectFiles\BicMeter.X\main.c
+17A4 text0 CODE >80:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA\ProjectFiles\BicMeter.X\main.c
+17A8 text0 CODE >82:E:\BIH_BicMeter\MainApp\Software\Targets\XC8-18f4550-OSA\ProjectFiles\BicMeter.X\main.c
+14AC cinit CODE >3111:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14AC cinit CODE >3113:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14AC cinit CODE >3116:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14AC cinit CODE >3200:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14AE cinit CODE >3201:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14B0 cinit CODE >3202:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14B2 cinit CODE >3203:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14B4 cinit CODE >3204:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14B6 cinit CODE >3205:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14B8 cinit CODE >3206:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14BA cinit CODE >3207:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14BE cinit CODE >3208:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14C0 cinit CODE >3209:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14C4 cinit CODE >3213:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14C8 cinit CODE >3214:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14CA cinit CODE >3215:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14CA cinit CODE >3216:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14CC cinit CODE >3217:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14CE cinit CODE >3218:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14D0 cinit CODE >3221:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14D4 cinit CODE >3222:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14D6 cinit CODE >3223:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14D6 cinit CODE >3224:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14D8 cinit CODE >3225:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14DA cinit CODE >3226:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14DC cinit CODE >3232:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14DC cinit CODE >3234:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14DE cinit CODE >3235:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14E0 cinit CODE >3237:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14E2 cinit CODE >3238:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14E4 cinit CODE >3239:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
+14E6 cinit CODE >3240:C:\Users\0E57~1\AppData\Local\Temp\s3rs.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -623,41 +626,41 @@ A58 text9 CODE >37:E:\BIH_BicMeter\MainApp\Software/Common/Driver/Key/Key.c
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__end_of_APP_ISR1 177E 0 CODE 0 text43 dist/default/production\BicMeter.X.production.obj
-__end_of_APP_ISR2 1778 0 CODE 0 text40 dist/default/production\BicMeter.X.production.obj
-__end_of_APP_ISR3 1772 0 CODE 0 text38 dist/default/production\BicMeter.X.production.obj
+__end_of_APP_ISR1 17D8 0 CODE 0 text43 dist/default/production\BicMeter.X.production.obj
+__end_of_APP_ISR2 17D2 0 CODE 0 text40 dist/default/production\BicMeter.X.production.obj
+__end_of_APP_ISR3 17CC 0 CODE 0 text38 dist/default/production\BicMeter.X.production.obj
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\BicMeter.X.production.obj
 __size_of_BlinkDigit 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __Hspace_0 30000E 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-__Hspace_1 CC 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
+__Hspace_1 DA 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __Hspace_2 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-_BlinkFlag 59 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+_BlinkFlag 55 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 HWIeeprom_Read@ReadSuccess 17 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\BicMeter.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\0E57~1\AppData\Local\Temp\s390.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\0E57~1\AppData\Local\Temp\s3rs.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\BicMeter.X.production.obj
 __size_of_BCDsendNumber 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-_DisplayAlphaNumeric 175A 0 CODE 0 text5 dist/default/production\BicMeter.X.production.obj
-_DistTravelCntr 3F 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+_DisplayAlphaNumeric 17B4 0 CODE 0 text5 dist/default/production\BicMeter.X.production.obj
+_DistTravelCntr 39 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 __Lsmallconst 600 0 SMALLCONST 0 smallconst dist/default/production\BicMeter.X.production.obj
 _LATC F8B 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 _LATD F8C 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 _TMR1 FCE 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\0E57~1\AppData\Local\Temp\s390.obj
-_main 174A 0 CODE 0 text0 dist/default/production\BicMeter.X.production.obj
-btemp 6C 0 COMRAM 1 temp dist/default/production\BicMeter.X.production.obj
-RunScheduler@TaskIndex 4F 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
-start E 0 CODE 0 init C:\Users\0E57~1\AppData\Local\Temp\s390.obj
+___sp 0 0 STACK 2 stack C:\Users\0E57~1\AppData\Local\Temp\s3rs.obj
+_main 17A4 0 CODE 0 text0 dist/default/production\BicMeter.X.production.obj
+btemp 68 0 COMRAM 1 temp dist/default/production\BicMeter.X.production.obj
+RunScheduler@TaskIndex 49 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+start E 0 CODE 0 init C:\Users\0E57~1\AppData\Local\Temp\s3rs.obj
 __size_of_BCDManage7segment 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 IncrementDecrementSingleDigit@bIsincrement 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __size_of_SensorOneNotify 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-__end_of_HWI_DIGITAL_INITIALIZE 1702 0 CODE 0 text30 dist/default/production\BicMeter.X.production.obj
+__end_of_HWI_DIGITAL_INITIALIZE 1758 0 CODE 0 text30 dist/default/production\BicMeter.X.production.obj
 __size_of___lldiv 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-__end_of_ManageSpeedCalc 176C 0 CODE 0 text7 dist/default/production\BicMeter.X.production.obj
+__end_of_ManageSpeedCalc 17C6 0 CODE 0 text7 dist/default/production\BicMeter.X.production.obj
 __size_of___lwdiv 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-__end_of_IncrementDecrementSingleDigit D86 0 CODE 0 text15 dist/default/production\BicMeter.X.production.obj
+__end_of_IncrementDecrementSingleDigit D96 0 CODE 0 text15 dist/default/production\BicMeter.X.production.obj
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 __size_of_HWI_DIGI_READ 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 BCDManage7segment@Index 18 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
@@ -666,96 +669,98 @@ _KeyArrayConfig 61B 0 SMALLCONST 0 smallconst dist/default/production\BicMeter.X
 ?___wmul 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 BCDManage7segment@BCD 19 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __size_of_ManageDrivers 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-__end_of_APP_MANAGE C0A 0 CODE 0 text13 dist/default/production\BicMeter.X.production.obj
+__end_of_APP_MANAGE C1A 0 CODE 0 text13 dist/default/production\BicMeter.X.production.obj
 Eeprom_Read_Block@address 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-__end_of_SpeedCalcManage 10F8 0 CODE 0 text8 dist/default/production\BicMeter.X.production.obj
+__end_of_SpeedCalcManage 114E 0 CODE 0 text8 dist/default/production\BicMeter.X.production.obj
 Eeprom_Write_Block@LoopIndex 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __Hpowerup E 0 CODE 0 powerup dist/default/production\BicMeter.X.production.obj
-__end_of_BCDsendNumber E82 0 CODE 0 text23 dist/default/production\BicMeter.X.production.obj
+__end_of_BCDsendNumber ECE 0 CODE 0 text23 dist/default/production\BicMeter.X.production.obj
 __size_of_HWIeeprom_Read 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-_SpeedCalcNotifyInitialize 1780 0 CODE 0 text2 dist/default/production\BicMeter.X.production.obj
+_SpeedCalcNotifyInitialize 17DA 0 CODE 0 text2 dist/default/production\BicMeter.X.production.obj
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\BicMeter.X.production.obj
-_EEPROMaddr 56 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+_EEPROMaddr 50 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 Eeprom_Read_Block@ReadGranted 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-__accesstop 80 0 ABS 0 - C:\Users\0E57~1\AppData\Local\Temp\s390.obj
-intlevel0 0 0 CODE 0 text C:\Users\0E57~1\AppData\Local\Temp\s390.obj
-intlevel1 0 0 CODE 0 text C:\Users\0E57~1\AppData\Local\Temp\s390.obj
-intlevel2 0 0 CODE 0 text C:\Users\0E57~1\AppData\Local\Temp\s390.obj
-intlevel3 0 0 CODE 0 text C:\Users\0E57~1\AppData\Local\Temp\s390.obj
-APP_MANAGE@AvgSpeedKph C2 0 BANK0 1 cstackBANK0 dist/default/production\BicMeter.X.production.obj
+__accesstop 80 0 ABS 0 - C:\Users\0E57~1\AppData\Local\Temp\s3rs.obj
+intlevel0 0 0 CODE 0 text C:\Users\0E57~1\AppData\Local\Temp\s3rs.obj
+intlevel1 0 0 CODE 0 text C:\Users\0E57~1\AppData\Local\Temp\s3rs.obj
+intlevel2 0 0 CODE 0 text C:\Users\0E57~1\AppData\Local\Temp\s3rs.obj
+intlevel3 0 0 CODE 0 text C:\Users\0E57~1\AppData\Local\Temp\s3rs.obj
+APP_MANAGE@AvgSpeedKph D2 0 BANK0 1 cstackBANK0 dist/default/production\BicMeter.X.production.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\BicMeter.X.production.obj
-BlinkDigit@duration 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-_ManageApplication 1760 0 CODE 0 text6 dist/default/production\BicMeter.X.production.obj
+BlinkDigit@duration 15 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
+_ManageApplication 17BA 0 CODE 0 text6 dist/default/production\BicMeter.X.production.obj
+_LineBlinkIndex 56 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\BicMeter.X.production.obj
 __CFG_EBTR0$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __CFG_EBTR1$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __CFG_EBTR2$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __CFG_EBTR3$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 SpeedCalcManage@HundredMeterReference 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-__end_of_HWI_DIGI_READ 150E 0 CODE 0 text10 dist/default/production\BicMeter.X.production.obj
+__end_of_HWI_DIGI_READ 1564 0 CODE 0 text10 dist/default/production\BicMeter.X.production.obj
 __CFG_EBTRB$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\BicMeter.X.production.obj
-__end_of_ManageDrivers 16E8 0 CODE 0 text4 dist/default/production\BicMeter.X.production.obj
-_WriteFlag 5D 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
-_WriteRequest 57 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+__end_of_ManageDrivers 173E 0 CODE 0 text4 dist/default/production\BicMeter.X.production.obj
+_WriteFlag 5A 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+_WriteRequest 51 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\BicMeter.X.production.obj
 HWI_4Digit_WRITE@value 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-__pidataCOMRAM 177E 0 CODE 0 idataCOMRAM dist/default/production\BicMeter.X.production.obj
-_DataSize 55 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
-_ManageSpeedCalc 1766 0 CODE 0 text7 dist/default/production\BicMeter.X.production.obj
+__pidataCOMRAM 17D8 0 CODE 0 idataCOMRAM dist/default/production\BicMeter.X.production.obj
+_DataSize 4F 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+_ManageSpeedCalc 17C0 0 CODE 0 text7 dist/default/production\BicMeter.X.production.obj
 ___wmul@multiplicand 16 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 MangeKeys@KeyState 18 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __end_of_KeyArrayConfig 633 0 SMALLCONST 0 smallconst dist/default/production\BicMeter.X.production.obj
 IncrementDecrementSingleDigit@Link 20 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\0E57~1\AppData\Local\Temp\s390.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\0E57~1\AppData\Local\Temp\s390.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\0E57~1\AppData\Local\Temp\s3rs.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\0E57~1\AppData\Local\Temp\s3rs.obj
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\BicMeter.X.production.obj
 _EECON1bits FA6 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __size_of_Eeprom_Write_Block 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\BicMeter.X.production.obj
-_SpeedCalcManage 1068 0 CODE 0 text8 dist/default/production\BicMeter.X.production.obj
-__end_of___lmul 1382 0 CODE 0 text19 dist/default/production\BicMeter.X.production.obj
-__end_of___wmul 16A6 0 CODE 0 text24 dist/default/production\BicMeter.X.production.obj
-_Circum 67 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
-__end_of_Eeprom_Read_Block 1416 0 CODE 0 text34 dist/default/production\BicMeter.X.production.obj
+_SpeedCalcManage 10BE 0 CODE 0 text8 dist/default/production\BicMeter.X.production.obj
+__end_of___lmul 13D8 0 CODE 0 text19 dist/default/production\BicMeter.X.production.obj
+__end_of___wmul 16FC 0 CODE 0 text24 dist/default/production\BicMeter.X.production.obj
+_Circum 64 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+__end_of_Eeprom_Read_Block 146C 0 CODE 0 text34 dist/default/production\BicMeter.X.production.obj
 _EECON2 FA7 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 _EEDATA FA8 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\BicMeter.X.production.obj
 Eeprom_Read_Block@LoopIndex 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 Eeprom_Write_Block@address 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\BicMeter.X.production.obj
-APP_MANAGE@TravelledDistance C5 0 BANK0 1 cstackBANK0 dist/default/production\BicMeter.X.production.obj
+APP_MANAGE@TravelledDistance D5 0 BANK0 1 cstackBANK0 dist/default/production\BicMeter.X.production.obj
 __Hintcodelo E 0 CODE 0 intcodelo dist/default/production\BicMeter.X.production.obj
-__end_of_DisplayAlphaNumeric 1760 0 CODE 0 text5 dist/default/production\BicMeter.X.production.obj
+__end_of_DisplayAlphaNumeric 17BA 0 CODE 0 text5 dist/default/production\BicMeter.X.production.obj
 __size_of_CreateTask 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-_KeyInternalData 5E 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+_KeyInternalData 5B 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 __end_of_MangeKeys A6E 0 CODE 0 text9 dist/default/production\BicMeter.X.production.obj
-__end_of___lldiv 1206 0 CODE 0 text20 dist/default/production\BicMeter.X.production.obj
-__end_of___lwdiv 13D4 0 CODE 0 text25 dist/default/production\BicMeter.X.production.obj
+__end_of___lldiv 125C 0 CODE 0 text20 dist/default/production\BicMeter.X.production.obj
+__end_of___lwdiv 142A 0 CODE 0 text25 dist/default/production\BicMeter.X.production.obj
 __size_of_MangeKeys 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 _INT0IF 7F91 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 _INT1IF 7F80 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 _INTCON FF2 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-_EepromManage 1416 0 CODE 0 text11 dist/default/production\BicMeter.X.production.obj
-_BlinkDuration 5A 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+_EepromManage 146C 0 CODE 0 text11 dist/default/production\BicMeter.X.production.obj
+_BlinkDuration 57 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 EepromManage@WriteSuccess 17 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-_GetDistance 1718 0 CODE 0 text17 dist/default/production\BicMeter.X.production.obj
+_GetDistance 176E 0 CODE 0 text17 dist/default/production\BicMeter.X.production.obj
 ___lwdiv@quotient 19 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\BicMeter.X.production.obj
 SchedulerTick@TaskIndex 1 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-__end_of_HWI_INTERRUPTS_INTITALIZE 14D2 0 CODE 0 text29 dist/default/production\BicMeter.X.production.obj
-__end_of_BCDManage7segment FD6 0 CODE 0 text26 dist/default/production\BicMeter.X.production.obj
-_LapCounter 52 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+__end_of_HWI_INTERRUPTS_INTITALIZE 1528 0 CODE 0 text29 dist/default/production\BicMeter.X.production.obj
+__end_of_BCDManage7segment 102C 0 CODE 0 text26 dist/default/production\BicMeter.X.production.obj
+_LapCounter 4C 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 _INTCON2bits FF1 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-_GetAvgSpeed FD6 0 CODE 0 text18 dist/default/production\BicMeter.X.production.obj
+_GetAvgSpeed 102C 0 CODE 0 text18 dist/default/production\BicMeter.X.production.obj
 _MangeKeys 640 0 CODE 0 text9 dist/default/production\BicMeter.X.production.obj
 ___lldiv@counter 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __Lintcodelo E 0 CODE 0 intcodelo dist/default/production\BicMeter.X.production.obj
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __CFG_MCLRE$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-start_initialization 1456 0 CODE 0 cinit dist/default/production\BicMeter.X.production.obj
+start_initialization 14AC 0 CODE 0 cinit dist/default/production\BicMeter.X.production.obj
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\BicMeter.X.production.obj
-BCDsendNumber@Link 21 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
+BCDsendNumber@Line 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
+BCDsendNumber@Link 24 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 CreateTask@MangeFunction 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 ManageDrivers@LoopIndex 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __size_of_APP_INITIALIZE 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
@@ -766,9 +771,9 @@ ___rparam_used 1 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 HWIeeprom_Write@Data 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 Eeprom_Read_Block@DataPtr 18 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __CFG_WDTPS$32768 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-__end_of_SensorTwoNotify 1606 0 CODE 0 text41 dist/default/production\BicMeter.X.production.obj
+__end_of_SensorTwoNotify 165C 0 CODE 0 text41 dist/default/production\BicMeter.X.production.obj
 HWIeeprom_Read@Data 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-__pcstackBANK0 C2 0 BANK0 1 cstackBANK0 dist/default/production\BicMeter.X.production.obj
+__pcstackBANK0 D2 0 BANK0 1 cstackBANK0 dist/default/production\BicMeter.X.production.obj
 _TMR0IE 7F95 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 _TMR0IF 7F92 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 _TMR1IE 7CE8 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
@@ -780,7 +785,7 @@ __size_of_EepromManage 0 0 ABS 0 - dist/default/production\BicMeter.X.production
 GetKeyStatus@KeyID 15 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __size_of_ManageSpeedCalc 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 Eeprom_Write_Block@ptrFnCallback 17 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-_SchedulerTick 1606 0 CODE 0 text37 dist/default/production\BicMeter.X.production.obj
+_SchedulerTick 165C 0 CODE 0 text37 dist/default/production\BicMeter.X.production.obj
 __size_of_HWI_DIGITAL_INITIALIZE 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 HWIeeprom_Write@WriteSuccess 16 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __size_of_APP_MANAGE 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
@@ -799,7 +804,7 @@ __Hidloc 200008 0 IDLOC 0 idloc dist/default/production\BicMeter.X.production.ob
 __Hnvbit 0 0 COMRAM 1 nvbit dist/default/production\BicMeter.X.production.obj
 __Hparam 0 0 COMRAM 1 rparam dist/default/production\BicMeter.X.production.obj
 __Hrdata 0 0 COMRAM 1 rdata dist/default/production\BicMeter.X.production.obj
-_Eeprom_Read_Block 13D4 0 CODE 0 text34 dist/default/production\BicMeter.X.production.obj
+_Eeprom_Read_Block 142A 0 CODE 0 text34 dist/default/production\BicMeter.X.production.obj
 __Hstack 0 0 STACK 2 stack dist/default/production\BicMeter.X.production.obj
 __Htext0 0 0 ABS 0 text0 dist/default/production\BicMeter.X.production.obj
 __Htext1 0 0 ABS 0 text1 dist/default/production\BicMeter.X.production.obj
@@ -812,17 +817,17 @@ __Htext7 0 0 ABS 0 text7 dist/default/production\BicMeter.X.production.obj
 __Htext8 0 0 ABS 0 text8 dist/default/production\BicMeter.X.production.obj
 __Htext9 0 0 ABS 0 text9 dist/default/production\BicMeter.X.production.obj
 ___lwdiv@counter 18 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-_GetKeyStatus 15AA 0 CODE 0 text16 dist/default/production\BicMeter.X.production.obj
+_GetKeyStatus 1600 0 CODE 0 text16 dist/default/production\BicMeter.X.production.obj
 ?_ReloadHWtimer 1 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\BicMeter.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\BicMeter.X.production.obj
-__smallconst 600 0 SMALLCONST 0 smallconst C:\Users\0E57~1\AppData\Local\Temp\s390.obj
-APP_MANAGE@bIsBlinkMode 4B 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+__smallconst 600 0 SMALLCONST 0 smallconst C:\Users\0E57~1\AppData\Local\Temp\s3rs.obj
+APP_MANAGE@bIsBlinkMode 45 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production\BicMeter.X.production.obj
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production\BicMeter.X.production.obj
 __CFG_LPT1OSC$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-__end_of_EepromManage 1456 0 CODE 0 text11 dist/default/production\BicMeter.X.production.obj
-BCDManage7segment@DigitIndex 69 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+__end_of_EepromManage 14AC 0 CODE 0 text11 dist/default/production\BicMeter.X.production.obj
+BCDManage7segment@DigitIndex 54 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\BicMeter.X.production.obj
 __Lbank1 0 0 ABS 0 bank1 dist/default/production\BicMeter.X.production.obj
 __Lbank2 0 0 ABS 0 bank2 dist/default/production\BicMeter.X.production.obj
@@ -859,55 +864,57 @@ __Hdata 0 0 ABS 0 data dist/default/production\BicMeter.X.production.obj
 __Hinit 12 0 CODE 0 init dist/default/production\BicMeter.X.production.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production\BicMeter.X.production.obj
 __Hrbss 0 0 COMRAM 1 rbss dist/default/production\BicMeter.X.production.obj
-__Htemp 6D 0 COMRAM 1 temp dist/default/production\BicMeter.X.production.obj
+__Htemp 69 0 COMRAM 1 temp dist/default/production\BicMeter.X.production.obj
 __Htext 0 0 ABS 0 text dist/default/production\BicMeter.X.production.obj
 __Labs1 0 0 ABS 0 abs1 dist/default/production\BicMeter.X.production.obj
 __Ldata 0 0 ABS 0 data dist/default/production\BicMeter.X.production.obj
 __Linit E 0 CODE 0 init dist/default/production\BicMeter.X.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production\BicMeter.X.production.obj
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\BicMeter.X.production.obj
-__Ltemp 6C 0 COMRAM 1 temp dist/default/production\BicMeter.X.production.obj
+__Ltemp 68 0 COMRAM 1 temp dist/default/production\BicMeter.X.production.obj
 __Ltext 0 0 ABS 0 text dist/default/production\BicMeter.X.production.obj
 __CFG_XINST$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-_SensorTwoNotify 15D8 0 CODE 0 text41 dist/default/production\BicMeter.X.production.obj
-___lmul 132C 0 CODE 0 text19 dist/default/production\BicMeter.X.production.obj
-___wmul 1680 0 CODE 0 text24 dist/default/production\BicMeter.X.production.obj
+_SensorTwoNotify 162E 0 CODE 0 text41 dist/default/production\BicMeter.X.production.obj
+___lmul 1382 0 CODE 0 text19 dist/default/production\BicMeter.X.production.obj
+___wmul 16D6 0 CODE 0 text24 dist/default/production\BicMeter.X.production.obj
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\BicMeter.X.production.obj
-int$flags 6C 0 COMRAM 1 temp dist/default/production\BicMeter.X.production.obj
-_SetCircumfirunce 1736 0 CODE 0 text14 dist/default/production\BicMeter.X.production.obj
-_BCDManage7segment F3E 0 CODE 0 text26 dist/default/production\BicMeter.X.production.obj
+int$flags 68 0 COMRAM 1 temp dist/default/production\BicMeter.X.production.obj
+_SetCircumfirunce 1790 0 CODE 0 text14 dist/default/production\BicMeter.X.production.obj
+_BCDManage7segment F8A 0 CODE 0 text26 dist/default/production\BicMeter.X.production.obj
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-_LapTimeTenthMilli 45 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+_LapTimeTenthMilli 3F 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 __Hintret 0 0 ABS 0 intret dist/default/production\BicMeter.X.production.obj
 __Hirdata 0 0 CODE 0 irdata dist/default/production\BicMeter.X.production.obj
 _ISR 8 0 CODE 0 intcode dist/default/production\BicMeter.X.production.obj
 __S0 30000E 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-__S1 CC 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
+__S1 DA 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __S2 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-BCDsendNumber@DecimalPlace 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
+BCDsendNumber@DecimalPlace 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 Eeprom_Write_Block@DataPtr 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __size_of_GetKeyStatus 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __CFG_PBADEN$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-__end_of_HWtimerCallback 174A 0 CODE 0 text39 dist/default/production\BicMeter.X.production.obj
-__end_of_HWIeeprom_Write 15AA 0 CODE 0 text12 dist/default/production\BicMeter.X.production.obj
+__end_of_HWtimerCallback 17A4 0 CODE 0 text39 dist/default/production\BicMeter.X.production.obj
+__end_of_HWIeeprom_Write 1600 0 CODE 0 text12 dist/default/production\BicMeter.X.production.obj
 ReloadHWtimer@ElapsedTime 4 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\BicMeter.X.production.obj
-_TimerOVFLcount 51 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+_TimerOVFLcount 4B 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\BicMeter.X.production.obj
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\BicMeter.X.production.obj
-__end_of_ISR F3E 0 CODE 0 intcode_body dist/default/production\BicMeter.X.production.obj
-int_func E82 0 CODE 0 intcode_body dist/default/production\BicMeter.X.production.obj
+__end_of_ISR F8A 0 CODE 0 intcode_body dist/default/production\BicMeter.X.production.obj
+int_func ECE 0 CODE 0 intcode_body dist/default/production\BicMeter.X.production.obj
 __CFG_CCP2MX$PORTC 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __Lintentry 0 0 ABS 0 intentry dist/default/production\BicMeter.X.production.obj
 ___lldiv@divisor 24 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
+BCDManage7segment@LineIndex 52 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 __Hramtop 600 0 RAM 0 ramtop dist/default/production\BicMeter.X.production.obj
-_HWI_8Digit_WRITE 16A6 0 CODE 0 text27 dist/default/production\BicMeter.X.production.obj
-_HWIeeprom_Read 1658 0 CODE 0 text35 dist/default/production\BicMeter.X.production.obj
+_HWI_8Digit_WRITE 16FC 0 CODE 0 text27 dist/default/production\BicMeter.X.production.obj
+_HWIeeprom_Read 16AE 0 CODE 0 text35 dist/default/production\BicMeter.X.production.obj
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\BicMeter.X.production.obj
-_BlinkDigit 172A 0 CODE 0 text22 dist/default/production\BicMeter.X.production.obj
-_BlinkIndex 5B 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+_BlinkDigit 1780 0 CODE 0 text22 dist/default/production\BicMeter.X.production.obj
+_BlinkIndex 58 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 MangeKeys@KeyID 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-__end_of_GetKeyStatus 15D8 0 CODE 0 text16 dist/default/production\BicMeter.X.production.obj
+__end_of_GetKeyStatus 162E 0 CODE 0 text16 dist/default/production\BicMeter.X.production.obj
+BlinkDigit@Line 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __activetblptr 2 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 HWI_DIGI_READ@HWIread 15 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\BicMeter.X.production.obj
@@ -950,82 +957,82 @@ __Htext42 0 0 ABS 0 text42 dist/default/production\BicMeter.X.production.obj
 __Htext43 0 0 ABS 0 text43 dist/default/production\BicMeter.X.production.obj
 __Htext44 0 0 ABS 0 text44 dist/default/production\BicMeter.X.production.obj
 __Htext45 0 0 ABS 0 text45 dist/default/production\BicMeter.X.production.obj
-_RunScheduler 10F8 0 CODE 0 text3 dist/default/production\BicMeter.X.production.obj
-_HWtimerCount 43 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
-BCDsendNumber@LoopIndex 27 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-__ptext10 14D2 0 CODE 0 text10 dist/default/production\BicMeter.X.production.obj
-__ptext11 1416 0 CODE 0 text11 dist/default/production\BicMeter.X.production.obj
-__ptext12 157C 0 CODE 0 text12 dist/default/production\BicMeter.X.production.obj
+_RunScheduler 114E 0 CODE 0 text3 dist/default/production\BicMeter.X.production.obj
+_HWtimerCount 3D 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+BCDsendNumber@LoopIndex 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
+__ptext10 1528 0 CODE 0 text10 dist/default/production\BicMeter.X.production.obj
+__ptext11 146C 0 CODE 0 text11 dist/default/production\BicMeter.X.production.obj
+__ptext12 15D2 0 CODE 0 text12 dist/default/production\BicMeter.X.production.obj
 __ptext13 A6E 0 CODE 0 text13 dist/default/production\BicMeter.X.production.obj
-__ptext14 1736 0 CODE 0 text14 dist/default/production\BicMeter.X.production.obj
-__ptext15 C0A 0 CODE 0 text15 dist/default/production\BicMeter.X.production.obj
-__ptext16 15AA 0 CODE 0 text16 dist/default/production\BicMeter.X.production.obj
-__ptext17 1718 0 CODE 0 text17 dist/default/production\BicMeter.X.production.obj
-__ptext18 FD6 0 CODE 0 text18 dist/default/production\BicMeter.X.production.obj
-__ptext19 132C 0 CODE 0 text19 dist/default/production\BicMeter.X.production.obj
-__ptext20 1184 0 CODE 0 text20 dist/default/production\BicMeter.X.production.obj
-__ptext21 1272 0 CODE 0 text21 dist/default/production\BicMeter.X.production.obj
-__ptext22 172A 0 CODE 0 text22 dist/default/production\BicMeter.X.production.obj
-__ptext23 D86 0 CODE 0 text23 dist/default/production\BicMeter.X.production.obj
-__ptext24 1680 0 CODE 0 text24 dist/default/production\BicMeter.X.production.obj
-__ptext25 1382 0 CODE 0 text25 dist/default/production\BicMeter.X.production.obj
-__ptext26 F3E 0 CODE 0 text26 dist/default/production\BicMeter.X.production.obj
-__ptext27 16A6 0 CODE 0 text27 dist/default/production\BicMeter.X.production.obj
-__ptext28 154A 0 CODE 0 text28 dist/default/production\BicMeter.X.production.obj
-__ptext29 1494 0 CODE 0 text29 dist/default/production\BicMeter.X.production.obj
-__ptext30 16E8 0 CODE 0 text30 dist/default/production\BicMeter.X.production.obj
-__ptext31 12D4 0 CODE 0 text31 dist/default/production\BicMeter.X.production.obj
-__ptext32 1752 0 CODE 0 text32 dist/default/production\BicMeter.X.production.obj
-__ptext33 1630 0 CODE 0 text33 dist/default/production\BicMeter.X.production.obj
-__ptext34 13D4 0 CODE 0 text34 dist/default/production\BicMeter.X.production.obj
-__ptext35 1658 0 CODE 0 text35 dist/default/production\BicMeter.X.production.obj
-__ptext37 1606 0 CODE 0 text37 dist/default/production\BicMeter.X.production.obj
-__ptext38 176C 0 CODE 0 text38 dist/default/production\BicMeter.X.production.obj
-__ptext39 1740 0 CODE 0 text39 dist/default/production\BicMeter.X.production.obj
-__ptext40 1772 0 CODE 0 text40 dist/default/production\BicMeter.X.production.obj
-__ptext41 15D8 0 CODE 0 text41 dist/default/production\BicMeter.X.production.obj
-__ptext42 150E 0 CODE 0 text42 dist/default/production\BicMeter.X.production.obj
-__ptext43 1778 0 CODE 0 text43 dist/default/production\BicMeter.X.production.obj
-__ptext44 1702 0 CODE 0 text44 dist/default/production\BicMeter.X.production.obj
+__ptext14 1790 0 CODE 0 text14 dist/default/production\BicMeter.X.production.obj
+__ptext15 C1A 0 CODE 0 text15 dist/default/production\BicMeter.X.production.obj
+__ptext16 1600 0 CODE 0 text16 dist/default/production\BicMeter.X.production.obj
+__ptext17 176E 0 CODE 0 text17 dist/default/production\BicMeter.X.production.obj
+__ptext18 102C 0 CODE 0 text18 dist/default/production\BicMeter.X.production.obj
+__ptext19 1382 0 CODE 0 text19 dist/default/production\BicMeter.X.production.obj
+__ptext20 11DA 0 CODE 0 text20 dist/default/production\BicMeter.X.production.obj
+__ptext21 12C8 0 CODE 0 text21 dist/default/production\BicMeter.X.production.obj
+__ptext22 1780 0 CODE 0 text22 dist/default/production\BicMeter.X.production.obj
+__ptext23 D96 0 CODE 0 text23 dist/default/production\BicMeter.X.production.obj
+__ptext24 16D6 0 CODE 0 text24 dist/default/production\BicMeter.X.production.obj
+__ptext25 13D8 0 CODE 0 text25 dist/default/production\BicMeter.X.production.obj
+__ptext26 F8A 0 CODE 0 text26 dist/default/production\BicMeter.X.production.obj
+__ptext27 16FC 0 CODE 0 text27 dist/default/production\BicMeter.X.production.obj
+__ptext28 15A0 0 CODE 0 text28 dist/default/production\BicMeter.X.production.obj
+__ptext29 14EA 0 CODE 0 text29 dist/default/production\BicMeter.X.production.obj
+__ptext30 173E 0 CODE 0 text30 dist/default/production\BicMeter.X.production.obj
+__ptext31 132A 0 CODE 0 text31 dist/default/production\BicMeter.X.production.obj
+__ptext32 17AC 0 CODE 0 text32 dist/default/production\BicMeter.X.production.obj
+__ptext33 1686 0 CODE 0 text33 dist/default/production\BicMeter.X.production.obj
+__ptext34 142A 0 CODE 0 text34 dist/default/production\BicMeter.X.production.obj
+__ptext35 16AE 0 CODE 0 text35 dist/default/production\BicMeter.X.production.obj
+__ptext37 165C 0 CODE 0 text37 dist/default/production\BicMeter.X.production.obj
+__ptext38 17C6 0 CODE 0 text38 dist/default/production\BicMeter.X.production.obj
+__ptext39 179A 0 CODE 0 text39 dist/default/production\BicMeter.X.production.obj
+__ptext40 17CC 0 CODE 0 text40 dist/default/production\BicMeter.X.production.obj
+__ptext41 162E 0 CODE 0 text41 dist/default/production\BicMeter.X.production.obj
+__ptext42 1564 0 CODE 0 text42 dist/default/production\BicMeter.X.production.obj
+__ptext43 17D2 0 CODE 0 text43 dist/default/production\BicMeter.X.production.obj
+__ptext44 1758 0 CODE 0 text44 dist/default/production\BicMeter.X.production.obj
 __ptext45 0 0 CODE 0 text45 dist/default/production\BicMeter.X.production.obj
 IncrementDecrementSingleDigit@Index 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-__pintcode_body E82 0 CODE 0 intcode_body dist/default/production\BicMeter.X.production.obj
-___lldiv 1184 0 CODE 0 text20 dist/default/production\BicMeter.X.production.obj
-___lwdiv 1382 0 CODE 0 text25 dist/default/production\BicMeter.X.production.obj
+__pintcode_body ECE 0 CODE 0 intcode_body dist/default/production\BicMeter.X.production.obj
+___lldiv 11DA 0 CODE 0 text20 dist/default/production\BicMeter.X.production.obj
+___lwdiv 13D8 0 CODE 0 text25 dist/default/production\BicMeter.X.production.obj
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\BicMeter.X.production.obj
 __Lbigram 0 0 ABS 0 bigram dist/default/production\BicMeter.X.production.obj
 IncrementDecrementSingleDigit@PowIndex 24 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 ___lmul@multiplier 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __CFG_BORV$3 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-_HwTimerOVFLcount 50 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+_HwTimerOVFLcount 4A 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 __Lcomram 0 0 ABS 0 comram dist/default/production\BicMeter.X.production.obj
 __Lconfig 300000 0 CONFIG 0 config dist/default/production\BicMeter.X.production.obj
 Eeprom_Write_Block@WriteGranted 19 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-_HWtimerCallback 1740 0 CODE 0 text39 dist/default/production\BicMeter.X.production.obj
-_HWIeeprom_Write 157C 0 CODE 0 text12 dist/default/production\BicMeter.X.production.obj
+_HWtimerCallback 179A 0 CODE 0 text39 dist/default/production\BicMeter.X.production.obj
+_HWIeeprom_Write 15D2 0 CODE 0 text12 dist/default/production\BicMeter.X.production.obj
 ___wmul@multiplier 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-APP_MANAGE@blinkIndex 4D 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+APP_MANAGE@blinkIndex 47 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 MangeKeys@HWIreading 19 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 GetAvgSpeed@AvgSpeedKphMph 34 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-__end_of_SetCircumfirunce 1740 0 CODE 0 text14 dist/default/production\BicMeter.X.production.obj
-_CircumFactor 6A 0 COMRAM 1 dataCOMRAM dist/default/production\BicMeter.X.production.obj
-__end_of_SchedulerTick 1630 0 CODE 0 text37 dist/default/production\BicMeter.X.production.obj
+__end_of_SetCircumfirunce 179A 0 CODE 0 text14 dist/default/production\BicMeter.X.production.obj
+_CircumFactor 66 0 COMRAM 1 dataCOMRAM dist/default/production\BicMeter.X.production.obj
+__end_of_SchedulerTick 1686 0 CODE 0 text37 dist/default/production\BicMeter.X.production.obj
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\BicMeter.X.production.obj
 __size_of_SensorTwoNotify 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 ___lwdiv@divisor 16 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\BicMeter.X.production.obj
-_WriteFnCallback 49 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
-_HWI_INTERRUPTS_INTITALIZE 1494 0 CODE 0 text29 dist/default/production\BicMeter.X.production.obj
+_WriteFnCallback 43 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+_HWI_INTERRUPTS_INTITALIZE 14EA 0 CODE 0 text29 dist/default/production\BicMeter.X.production.obj
 Eeprom_Write_Block@BlockSize 16 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __size_of_SetCircumfirunce 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-stackhi 5FF 0 ABS 0 - C:\Users\0E57~1\AppData\Local\Temp\s390.obj
-stacklo CC 0 ABS 0 - C:\Users\0E57~1\AppData\Local\Temp\s390.obj
-__end_of_HWIeeprom_Read 1680 0 CODE 0 text35 dist/default/production\BicMeter.X.production.obj
+stackhi 5FF 0 ABS 0 - C:\Users\0E57~1\AppData\Local\Temp\s3rs.obj
+stacklo DA 0 ABS 0 - C:\Users\0E57~1\AppData\Local\Temp\s3rs.obj
+__end_of_HWIeeprom_Read 16D6 0 CODE 0 text35 dist/default/production\BicMeter.X.production.obj
 __Lintcode 8 0 CODE 0 intcode dist/default/production\BicMeter.X.production.obj
-__end_of_GetDistance 172A 0 CODE 0 text17 dist/default/production\BicMeter.X.production.obj
+__end_of_GetDistance 1780 0 CODE 0 text17 dist/default/production\BicMeter.X.production.obj
 IncrementDecrementSingleDigit@LoopIndex 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __Lintret 0 0 ABS 0 intret dist/default/production\BicMeter.X.production.obj
-_ReloadHWtimer 150E 0 CODE 0 text42 dist/default/production\BicMeter.X.production.obj
+_ReloadHWtimer 1564 0 CODE 0 text42 dist/default/production\BicMeter.X.production.obj
 __Lirdata 0 0 CODE 0 irdata dist/default/production\BicMeter.X.production.obj
 HWIeeprom_Read@address 16 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 _ArrayTask B2 0 BANK0 1 bssBANK0 dist/default/production\BicMeter.X.production.obj
@@ -1033,62 +1040,62 @@ HWI_8Digit_WRITE@port 15 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMete
 HWIeeprom_Write@address 15 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __size_of_RunScheduler 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 IncrementDecrementSingleDigit@NumberReturned 22 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-__end_of_BlinkDigit 1736 0 CODE 0 text22 dist/default/production\BicMeter.X.production.obj
+__end_of_BlinkDigit 1790 0 CODE 0 text22 dist/default/production\BicMeter.X.production.obj
 __Lspace_0 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __Lspace_1 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __Lspace_2 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-__pbssCOMRAM 37 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
-__end_of_GetAvgSpeed 1068 0 CODE 0 text18 dist/default/production\BicMeter.X.production.obj
-_BCDInitialize 1752 0 CODE 0 text32 dist/default/production\BicMeter.X.production.obj
+__pbssCOMRAM 39 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+__end_of_GetAvgSpeed 10BE 0 CODE 0 text18 dist/default/production\BicMeter.X.production.obj
+_BCDInitialize 17AC 0 CODE 0 text32 dist/default/production\BicMeter.X.production.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\BicMeter.X.production.obj
-__end_of_Start_App 1272 0 CODE 0 text1 dist/default/production\BicMeter.X.production.obj
-_IncrementDecrementSingleDigit C0A 0 CODE 0 text15 dist/default/production\BicMeter.X.production.obj
+__end_of_Start_App 12C8 0 CODE 0 text1 dist/default/production\BicMeter.X.production.obj
+_IncrementDecrementSingleDigit C1A 0 CODE 0 text15 dist/default/production\BicMeter.X.production.obj
 ?_IncrementDecrementSingleDigit 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __CFG_LVP$ON 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __size_of_Start_App 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-_LapDistanceCounter 47 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+_LapDistanceCounter 41 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 __end_of_SevenSegmentMAP 63E 0 SMALLCONST 0 smallconst dist/default/production\BicMeter.X.production.obj
 __size_of_ManageApplication 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-end_of_initialization 1486 0 CODE 0 cinit dist/default/production\BicMeter.X.production.obj
+end_of_initialization 14DC 0 CODE 0 cinit dist/default/production\BicMeter.X.production.obj
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\BicMeter.X.production.obj
 __Hintentry 0 0 ABS 0 intentry dist/default/production\BicMeter.X.production.obj
 __CFG_STVREN$ON 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-_NotifyFlag 53 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
-__end_of_HWI_8Digit_WRITE 16CC 0 CODE 0 text27 dist/default/production\BicMeter.X.production.obj
+_NotifyFlag 4D 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+__end_of_HWI_8Digit_WRITE 1722 0 CODE 0 text27 dist/default/production\BicMeter.X.production.obj
 __CFG_OSC$XT 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 SetCircumfirunce@Circum 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-__end_of_SpeedCalcNotifyInitialize 1782 0 CODE 0 text2 dist/default/production\BicMeter.X.production.obj
+__end_of_SpeedCalcNotifyInitialize 17DC 0 CODE 0 text2 dist/default/production\BicMeter.X.production.obj
 ___lwdiv@dividend 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-BCDManage7segment@BlinkCounter 58 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+BCDManage7segment@BlinkCounter 53 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 ?___lldiv 20 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 ?___lwdiv 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\BicMeter.X.production.obj
 IncrementDecrementSingleDigit@unitPosition 25 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\BicMeter.X.production.obj
-__end_of_RunScheduler 1184 0 CODE 0 text3 dist/default/production\BicMeter.X.production.obj
+__end_of_RunScheduler 11DA 0 CODE 0 text3 dist/default/production\BicMeter.X.production.obj
 Eeprom_Read_Block@ReadSuccess 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __size_of_HWI_8Digit_WRITE 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-BCDsendNumber@EnableTranc 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-__end_of_Eeprom_Write_Block 12D4 0 CODE 0 text21 dist/default/production\BicMeter.X.production.obj
-__end_of_SensorOneNotify 1718 0 CODE 0 text44 dist/default/production\BicMeter.X.production.obj
+BCDsendNumber@EnableTranc 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
+__end_of_Eeprom_Write_Block 132A 0 CODE 0 text21 dist/default/production\BicMeter.X.production.obj
+__end_of_SensorOneNotify 176E 0 CODE 0 text44 dist/default/production\BicMeter.X.production.obj
 __Lramtop 600 0 RAM 0 ramtop dist/default/production\BicMeter.X.production.obj
-_HWI_DIGITAL_INITIALIZE 16E8 0 CODE 0 text30 dist/default/production\BicMeter.X.production.obj
-_Start_App 1206 0 CODE 0 text1 dist/default/production\BicMeter.X.production.obj
+_HWI_DIGITAL_INITIALIZE 173E 0 CODE 0 text30 dist/default/production\BicMeter.X.production.obj
+_Start_App 125C 0 CODE 0 text1 dist/default/production\BicMeter.X.production.obj
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\BicMeter.X.production.obj
-__pcinit 1456 0 CODE 0 cinit dist/default/production\BicMeter.X.production.obj
-__ptext0 174A 0 CODE 0 text0 dist/default/production\BicMeter.X.production.obj
-__ptext1 1206 0 CODE 0 text1 dist/default/production\BicMeter.X.production.obj
-__ptext2 1780 0 CODE 0 text2 dist/default/production\BicMeter.X.production.obj
-__ptext3 10F8 0 CODE 0 text3 dist/default/production\BicMeter.X.production.obj
-__ptext4 16CC 0 CODE 0 text4 dist/default/production\BicMeter.X.production.obj
-__ptext5 175A 0 CODE 0 text5 dist/default/production\BicMeter.X.production.obj
-__ptext6 1760 0 CODE 0 text6 dist/default/production\BicMeter.X.production.obj
-__ptext7 1766 0 CODE 0 text7 dist/default/production\BicMeter.X.production.obj
-__ptext8 1068 0 CODE 0 text8 dist/default/production\BicMeter.X.production.obj
+__pcinit 14AC 0 CODE 0 cinit dist/default/production\BicMeter.X.production.obj
+__ptext0 17A4 0 CODE 0 text0 dist/default/production\BicMeter.X.production.obj
+__ptext1 125C 0 CODE 0 text1 dist/default/production\BicMeter.X.production.obj
+__ptext2 17DA 0 CODE 0 text2 dist/default/production\BicMeter.X.production.obj
+__ptext3 114E 0 CODE 0 text3 dist/default/production\BicMeter.X.production.obj
+__ptext4 1722 0 CODE 0 text4 dist/default/production\BicMeter.X.production.obj
+__ptext5 17B4 0 CODE 0 text5 dist/default/production\BicMeter.X.production.obj
+__ptext6 17BA 0 CODE 0 text6 dist/default/production\BicMeter.X.production.obj
+__ptext7 17C0 0 CODE 0 text7 dist/default/production\BicMeter.X.production.obj
+__ptext8 10BE 0 CODE 0 text8 dist/default/production\BicMeter.X.production.obj
 __ptext9 640 0 CODE 0 text9 dist/default/production\BicMeter.X.production.obj
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\BicMeter.X.production.obj
-_APP_INITIALIZE 1630 0 CODE 0 text33 dist/default/production\BicMeter.X.production.obj
+_APP_INITIALIZE 1686 0 CODE 0 text33 dist/default/production\BicMeter.X.production.obj
 __Ltext10 0 0 ABS 0 text10 dist/default/production\BicMeter.X.production.obj
 __Ltext11 0 0 ABS 0 text11 dist/default/production\BicMeter.X.production.obj
 __Ltext12 0 0 ABS 0 text12 dist/default/production\BicMeter.X.production.obj
@@ -1124,26 +1131,26 @@ __Ltext42 0 0 ABS 0 text42 dist/default/production\BicMeter.X.production.obj
 __Ltext43 0 0 ABS 0 text43 dist/default/production\BicMeter.X.production.obj
 __Ltext44 0 0 ABS 0 text44 dist/default/production\BicMeter.X.production.obj
 __Ltext45 0 0 ABS 0 text45 dist/default/production\BicMeter.X.production.obj
-EepromManage@WriteIndex 54 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+EepromManage@WriteIndex 4E 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
 GetAvgSpeed@bIsKph 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-__ramtop 600 0 RAM 0 ramtop C:\Users\0E57~1\AppData\Local\Temp\s390.obj
+__ramtop 600 0 RAM 0 ramtop C:\Users\0E57~1\AppData\Local\Temp\s3rs.obj
 ReloadHWtimer@TimerId 3 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __Lpowerup E 0 CODE 0 powerup dist/default/production\BicMeter.X.production.obj
-_HWI_4Digit_WRITE 154A 0 CODE 0 text28 dist/default/production\BicMeter.X.production.obj
+_HWI_4Digit_WRITE 15A0 0 CODE 0 text28 dist/default/production\BicMeter.X.production.obj
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\BicMeter.X.production.obj
-_CreateTask 12D4 0 CODE 0 text31 dist/default/production\BicMeter.X.production.obj
+_CreateTask 132A 0 CODE 0 text31 dist/default/production\BicMeter.X.production.obj
 __psmallconst 600 0 SMALLCONST 0 smallconst dist/default/production\BicMeter.X.production.obj
 Eeprom_Read_Block@BlockSize 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\BicMeter.X.production.obj
 __size_of_HWtimerCallback 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __size_of_HWIeeprom_Write 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-BCDsendNumber@Buffer 25 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
+BCDsendNumber@Buffer 28 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 ___param_bank 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __CFG_WDT$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-_BCDsendNumber D86 0 CODE 0 text23 dist/default/production\BicMeter.X.production.obj
+_BCDsendNumber D96 0 CODE 0 text23 dist/default/production\BicMeter.X.production.obj
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\BicMeter.X.production.obj
 _SevenSegmentMAP 633 0 SMALLCONST 0 smallconst dist/default/production\BicMeter.X.production.obj
-__end_of__initialization 1486 0 CODE 0 cinit dist/default/production\BicMeter.X.production.obj
+__end_of__initialization 14DC 0 CODE 0 cinit dist/default/production\BicMeter.X.production.obj
 _INTCON3 FF0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __CFG_WRT0$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __CFG_WRT1$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
@@ -1156,32 +1163,32 @@ __CFG_WRTD$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __size_of_APP_ISR1 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __size_of_APP_ISR2 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __size_of_APP_ISR3 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-_Eeprom_Write_Block 1272 0 CODE 0 text21 dist/default/production\BicMeter.X.production.obj
+_Eeprom_Write_Block 12C8 0 CODE 0 text21 dist/default/production\BicMeter.X.production.obj
 CreateTask@Period 17 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 BCDInitialize@bIsCommonAnode 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 GetAvgSpeed@KphMphFactor 30 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\BicMeter.X.production.obj
 ___lmul@product 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-_BCDAlpha 37 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
-_bIsAnodeUsed 5C 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
-_HWI_DIGI_READ 14D2 0 CODE 0 text10 dist/default/production\BicMeter.X.production.obj
+_BCDAlpha C2 0 BANK0 1 bssBANK0 dist/default/production\BicMeter.X.production.obj
+_bIsAnodeUsed 59 0 COMRAM 1 bssCOMRAM dist/default/production\BicMeter.X.production.obj
+_HWI_DIGI_READ 1528 0 CODE 0 text10 dist/default/production\BicMeter.X.production.obj
 ___lmul@multiplicand 18 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __CFG_PWRT$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-APP_MANAGE@keystatus C9 0 BANK0 1 cstackBANK0 dist/default/production\BicMeter.X.production.obj
+APP_MANAGE@keystatus D9 0 BANK0 1 cstackBANK0 dist/default/production\BicMeter.X.production.obj
 ___lldiv@quotient 28 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-_SensorOneNotify 1702 0 CODE 0 text44 dist/default/production\BicMeter.X.production.obj
+_SensorOneNotify 1758 0 CODE 0 text44 dist/default/production\BicMeter.X.production.obj
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __size_of_ReloadHWtimer 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 CreateTask@TaskId 16 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-_ManageDrivers 16CC 0 CODE 0 text4 dist/default/production\BicMeter.X.production.obj
+_ManageDrivers 1722 0 CODE 0 text4 dist/default/production\BicMeter.X.production.obj
 HWI_8Digit_WRITE@value 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 __end_of_Segment7ASCIItable 61B 0 SMALLCONST 0 smallconst dist/default/production\BicMeter.X.production.obj
 ?_GetDistance 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-__end_of_APP_INITIALIZE 1658 0 CODE 0 text33 dist/default/production\BicMeter.X.production.obj
+__end_of_APP_INITIALIZE 16AE 0 CODE 0 text33 dist/default/production\BicMeter.X.production.obj
 __CFG_BOREN$SBORDIS 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __size_of_BCDInitialize 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __size_of_SpeedCalcNotifyInitialize 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-__end_of_main 1752 0 CODE 0 text0 dist/default/production\BicMeter.X.production.obj
+__end_of_main 17AC 0 CODE 0 text0 dist/default/production\BicMeter.X.production.obj
 __pintcode 8 0 CODE 0 intcode dist/default/production\BicMeter.X.production.obj
 HWI_DIGI_READ@pin 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 GetKeyStatus@KeyStatus 14 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
@@ -1212,31 +1219,31 @@ __CFG_CP3$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __CFG_CPB$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 BCDsendNumber@Number 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-__end_of_CreateTask 132C 0 CODE 0 text31 dist/default/production\BicMeter.X.production.obj
+__end_of_CreateTask 1382 0 CODE 0 text31 dist/default/production\BicMeter.X.production.obj
 __size_of_ISR 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __size_of_DisplayAlphaNumeric 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-BCDsendNumber@Output 23 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
+BCDsendNumber@Output 26 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
 _DataArray 80 0 BANK0 1 bssBANK0 dist/default/production\BicMeter.X.production.obj
 _APP_MANAGE A6E 0 CODE 0 text13 dist/default/production\BicMeter.X.production.obj
 __size_of_GetDistance 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
-__initialization 1456 0 CODE 0 cinit dist/default/production\BicMeter.X.production.obj
-__end_of_ManageApplication 1766 0 CODE 0 text6 dist/default/production\BicMeter.X.production.obj
-APP_MANAGE@keystatus2 C4 0 BANK0 1 cstackBANK0 dist/default/production\BicMeter.X.production.obj
+__initialization 14AC 0 CODE 0 cinit dist/default/production\BicMeter.X.production.obj
+__end_of_ManageApplication 17C0 0 CODE 0 text6 dist/default/production\BicMeter.X.production.obj
+APP_MANAGE@keystatus2 D4 0 BANK0 1 cstackBANK0 dist/default/production\BicMeter.X.production.obj
 __pbssBANK0 80 0 BANK0 1 bssBANK0 dist/default/production\BicMeter.X.production.obj
-__pdataCOMRAM 6A 0 COMRAM 1 dataCOMRAM dist/default/production\BicMeter.X.production.obj
-__end_of_ReloadHWtimer 154A 0 CODE 0 text42 dist/default/production\BicMeter.X.production.obj
+__pdataCOMRAM 66 0 COMRAM 1 dataCOMRAM dist/default/production\BicMeter.X.production.obj
+__end_of_ReloadHWtimer 15A0 0 CODE 0 text42 dist/default/production\BicMeter.X.production.obj
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\BicMeter.X.production.obj
 ___wmul@product 18 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-_APP_ISR1 1778 0 CODE 0 text43 dist/default/production\BicMeter.X.production.obj
-_APP_ISR2 1772 0 CODE 0 text40 dist/default/production\BicMeter.X.production.obj
-_APP_ISR3 176C 0 CODE 0 text38 dist/default/production\BicMeter.X.production.obj
+_APP_ISR1 17D2 0 CODE 0 text43 dist/default/production\BicMeter.X.production.obj
+_APP_ISR2 17CC 0 CODE 0 text40 dist/default/production\BicMeter.X.production.obj
+_APP_ISR3 17C6 0 CODE 0 text38 dist/default/production\BicMeter.X.production.obj
 __Hsmallconst 640 0 SMALLCONST 0 smallconst dist/default/production\BicMeter.X.production.obj
-BlinkDigit@Index 15 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
-__end_of_HWI_4Digit_WRITE 157C 0 CODE 0 text28 dist/default/production\BicMeter.X.production.obj
+BlinkDigit@Index 16 0 COMRAM 1 cstackCOMRAM dist/default/production\BicMeter.X.production.obj
+__end_of_HWI_4Digit_WRITE 15D2 0 CODE 0 text28 dist/default/production\BicMeter.X.production.obj
 __size_of_GetAvgSpeed 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\BicMeter.X.production.obj
 _Segment7ASCIItable 601 0 SMALLCONST 0 smallconst dist/default/production\BicMeter.X.production.obj
-__end_of_BCDInitialize 175A 0 CODE 0 text32 dist/default/production\BicMeter.X.production.obj
+__end_of_BCDInitialize 17B4 0 CODE 0 text32 dist/default/production\BicMeter.X.production.obj
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\BicMeter.X.production.obj
 __Hintcode E 0 CODE 0 intcode dist/default/production\BicMeter.X.production.obj
 __size_of_Eeprom_Read_Block 0 0 ABS 0 - dist/default/production\BicMeter.X.production.obj
@@ -1266,10 +1273,10 @@ __size_of_HWI_4Digit_WRITE 0 0 ABS 0 - dist/default/production\BicMeter.X.produc
 # All other numeric quantities are in decimal.
 %SEGMENTS
 idloc 0 200000 200000 8 1
-text9 0 640 640 1142 1
-cstackCOMRAM 1 1 1 6C 1
+text9 0 640 640 119C 1
+cstackCOMRAM 1 1 1 68 1
 reset_vec 0 0 0 4 1
-bssBANK0 1 80 80 4C 1
+bssBANK0 1 80 80 5A 1
 intcode 0 8 8 A 1
 smallconst 0 600 600 40 1
 config 0 300000 300000 E 1

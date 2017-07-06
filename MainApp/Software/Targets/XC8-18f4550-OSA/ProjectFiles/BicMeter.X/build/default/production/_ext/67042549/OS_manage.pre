@@ -3820,17 +3820,24 @@ extern void BCDInitialize( unsigned char bIsCommonAnode);
 extern void BCDsendNumber
 (
 unsigned short Number ,
+unsigned char Line ,
 unsigned char DecimalPlace,
 unsigned char EnableTranc
 );
 
 extern void BCDManage7segment(void);
 
-extern void BlinkDigit(unsigned char Index , unsigned char duration);
+extern void BlinkDigit
+(
+unsigned char Index ,
+unsigned char Line,
+unsigned char duration
+);
 
 extern void Segment7SendString
 (
 unsigned char Position,
+unsigned char Line,
 unsigned char * Data,
 unsigned char Length
 );
@@ -3896,7 +3903,7 @@ CreateTask( ManageSpeedCalc, (unsigned char)0 , (unsigned char) 20);
 
 CreateTask( ManageApplication, (unsigned char)2 , (unsigned char) 100);
 
-CreateTask( DisplayAlphaNumeric, (unsigned char)1 , (unsigned char) 4);
+CreateTask( DisplayAlphaNumeric, (unsigned char)1 , (unsigned char) 2);
 
 CreateTask( ManageDrivers , (unsigned char)3 , (unsigned char) 10);
 

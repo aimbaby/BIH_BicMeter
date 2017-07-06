@@ -8,14 +8,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 "23
 [v _GetDistance `(ul ~T0 @X0 0 ef ]
 "15 ../../../../Common/Driver/BCDdisplay\BCDdisplay.h
-[v _BCDsendNumber `(v ~T0 @X0 0 ef3`us`uc`uc ]
+[v _BCDsendNumber `(v ~T0 @X0 0 ef4`us`uc`uc`uc ]
 "39 ../../../../Common/Driver/Key\Key.h
 [v _GetKeyStatus `(uc ~T0 @X0 0 ef1`uc ]
-"24 ../../../../Common/Driver/BCDdisplay\BCDdisplay.h
-[v _BlinkDigit `(v ~T0 @X0 0 ef2`uc`uc ]
-[v F3144 `(v ~T0 @X0 0 tf ]
+"25 ../../../../Common/Driver/BCDdisplay\BCDdisplay.h
+[v _BlinkDigit `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+[v F3148 `(v ~T0 @X0 0 tf ]
 "12 ../../../../Common/Driver/EEPROM\Eeprom.h
-[v _Eeprom_Write_Block `(uc ~T0 @X0 0 ef4`uc`*uc`uc`*F3144 ]
+[v _Eeprom_Write_Block `(uc ~T0 @X0 0 ef4`uc`*uc`uc`*F3148 ]
 "25 ../../../../Common/App/APP.c
 [v _IncrementDecrementSingleDigit `(us ~T0 @X0 0 sf3`us`uc`uc ]
 [; ;math.h: 30: extern double fabs(double);
@@ -2847,23 +2847,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;BCDdisplay\BCDdisplay.h: 15: extern void BCDsendNumber
 [; ;BCDdisplay\BCDdisplay.h: 16: (
 [; ;BCDdisplay\BCDdisplay.h: 17: unsigned short Number ,
-[; ;BCDdisplay\BCDdisplay.h: 18: unsigned char DecimalPlace,
-[; ;BCDdisplay\BCDdisplay.h: 19: unsigned char EnableTranc
-[; ;BCDdisplay\BCDdisplay.h: 20: );
-[; ;BCDdisplay\BCDdisplay.h: 22: extern void BCDManage7segment(void);
-[; ;BCDdisplay\BCDdisplay.h: 24: extern void BlinkDigit(unsigned char Index , unsigned char duration);
-[; ;BCDdisplay\BCDdisplay.h: 26: extern void Segment7SendString
-[; ;BCDdisplay\BCDdisplay.h: 27: (
-[; ;BCDdisplay\BCDdisplay.h: 28: unsigned char Position,
-[; ;BCDdisplay\BCDdisplay.h: 29: unsigned char * Data,
-[; ;BCDdisplay\BCDdisplay.h: 30: unsigned char Length
-[; ;BCDdisplay\BCDdisplay.h: 31: );
+[; ;BCDdisplay\BCDdisplay.h: 18: unsigned char Line ,
+[; ;BCDdisplay\BCDdisplay.h: 19: unsigned char DecimalPlace,
+[; ;BCDdisplay\BCDdisplay.h: 20: unsigned char EnableTranc
+[; ;BCDdisplay\BCDdisplay.h: 21: );
+[; ;BCDdisplay\BCDdisplay.h: 23: extern void BCDManage7segment(void);
+[; ;BCDdisplay\BCDdisplay.h: 25: extern void BlinkDigit
+[; ;BCDdisplay\BCDdisplay.h: 26: (
+[; ;BCDdisplay\BCDdisplay.h: 27: unsigned char Index ,
+[; ;BCDdisplay\BCDdisplay.h: 28: unsigned char Line,
+[; ;BCDdisplay\BCDdisplay.h: 29: unsigned char duration
+[; ;BCDdisplay\BCDdisplay.h: 30: );
+[; ;BCDdisplay\BCDdisplay.h: 32: extern void Segment7SendString
+[; ;BCDdisplay\BCDdisplay.h: 33: (
+[; ;BCDdisplay\BCDdisplay.h: 34: unsigned char Position,
+[; ;BCDdisplay\BCDdisplay.h: 35: unsigned char Line,
+[; ;BCDdisplay\BCDdisplay.h: 36: unsigned char * Data,
+[; ;BCDdisplay\BCDdisplay.h: 37: unsigned char Length
+[; ;BCDdisplay\BCDdisplay.h: 38: );
 [; ;BCDdisplay\DisplayManage.h: 11: extern void DisplaySendString
 [; ;BCDdisplay\DisplayManage.h: 12: (
 [; ;BCDdisplay\DisplayManage.h: 13: unsigned char Position,
-[; ;BCDdisplay\DisplayManage.h: 14: unsigned char * Data,
-[; ;BCDdisplay\DisplayManage.h: 15: unsigned char Length
-[; ;BCDdisplay\DisplayManage.h: 16: );
+[; ;BCDdisplay\DisplayManage.h: 14: unsigned char Line,
+[; ;BCDdisplay\DisplayManage.h: 15: unsigned char * Data,
+[; ;BCDdisplay\DisplayManage.h: 16: unsigned char Length
+[; ;BCDdisplay\DisplayManage.h: 17: );
 [; ;Key\Key.h: 22: typedef struct
 [; ;Key\Key.h: 23: {
 [; ;Key\Key.h: 24: unsigned char HWI_ID;
@@ -2948,13 +2956,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _APP_MANAGE ]
 [f ]
 "54
-[v F3168 `ui ~T0 @X0 1 s blinkIndex ]
-[i F3168
+[v F3172 `ui ~T0 @X0 1 s blinkIndex ]
+[i F3172
 -> -> -> 0 `i `uc `ui
 ]
 "55
-[v F3170 `ui ~T0 @X0 1 s bIsBlinkMode ]
-[i F3170
+[v F3174 `ui ~T0 @X0 1 s bIsBlinkMode ]
+[i F3174
 -> -> -> 0 `i `uc `ui
 ]
 "56
@@ -2994,13 +3002,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;APP.c: 73: if(bIsBlinkMode == (unsigned char)0)
 "73
-[e $ ! == F3170 -> -> -> 0 `i `uc `ui 282  ]
+[e $ ! == F3174 -> -> -> 0 `i `uc `ui 282  ]
 [; ;APP.c: 74: {
 "74
 {
-[; ;APP.c: 75: BCDsendNumber(AvgSpeedKph,1 ,1);
+[; ;APP.c: 75: BCDsendNumber(AvgSpeedKph,0,1 ,1);
 "75
-[e ( _BCDsendNumber (3 , , _AvgSpeedKph -> -> 1 `i `uc -> -> 1 `i `uc ]
+[e ( _BCDsendNumber (4 , , , _AvgSpeedKph -> -> 0 `i `uc -> -> 1 `i `uc -> -> 1 `i `uc ]
 [; ;APP.c: 76: keystatus = GetKeyStatus(0);
 "76
 [e = _keystatus ( _GetKeyStatus (1 -> -> 0 `i `uc ]
@@ -3012,7 +3020,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;APP.c: 79: bIsBlinkMode = (unsigned char)1;
 "79
-[e = F3170 -> -> -> 1 `i `uc `ui ]
+[e = F3174 -> -> -> 1 `i `uc `ui ]
 "80
 }
 [e :U 283 ]
@@ -3027,12 +3035,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;APP.c: 83: {
 "83
 {
-[; ;APP.c: 85: BCDsendNumber(Circum,0 ,0);
+[; ;APP.c: 85: BCDsendNumber(Circum,1,0 ,0);
 "85
-[e ( _BCDsendNumber (3 , , _Circum -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;APP.c: 86: BlinkDigit(blinkIndex,100);
+[e ( _BCDsendNumber (4 , , , _Circum -> -> 1 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;APP.c: 86: BlinkDigit(blinkIndex,1,100);
 "86
-[e ( _BlinkDigit (2 , -> F3168 `uc -> -> 100 `i `uc ]
+[e ( _BlinkDigit (3 , , -> F3172 `uc -> -> 1 `i `uc -> -> 100 `i `uc ]
 [; ;APP.c: 87: keystatus = GetKeyStatus(0);
 "87
 [e = _keystatus ( _GetKeyStatus (1 -> -> 0 `i `uc ]
@@ -3044,16 +3052,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;APP.c: 90: blinkIndex++;
 "90
-[e ++ F3168 -> -> 1 `i `ui ]
+[e ++ F3172 -> -> 1 `i `ui ]
 [; ;APP.c: 91: if(blinkIndex == 4)
 "91
-[e $ ! == F3168 -> -> 4 `i `ui 286  ]
+[e $ ! == F3172 -> -> 4 `i `ui 286  ]
 [; ;APP.c: 92: {
 "92
 {
 [; ;APP.c: 93: blinkIndex=0;
 "93
-[e = F3168 -> -> 0 `i `ui ]
+[e = F3172 -> -> 0 `i `ui ]
 "94
 }
 [e :U 286 ]
@@ -3083,13 +3091,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;APP.c: 102: Eeprom_Write_Block(1,(unsigned char*)&Circum ,
 [; ;APP.c: 103: (unsigned char)sizeof(Circum),(void*)0);
 "103
-[e ( _Eeprom_Write_Block (4 , , , -> -> 1 `i `uc -> &U _Circum `*uc -> -> # _Circum `ui `uc -> -> -> 0 `i `*v `*F3144 ]
-[; ;APP.c: 104: BlinkDigit(1,0);
+[e ( _Eeprom_Write_Block (4 , , , -> -> 1 `i `uc -> &U _Circum `*uc -> -> # _Circum `ui `uc -> -> -> 0 `i `*v `*F3148 ]
+[; ;APP.c: 104: BlinkDigit(1,1,0);
 "104
-[e ( _BlinkDigit (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
+[e ( _BlinkDigit (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 0 `i `uc ]
 [; ;APP.c: 105: bIsBlinkMode = (unsigned char)0;
 "105
-[e = F3170 -> -> -> 0 `i `uc `ui ]
+[e = F3174 -> -> -> 0 `i `uc `ui ]
 "108
 }
 [; ;APP.c: 108: }
@@ -3104,7 +3112,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;APP.c: 111: Circum = IncrementDecrementSingleDigit(
 [; ;APP.c: 112: Circum,blinkIndex,(unsigned char)0);
 "112
-[e = _Circum ( _IncrementDecrementSingleDigit (3 , , _Circum -> F3168 `uc -> -> 0 `i `uc ]
+[e = _Circum ( _IncrementDecrementSingleDigit (3 , , _Circum -> F3172 `uc -> -> 0 `i `uc ]
 "113
 }
 [; ;APP.c: 113: }
@@ -3119,7 +3127,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;APP.c: 116: Circum = IncrementDecrementSingleDigit(
 [; ;APP.c: 117: Circum,blinkIndex,(unsigned char)1);
 "117
-[e = _Circum ( _IncrementDecrementSingleDigit (3 , , _Circum -> F3168 `uc -> -> 1 `i `uc ]
+[e = _Circum ( _IncrementDecrementSingleDigit (3 , , _Circum -> F3172 `uc -> -> 1 `i `uc ]
 "118
 }
 [e :U 292 ]

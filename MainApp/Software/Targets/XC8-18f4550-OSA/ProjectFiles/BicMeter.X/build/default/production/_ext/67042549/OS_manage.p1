@@ -22,7 +22,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ManageDrivers `(v ~T0 @X0 0 ef ]
 "25 ../../../../OS/Scheduler\Scheduler.h
 [v _RunScheduler `(v ~T0 @X0 0 ef ]
-"22 ../../../../Common/Driver/BCDdisplay\BCDdisplay.h
+"23 ../../../../Common/Driver/BCDdisplay\BCDdisplay.h
 [v _BCDManage7segment `(v ~T0 @X0 0 ef ]
 "3 ../../../../Common/App\APP.h
 [v _APP_MANAGE `(v ~T0 @X0 0 ef ]
@@ -2847,17 +2847,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;BCDdisplay\BCDdisplay.h: 15: extern void BCDsendNumber
 [; ;BCDdisplay\BCDdisplay.h: 16: (
 [; ;BCDdisplay\BCDdisplay.h: 17: unsigned short Number ,
-[; ;BCDdisplay\BCDdisplay.h: 18: unsigned char DecimalPlace,
-[; ;BCDdisplay\BCDdisplay.h: 19: unsigned char EnableTranc
-[; ;BCDdisplay\BCDdisplay.h: 20: );
-[; ;BCDdisplay\BCDdisplay.h: 22: extern void BCDManage7segment(void);
-[; ;BCDdisplay\BCDdisplay.h: 24: extern void BlinkDigit(unsigned char Index , unsigned char duration);
-[; ;BCDdisplay\BCDdisplay.h: 26: extern void Segment7SendString
-[; ;BCDdisplay\BCDdisplay.h: 27: (
-[; ;BCDdisplay\BCDdisplay.h: 28: unsigned char Position,
-[; ;BCDdisplay\BCDdisplay.h: 29: unsigned char * Data,
-[; ;BCDdisplay\BCDdisplay.h: 30: unsigned char Length
-[; ;BCDdisplay\BCDdisplay.h: 31: );
+[; ;BCDdisplay\BCDdisplay.h: 18: unsigned char Line ,
+[; ;BCDdisplay\BCDdisplay.h: 19: unsigned char DecimalPlace,
+[; ;BCDdisplay\BCDdisplay.h: 20: unsigned char EnableTranc
+[; ;BCDdisplay\BCDdisplay.h: 21: );
+[; ;BCDdisplay\BCDdisplay.h: 23: extern void BCDManage7segment(void);
+[; ;BCDdisplay\BCDdisplay.h: 25: extern void BlinkDigit
+[; ;BCDdisplay\BCDdisplay.h: 26: (
+[; ;BCDdisplay\BCDdisplay.h: 27: unsigned char Index ,
+[; ;BCDdisplay\BCDdisplay.h: 28: unsigned char Line,
+[; ;BCDdisplay\BCDdisplay.h: 29: unsigned char duration
+[; ;BCDdisplay\BCDdisplay.h: 30: );
+[; ;BCDdisplay\BCDdisplay.h: 32: extern void Segment7SendString
+[; ;BCDdisplay\BCDdisplay.h: 33: (
+[; ;BCDdisplay\BCDdisplay.h: 34: unsigned char Position,
+[; ;BCDdisplay\BCDdisplay.h: 35: unsigned char Line,
+[; ;BCDdisplay\BCDdisplay.h: 36: unsigned char * Data,
+[; ;BCDdisplay\BCDdisplay.h: 37: unsigned char Length
+[; ;BCDdisplay\BCDdisplay.h: 38: );
 [; ;Key\Key.h: 22: typedef struct
 [; ;Key\Key.h: 23: {
 [; ;Key\Key.h: 24: unsigned char HWI_ID;
@@ -2922,9 +2929,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;OS_manage.c: 31: CreateTask( ManageApplication, (unsigned char)2 , (unsigned char) 100);
 "31
 [e ( _CreateTask (3 , , &U _ManageApplication -> -> 2 `i `uc -> -> 100 `i `uc ]
-[; ;OS_manage.c: 33: CreateTask( DisplayAlphaNumeric, (unsigned char)1 , (unsigned char) 4);
+[; ;OS_manage.c: 33: CreateTask( DisplayAlphaNumeric, (unsigned char)1 , (unsigned char) 2);
 "33
-[e ( _CreateTask (3 , , &U _DisplayAlphaNumeric -> -> 1 `i `uc -> -> 4 `i `uc ]
+[e ( _CreateTask (3 , , &U _DisplayAlphaNumeric -> -> 1 `i `uc -> -> 2 `i `uc ]
 [; ;OS_manage.c: 35: CreateTask( ManageDrivers , (unsigned char)3 , (unsigned char) 10);
 "35
 [e ( _CreateTask (3 , , &U _ManageDrivers -> -> 3 `i `uc -> -> 10 `i `uc ]

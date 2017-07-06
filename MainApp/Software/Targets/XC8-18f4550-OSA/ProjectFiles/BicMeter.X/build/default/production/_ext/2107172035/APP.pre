@@ -3828,17 +3828,24 @@ extern void BCDInitialize( unsigned char bIsCommonAnode);
 extern void BCDsendNumber
 (
 unsigned short Number ,
+unsigned char Line ,
 unsigned char DecimalPlace,
 unsigned char EnableTranc
 );
 
 extern void BCDManage7segment(void);
 
-extern void BlinkDigit(unsigned char Index , unsigned char duration);
+extern void BlinkDigit
+(
+unsigned char Index ,
+unsigned char Line,
+unsigned char duration
+);
 
 extern void Segment7SendString
 (
 unsigned char Position,
+unsigned char Line,
 unsigned char * Data,
 unsigned char Length
 );
@@ -3847,6 +3854,7 @@ unsigned char Length
 extern void DisplaySendString
 (
 unsigned char Position,
+unsigned char Line,
 unsigned char * Data,
 unsigned char Length
 );
@@ -3944,7 +3952,7 @@ if( (unsigned char)0 == WriteFlag)
 {
 if(bIsBlinkMode == (unsigned char)0)
 {
-BCDsendNumber(AvgSpeedKph,1 ,1);
+BCDsendNumber(AvgSpeedKph,0,1 ,1);
 keystatus = GetKeyStatus(0);
 if( keystatus == (unsigned char)0x82)
 {
@@ -3954,8 +3962,8 @@ bIsBlinkMode = (unsigned char)1;
 else
 {
 
-BCDsendNumber(Circum,0 ,0);
-BlinkDigit(blinkIndex,100);
+BCDsendNumber(Circum,1,0 ,0);
+BlinkDigit(blinkIndex,1,100);
 keystatus = GetKeyStatus(0);
 if( keystatus == (unsigned char)0x40)
 {
@@ -3973,7 +3981,7 @@ if(keystatus == (unsigned char)0x82 )
 {
 Eeprom_Write_Block(1,(unsigned char*)&Circum ,
 (unsigned char)sizeof(Circum),(void*)0);
-BlinkDigit(1,0);
+BlinkDigit(1,1,0);
 bIsBlinkMode = (unsigned char)0;
 
 
