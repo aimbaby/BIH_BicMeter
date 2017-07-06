@@ -20,10 +20,11 @@ const unsigned char SevenSegmentMAP[11] =
     0b00000001  //.
 };
 
-static unsigned short BCDAlpha[NUMBER_DIGITS];
+static unsigned short BCDAlpha[NUMBER_LINES][NUMBER_DIGITS];
 static unsigned char bIsAnodeUsed = (unsigned char)0;
 static unsigned char BlinkIndex = (unsigned char)0;
 static unsigned char BlinkDuration = (unsigned char)0;
+static unsigned char LineBlinkIndex = (unsigned char)0;
 static unsigned char BlinkFlag = (unsigned char)0;
 
 PUBLIC void BCDInitialize( unsigned char bIsCommonAnode)
@@ -34,6 +35,7 @@ PUBLIC void BCDInitialize( unsigned char bIsCommonAnode)
 PUBLIC void BCDsendNumber
 (
     unsigned short Number , 
+    unsigned char Line ,       
     unsigned char DecimalPlace,
     unsigned char EnableTranc
 )
@@ -50,21 +52,21 @@ PUBLIC void BCDsendNumber
             Buffer = (unsigned short)(Buffer/(unsigned short)10);
             Output = Link - (unsigned short)(Buffer * (unsigned short)10);
          
-            BCDAlpha[LoopIndex] = SevenSegmentMAP[Output];
+            BCDAlpha[Line][LoopIndex] = SevenSegmentMAP[Output];
         }
         else if ((LoopIndex <= DecimalPlace)
                                   ||( (unsigned char)0) == EnableTranc)
         {
-            BCDAlpha[LoopIndex] = SevenSegmentMAP[0];            
+            BCDAlpha[Line][LoopIndex] = SevenSegmentMAP[0];            
         }
         else
         {
-           BCDAlpha[LoopIndex] = 0x0;    
+           BCDAlpha[Line][LoopIndex] = 0x0;    
         }
     }    
     if(DecimalPlace != (unsigned char)0)
     {
-        BCDAlpha[DecimalPlace] |= SevenSegmentMAP[10];
+        BCDAlpha[Line][DecimalPlace] |= SevenSegmentMAP[10];
     }
 }
 
@@ -72,9 +74,11 @@ PUBLIC void BCDManage7segment(void)
 {
     static unsigned char DigitIndex = (unsigned char)0;
     static unsigned char BlinkCounter = (unsigned char)0;
-	unsigned char Index;
-	unsigned char BCD = (unsigned char)0;    
-    //PORTD = BCDAlpha/10;
+	static unsigned char LineIndex = (unsigned char)0;
+    
+    unsigned char Index;
+	unsigned char BCD;    
+
     
     if( BlinkDuration != (unsigned char)0)
     {
@@ -90,23 +94,26 @@ PUBLIC void BCDManage7segment(void)
        BlinkFlag = (unsigned char)0;    
     }
         
-    if( ((unsigned char)1 == BlinkFlag)&& (DigitIndex == BlinkIndex))
+    if( ((unsigned char)1 == BlinkFlag)&& (DigitIndex == BlinkIndex)
+            && (LineBlinkIndex == LineIndex))
     {
-        Index = (unsigned char)0xF;
+        BCD = (unsigned char)0;
     }
     else
     {
-        Index = (~(((unsigned char) 0x1 << ((NUMBER_DIGITS - DigitIndex) 
-                                        - (unsigned char)1))));
-        BCD = BCDAlpha[DigitIndex];   
+        BCD = BCDAlpha[LineIndex][DigitIndex];   
     }
 
     if( (unsigned char)1 == bIsAnodeUsed)
     {
-        Index = (unsigned char)~Index;
+        //Index = (unsigned char)~Index;
         BCD = (unsigned char)~BCD;
     }
-    			
+   
+    
+    Index = (unsigned char)(LineIndex * (unsigned char)NUMBER_DIGITS )
+                                                                  + DigitIndex;
+    //Index = ((NUMBER_DIGITS - DigitIndex)- (unsigned char)1);	
     HWI_4Digit_WRITE(0,Index);
     HWI_8Digit_WRITE(1,BCD);
     
@@ -116,24 +123,36 @@ PUBLIC void BCDManage7segment(void)
     
     
     DigitIndex ++;
-    if(DigitIndex == NUMBER_DIGITS)
+    if(DigitIndex == (unsigned char)NUMBER_DIGITS)
     {
         DigitIndex = (unsigned char)0;
+        LineIndex++;
+        if(LineIndex == (unsigned char)NUMBER_LINES)
+        {
+            LineIndex = (unsigned char)0;
+        }
     }
     
 }
 
 
-PUBLIC void BlinkDigit(unsigned char Index , unsigned char duration)
+PUBLIC void BlinkDigit
+(
+    unsigned char Index , 
+    unsigned char Line, 
+    unsigned char duration
+)
 {
     BlinkIndex = Index;
     BlinkDuration = duration;
+    LineBlinkIndex = Line;
 }
 
 /* Maximum is number of digits */
 PUBLIC void Segment7SendString
 (
     unsigned char Position, 
+    unsigned char Line,
     unsigned char * Data,
     unsigned char Length
 )
@@ -143,7 +162,7 @@ PUBLIC void Segment7SendString
     {
        for(LoopIndex = Position ; LoopIndex < (Position+Length) ;LoopIndex++)
        {
-           BCDAlpha[LoopIndex] = Data[LoopIndex];
+           BCDAlpha[Line][LoopIndex] = Data[LoopIndex];
        }    
     } 
 }
