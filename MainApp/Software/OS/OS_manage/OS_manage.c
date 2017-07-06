@@ -30,7 +30,7 @@ PUBLIC void Start_App(void)
     
     CreateTask( ManageApplication, (unsigned char)2  , (unsigned char) 100);
     
-    CreateTask( DisplayAlphaNumeric, (unsigned char)1  , (unsigned char) 4);
+    CreateTask( DisplayAlphaNumeric, (unsigned char)1  , (unsigned char) 2);
     
     CreateTask( ManageDrivers , (unsigned char)3 , (unsigned char) 10);
 
