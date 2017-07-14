@@ -28,7 +28,7 @@ PUBLIC void Start_App(void)
    
     CreateTask( ManageSpeedCalc, (unsigned char)0  , (unsigned char) 20);
     
-    CreateTask( ManageApplication, (unsigned char)2  , (unsigned char) 100);
+    CreateTask( ManageApplication, (unsigned char)2  , (unsigned char) 50);
     
     CreateTask( DisplayAlphaNumeric, (unsigned char)1  , (unsigned char) 2);
     
