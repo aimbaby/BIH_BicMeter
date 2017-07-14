@@ -55,7 +55,12 @@ PUBLIC void DisplaySendString
             TempStore = Data[LoopIndex] - (unsigned char)0x41;
             ConvertedData[(Length - (unsigned char)1)- LoopIndex] 
                                                = Segment7ASCIItable[TempStore];
-        }        
+        }     
+		else
+		{
+			ConvertedData[(Length - (unsigned char)1)- LoopIndex] 
+			                                   = Data[LoopIndex];
+		}			   
     }
     Segment7SendString(Position , Line , &ConvertedData[0] , Length);
 }

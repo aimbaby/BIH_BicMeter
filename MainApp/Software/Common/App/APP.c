@@ -33,19 +33,11 @@
   
   PUBLIC void APP_INITIALIZE(void)
   {
-	  //unsigned char LoopIndex;
 	  Eeprom_Read_Block(1 , (unsigned char*)&Circum , (unsigned char)sizeof(Circum));	  
-	 /* for(LoopIndex = (unsigned char)0 ;
-	         LoopIndex < (unsigned char)sizeof(CircumDigit);LoopIndex++)
-	  {
-		  if(CircumDigit[LoopIndex] > (unsigned char)9)
-		  {
-			 CircumDigit[LoopIndex] = (unsigned char)0; 
-		  }			  
-	  }	*/	  
+  
 	 if(Circum > (unsigned short)9999)
 	 {
-		 Circum = (unsigned short)0;
+		 Circum = (unsigned short)2000;
 	 }		 
   }
   
@@ -57,8 +49,6 @@
       unsigned long TravelledDistance;
       unsigned char keystatus;
       unsigned char keystatus2;
-	  //unsigned char Save[] = "SAVE";
-      
      
     
       SetCircumfirunce(Circum);
@@ -75,17 +65,22 @@
             BCDsendNumber(AvgSpeedKph,0,1 ,1);
 			BCDsendNumber(TravelledDistance,1,1 ,1);
             keystatus = GetKeyStatus(0);
+			keystatus2 = GetKeyStatus(1);
             if( keystatus == NEW_STATE_LONG_PRESS)
             {
                 bIsBlinkMode = (unsigned char)1;
             }
+			else if(keystatus2 == NEW_STATE_SHORT_PRESS)
+			{
+				HWI_8Digit_WRITE(1,0xFF);
+				SendMCUtoSleep();
+			}				
         }
         else
         {
-            //DisplaySendString(0 , &Save[0] , 4);
             BCDsendNumber(Circum,1,0 ,0);
             BlinkDigit(blinkIndex,1,100);
-            keystatus = GetKeyStatus(0);
+            keystatus = GetKeyStatus(0);			
             if( keystatus == CAPTURE_STATE_SHORT_PRESSED)
             {
                 blinkIndex++;
@@ -126,32 +121,6 @@
       }   
   }
   
-  /*
-  static unsigned short ConvertDigit
-  (
-    unsigned char *ArrayNumbers, 
-    unsigned char Size
-  )
-  {
-      unsigned short NumberReturned = (unsigned short)0;
-      unsigned char LoopIndex;
-      unsigned char PowIndex;
-      unsigned short unitPosition = (unsigned short)1;
-      
-      for(LoopIndex=(unsigned char)0;LoopIndex < Size; LoopIndex++)
-      {
-          for(PowIndex = (unsigned char)0 ; PowIndex < LoopIndex ;
-                                                          PowIndex++  )
-          {
-              unitPosition *=(unsigned short)10;
-          }
-          NumberReturned += 
-                     (((unsigned short)ArrayNumbers[LoopIndex]) * unitPosition);
-          unitPosition = (unsigned short)1;
-      }
-      
-      return NumberReturned;
-  }*/
   static unsigned short IncrementDecrementSingleDigit
   (
     unsigned short Number,
