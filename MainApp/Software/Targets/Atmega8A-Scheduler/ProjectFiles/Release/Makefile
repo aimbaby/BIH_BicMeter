@@ -47,6 +47,7 @@ C_SRCS +=  \
 ../../HWIeeprom/HWIeeprom.c \
 ../../HWIsource/HWI_DIGITAL.c \
 ../../HWIsource/HWI_Interrupts.c \
+../../HWIsource/HWI_Sleep.c \
 ../BicMeter.c
 
 
@@ -69,6 +70,7 @@ Scheduler.o \
 HWIeeprom.o \
 HWI_DIGITAL.o \
 HWI_Interrupts.o \
+HWI_Sleep.o \
 BicMeter.o
 
 
@@ -85,6 +87,7 @@ Scheduler.o \
 HWIeeprom.o \
 HWI_DIGITAL.o \
 HWI_Interrupts.o \
+HWI_Sleep.o \
 BicMeter.o
 
 
@@ -101,6 +104,7 @@ Scheduler.d \
 HWIeeprom.d \
 HWI_DIGITAL.d \
 HWI_Interrupts.d \
+HWI_Sleep.d \
 BicMeter.d
 
 
@@ -117,6 +121,7 @@ Scheduler.d \
 HWIeeprom.d \
 HWI_DIGITAL.d \
 HWI_Interrupts.d \
+HWI_Sleep.d \
 BicMeter.d
 
 
@@ -129,6 +134,8 @@ ADDITIONAL_DEPENDENCIES:=
 OUTPUT_FILE_DEP:= ./makedep.mk
 
 # AVR32/GNU C Compiler
+
+
 
 
 

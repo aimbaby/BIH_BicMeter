@@ -231,6 +231,10 @@
       <SubType>compile</SubType>
       <Link>HWI_Interrupts.c</Link>
     </Compile>
+    <Compile Include="..\HWIsource\HWI_Sleep.c">
+      <SubType>compile</SubType>
+      <Link>HWI_Sleep.c</Link>
+    </Compile>
     <Compile Include="..\HWIsource\TargetFile.h">
       <SubType>compile</SubType>
       <Link>TargetFile.h</Link>

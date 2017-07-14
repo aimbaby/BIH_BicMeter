@@ -26,5 +26,7 @@
 
 ..\HWIsource\HWI_Interrupts.c
 
+..\HWIsource\HWI_Sleep.c
+
 BicMeter.c
 

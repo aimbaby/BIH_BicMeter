@@ -26,6 +26,7 @@ PUBLIC void HWI_INTERRUPTS_INTITALIZE(void)
 	    
 	GICR |= (1 << INT1);                    //Enable INT1
 	MCUCR |= (1<<ISC11)|(1<<ISC10);         //INT1 is executed on every edge
+
 		
 	DDRD |= (1<<DDRD2)|(1<<DDRD3);
 	
@@ -67,9 +68,12 @@ ISR(TIMER1_OVF_vect)
 ISR(INT0_vect)
 {
 	APP_ISR1(); 
+	/* work around to change interrupt from level based to falling edge
+	  after wakeup */
+	MCUCR |= (1<<ISC01)|(1<<ISC00);
 }
 
 ISR(INT1_vect)
 {
-	APP_ISR2();
+	APP_ISR2();	
 }
