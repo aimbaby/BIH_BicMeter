@@ -16,3 +16,5 @@ PUBLIC void HWI_Delay_nsec(unsigned short Time);
 PUBLIC unsigned short ReloadHWtimer(unsigned char TimerId);
 
 PUBLIC void SendMCUtoSleep(void);
+
+PUBLIC void HWI_InitOscilatorCalib(void);

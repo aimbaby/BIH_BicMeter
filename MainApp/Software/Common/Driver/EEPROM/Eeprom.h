@@ -12,7 +12,7 @@
 PUBLIC unsigned char Eeprom_Write_Block
 (
     unsigned char address , 
-    unsigned char *DataPtr ,                                               
+    void *DataPtr ,                                               
     unsigned char BlockSize,
     void (*ptrFnCallback)(void)
 );
@@ -20,7 +20,7 @@ PUBLIC unsigned char Eeprom_Write_Block
 PUBLIC unsigned char Eeprom_Read_Block
 (   
     unsigned char address , 
-    unsigned char *DataPtr , 
+    void *DataPtr , 
     unsigned char BlockSize 
 );
 

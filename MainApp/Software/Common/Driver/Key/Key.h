@@ -14,8 +14,8 @@
 #define STATE_SHORT_PRESS                (unsigned char)0x01
 #define STATE_LONG_PRESS                 (unsigned char)0x02
 
-#define CAPTURE_STATE_SHORT_PRESSED          (unsigned char)0x40
-#define CAPTURE_STATE_LONG_PRESSED           (unsigned char)0x80
+#define CAPTURE_STATE_SHORT_PRESS          (unsigned char)0x40
+#define CAPTURE_STATE_LONG_PRESS           (unsigned char)0x80
 #define NEW_STATE_SHORT_PRESS                (unsigned char)0x81
 #define NEW_STATE_LONG_PRESS                 (unsigned char)0x82
 

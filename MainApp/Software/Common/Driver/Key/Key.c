@@ -87,7 +87,7 @@ PUBLIC void MangeKeys(unsigned char KeyID)
                     KeyInternalData[KeyID].KeyCounter--;
                     if(KeyInternalData[KeyID].KeyCounter == (unsigned short)0)
                     {
-                        KeyInternalData[KeyID].KeyState = CAPTURE_STATE_SHORT_PRESSED;
+                        KeyInternalData[KeyID].KeyState = CAPTURE_STATE_SHORT_PRESS;
                     }
                 }
             }
@@ -103,7 +103,7 @@ PUBLIC void MangeKeys(unsigned char KeyID)
                 KeyInternalData[KeyID].KeyCounter--;
                 if(KeyInternalData[KeyID].KeyCounter == (unsigned short)0)
                 {
-                    KeyInternalData[KeyID].KeyState = CAPTURE_STATE_LONG_PRESSED;
+                    KeyInternalData[KeyID].KeyState = CAPTURE_STATE_LONG_PRESS;
                 }
             }
             break;

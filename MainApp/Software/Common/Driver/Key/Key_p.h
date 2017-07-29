@@ -8,7 +8,7 @@
 #ifndef KEY_P_H
 #define	KEY_P_H
 
-#define NUMBER_KEYS            (unsigned char)3
+#define NUMBER_KEYS            (unsigned char)2
 
 #define KEYS_CONFIG \
          {\
@@ -25,15 +25,8 @@
                (unsigned short)6,\
                (unsigned short)6,\
                (unsigned short)100\
-           },\
-           {\
-               (unsigned char)17,\
-               (unsigned char)0,\
-               (unsigned short)6,\
-               (unsigned short)6,\
-               (unsigned short)100\
            }\
-         }
+		 }
 
 
 #endif	/* KEY_P_H */

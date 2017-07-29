@@ -34,23 +34,23 @@ PUBLIC void BCDInitialize( unsigned char bIsCommonAnode)
 
 PUBLIC void BCDsendNumber
 (
-    unsigned short Number , 
+    unsigned long Number , 
     unsigned char Line ,       
     unsigned char DecimalPlace,
     unsigned char EnableTranc
 )
 {
-    unsigned short Link,Output,Buffer;
+    unsigned long Link,Output,Buffer;
     unsigned char LoopIndex;
  
     Buffer = Number;
     for( LoopIndex = (unsigned char)0; LoopIndex < NUMBER_DIGITS ; LoopIndex++)
     {
-        if((Buffer != (unsigned short)0)|| (LoopIndex <= DecimalPlace) )
+        if((Buffer != (unsigned long)0)|| (LoopIndex <= DecimalPlace) )
         { 
             Link = Buffer;
-            Buffer = (unsigned short)(Buffer/(unsigned short)10);
-            Output = Link - (unsigned short)(Buffer * (unsigned short)10);
+            Buffer = (unsigned long)(Buffer/(unsigned long)10);
+            Output = Link - (unsigned long)(Buffer * (unsigned long)10);
          
             BCDAlpha[Line][LoopIndex] = SevenSegmentMAP[Output];
         }

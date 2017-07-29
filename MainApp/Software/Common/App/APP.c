@@ -1,4 +1,4 @@
-#include <math.h>
+#include <string.h>
 #include "TargetFile.h"
 
 #include   "Extern.h"
@@ -6,22 +6,25 @@
   #include "SpeedCalc.h"
   #include "BCDdisplay.h"
   #include "DisplayManage.h"
-  #include "Key.h"
   #include "Eeprom.h"
+  #include "APP_HMI.h"
+  #include "APP_Calculations.h"
+  #include "APP_SleepManage.h"
 #include "Alloc.h"
   #include "APP.h"
 
+#define MAX_DISPLAY_NUMBER               (unsigned short)9999
+#define DEFAULT_CIRCUM                   (unsigned short)2000
+#define DEFAULT_TRAVEL_DIST              (unsigned short)0
+#define DEFAULT_TRAVEL_TIME              (unsigned short)0
 
-  //static unsigned char CircumDigit[4];
-  static unsigned char WriteFlag = (unsigned char)0;
-  static unsigned short Circum;
+#define APP_STATE_DIST                   (unsigned char)0x0
+#define APP_STATE_TIME                   (unsigned char)0x01
+#define APP_STATE_AVGSPD                 (unsigned char)0x02
+#define APP_STATE_CIRCUM                 (unsigned char)0x03
+
+  static APP_NVM_DATA APP_DATA;
   
-  /*static unsigned short ConvertDigit
-  (
-    unsigned char *ArrayNumbers, 
-    unsigned char Size
-  );*/
-   
   static unsigned short IncrementDecrementSingleDigit
   (
     unsigned short Number,
@@ -29,96 +32,69 @@
     unsigned char bIsincrement
   ); 
   
-  //static void StopSave(void);
-  
   PUBLIC void APP_INITIALIZE(void)
   {
-	  Eeprom_Read_Block(1 , (unsigned char*)&Circum , (unsigned char)sizeof(Circum));	  
+	 Eeprom_Read_Block(1 , &APP_DATA , (unsigned char)sizeof(APP_DATA));	  
   
-	 if(Circum > (unsigned short)9999)
+	 if(APP_DATA.Circum > MAX_DISPLAY_NUMBER)
 	 {
-		 Circum = (unsigned short)2000;
+		 APP_DATA.Circum = DEFAULT_CIRCUM;
+	 }
+	 if(APP_DATA.TravelledDistance > MAX_DISPLAY_NUMBER)
+	 {
+		 APP_DATA.TravelledDistance = DEFAULT_TRAVEL_DIST;
 	 }		 
+	 if(APP_DATA.TravelledDistance > MAX_DISPLAY_NUMBER)
+	 {
+		 APP_DATA.TravelTime = DEFAULT_TRAVEL_TIME;
+	 }
+	 SetCircumfirunce(APP_DATA.Circum);
+	 SetDistance(APP_DATA.TravelledDistance);
+	 APP_CALC_TIMEsetTravelTime(APP_DATA.TravelTime);
   }
   
   PUBLIC void APP_MANAGE(void)
   {
-      static unsigned blinkIndex = (unsigned char)0;
-      static unsigned bIsBlinkMode = (unsigned char)0;
-      unsigned short AvgSpeedKph;
-      unsigned long TravelledDistance;
-      unsigned char keystatus;
-      unsigned char keystatus2;
-     
+    unsigned long TravelTime;
+    unsigned short AvgSpeed;
+	unsigned short CurrentSpeed;
+    unsigned long TravelledDistance;
+	APP_INFOR_BYTE StatusByte;
+	
+	memcpy(&StatusByte,&APP_DATA.StatusByte,sizeof(APP_INFOR_BYTE));
     
-      SetCircumfirunce(Circum);
- 
-      AvgSpeedKph =  GetAvgSpeed(1);
-      TravelledDistance = GetDistance();
-      //TravelledDistance *= (unsigned long)10;
-      //TravelledDistance /= (unsigned long)16;
-    
-      if( (unsigned char)0 == WriteFlag)
-      {
-        if(bIsBlinkMode == (unsigned char)0)
-        {
-            BCDsendNumber(AvgSpeedKph,0,1 ,1);
-			BCDsendNumber(TravelledDistance,1,1 ,1);
-            keystatus = GetKeyStatus(0);
-			keystatus2 = GetKeyStatus(1);
-            if( keystatus == NEW_STATE_LONG_PRESS)
-            {
-                bIsBlinkMode = (unsigned char)1;
-            }
-			else if(keystatus2 == NEW_STATE_SHORT_PRESS)
-			{
-				HWI_8Digit_WRITE(1,0xFF);
-				SendMCUtoSleep();
-			}				
-        }
-        else
-        {
-            BCDsendNumber(Circum,1,0 ,0);
-            BlinkDigit(blinkIndex,1,100);
-            keystatus = GetKeyStatus(0);			
-            if( keystatus == CAPTURE_STATE_SHORT_PRESSED)
-            {
-                blinkIndex++;
-                if(blinkIndex == 4)
-                {
-                    blinkIndex=0;
-                }
-            }
-            else
-            {
-                keystatus = GetKeyStatus(1);
-                keystatus2 = GetKeyStatus(2);
-                if(keystatus == NEW_STATE_LONG_PRESS )
-                {
-                    Eeprom_Write_Block(1,(unsigned char*)&Circum , 
-                                 (unsigned char)sizeof(Circum),(void*)0);
-                    BlinkDigit(1,1,0);
-                    bIsBlinkMode = (unsigned char)0;
-                    //WriteFlag = (unsigned char)1;
-                    //DisplaySendString(0 , &Save[0] , 4);
-                }
-                else if(keystatus == CAPTURE_STATE_SHORT_PRESSED)
-                {
-                   Circum = IncrementDecrementSingleDigit(
-                                          Circum,blinkIndex,(unsigned char)0);
-                }		
-                else if(keystatus2 == CAPTURE_STATE_SHORT_PRESSED)
-                {                      
-                   Circum = IncrementDecrementSingleDigit(
-                                          Circum,blinkIndex,(unsigned char)1);
-                }           
-            }   
-        }
-      }
-      else
-      {
+    TravelledDistance = GetDistance();
+      
+    APP_HMImanage(&StatusByte);
+    TravelTime = APP_CALC_TIMEmanage(&StatusByte);
+    AvgSpeed = APP_CALC_AVGSPDemanage(&StatusByte , TravelTime , TravelledDistance);
+    APP_SLEEPmanage(&StatusByte);
+	
+    CurrentSpeed =  GetAvgSpeed(StatusByte.KphFlag);	
+	
+	BCDsendNumber(CurrentSpeed,0,1,1);
+	BCDsendNumber(TravelTime ,1 ,0 ,1);
+      
+    switch(StatusByte.CurrentState)
+    {
+		case APP_STATE_DIST:
+		break;
+        
+        case APP_STATE_TIME:
+        break;
 
-      }   
+		case APP_STATE_AVGSPD:
+		break;
+		
+		case APP_STATE_CIRCUM:
+		break;
+		
+		default:
+		break;
+	}
+
+
+      
   }
   
   static unsigned short IncrementDecrementSingleDigit
@@ -188,7 +164,3 @@
       
       return NumberReturned;
   }
- /* static void StopSave(void)
-  {
-      WriteFlag = (unsigned char)0;
-  }*/

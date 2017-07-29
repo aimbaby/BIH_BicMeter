@@ -13,20 +13,23 @@ static void (*WriteFnCallback)(void);
 PUBLIC unsigned char Eeprom_Write_Block
 (
     unsigned char address , 
-    unsigned char *DataPtr ,                                               
+    void *DataPtr ,                                               
     unsigned char BlockSize,
     void (*ptrFnCallback)(void)
 )
 {
     unsigned char WriteGranted;
     unsigned char LoopIndex;
+	unsigned char *LocDataPtr = (unsigned char*)DataPtr;
+	
+	
     if( ((unsigned char)0 == WriteRequest)&& (BlockSize <= EEPROM_BUFFER_SIZE))
     {
         WriteRequest = (unsigned char)1;
 
         for(LoopIndex = (unsigned char)0 ; LoopIndex < BlockSize; LoopIndex ++ )
         {
-            DataArray[LoopIndex] = DataPtr[LoopIndex];
+            DataArray[LoopIndex] = LocDataPtr[LoopIndex];
         }
         DataSize = BlockSize;
         EEPROMaddr = address;
@@ -39,22 +42,27 @@ PUBLIC unsigned char Eeprom_Write_Block
     }
     return WriteGranted;
 }
+
+
+
 PUBLIC unsigned char Eeprom_Read_Block
 (   
     unsigned char address , 
-    unsigned char *DataPtr , 
+    void *DataPtr , 
     unsigned char BlockSize
 )
 {
     unsigned char LoopIndex = (unsigned char)0 ;
     unsigned char ReadSuccess;
     unsigned char ReadGranted;
+	
+	unsigned char *LocDataPtr = (unsigned char *)DataPtr;
     
     if( (unsigned char)0 == WriteRequest)
     {     
         while(LoopIndex < BlockSize  )
         {
-           ReadSuccess = HWIeeprom_Read(address + LoopIndex , &DataPtr[LoopIndex]); 
+           ReadSuccess = HWIeeprom_Read(address + LoopIndex , &LocDataPtr[LoopIndex]); 
            if((unsigned char)1 == ReadSuccess)
            {
                 LoopIndex++;

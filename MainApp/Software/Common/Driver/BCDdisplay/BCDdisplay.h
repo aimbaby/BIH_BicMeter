@@ -14,7 +14,7 @@ PUBLIC void BCDInitialize( unsigned char bIsCommonAnode);
 
 PUBLIC void BCDsendNumber
 (
-    unsigned short Number , 
+    unsigned long Number , 
     unsigned char Line ,
     unsigned char DecimalPlace,
     unsigned char EnableTranc
