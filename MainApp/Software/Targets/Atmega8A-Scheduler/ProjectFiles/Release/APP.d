@@ -1,5 +1,6 @@
 APP.d APP.o: ../../../../Common/App/APP.c \
- e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr/4.6.2/../../../../avr/include/math.h \
+ e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr/4.6.2/../../../../avr/include/string.h \
+ e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr/4.6.2/include/stddef.h \
  ../../HWIsource/TargetFile.h \
  e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr/4.6.2/../../../../avr/include/avr/io.h \
  e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr/4.6.2/../../../../avr/include/avr/sfr_defs.h \
@@ -19,13 +20,18 @@ APP.d APP.o: ../../../../Common/App/APP.c \
  ../../../../Common/Driver/BCDdisplay/BCDdisplay.h \
  ../../../../Common/Driver/BCDdisplay/BCDdisplay_p.h \
  ../../../../Common/Driver/BCDdisplay/DisplayManage.h \
- ../../../../Common/Driver/Key/Key.h \
- ../../../../Common/Driver/Key/Key_p.h \
  ../../../../Common/Driver/EEPROM/Eeprom.h \
  ../../../../Common/Driver/EEPROM/Eeprom_p.h \
- ../../../../Common/Link/Alloc.h ../../../../Common/App/APP.h
+ ../../../../Common/App/APP_HMI/APP_HMI.h \
+ ../../../../Common/App/APP_TypeDef.h \
+ ../../../../Common/App/APP_Calculations/APP_Calculations.h \
+ ../../../../Common/App/APP_SleepManage/APP_SleepManage.h \
+ ../../../../Common/Link/Alloc.h ../../../../Common/App/APP.h \
+ ../../../../Common/App/APP_TypeDef.h
 
-e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr/4.6.2/../../../../avr/include/math.h:
+e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr/4.6.2/../../../../avr/include/string.h:
+
+e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr/4.6.2/include/stddef.h:
 
 ../../HWIsource/TargetFile.h:
 
@@ -67,14 +73,20 @@ e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrt
 
 ../../../../Common/Driver/BCDdisplay/DisplayManage.h:
 
-../../../../Common/Driver/Key/Key.h:
-
-../../../../Common/Driver/Key/Key_p.h:
-
 ../../../../Common/Driver/EEPROM/Eeprom.h:
 
 ../../../../Common/Driver/EEPROM/Eeprom_p.h:
 
+../../../../Common/App/APP_HMI/APP_HMI.h:
+
+../../../../Common/App/APP_TypeDef.h:
+
+../../../../Common/App/APP_Calculations/APP_Calculations.h:
+
+../../../../Common/App/APP_SleepManage/APP_SleepManage.h:
+
 ../../../../Common/Link/Alloc.h:
 
 ../../../../Common/App/APP.h:
+
+../../../../Common/App/APP_TypeDef.h:

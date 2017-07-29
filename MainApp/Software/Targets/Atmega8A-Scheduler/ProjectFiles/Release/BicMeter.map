@@ -1,11 +1,11 @@
 Archive member included because of file (symbol)
 
 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_mulsi3.o)
-                              SpeedCalc.o (__mulsi3)
+                              BCDdisplay.o (__mulsi3)
 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodhi4.o)
-                              APP.o (__udivmodhi4)
+                              SpeedCalc.o (__udivmodhi4)
 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodsi4.o)
-                              SpeedCalc.o (__udivmodsi4)
+                              BCDdisplay.o (__udivmodsi4)
 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
                               e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr4/crtm8a.o (exit)
 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_copy_data.o)
@@ -28,6 +28,10 @@ Linker script and memory map
 
 LOAD e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr4/crtm8a.o
 LOAD APP.o
+LOAD APP_CalcAvgSpeed.o
+LOAD APP_CalcTime.o
+LOAD APP_HMI.o
+LOAD APP_SleepManage.o
 LOAD BCDdisplay.o
 LOAD DisplayManage.o
 LOAD Eeprom.o
@@ -40,6 +44,7 @@ LOAD HWIeeprom.o
 LOAD HWI_DIGITAL.o
 LOAD HWI_Interrupts.o
 LOAD HWI_Sleep.o
+LOAD HWI_StartConfig.o
 LOAD BicMeter.o
 START GROUP
 LOAD e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr4\libm.a
@@ -138,7 +143,7 @@ LOAD e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xca2
+.text           0x00000000      0xd40
  *(.vectors)
  .vectors       0x00000000       0x26 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr4/crtm8a.o
                 0x00000000                __vector_default
@@ -209,94 +214,105 @@ LOAD e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
                 0x0000005c                __vector_10
                 0x0000005c                __vector_16
                 0x0000005c                __vector_18
- .text          0x0000005e      0x244 APP.o
-                0x0000015c                APP_INITIALIZE
-                0x00000184                APP_MANAGE
- .text          0x000002a2      0x1d4 BCDdisplay.o
-                0x000002a2                BCDInitialize
-                0x000002a8                BCDsendNumber
-                0x00000360                BCDManage7segment
-                0x0000041c                BlinkDigit
-                0x0000042a                Segment7SendString
- .text          0x00000476       0x60 DisplayManage.o
-                0x00000476                DisplaySendString
- .text          0x000004d6       0xe2 Eeprom.o
-                0x000004d6                Eeprom_Write_Block
-                0x00000518                Eeprom_Read_Block
-                0x0000056a                EepromManage
- .text          0x000005b8      0x14a Key.o
-                0x000005b8                KeyInitialize
-                0x000005c8                GetKeyStatus
-                0x000005e2                MangeKeys
- .text          0x00000702      0x1ae SpeedCalc.o
-                0x00000702                SpeedCalcNotifyInitialize
-                0x00000704                SensorOneNotify
-                0x00000726                SensorTwoNotify
-                0x0000076c                SpeedCalcManage
-                0x00000814                SetDistance
-                0x0000082a                GetDistance
-                0x0000083c                SetCircumfirunce
-                0x00000846                GetAvgSpeed
-                0x0000089c                HWtimerCallback
- .text          0x000008b0        0xc AppInterrupts.o
-                0x000008b0                APP_ISR1
-                0x000008b4                APP_ISR2
-                0x000008b8                APP_ISR3
- .text          0x000008bc       0x54 OS_manage.o
-                0x000008bc                ManageDrivers
-                0x000008cc                ManageSpeedCalc
-                0x000008d0                ManageApplication
-                0x000008d4                DisplayAlphaNumeric
-                0x000008d8                Start_App
- .text          0x00000910       0x80 Scheduler.o
-                0x00000910                CreateTask
-                0x0000092e                SchedulerTick
-                0x00000944                RunScheduler
- .text          0x00000990       0x32 HWIeeprom.o
-                0x00000990                HWIeeprom_Write
-                0x000009a8                HWIeeprom_Read
- .text          0x000009c2       0x7a HWI_DIGITAL.o
-                0x000009c2                HWI_DIGITAL_INITIALIZE
-                0x000009ce                HWI_DIGI_READ
-                0x000009f0                HWI_DIGI_WRITE
-                0x000009f2                HWI_4Digit_WRITE
-                0x00000a0a                HWI_4Digit_READ
-                0x00000a24                HWI_8Digit_WRITE
-                0x00000a30                HWI8Digit_READ
- .text          0x00000a3c      0x190 HWI_Interrupts.o
-                0x00000a3c                HWI_INTERRUPTS_INTITALIZE
-                0x00000a82                ReloadHWtimer
-                0x00000aa2                __vector_9
-                0x00000aec                __vector_8
-                0x00000b3a                __vector_1
-                0x00000b86                __vector_2
- .text          0x00000bcc       0x20 HWI_Sleep.o
-                0x00000bcc                SendMCUtoSleep
- .text          0x00000bec        0x0 BicMeter.o
- .text          0x00000bec        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_mulsi3.o)
- .text          0x00000bec        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodhi4.o)
- .text          0x00000bec        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodsi4.o)
- .text          0x00000bec        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
- .text          0x00000bec        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_copy_data.o)
- .text          0x00000bec        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_clear_bss.o)
-                0x00000bec                . = ALIGN (0x2)
+ .text          0x0000005e      0x116 APP.o
+                0x0000005e                APP_INITIALIZE
+                0x000000e8                APP_MANAGE
+ .text          0x00000174        0x6 APP_CalcAvgSpeed.o
+                0x00000174                APP_CALC_AVGSPDemanage
+ .text          0x0000017a       0x94 APP_CalcTime.o
+                0x0000017a                APP_CALC_TIMEsetTravelTime
+                0x00000190                APP_CALC_TIMEmanage
+ .text          0x0000020e       0x8e APP_HMI.o
+                0x0000020e                APP_HMImanage
+ .text          0x0000029c        0x2 APP_SleepManage.o
+                0x0000029c                APP_SLEEPmanage
+ .text          0x0000029e      0x254 BCDdisplay.o
+                0x0000029e                BCDInitialize
+                0x000002a4                BCDsendNumber
+                0x000003dc                BCDManage7segment
+                0x00000498                BlinkDigit
+                0x000004a6                Segment7SendString
+ .text          0x000004f2       0x60 DisplayManage.o
+                0x000004f2                DisplaySendString
+ .text          0x00000552       0xe2 Eeprom.o
+                0x00000552                Eeprom_Write_Block
+                0x00000594                Eeprom_Read_Block
+                0x000005e6                EepromManage
+ .text          0x00000634      0x14a Key.o
+                0x00000634                KeyInitialize
+                0x00000644                GetKeyStatus
+                0x0000065e                MangeKeys
+ .text          0x0000077e      0x1ae SpeedCalc.o
+                0x0000077e                SpeedCalcNotifyInitialize
+                0x00000780                SensorOneNotify
+                0x000007a2                SensorTwoNotify
+                0x000007e8                SpeedCalcManage
+                0x00000890                SetDistance
+                0x000008a6                GetDistance
+                0x000008b8                SetCircumfirunce
+                0x000008c2                GetAvgSpeed
+                0x00000918                HWtimerCallback
+ .text          0x0000092c        0xc AppInterrupts.o
+                0x0000092c                APP_ISR1
+                0x00000930                APP_ISR2
+                0x00000934                APP_ISR3
+ .text          0x00000938       0x52 OS_manage.o
+                0x00000938                ManageDrivers
+                0x00000944                ManageSpeedCalc
+                0x00000948                ManageApplication
+                0x0000094c                DisplayAlphaNumeric
+                0x00000950                Start_App
+ .text          0x0000098a       0x80 Scheduler.o
+                0x0000098a                CreateTask
+                0x000009a8                SchedulerTick
+                0x000009be                RunScheduler
+ .text          0x00000a0a       0x32 HWIeeprom.o
+                0x00000a0a                HWIeeprom_Write
+                0x00000a22                HWIeeprom_Read
+ .text          0x00000a3c       0x7a HWI_DIGITAL.o
+                0x00000a3c                HWI_DIGITAL_INITIALIZE
+                0x00000a48                HWI_DIGI_READ
+                0x00000a6a                HWI_DIGI_WRITE
+                0x00000a6c                HWI_4Digit_WRITE
+                0x00000a84                HWI_4Digit_READ
+                0x00000a9e                HWI_8Digit_WRITE
+                0x00000aaa                HWI8Digit_READ
+ .text          0x00000ab6      0x190 HWI_Interrupts.o
+                0x00000ab6                HWI_INTERRUPTS_INTITALIZE
+                0x00000afc                ReloadHWtimer
+                0x00000b1c                __vector_9
+                0x00000b66                __vector_8
+                0x00000bb4                __vector_1
+                0x00000c00                __vector_2
+ .text          0x00000c46       0x20 HWI_Sleep.o
+                0x00000c46                SendMCUtoSleep
+ .text          0x00000c66       0x24 HWI_StartConfig.o
+                0x00000c66                HWI_InitOscilatorCalib
+ .text          0x00000c8a        0x0 BicMeter.o
+ .text          0x00000c8a        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_mulsi3.o)
+ .text          0x00000c8a        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodhi4.o)
+ .text          0x00000c8a        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodsi4.o)
+ .text          0x00000c8a        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
+ .text          0x00000c8a        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_copy_data.o)
+ .text          0x00000c8a        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_clear_bss.o)
+                0x00000c8a                . = ALIGN (0x2)
  *(.text.*)
- .text.startup  0x00000bec        0x8 BicMeter.o
-                0x00000bec                main
- .text.libgcc   0x00000bf4       0x3e e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_mulsi3.o)
-                0x00000bf4                __mulsi3
- .text.libgcc   0x00000c32       0x28 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodhi4.o)
-                0x00000c32                __udivmodhi4
- .text.libgcc   0x00000c5a       0x44 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodsi4.o)
-                0x00000c5a                __udivmodsi4
- .text.libgcc   0x00000c9e        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
- .text.libgcc   0x00000c9e        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000c9e        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_clear_bss.o)
-                0x00000c9e                . = ALIGN (0x2)
+ .text.startup  0x00000c8a        0x8 BicMeter.o
+                0x00000c8a                main
+ .text.libgcc   0x00000c92       0x3e e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_mulsi3.o)
+                0x00000c92                __mulsi3
+ .text.libgcc   0x00000cd0       0x28 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodhi4.o)
+                0x00000cd0                __udivmodhi4
+ .text.libgcc   0x00000cf8       0x44 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodsi4.o)
+                0x00000cf8                __udivmodsi4
+ .text.libgcc   0x00000d3c        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
+ .text.libgcc   0x00000d3c        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000d3c        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_clear_bss.o)
+                0x00000d3c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000c9e        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
-                0x00000c9e                _exit
-                0x00000c9e                exit
+ .fini9         0x00000d3c        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
+                0x00000d3c                _exit
+                0x00000d3c                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -315,86 +331,96 @@ LOAD e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000c9e        0x4 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
+ .fini0         0x00000d3c        0x4 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000ca2                _etext = .
+                0x00000d40                _etext = .
 
-.data           0x00800060       0x40 load address 0x00000ca2
+.data           0x00800060       0x38 load address 0x00000d40
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr4/crtm8a.o
  .data          0x00800060        0x0 APP.o
+ .data          0x00800060        0x0 APP_CalcAvgSpeed.o
+ .data          0x00800060        0x0 APP_CalcTime.o
+ .data          0x00800060        0x0 APP_HMI.o
+ .data          0x00800060        0x0 APP_SleepManage.o
  .data          0x00800060        0xb BCDdisplay.o
                 0x00800060                SevenSegmentMAP
  .data          0x0080006b       0x1a DisplayManage.o
                 0x0080006b                Segment7ASCIItable
  .data          0x00800085        0x0 Eeprom.o
- .data          0x00800085       0x18 Key.o
+ .data          0x00800085       0x10 Key.o
                 0x00800085                KeyArrayConfig
- .data          0x0080009d        0x2 SpeedCalc.o
- .data          0x0080009f        0x0 AppInterrupts.o
- .data          0x0080009f        0x0 OS_manage.o
- .data          0x0080009f        0x0 Scheduler.o
- .data          0x0080009f        0x0 HWIeeprom.o
- .data          0x0080009f        0x0 HWI_DIGITAL.o
- .data          0x0080009f        0x0 HWI_Interrupts.o
- .data          0x0080009f        0x0 HWI_Sleep.o
- .data          0x0080009f        0x0 BicMeter.o
- .data          0x0080009f        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_mulsi3.o)
- .data          0x0080009f        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodhi4.o)
- .data          0x0080009f        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodsi4.o)
- .data          0x0080009f        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
- .data          0x0080009f        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_copy_data.o)
- .data          0x0080009f        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_clear_bss.o)
+ .data          0x00800095        0x2 SpeedCalc.o
+ .data          0x00800097        0x0 AppInterrupts.o
+ .data          0x00800097        0x0 OS_manage.o
+ .data          0x00800097        0x0 Scheduler.o
+ .data          0x00800097        0x0 HWIeeprom.o
+ .data          0x00800097        0x0 HWI_DIGITAL.o
+ .data          0x00800097        0x0 HWI_Interrupts.o
+ .data          0x00800097        0x0 HWI_Sleep.o
+ .data          0x00800097        0x0 HWI_StartConfig.o
+ .data          0x00800097        0x0 BicMeter.o
+ .data          0x00800097        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_mulsi3.o)
+ .data          0x00800097        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodhi4.o)
+ .data          0x00800097        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodsi4.o)
+ .data          0x00800097        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
+ .data          0x00800097        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_copy_data.o)
+ .data          0x00800097        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_clear_bss.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x008000a0                . = ALIGN (0x2)
- *fill*         0x0080009f        0x1 00
-                0x008000a0                _edata = .
-                0x008000a0                PROVIDE (__data_end, .)
+                0x00800098                . = ALIGN (0x2)
+ *fill*         0x00800097        0x1 00
+                0x00800098                _edata = .
+                0x00800098                PROVIDE (__data_end, .)
 
-.bss            0x008000a0       0x7e
-                0x008000a0                PROVIDE (__bss_start, .)
+.bss            0x00800098       0x85
+                0x00800098                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x008000a0        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr4/crtm8a.o
- .bss           0x008000a0        0x6 APP.o
- .bss           0x008000a6       0x18 BCDdisplay.o
- .bss           0x008000be        0x0 DisplayManage.o
- .bss           0x008000be       0x38 Eeprom.o
- .bss           0x008000f6        0x9 Key.o
- .bss           0x008000ff        0xe SpeedCalc.o
-                0x008000ff                HwTimerOVFLcount
-                0x00800100                HWtimerCount
-                0x00800102                LapCounter
-                0x00800103                NotifyFlag
- .bss           0x0080010d        0x0 AppInterrupts.o
- .bss           0x0080010d        0x0 OS_manage.o
- .bss           0x0080010d       0x11 Scheduler.o
- .bss           0x0080011e        0x0 HWIeeprom.o
- .bss           0x0080011e        0x0 HWI_DIGITAL.o
- .bss           0x0080011e        0x0 HWI_Interrupts.o
- .bss           0x0080011e        0x0 HWI_Sleep.o
- .bss           0x0080011e        0x0 BicMeter.o
- .bss           0x0080011e        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_mulsi3.o)
- .bss           0x0080011e        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodhi4.o)
- .bss           0x0080011e        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodsi4.o)
- .bss           0x0080011e        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
- .bss           0x0080011e        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_copy_data.o)
- .bss           0x0080011e        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_clear_bss.o)
+ .bss           0x00800098        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr4/crtm8a.o
+ .bss           0x00800098        0x9 APP.o
+ .bss           0x008000a1        0x0 APP_CalcAvgSpeed.o
+ .bss           0x008000a1        0x6 APP_CalcTime.o
+ .bss           0x008000a7        0x1 APP_HMI.o
+ .bss           0x008000a8        0x0 APP_SleepManage.o
+ .bss           0x008000a8       0x18 BCDdisplay.o
+ .bss           0x008000c0        0x0 DisplayManage.o
+ .bss           0x008000c0       0x38 Eeprom.o
+ .bss           0x008000f8        0x6 Key.o
+ .bss           0x008000fe        0xe SpeedCalc.o
+                0x008000fe                HwTimerOVFLcount
+                0x008000ff                HWtimerCount
+                0x00800101                LapCounter
+                0x00800102                NotifyFlag
+ .bss           0x0080010c        0x0 AppInterrupts.o
+ .bss           0x0080010c        0x0 OS_manage.o
+ .bss           0x0080010c       0x11 Scheduler.o
+ .bss           0x0080011d        0x0 HWIeeprom.o
+ .bss           0x0080011d        0x0 HWI_DIGITAL.o
+ .bss           0x0080011d        0x0 HWI_Interrupts.o
+ .bss           0x0080011d        0x0 HWI_Sleep.o
+ .bss           0x0080011d        0x0 HWI_StartConfig.o
+ .bss           0x0080011d        0x0 BicMeter.o
+ .bss           0x0080011d        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_mulsi3.o)
+ .bss           0x0080011d        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodhi4.o)
+ .bss           0x0080011d        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_udivmodsi4.o)
+ .bss           0x0080011d        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_exit.o)
+ .bss           0x0080011d        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_copy_data.o)
+ .bss           0x0080011d        0x0 e:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr4\libgcc.a(_clear_bss.o)
  *(.bss*)
  *(COMMON)
-                0x0080011e                PROVIDE (__bss_end, .)
-                0x00000ca2                __data_load_start = LOADADDR (.data)
-                0x00000ce2                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0080011d                PROVIDE (__bss_end, .)
+                0x00000d40                __data_load_start = LOADADDR (.data)
+                0x00000d78                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080011e        0x0
-                0x0080011e                PROVIDE (__noinit_start, .)
+.noinit         0x0080011d        0x0
+                0x0080011d                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0080011e                PROVIDE (__noinit_end, .)
-                0x0080011e                _end = .
-                0x0080011e                PROVIDE (__heap_start, .)
+                0x0080011d                PROVIDE (__noinit_end, .)
+                0x0080011d                _end = .
+                0x0080011d                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)

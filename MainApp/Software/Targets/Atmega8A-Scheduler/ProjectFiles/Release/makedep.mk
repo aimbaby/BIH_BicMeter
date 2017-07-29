@@ -4,6 +4,14 @@
 
 ..\..\..\Common\App\APP.c
 
+..\..\..\Common\App\APP_Calculations\APP_CalcAvgSpeed.c
+
+..\..\..\Common\App\APP_Calculations\APP_CalcTime.c
+
+..\..\..\Common\App\APP_HMI\APP_HMI.c
+
+..\..\..\Common\App\APP_SleepManage\APP_SleepManage.c
+
 ..\..\..\Common\Driver\BCDdisplay\BCDdisplay.c
 
 ..\..\..\Common\Driver\BCDdisplay\DisplayManage.c
@@ -27,6 +35,8 @@
 ..\HWIsource\HWI_Interrupts.c
 
 ..\HWIsource\HWI_Sleep.c
+
+..\HWIsource\HWI_StartConfig.c
 
 BicMeter.c
 
