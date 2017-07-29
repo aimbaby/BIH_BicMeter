@@ -20,6 +20,7 @@ void ManageDrivers(void);
 
 PUBLIC void Start_App(void)
 {
+	HWI_InitOscilatorCalib();
     HWI_INTERRUPTS_INTITALIZE();
     HWI_DIGITAL_INITIALIZE();
     SpeedCalcNotifyInitialize();
