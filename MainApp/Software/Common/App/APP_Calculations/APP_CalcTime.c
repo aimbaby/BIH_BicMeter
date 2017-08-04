@@ -7,17 +7,18 @@
 #define MINUTE_STAMP                 (unsigned short)((unsigned short)60000/COUNTER_PERIOD_MS)
 
 static unsigned long ElapsedTimeMinutes = (unsigned long)0;
+static unsigned short ElapsedTimePeriod = (unsigned short)0;
+
 
 PUBLIC void APP_CALC_TIMEsetTravelTime(unsigned long TravelTime)
 {
 	ElapsedTimeMinutes = TravelTime;
-	
+	ElapsedTimePeriod = (unsigned short)0;
 }
 
 
 PUBLIC unsigned long APP_CALC_TIMEmanage(APP_INFOR_BYTE * StatusByte)
 {
-	static unsigned short ElapsedTimePeriod = (unsigned short)0;
 	
 	if((unsigned char)1 == StatusByte->ClearFlag)
 	{
@@ -28,6 +29,7 @@ PUBLIC unsigned long APP_CALC_TIMEmanage(APP_INFOR_BYTE * StatusByte)
 	{
 		ElapsedTimePeriod = (unsigned short)0;
 		ElapsedTimeMinutes++;
+		StatusByte->EEPsaveFlag = (unsigned char)1;
 	}
 	else
 	{

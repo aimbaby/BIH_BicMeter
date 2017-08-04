@@ -15,8 +15,10 @@
 
 #define MAX_DISPLAY_NUMBER               (unsigned short)9999
 #define DEFAULT_CIRCUM                   (unsigned short)2000
-#define DEFAULT_TRAVEL_DIST              (unsigned short)0
-#define DEFAULT_TRAVEL_TIME              (unsigned short)0
+#define DEFAULT_TRAVEL_DIST              (unsigned long)0
+#define DEFAULT_TRAVEL_TIME              (unsigned long)0
+#define APP_BLINK_RATE                   (unsigned char)100
+
 
 #define APP_STATE_DIST                   (unsigned char)0x0
 #define APP_STATE_TIME                   (unsigned char)0x01
@@ -55,46 +57,112 @@
   
   PUBLIC void APP_MANAGE(void)
   {
-    unsigned long TravelTime;
     unsigned short AvgSpeed;
 	unsigned short CurrentSpeed;
-    unsigned long TravelledDistance;
-	APP_INFOR_BYTE StatusByte;
+    APP_INFOR_BYTE StatusByte;
 	
 	memcpy(&StatusByte,&APP_DATA.StatusByte,sizeof(APP_INFOR_BYTE));
     
-    TravelledDistance = GetDistance();
-      
+    APP_DATA.TravelledDistance = GetDistance();
+         
     APP_HMImanage(&StatusByte);
-    TravelTime = APP_CALC_TIMEmanage(&StatusByte);
-    AvgSpeed = APP_CALC_AVGSPDemanage(&StatusByte , TravelTime , TravelledDistance);
+    APP_DATA.TravelTime = APP_CALC_TIMEmanage(&StatusByte);
+    AvgSpeed = APP_CALC_AVGSPDemanage(&StatusByte , APP_DATA.TravelTime , APP_DATA.TravelledDistance);
     APP_SLEEPmanage(&StatusByte);
 	
     CurrentSpeed =  GetAvgSpeed(StatusByte.KphFlag);	
 	
 	BCDsendNumber(CurrentSpeed,0,1,1);
-	BCDsendNumber(TravelTime ,1 ,0 ,1);
-      
+
     switch(StatusByte.CurrentState)
     {
 		case APP_STATE_DIST:
+		    BCDsendNumber(APP_DATA.TravelledDistance ,1 ,1 ,1);
 		break;
         
         case APP_STATE_TIME:
+		
+		    if((unsigned char)1 == StatusByte.ExtraIncrementFlag)
+			{
+				APP_CALC_TIMEsetTravelTime((unsigned long)0);
+			}		
+			BCDsendNumber(APP_DATA.TravelTime ,1 ,0 ,1);
+			
         break;
 
 		case APP_STATE_AVGSPD:
+		    BCDsendNumber(1,1,0,1);
 		break;
 		
 		case APP_STATE_CIRCUM:
+			
+			if(StatusByte.DisplayState == HMI_APPLY_STATE)
+			{
+				if((unsigned char)1 == StatusByte.ExtraIncrementFlag)
+				{
+					if(APP_DATA.CircumBlinkIndex == (NUMBER_DIGITS - (unsigned char)1))
+					{
+						APP_DATA.CircumBlinkIndex = (unsigned char)0;
+					}
+					else
+					{
+						APP_DATA.CircumBlinkIndex ++;
+					}
+					
+				}
+				else if((unsigned char)1 == StatusByte.ExtraDecrementFlag)
+				{
+					if(APP_DATA.CircumBlinkIndex == (unsigned char)0)
+					{
+						APP_DATA.CircumBlinkIndex = NUMBER_DIGITS - (unsigned char)1;
+					}
+					else
+					{
+						APP_DATA.CircumBlinkIndex --;	
+					}					
+				}
+				else if((unsigned char)1 == StatusByte.IncrementFlag )
+				{
+					APP_DATA.Circum = IncrementDecrementSingleDigit(
+					              APP_DATA.Circum,APP_DATA.CircumBlinkIndex,(unsigned char)0);
+				}
+				else if ((unsigned char)1 == StatusByte.DecrementFlag)
+				{
+					APP_DATA.Circum = IncrementDecrementSingleDigit(
+					              APP_DATA.Circum,APP_DATA.CircumBlinkIndex,(unsigned char)1);
+
+				}
+				else
+				{
+					
+				}
+				BlinkDigit(APP_DATA.CircumBlinkIndex,1,APP_BLINK_RATE);
+			}				
+			else
+			{
+				BlinkDigit(APP_DATA.CircumBlinkIndex,1,0);
+			}
+
+			BCDsendNumber(APP_DATA.Circum ,1, 0,0);
+			SetCircumfirunce(APP_DATA.Circum);
 		break;
 		
 		default:
+		memset(&StatusByte,0,sizeof(StatusByte));
 		break;
 	}
 
-
-      
+	memcpy(&APP_DATA.StatusByte,&StatusByte,sizeof(APP_INFOR_BYTE));
+    
+	if(StatusByte.EEPsaveFlag == (unsigned char)1)
+	{
+		if((unsigned char)1 == 
+		     Eeprom_Write_Block(1,&APP_DATA,(unsigned char)sizeof(APP_DATA),NULL))
+			 {
+				APP_DATA.StatusByte.EEPsaveFlag = (unsigned char)0;
+			 }
+	}  
+	
   }
   
   static unsigned short IncrementDecrementSingleDigit
