@@ -48,10 +48,10 @@ PUBLIC void APP_HMImanage(APP_INFOR_BYTE * StatusByte )
 		{
 			StatusByte->KphFlag ^= (unsigned char)1;
 		}
-		else
+		else if(KeyStatusRight == NEW_STATE_LONG_PRESS)
 		{
-					
-		}
+			StatusByte->StopMeasureFlag ^= (unsigned char)1;
+		}			
 		break;
 		
 		case APPLY_STATE:

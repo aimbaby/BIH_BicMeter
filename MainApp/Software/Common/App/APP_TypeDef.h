@@ -20,6 +20,7 @@ typedef struct
 	unsigned char SleepFlag :1;
 	unsigned char KphFlag :1;
 	unsigned char DisplayState :1;
+	unsigned char StopMeasureFlag :1;
 }APP_INFOR_BYTE;
 
 typedef struct
