@@ -38,11 +38,25 @@ PUBLIC void APP_HMImanage(APP_INFOR_BYTE * StatusByte )
 		}
 		else if(KeyStatusLeft == CAPTURE_STATE_SHORT_PRESS)
 		{
-			StatusByte->CurrentState--;
+			if(StatusByte->CurrentState == (unsigned char)0)
+			{
+				StatusByte->CurrentState = APP_NB_DISPLAY_STATES - (unsigned char)1;	
+			}
+			else
+			{
+				StatusByte->CurrentState--;	
+			}
 		}
 		else if(KeyStatusRight == CAPTURE_STATE_SHORT_PRESS)
 		{
-			StatusByte->CurrentState++;
+			if(StatusByte->CurrentState == (APP_NB_DISPLAY_STATES - (unsigned char)1))
+			{
+				StatusByte->CurrentState = (unsigned char)0;
+			}
+			else
+			{
+				StatusByte->CurrentState++;	
+			}
 		}
 		else if(KeyStatusLeft == NEW_STATE_LONG_PRESS)
 		{

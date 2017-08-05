@@ -17,13 +17,16 @@
 #define DEFAULT_CIRCUM                   (unsigned short)2000
 #define DEFAULT_TRAVEL_DIST              (unsigned long)0
 #define DEFAULT_TRAVEL_TIME              (unsigned long)0
+#define DEFAULT_MAX_SPEED                (unsigned short)0
+
 #define APP_BLINK_RATE                   (unsigned char)100
 
 
 #define APP_STATE_DIST                   (unsigned char)0x0
 #define APP_STATE_TIME                   (unsigned char)0x01
 #define APP_STATE_AVGSPD                 (unsigned char)0x02
-#define APP_STATE_CIRCUM                 (unsigned char)0x03
+#define APP_STATE_MAXSPD                 (unsigned char)0x03
+#define APP_STATE_CIRCUM                 (unsigned char)0x04
 
   static APP_NVM_DATA APP_DATA;
   
@@ -50,9 +53,14 @@
 	 {
 		 APP_DATA.TravelTime = DEFAULT_TRAVEL_TIME;
 	 }
+	 if(APP_DATA.MaxSpeed > MAX_DISPLAY_NUMBER)
+	 {
+		 APP_DATA.MaxSpeed = DEFAULT_MAX_SPEED;
+	 }
 	 SetCircumfirunce(APP_DATA.Circum);
 	 SetDistance(APP_DATA.TravelledDistance);
 	 APP_CALC_TIMEsetTravelTime(APP_DATA.TravelTime);
+	 APP_CALC_MAXSPDmanage_Set(APP_DATA.MaxSpeed);
   }
   
   PUBLIC void APP_MANAGE(void)
@@ -67,10 +75,12 @@
          
     APP_HMImanage(&StatusByte);
     APP_DATA.TravelTime = APP_CALC_TIMEmanage(&StatusByte);
-    AvgSpeed = APP_CALC_AVGSPDemanage(&StatusByte , APP_DATA.TravelTime , APP_DATA.TravelledDistance);
+    AvgSpeed = APP_CALC_AVGSPDmanage(&StatusByte , APP_DATA.TravelTime , APP_DATA.TravelledDistance);
     APP_SLEEPmanage(&StatusByte);
 	
-    CurrentSpeed =  GetAvgSpeed(StatusByte.KphFlag);	
+	CurrentSpeed =  GetAvgSpeed(1);
+	APP_DATA.MaxSpeed = APP_CALC_MAXSPDmanage(CurrentSpeed);
+ 	DisableDistanceCntr(StatusByte.StopMeasureFlag);	
 	
 	BCDsendNumber(CurrentSpeed,0,1,1);
 
@@ -91,7 +101,11 @@
         break;
 
 		case APP_STATE_AVGSPD:
-		    BCDsendNumber(1,1,0,1);
+		    BCDsendNumber(AvgSpeed,1,1,1);
+		break;
+		
+		case APP_STATE_MAXSPD:
+			BCDsendNumber(APP_DATA.MaxSpeed , 1 ,1 ,1);
 		break;
 		
 		case APP_STATE_CIRCUM:

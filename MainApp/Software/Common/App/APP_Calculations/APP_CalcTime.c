@@ -31,10 +31,14 @@ PUBLIC unsigned long APP_CALC_TIMEmanage(APP_INFOR_BYTE * StatusByte)
 		ElapsedTimeMinutes++;
 		StatusByte->EEPsaveFlag = (unsigned char)1;
 	}
-	else
+	else if(StatusByte->StopMeasureFlag != (unsigned char)1)
 	{
 		ElapsedTimePeriod++;						
 	}	
+	else
+	{
+		
+	}
 	
 	return ElapsedTimeMinutes;
 }

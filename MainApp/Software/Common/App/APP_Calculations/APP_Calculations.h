@@ -6,7 +6,9 @@
 
 PUBLIC void APP_CALC_TIMEsetTravelTime(unsigned long TravelTime);
 PUBLIC unsigned long APP_CALC_TIMEmanage(APP_INFOR_BYTE * StatusByte);
-PUBLIC unsigned short APP_CALC_AVGSPDemanage
+PUBLIC void APP_CALC_MAXSPDmanage_Set(unsigned short MaxSpeed);
+PUBLIC unsigned short APP_CALC_MAXSPDmanage(unsigned short CurrentSpeed);
+PUBLIC unsigned short APP_CALC_AVGSPDmanage
 (
    APP_INFOR_BYTE * StatusByte ,
    unsigned long TravelTime , 

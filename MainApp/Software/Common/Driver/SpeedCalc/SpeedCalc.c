@@ -18,6 +18,7 @@ static unsigned long DistTravelCntr = (unsigned long)0;
 static unsigned short LapDistanceCounter = (unsigned short)0;
 static unsigned short LapTimeTenthMilli = (unsigned short)0;
 static unsigned char TimerOVFLcount = (unsigned char)0;
+static unsigned char DistTravelCntrDisable = (unsigned char)0;
 volatile unsigned short HWtimerCount = (unsigned short)0;
 volatile unsigned char HwTimerOVFLcount = (unsigned char)0;
  
@@ -74,20 +75,30 @@ PUBLIC void SpeedCalcManage(void)
     HundredMeterReference = (unsigned short)(HundredMetersFactor / 
                                              (unsigned long)CircumFactor);
 
-    if(LapDistanceCounter >= HundredMeterReference)
-    {      
-      DistTravelCntr ++;
-      LapDistanceCounter -= HundredMeterReference;
-    }
-    else
-    {
+    
+	if((unsigned char)0 == DistTravelCntrDisable)
+	{
+		if(LapDistanceCounter >= HundredMeterReference)
+		{
+			DistTravelCntr ++;
+			LapDistanceCounter -= HundredMeterReference;
+		}
+		else
+		{
 
-    } 
+		}
+	}
+}
+
+PUBLIC void DisableDistanceCntr(unsigned char bIsDisabled)
+{
+	DistTravelCntrDisable = bIsDisabled;
 }
 
 PUBLIC void SetDistance(unsigned long Distance)
 {
     DistTravelCntr = Distance;
+	LapDistanceCounter = (unsigned short)0;
 }
 
 PUBLIC unsigned long GetDistance(void)

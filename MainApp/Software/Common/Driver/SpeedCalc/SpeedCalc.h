@@ -18,6 +18,8 @@ PUBLIC void SensorTwoNotify(void);
 
 PUBLIC void SpeedCalcManage(void);
 
+PUBLIC void DisableDistanceCntr(unsigned char bIsDisabled);
+
 PUBLIC void SetDistance(unsigned long Distance);
 
 PUBLIC unsigned long GetDistance(void);
