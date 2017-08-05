@@ -36,7 +36,7 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../../../../Common/App/APP.c \
-../../../../Common/App/APP_Calculations/APP_CalcAvgSpeed.c \
+../../../../Common/App/APP_Calculations/APP_CalcSpeed.c \
 ../../../../Common/App/APP_Calculations/APP_CalcTime.c \
 ../../../../Common/App/APP_HMI/APP_HMI.c \
 ../../../../Common/App/APP_SleepManage/APP_SleepManage.c \
@@ -64,7 +64,7 @@ ASM_SRCS +=
 
 OBJS +=  \
 APP.o \
-APP_CalcAvgSpeed.o \
+APP_CalcSpeed.o \
 APP_CalcTime.o \
 APP_HMI.o \
 APP_SleepManage.o \
@@ -86,7 +86,7 @@ BicMeter.o
 
 OBJS_AS_ARGS +=  \
 APP.o \
-APP_CalcAvgSpeed.o \
+APP_CalcSpeed.o \
 APP_CalcTime.o \
 APP_HMI.o \
 APP_SleepManage.o \
@@ -108,7 +108,7 @@ BicMeter.o
 
 C_DEPS +=  \
 APP.d \
-APP_CalcAvgSpeed.d \
+APP_CalcSpeed.d \
 APP_CalcTime.d \
 APP_HMI.d \
 APP_SleepManage.d \
@@ -130,7 +130,7 @@ BicMeter.d
 
 C_DEPS_AS_ARGS +=  \
 APP.d \
-APP_CalcAvgSpeed.d \
+APP_CalcSpeed.d \
 APP_CalcTime.d \
 APP_HMI.d \
 APP_SleepManage.d \

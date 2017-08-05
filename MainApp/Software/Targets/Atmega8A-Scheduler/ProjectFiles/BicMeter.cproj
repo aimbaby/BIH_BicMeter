@@ -41,41 +41,41 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
       <AvrGcc>
-  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
-  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
-  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
-  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
-  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
-  <avrgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>../../../../..</Value>
-      <Value>../../../../Common/Link</Value>
-      <Value>../../../../Common/Interrupts</Value>
-      <Value>../../../../Common/Driver/SpeedCalc</Value>
-      <Value>../../../../Common/App</Value>
-      <Value>../../../../OS/Scheduler</Value>
-      <Value>../../../../Common/Driver/BCDdisplay</Value>
-      <Value>../../../../Common/HWIheader</Value>
-      <Value>../../HWIsource</Value>
-      <Value>../../../../OS/OS_manage</Value>
-      <Value>../../../../Common/Driver/Key</Value>
-      <Value>../../../../Common/Driver/EEPROM</Value>
-      <Value>../../HWIeeprom</Value>
-      <Value>../../../../Common/App/APP_HMI</Value>
-      <Value>../../../../Common/App/APP_Calculations</Value>
-      <Value>../../../../Common/App/APP_SleepManage</Value>
-    </ListValues>
-  </avrgcc.compiler.directories.IncludePaths>
-  <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
-  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
-  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
-  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
-  <avrgcc.linker.libraries.Libraries>
-    <ListValues>
-      <Value>m</Value>
-    </ListValues>
-  </avrgcc.linker.libraries.Libraries>
-</AvrGcc>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>../../../../..</Value>
+            <Value>../../../../Common/Link</Value>
+            <Value>../../../../Common/Interrupts</Value>
+            <Value>../../../../Common/Driver/SpeedCalc</Value>
+            <Value>../../../../Common/App</Value>
+            <Value>../../../../OS/Scheduler</Value>
+            <Value>../../../../Common/Driver/BCDdisplay</Value>
+            <Value>../../../../Common/HWIheader</Value>
+            <Value>../../HWIsource</Value>
+            <Value>../../../../OS/OS_manage</Value>
+            <Value>../../../../Common/Driver/Key</Value>
+            <Value>../../../../Common/Driver/EEPROM</Value>
+            <Value>../../HWIeeprom</Value>
+            <Value>../../../../Common/App/APP_HMI</Value>
+            <Value>../../../../Common/App/APP_Calculations</Value>
+            <Value>../../../../Common/App/APP_SleepManage</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>m</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+      </AvrGcc>
     </ToolchainSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -122,9 +122,9 @@
       <SubType>compile</SubType>
       <Link>APP.h</Link>
     </Compile>
-    <Compile Include="..\..\..\Common\App\APP_Calculations\APP_CalcAvgSpeed.c">
+    <Compile Include="..\..\..\Common\App\APP_Calculations\APP_CalcSpeed.c">
       <SubType>compile</SubType>
-      <Link>APP_CalcAvgSpeed.c</Link>
+      <Link>APP_CalcSpeed.c</Link>
     </Compile>
     <Compile Include="..\..\..\Common\App\APP_Calculations\APP_CalcTime.c">
       <SubType>compile</SubType>

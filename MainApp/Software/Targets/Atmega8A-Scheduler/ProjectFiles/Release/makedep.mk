@@ -4,7 +4,7 @@
 
 ..\..\..\Common\App\APP.c
 
-..\..\..\Common\App\APP_Calculations\APP_CalcAvgSpeed.c
+..\..\..\Common\App\APP_Calculations\APP_CalcSpeed.c
 
 ..\..\..\Common\App\APP_Calculations\APP_CalcTime.c
 
