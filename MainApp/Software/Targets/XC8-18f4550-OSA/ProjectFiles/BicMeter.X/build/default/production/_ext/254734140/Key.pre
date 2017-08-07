@@ -3810,6 +3810,10 @@ extern void HWI_Delay_nsec(unsigned short Time);
 
 extern unsigned short ReloadHWtimer(unsigned char TimerId);
 
+extern void SendMCUtoSleep(void);
+
+extern void HWI_InitOscilatorCalib(void);
+
 # 22 "../../../../Common/Driver/Key/Key.h"
 typedef struct
 {
@@ -3833,8 +3837,8 @@ unsigned short KeyCounter;
  void MangeKeys(unsigned char KeyID);
 
 # 11 "../../../../Common/Driver/Key/Key.c"
-const strKeyConfig KeyArrayConfig[(unsigned char)3] = { { (unsigned char)15, (unsigned char)0, (unsigned short)6, (unsigned short)6, (unsigned short)100 }, { (unsigned char)16, (unsigned char)0, (unsigned short)6, (unsigned short)6, (unsigned short)100 }, { (unsigned char)17, (unsigned char)0, (unsigned short)6, (unsigned short)6, (unsigned short)100 } };
-static strKeyData KeyInternalData[(unsigned char)3];
+const strKeyConfig KeyArrayConfig[(unsigned char)2] = { { (unsigned char)15, (unsigned char)0, (unsigned short)6, (unsigned short)6, (unsigned short)100 }, { (unsigned char)16, (unsigned char)0, (unsigned short)6, (unsigned short)6, (unsigned short)100 } };
+static strKeyData KeyInternalData[(unsigned char)2];
 
  void KeyInitialize(void)
 {

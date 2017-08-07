@@ -3775,12 +3775,16 @@ extern void HWI_Delay_nsec(unsigned short Time);
 
 extern unsigned short ReloadHWtimer(unsigned char TimerId);
 
+extern void SendMCUtoSleep(void);
+
+extern void HWI_InitOscilatorCalib(void);
+
 # 13 "../../../../Common/Driver/BCDdisplay/BCDdisplay.h"
  void BCDInitialize( unsigned char bIsCommonAnode);
 
  void BCDsendNumber
 (
-unsigned short Number ,
+unsigned long Number ,
 unsigned char Line ,
 unsigned char DecimalPlace,
 unsigned char EnableTranc
@@ -3833,23 +3837,23 @@ bIsAnodeUsed = bIsCommonAnode;
 
  void BCDsendNumber
 (
-unsigned short Number ,
+unsigned long Number ,
 unsigned char Line ,
 unsigned char DecimalPlace,
 unsigned char EnableTranc
 )
 {
-unsigned short Link,Output,Buffer;
+unsigned long Link,Output,Buffer;
 unsigned char LoopIndex;
 
 Buffer = Number;
 for( LoopIndex = (unsigned char)0; LoopIndex < 4 ; LoopIndex++)
 {
-if((Buffer != (unsigned short)0)|| (LoopIndex <= DecimalPlace) )
+if((Buffer != (unsigned long)0)|| (LoopIndex <= DecimalPlace) )
 {
 Link = Buffer;
-Buffer = (unsigned short)(Buffer/(unsigned short)10);
-Output = Link - (unsigned short)(Buffer * (unsigned short)10);
+Buffer = (unsigned long)(Buffer/(unsigned long)10);
+Output = Link - (unsigned long)(Buffer * (unsigned long)10);
 
 BCDAlpha[Line][LoopIndex] = SevenSegmentMAP[Output];
 }

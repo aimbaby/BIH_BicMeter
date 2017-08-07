@@ -3775,6 +3775,10 @@ extern __nonreentrant void _delay3(unsigned char);
 
  unsigned short ReloadHWtimer(unsigned char TimerId);
 
+ void SendMCUtoSleep(void);
+
+ void HWI_InitOscilatorCalib(void);
+
 # 8 "../../HWIsource/HWI_DIGITAL.c"
  void HWI_4Digit_WRITE(unsigned char port,unsigned char value)
 {

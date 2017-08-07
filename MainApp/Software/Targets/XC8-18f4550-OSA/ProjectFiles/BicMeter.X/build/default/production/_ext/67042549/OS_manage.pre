@@ -3791,7 +3791,37 @@ extern void HWI_Delay_nsec(unsigned short Time);
 
 extern unsigned short ReloadHWtimer(unsigned char TimerId);
 
-# 2 "../../../../Common/App\APP.h"
+extern void SendMCUtoSleep(void);
+
+extern void HWI_InitOscilatorCalib(void);
+
+# 13 "../../../../Common/App\APP_TypeDef.h"
+typedef struct
+{
+unsigned char CurrentState : 3;
+unsigned char EEPsaveFlag : 1;
+unsigned char IncrementFlag :1;
+unsigned char DecrementFlag :1;
+unsigned char ExtraIncrementFlag :1;
+unsigned char ExtraDecrementFlag :1;
+unsigned char ClearFlag :1;
+unsigned char SleepFlag :1;
+unsigned char KphFlag :1;
+unsigned char DisplayState :1;
+unsigned char StopMeasureFlag :1;
+}APP_INFOR_BYTE;
+
+typedef struct
+{
+unsigned short Circum;
+unsigned char CircumBlinkIndex;
+APP_INFOR_BYTE StatusByte;
+unsigned long TravelledDistance;
+unsigned long TravelTime;
+unsigned short MaxSpeed;
+}APP_NVM_DATA;
+
+# 6 "../../../../Common/App\APP.h"
 extern void APP_INITIALIZE(void);
 extern void APP_MANAGE();
 
@@ -3803,6 +3833,8 @@ extern void SensorOneNotify(void);
 extern void SensorTwoNotify(void);
 
 extern void SpeedCalcManage(void);
+
+extern void DisableDistanceCntr(unsigned char bIsDisabled);
 
 extern void SetDistance(unsigned long Distance);
 
@@ -3819,7 +3851,7 @@ extern void BCDInitialize( unsigned char bIsCommonAnode);
 
 extern void BCDsendNumber
 (
-unsigned short Number ,
+unsigned long Number ,
 unsigned char Line ,
 unsigned char DecimalPlace,
 unsigned char EnableTranc
@@ -3868,7 +3900,7 @@ extern void MangeKeys(unsigned char KeyID);
  unsigned char Eeprom_Write_Block
 (
 unsigned char address ,
-unsigned char *DataPtr ,
+void *DataPtr ,
 unsigned char BlockSize,
 void (*ptrFnCallback)(void)
 );
@@ -3876,7 +3908,7 @@ void (*ptrFnCallback)(void)
  unsigned char Eeprom_Read_Block
 (
 unsigned char address ,
-unsigned char *DataPtr ,
+void *DataPtr ,
 unsigned char BlockSize
 );
 
@@ -3893,6 +3925,7 @@ void ManageDrivers(void);
 
  void Start_App(void)
 {
+HWI_InitOscilatorCalib();
 HWI_INTERRUPTS_INTITALIZE();
 HWI_DIGITAL_INITIALIZE();
 SpeedCalcNotifyInitialize();
@@ -3901,7 +3934,7 @@ BCDInitialize(1);
 
 CreateTask( ManageSpeedCalc, (unsigned char)0 , (unsigned char) 20);
 
-CreateTask( ManageApplication, (unsigned char)2 , (unsigned char) 100);
+CreateTask( ManageApplication, (unsigned char)2 , (unsigned char) 50);
 
 CreateTask( DisplayAlphaNumeric, (unsigned char)1 , (unsigned char) 2);
 
@@ -3927,7 +3960,7 @@ SpeedCalcManage();
 void ManageDrivers(void)
 {
 unsigned char LoopIndex;
-for(LoopIndex = (unsigned char)0 ; LoopIndex < (unsigned char)3 ; LoopIndex++)
+for(LoopIndex = (unsigned char)0 ; LoopIndex < (unsigned char)2 ; LoopIndex++)
 {
 MangeKeys(LoopIndex);
 }

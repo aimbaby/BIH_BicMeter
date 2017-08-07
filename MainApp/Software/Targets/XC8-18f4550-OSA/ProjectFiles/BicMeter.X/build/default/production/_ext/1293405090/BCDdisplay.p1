@@ -2793,10 +2793,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;HWIheader\HWI_func.h: 13: extern void HWI_Delay_usec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 14: extern void HWI_Delay_nsec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 16: extern unsigned short ReloadHWtimer(unsigned char TimerId);
+[; ;HWIheader\HWI_func.h: 18: extern void SendMCUtoSleep(void);
+[; ;HWIheader\HWI_func.h: 20: extern void HWI_InitOscilatorCalib(void);
 [; ;BCDdisplay.h: 13: void BCDInitialize( unsigned char bIsCommonAnode);
 [; ;BCDdisplay.h: 15: void BCDsendNumber
 [; ;BCDdisplay.h: 16: (
-[; ;BCDdisplay.h: 17: unsigned short Number ,
+[; ;BCDdisplay.h: 17: unsigned long Number ,
 [; ;BCDdisplay.h: 18: unsigned char Line ,
 [; ;BCDdisplay.h: 19: unsigned char DecimalPlace,
 [; ;BCDdisplay.h: 20: unsigned char EnableTranc
@@ -2857,9 +2859,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;BCDdisplay.c: 19: 0b11110110,
 [; ;BCDdisplay.c: 20: 0b00000001
 [; ;BCDdisplay.c: 21: };
-[v F3045 `us ~T0 @X0 -> 4 `i t ]
+[v F3049 `us ~T0 @X0 -> 4 `i t ]
 "23
-[v _BCDAlpha `F3045 ~T0 @X0 -> 2 `i s ]
+[v _BCDAlpha `F3049 ~T0 @X0 -> 2 `i s ]
 [; ;BCDdisplay.c: 23: static unsigned short BCDAlpha[2][4];
 "24
 [v _bIsAnodeUsed `uc ~T0 @X0 1 s ]
@@ -2910,12 +2912,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 276 ]
 }
 "35
-[v _BCDsendNumber `(v ~T0 @X0 1 ef4`us`uc`uc`uc ]
+[v _BCDsendNumber `(v ~T0 @X0 1 ef4`ul`uc`uc`uc ]
 "42
 {
 [; ;BCDdisplay.c: 35: void BCDsendNumber
 [; ;BCDdisplay.c: 36: (
-[; ;BCDdisplay.c: 37: unsigned short Number ,
+[; ;BCDdisplay.c: 37: unsigned long Number ,
 [; ;BCDdisplay.c: 38: unsigned char Line ,
 [; ;BCDdisplay.c: 39: unsigned char DecimalPlace,
 [; ;BCDdisplay.c: 40: unsigned char EnableTranc
@@ -2923,7 +2925,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;BCDdisplay.c: 42: {
 [e :U _BCDsendNumber ]
 "37
-[v _Number `us ~T0 @X0 1 r1 ]
+[v _Number `ul ~T0 @X0 1 r1 ]
 "38
 [v _Line `uc ~T0 @X0 1 r2 ]
 "39
@@ -2933,12 +2935,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 "42
 [f ]
 "43
-[v _Link `us ~T0 @X0 1 a ]
-[v _Output `us ~T0 @X0 1 a ]
-[v _Buffer `us ~T0 @X0 1 a ]
+[v _Link `ul ~T0 @X0 1 a ]
+[v _Output `ul ~T0 @X0 1 a ]
+[v _Buffer `ul ~T0 @X0 1 a ]
 "44
 [v _LoopIndex `uc ~T0 @X0 1 a ]
-[; ;BCDdisplay.c: 43: unsigned short Link,Output,Buffer;
+[; ;BCDdisplay.c: 43: unsigned long Link,Output,Buffer;
 [; ;BCDdisplay.c: 44: unsigned char LoopIndex;
 [; ;BCDdisplay.c: 46: Buffer = Number;
 "46
@@ -2953,21 +2955,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 278 ]
 [; ;BCDdisplay.c: 48: {
 {
-[; ;BCDdisplay.c: 49: if((Buffer != (unsigned short)0)|| (LoopIndex <= DecimalPlace) )
+[; ;BCDdisplay.c: 49: if((Buffer != (unsigned long)0)|| (LoopIndex <= DecimalPlace) )
 "49
-[e $ ! || != -> _Buffer `ui -> -> -> 0 `i `us `ui <= -> _LoopIndex `i -> _DecimalPlace `i 281  ]
+[e $ ! || != _Buffer -> -> 0 `i `ul <= -> _LoopIndex `i -> _DecimalPlace `i 281  ]
 [; ;BCDdisplay.c: 50: {
 "50
 {
 [; ;BCDdisplay.c: 51: Link = Buffer;
 "51
 [e = _Link _Buffer ]
-[; ;BCDdisplay.c: 52: Buffer = (unsigned short)(Buffer/(unsigned short)10);
+[; ;BCDdisplay.c: 52: Buffer = (unsigned long)(Buffer/(unsigned long)10);
 "52
-[e = _Buffer -> / -> _Buffer `ui -> -> -> 10 `i `us `ui `us ]
-[; ;BCDdisplay.c: 53: Output = Link - (unsigned short)(Buffer * (unsigned short)10);
+[e = _Buffer / _Buffer -> -> 10 `i `ul ]
+[; ;BCDdisplay.c: 53: Output = Link - (unsigned long)(Buffer * (unsigned long)10);
 "53
-[e = _Output -> - -> _Link `ui -> -> * -> _Buffer `ui -> -> -> 10 `i `us `ui `us `ui `us ]
+[e = _Output - _Link * _Buffer -> -> 10 `i `ul ]
 [; ;BCDdisplay.c: 55: BCDAlpha[Line][LoopIndex] = SevenSegmentMAP[Output];
 "55
 [e = *U + &U *U + &U _BCDAlpha * -> _Line `ux -> * -> # *U &U *U &U _BCDAlpha `ui -> -> 4 `i `ui `ux * -> _LoopIndex `ux -> -> # *U &U *U + &U _BCDAlpha * -> _Line `ux -> * -> # *U &U *U &U _BCDAlpha `ui -> -> 4 `i `ui `ux `ui `ux -> *U + &U _SevenSegmentMAP * -> _Output `ux -> -> # *U &U _SevenSegmentMAP `ui `ux `us ]
@@ -3040,18 +3042,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _BCDManage7segment ]
 [f ]
 "75
-[v F3074 `uc ~T0 @X0 1 s DigitIndex ]
-[i F3074
+[v F3078 `uc ~T0 @X0 1 s DigitIndex ]
+[i F3078
 -> -> 0 `i `uc
 ]
 "76
-[v F3076 `uc ~T0 @X0 1 s BlinkCounter ]
-[i F3076
+[v F3080 `uc ~T0 @X0 1 s BlinkCounter ]
+[i F3080
 -> -> 0 `i `uc
 ]
 "77
-[v F3078 `uc ~T0 @X0 1 s LineIndex ]
-[i F3078
+[v F3082 `uc ~T0 @X0 1 s LineIndex ]
+[i F3082
 -> -> 0 `i `uc
 ]
 "79
@@ -3071,10 +3073,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;BCDdisplay.c: 85: BlinkCounter++;
 "85
-[e ++ F3076 -> -> 1 `i `uc ]
+[e ++ F3080 -> -> 1 `i `uc ]
 [; ;BCDdisplay.c: 86: if(BlinkCounter == BlinkDuration)
 "86
-[e $ ! == -> F3076 `i -> _BlinkDuration `i 288  ]
+[e $ ! == -> F3080 `i -> _BlinkDuration `i 288  ]
 [; ;BCDdisplay.c: 87: {
 "87
 {
@@ -3083,7 +3085,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =^ _BlinkFlag -> -> 1 `i `uc ]
 [; ;BCDdisplay.c: 89: BlinkCounter = (unsigned char)0;
 "89
-[e = F3076 -> -> 0 `i `uc ]
+[e = F3080 -> -> 0 `i `uc ]
 "90
 }
 [e :U 288 ]
@@ -3108,7 +3110,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;BCDdisplay.c: 97: if( ((unsigned char)1 == BlinkFlag)&& (DigitIndex == BlinkIndex)
 [; ;BCDdisplay.c: 98: && (LineBlinkIndex == LineIndex))
 "98
-[e $ ! && && == -> -> -> 1 `i `uc `i -> _BlinkFlag `i == -> F3074 `i -> _BlinkIndex `i == -> _LineBlinkIndex `i -> F3078 `i 290  ]
+[e $ ! && && == -> -> -> 1 `i `uc `i -> _BlinkFlag `i == -> F3078 `i -> _BlinkIndex `i == -> _LineBlinkIndex `i -> F3082 `i 290  ]
 [; ;BCDdisplay.c: 99: {
 "99
 {
@@ -3127,7 +3129,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;BCDdisplay.c: 104: BCD = BCDAlpha[LineIndex][DigitIndex];
 "104
-[e = _BCD -> *U + &U *U + &U _BCDAlpha * -> F3078 `ux -> * -> # *U &U *U &U _BCDAlpha `ui -> -> 4 `i `ui `ux * -> F3074 `ux -> -> # *U &U *U + &U _BCDAlpha * -> F3078 `ux -> * -> # *U &U *U &U _BCDAlpha `ui -> -> 4 `i `ui `ux `ui `ux `uc ]
+[e = _BCD -> *U + &U *U + &U _BCDAlpha * -> F3082 `ux -> * -> # *U &U *U &U _BCDAlpha `ui -> -> 4 `i `ui `ux * -> F3078 `ux -> -> # *U &U *U + &U _BCDAlpha * -> F3082 `ux -> * -> # *U &U *U &U _BCDAlpha `ui -> -> 4 `i `ui `ux `ui `ux `uc ]
 "105
 }
 [e :U 291 ]
@@ -3148,7 +3150,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;BCDdisplay.c: 114: Index = (unsigned char)(LineIndex * (unsigned char)4 )
 [; ;BCDdisplay.c: 115: + DigitIndex;
 "115
-[e = _Index -> + -> -> * -> F3078 `i -> -> -> 4 `i `uc `i `uc `i -> F3074 `i `uc ]
+[e = _Index -> + -> -> * -> F3082 `i -> -> -> 4 `i `uc `i `uc `i -> F3078 `i `uc ]
 [; ;BCDdisplay.c: 117: HWI_4Digit_WRITE(0,Index);
 "117
 [e ( _HWI_4Digit_WRITE (2 , -> -> 0 `i `uc _Index ]
@@ -3157,28 +3159,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _HWI_8Digit_WRITE (2 , -> -> 1 `i `uc _BCD ]
 [; ;BCDdisplay.c: 125: DigitIndex ++;
 "125
-[e ++ F3074 -> -> 1 `i `uc ]
+[e ++ F3078 -> -> 1 `i `uc ]
 [; ;BCDdisplay.c: 126: if(DigitIndex == (unsigned char)4)
 "126
-[e $ ! == -> F3074 `i -> -> -> 4 `i `uc `i 293  ]
+[e $ ! == -> F3078 `i -> -> -> 4 `i `uc `i 293  ]
 [; ;BCDdisplay.c: 127: {
 "127
 {
 [; ;BCDdisplay.c: 128: DigitIndex = (unsigned char)0;
 "128
-[e = F3074 -> -> 0 `i `uc ]
+[e = F3078 -> -> 0 `i `uc ]
 [; ;BCDdisplay.c: 129: LineIndex++;
 "129
-[e ++ F3078 -> -> 1 `i `uc ]
+[e ++ F3082 -> -> 1 `i `uc ]
 [; ;BCDdisplay.c: 130: if(LineIndex == (unsigned char)2)
 "130
-[e $ ! == -> F3078 `i -> -> -> 2 `i `uc `i 294  ]
+[e $ ! == -> F3082 `i -> -> -> 2 `i `uc `i 294  ]
 [; ;BCDdisplay.c: 131: {
 "131
 {
 [; ;BCDdisplay.c: 132: LineIndex = (unsigned char)0;
 "132
-[e = F3078 -> -> 0 `i `uc ]
+[e = F3082 -> -> 0 `i `uc ]
 "133
 }
 [e :U 294 ]

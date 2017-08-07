@@ -3,7 +3,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SensorOneNotify `(v ~T0 @X0 0 ef ]
 "17
 [v _SensorTwoNotify `(v ~T0 @X0 0 ef ]
-"29
+"31
 [v _HWtimerCallback `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -2787,11 +2787,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SpeedCalc\SpeedCalc.h: 15: extern void SensorOneNotify(void);
 [; ;SpeedCalc\SpeedCalc.h: 17: extern void SensorTwoNotify(void);
 [; ;SpeedCalc\SpeedCalc.h: 19: extern void SpeedCalcManage(void);
-[; ;SpeedCalc\SpeedCalc.h: 21: extern void SetDistance(unsigned long Distance);
-[; ;SpeedCalc\SpeedCalc.h: 23: extern unsigned long GetDistance(void);
-[; ;SpeedCalc\SpeedCalc.h: 25: extern void SetCircumfirunce(unsigned short Circum);
-[; ;SpeedCalc\SpeedCalc.h: 27: extern unsigned short GetAvgSpeed(unsigned char bIsKph);
-[; ;SpeedCalc\SpeedCalc.h: 29: extern void HWtimerCallback (void);
+[; ;SpeedCalc\SpeedCalc.h: 21: extern void DisableDistanceCntr(unsigned char bIsDisabled);
+[; ;SpeedCalc\SpeedCalc.h: 23: extern void SetDistance(unsigned long Distance);
+[; ;SpeedCalc\SpeedCalc.h: 25: extern unsigned long GetDistance(void);
+[; ;SpeedCalc\SpeedCalc.h: 27: extern void SetCircumfirunce(unsigned short Circum);
+[; ;SpeedCalc\SpeedCalc.h: 29: extern unsigned short GetAvgSpeed(unsigned char bIsKph);
+[; ;SpeedCalc\SpeedCalc.h: 31: extern void HWtimerCallback (void);
 [; ;AppInterrupts.h: 1: void APP_ISR1(void);
 [; ;AppInterrupts.h: 2: void APP_ISR2(void);
 [; ;AppInterrupts.h: 3: void APP_ISR3(void);

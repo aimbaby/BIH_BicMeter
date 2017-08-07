@@ -3796,6 +3796,10 @@ extern void SchedulerTick(void);
 
  unsigned short ReloadHWtimer(unsigned char TimerId);
 
+ void SendMCUtoSleep(void);
+
+ void HWI_InitOscilatorCalib(void);
+
 # 10 "../../HWIsource/HWI_Interrupts.c"
  void HWI_INTERRUPTS_INTITALIZE(void)
 {

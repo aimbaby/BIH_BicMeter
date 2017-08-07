@@ -2871,6 +2871,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;HWIheader\HWI_func.h: 13: void HWI_Delay_usec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 14: void HWI_Delay_nsec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 16: unsigned short ReloadHWtimer(unsigned char TimerId);
+[; ;HWIheader\HWI_func.h: 18: void SendMCUtoSleep(void);
+[; ;HWIheader\HWI_func.h: 20: void HWI_InitOscilatorCalib(void);
 "10 ../../HWIsource/HWI_Interrupts.c
 [v _HWI_INTERRUPTS_INTITALIZE `(v ~T0 @X0 1 ef ]
 "11
@@ -2940,9 +2942,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "50
 [e :UE 277 ]
 }
-[v F3050 `(v ~T0 @X0 1 tf ]
+[v F3054 `(v ~T0 @X0 1 tf ]
 "52
-[v _ISR `IF3050 ~T0 @X0 1 e ]
+[v _ISR `IF3054 ~T0 @X0 1 e ]
 "53
 {
 [; ;HWI_Interrupts.c: 52: void interrupt ISR(void)

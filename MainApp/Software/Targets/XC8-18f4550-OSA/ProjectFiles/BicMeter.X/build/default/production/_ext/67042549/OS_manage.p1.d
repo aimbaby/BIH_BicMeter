@@ -1,6 +1,7 @@
  build/default/production/_ext/67042549/OS_manage.d  \
  build/default/production/_ext/67042549/OS_manage.p1:  \
  ../../../../OS/OS_manage/OS_manage.c  \
+../../../../Common/App/APP_TypeDef.h  \
 ../../../../Common/Driver/BCDdisplay/BCDdisplay_p.h  \
 ../../../../Common/Driver/SpeedCalc/SpeedCalc_p.h  \
 ../../../../Common/Driver/Key/Key.h  \

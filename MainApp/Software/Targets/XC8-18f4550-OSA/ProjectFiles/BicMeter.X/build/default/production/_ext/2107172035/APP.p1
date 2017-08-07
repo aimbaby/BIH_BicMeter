@@ -1,49 +1,76 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"14 ../../../../Common/App\APP_TypeDef.h
+[s S276 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S276 . CurrentState EEPsaveFlag IncrementFlag DecrementFlag ExtraIncrementFlag ExtraDecrementFlag ClearFlag SleepFlag KphFlag DisplayState StopMeasureFlag ]
+"29
+[s S277 `us 1 `uc 1 `S276 1 `ul 1 `ul 1 `us 1 ]
+[n S277 . Circum CircumBlinkIndex StatusByte TravelledDistance TravelTime MaxSpeed ]
 "20 ../../../../Common/Driver/EEPROM\Eeprom.h
-[v _Eeprom_Read_Block `(uc ~T0 @X0 0 ef3`uc`*uc`uc ]
-"25 ../../../../Common/Driver/SpeedCalc\SpeedCalc.h
+[v _Eeprom_Read_Block `(uc ~T0 @X0 0 ef3`uc`*v`uc ]
+"27 ../../../../Common/Driver/SpeedCalc\SpeedCalc.h
 [v _SetCircumfirunce `(v ~T0 @X0 0 ef1`us ]
-"27
-[v _GetAvgSpeed `(us ~T0 @X0 0 ef1`uc ]
 "23
+[v _SetDistance `(v ~T0 @X0 0 ef1`ul ]
+"7 ../../../../Common/App/APP_Calculations\APP_Calculations.h
+[v _APP_CALC_TIMEsetTravelTime `(v ~T0 @X0 0 ef1`ul ]
+"9
+[v _APP_CALC_MAXSPDmanage_Set `(v ~T0 @X0 0 ef1`us ]
+"14 C:\Program Files\Microchip\xc8\v1.41\include\string.h
+[v _memcpy `(*v ~T0 @X0 0 ef3`*v`*Cv`ui ]
+"25 ../../../../Common/Driver/SpeedCalc\SpeedCalc.h
 [v _GetDistance `(ul ~T0 @X0 0 ef ]
+"7 ../../../../Common/App/APP_HMI\APP_HMI.h
+[v _APP_HMImanage `(v ~T0 @X0 0 ef1`*S276 ]
+"8 ../../../../Common/App/APP_Calculations\APP_Calculations.h
+[v _APP_CALC_TIMEmanage `(ul ~T0 @X0 0 ef1`*S276 ]
+"11
+[v _APP_CALC_AVGSPDmanage `(us ~T0 @X0 0 ef3`*S276`ul`ul ]
+"7 ../../../../Common/App/APP_SleepManage\APP_SleepManage.h
+[v _APP_SLEEPmanage `(v ~T0 @X0 0 ef1`*S276 ]
+"29 ../../../../Common/Driver/SpeedCalc\SpeedCalc.h
+[v _GetAvgSpeed `(us ~T0 @X0 0 ef1`uc ]
+"10 ../../../../Common/App/APP_Calculations\APP_Calculations.h
+[v _APP_CALC_MAXSPDmanage `(us ~T0 @X0 0 ef1`us ]
+"21 ../../../../Common/Driver/SpeedCalc\SpeedCalc.h
+[v _DisableDistanceCntr `(v ~T0 @X0 0 ef1`uc ]
 "15 ../../../../Common/Driver/BCDdisplay\BCDdisplay.h
-[v _BCDsendNumber `(v ~T0 @X0 0 ef4`us`uc`uc`uc ]
-"39 ../../../../Common/Driver/Key\Key.h
-[v _GetKeyStatus `(uc ~T0 @X0 0 ef1`uc ]
+[v _BCDsendNumber `(v ~T0 @X0 0 ef4`ul`uc`uc`uc ]
+"33 ../../../../Common/App/APP.c
+[v _IncrementDecrementSingleDigit `(us ~T0 @X0 0 sf3`us`uc`uc ]
 "25 ../../../../Common/Driver/BCDdisplay\BCDdisplay.h
 [v _BlinkDigit `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-[v F3148 `(v ~T0 @X0 0 tf ]
+"16 C:\Program Files\Microchip\xc8\v1.41\include\string.h
+[v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
+[v F3162 `(v ~T0 @X0 0 tf ]
 "12 ../../../../Common/Driver/EEPROM\Eeprom.h
-[v _Eeprom_Write_Block `(uc ~T0 @X0 0 ef4`uc`*uc`uc`*F3148 ]
-"25 ../../../../Common/App/APP.c
-[v _IncrementDecrementSingleDigit `(us ~T0 @X0 0 sf3`us`uc`uc ]
-[; ;math.h: 30: extern double fabs(double);
-[; ;math.h: 31: extern double floor(double);
-[; ;math.h: 32: extern double ceil(double);
-[; ;math.h: 33: extern double modf(double, double *);
-[; ;math.h: 34: extern double sqrt(double);
-[; ;math.h: 35: extern double atof(const char *);
-[; ;math.h: 36: extern double sin(double) ;
-[; ;math.h: 37: extern double cos(double) ;
-[; ;math.h: 38: extern double tan(double) ;
-[; ;math.h: 39: extern double asin(double) ;
-[; ;math.h: 40: extern double acos(double) ;
-[; ;math.h: 41: extern double atan(double);
-[; ;math.h: 42: extern double atan2(double, double) ;
-[; ;math.h: 43: extern double log(double);
-[; ;math.h: 44: extern double log10(double);
-[; ;math.h: 45: extern double pow(double, double) ;
-[; ;math.h: 46: extern double exp(double) ;
-[; ;math.h: 47: extern double sinh(double) ;
-[; ;math.h: 48: extern double cosh(double) ;
-[; ;math.h: 49: extern double tanh(double);
-[; ;math.h: 50: extern double eval_poly(double, const double *, int);
-[; ;math.h: 51: extern double frexp(double, int *);
-[; ;math.h: 52: extern double ldexp(double, int);
-[; ;math.h: 53: extern double fmod(double, double);
-[; ;math.h: 54: extern double trunc(double);
-[; ;math.h: 55: extern double round(double);
+[v _Eeprom_Write_Block `(uc ~T0 @X0 0 ef4`uc`*v`uc`*F3162 ]
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 16: extern void * memset(void *, int, size_t);
+[; ;string.h: 34: extern char * strcat(char *, const char *);
+[; ;string.h: 35: extern char * strcpy(char *, const char *);
+[; ;string.h: 36: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 37: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 38: extern char * strdup(const char *);
+[; ;string.h: 39: extern char * strtok(char *, const char *);
+[; ;string.h: 42: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 43: extern int strcmp(const char *, const char *);
+[; ;string.h: 44: extern int stricmp(const char *, const char *);
+[; ;string.h: 45: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 46: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 47: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 48: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 49: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 50: extern size_t strspn(const char *, const char *);
+[; ;string.h: 51: extern char * strstr(const char *, const char *);
+[; ;string.h: 52: extern char * stristr(const char *, const char *);
+[; ;string.h: 53: extern char * strerror(int);
+[; ;string.h: 54: extern size_t strlen(const char *);
+[; ;string.h: 55: extern char * strchr(const char *, int);
+[; ;string.h: 56: extern char * strichr(const char *, int);
+[; ;string.h: 57: extern char * strrchr(const char *, int);
+[; ;string.h: 58: extern char * strrichr(const char *, int);
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2834,19 +2861,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;HWIheader\HWI_func.h: 13: extern void HWI_Delay_usec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 14: extern void HWI_Delay_nsec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 16: extern unsigned short ReloadHWtimer(unsigned char TimerId);
+[; ;HWIheader\HWI_func.h: 18: extern void SendMCUtoSleep(void);
+[; ;HWIheader\HWI_func.h: 20: extern void HWI_InitOscilatorCalib(void);
 [; ;SpeedCalc\SpeedCalc.h: 13: extern void SpeedCalcNotifyInitialize(void);
 [; ;SpeedCalc\SpeedCalc.h: 15: extern void SensorOneNotify(void);
 [; ;SpeedCalc\SpeedCalc.h: 17: extern void SensorTwoNotify(void);
 [; ;SpeedCalc\SpeedCalc.h: 19: extern void SpeedCalcManage(void);
-[; ;SpeedCalc\SpeedCalc.h: 21: extern void SetDistance(unsigned long Distance);
-[; ;SpeedCalc\SpeedCalc.h: 23: extern unsigned long GetDistance(void);
-[; ;SpeedCalc\SpeedCalc.h: 25: extern void SetCircumfirunce(unsigned short Circum);
-[; ;SpeedCalc\SpeedCalc.h: 27: extern unsigned short GetAvgSpeed(unsigned char bIsKph);
-[; ;SpeedCalc\SpeedCalc.h: 29: extern void HWtimerCallback (void);
+[; ;SpeedCalc\SpeedCalc.h: 21: extern void DisableDistanceCntr(unsigned char bIsDisabled);
+[; ;SpeedCalc\SpeedCalc.h: 23: extern void SetDistance(unsigned long Distance);
+[; ;SpeedCalc\SpeedCalc.h: 25: extern unsigned long GetDistance(void);
+[; ;SpeedCalc\SpeedCalc.h: 27: extern void SetCircumfirunce(unsigned short Circum);
+[; ;SpeedCalc\SpeedCalc.h: 29: extern unsigned short GetAvgSpeed(unsigned char bIsKph);
+[; ;SpeedCalc\SpeedCalc.h: 31: extern void HWtimerCallback (void);
 [; ;BCDdisplay\BCDdisplay.h: 13: extern void BCDInitialize( unsigned char bIsCommonAnode);
 [; ;BCDdisplay\BCDdisplay.h: 15: extern void BCDsendNumber
 [; ;BCDdisplay\BCDdisplay.h: 16: (
-[; ;BCDdisplay\BCDdisplay.h: 17: unsigned short Number ,
+[; ;BCDdisplay\BCDdisplay.h: 17: unsigned long Number ,
 [; ;BCDdisplay\BCDdisplay.h: 18: unsigned char Line ,
 [; ;BCDdisplay\BCDdisplay.h: 19: unsigned char DecimalPlace,
 [; ;BCDdisplay\BCDdisplay.h: 20: unsigned char EnableTranc
@@ -2872,513 +2902,674 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;BCDdisplay\DisplayManage.h: 15: unsigned char * Data,
 [; ;BCDdisplay\DisplayManage.h: 16: unsigned char Length
 [; ;BCDdisplay\DisplayManage.h: 17: );
-[; ;Key\Key.h: 22: typedef struct
-[; ;Key\Key.h: 23: {
-[; ;Key\Key.h: 24: unsigned char HWI_ID;
-[; ;Key\Key.h: 25: unsigned char ActiveValue;
-[; ;Key\Key.h: 26: unsigned short ReleaseTicks;
-[; ;Key\Key.h: 27: unsigned short ShortPress;
-[; ;Key\Key.h: 28: unsigned short LongPress;
-[; ;Key\Key.h: 29: }strKeyConfig;
-[; ;Key\Key.h: 31: typedef struct
-[; ;Key\Key.h: 32: {
-[; ;Key\Key.h: 33: unsigned char KeyState;
-[; ;Key\Key.h: 34: unsigned short KeyCounter;
-[; ;Key\Key.h: 35: }strKeyData;
-[; ;Key\Key.h: 37: extern void KeyInitialize(void);
-[; ;Key\Key.h: 39: extern unsigned char GetKeyStatus(unsigned char KeyID);
-[; ;Key\Key.h: 41: extern void MangeKeys(unsigned char KeyID);
 [; ;EEPROM\Eeprom.h: 12: extern unsigned char Eeprom_Write_Block
 [; ;EEPROM\Eeprom.h: 13: (
 [; ;EEPROM\Eeprom.h: 14: unsigned char address ,
-[; ;EEPROM\Eeprom.h: 15: unsigned char *DataPtr ,
+[; ;EEPROM\Eeprom.h: 15: void *DataPtr ,
 [; ;EEPROM\Eeprom.h: 16: unsigned char BlockSize,
 [; ;EEPROM\Eeprom.h: 17: void (*ptrFnCallback)(void)
 [; ;EEPROM\Eeprom.h: 18: );
 [; ;EEPROM\Eeprom.h: 20: extern unsigned char Eeprom_Read_Block
 [; ;EEPROM\Eeprom.h: 21: (
 [; ;EEPROM\Eeprom.h: 22: unsigned char address ,
-[; ;EEPROM\Eeprom.h: 23: unsigned char *DataPtr ,
+[; ;EEPROM\Eeprom.h: 23: void *DataPtr ,
 [; ;EEPROM\Eeprom.h: 24: unsigned char BlockSize
 [; ;EEPROM\Eeprom.h: 25: );
 [; ;EEPROM\Eeprom.h: 27: extern void EepromManage(void);
-[; ;APP.h: 2: void APP_INITIALIZE(void);
-[; ;APP.h: 3: void APP_MANAGE();
-"16 ../../../../Common/App/APP.c
-[v _WriteFlag `uc ~T0 @X0 1 s ]
-[i _WriteFlag
--> -> 0 `i `uc
-]
-[; ;APP.c: 16: static unsigned char WriteFlag = (unsigned char)0;
-"17
-[v _Circum `us ~T0 @X0 1 s ]
-[; ;APP.c: 17: static unsigned short Circum;
-[; ;APP.c: 25: static unsigned short IncrementDecrementSingleDigit
-[; ;APP.c: 26: (
-[; ;APP.c: 27: unsigned short Number,
-[; ;APP.c: 28: unsigned char Index,
-[; ;APP.c: 29: unsigned char bIsincrement
-[; ;APP.c: 30: );
-"34
+[; ;App\APP_TypeDef.h: 13: typedef struct
+[; ;App\APP_TypeDef.h: 14: {
+[; ;App\APP_TypeDef.h: 15: unsigned char CurrentState : 3;
+[; ;App\APP_TypeDef.h: 16: unsigned char EEPsaveFlag : 1;
+[; ;App\APP_TypeDef.h: 17: unsigned char IncrementFlag :1;
+[; ;App\APP_TypeDef.h: 18: unsigned char DecrementFlag :1;
+[; ;App\APP_TypeDef.h: 19: unsigned char ExtraIncrementFlag :1;
+[; ;App\APP_TypeDef.h: 20: unsigned char ExtraDecrementFlag :1;
+[; ;App\APP_TypeDef.h: 21: unsigned char ClearFlag :1;
+[; ;App\APP_TypeDef.h: 22: unsigned char SleepFlag :1;
+[; ;App\APP_TypeDef.h: 23: unsigned char KphFlag :1;
+[; ;App\APP_TypeDef.h: 24: unsigned char DisplayState :1;
+[; ;App\APP_TypeDef.h: 25: unsigned char StopMeasureFlag :1;
+[; ;App\APP_TypeDef.h: 26: }APP_INFOR_BYTE;
+[; ;App\APP_TypeDef.h: 28: typedef struct
+[; ;App\APP_TypeDef.h: 29: {
+[; ;App\APP_TypeDef.h: 30: unsigned short Circum;
+[; ;App\APP_TypeDef.h: 31: unsigned char CircumBlinkIndex;
+[; ;App\APP_TypeDef.h: 32: APP_INFOR_BYTE StatusByte;
+[; ;App\APP_TypeDef.h: 33: unsigned long TravelledDistance;
+[; ;App\APP_TypeDef.h: 34: unsigned long TravelTime;
+[; ;App\APP_TypeDef.h: 35: unsigned short MaxSpeed;
+[; ;App\APP_TypeDef.h: 36: }APP_NVM_DATA;
+[; ;APP_HMI\APP_HMI.h: 7: extern void APP_HMImanage(APP_INFOR_BYTE * StatusByte );
+[; ;APP_Calculations\APP_Calculations.h: 7: extern void APP_CALC_TIMEsetTravelTime(unsigned long TravelTime);
+[; ;APP_Calculations\APP_Calculations.h: 8: extern unsigned long APP_CALC_TIMEmanage(APP_INFOR_BYTE * StatusByte);
+[; ;APP_Calculations\APP_Calculations.h: 9: extern void APP_CALC_MAXSPDmanage_Set(unsigned short MaxSpeed);
+[; ;APP_Calculations\APP_Calculations.h: 10: extern unsigned short APP_CALC_MAXSPDmanage(unsigned short CurrentSpeed);
+[; ;APP_Calculations\APP_Calculations.h: 11: extern unsigned short APP_CALC_AVGSPDmanage
+[; ;APP_Calculations\APP_Calculations.h: 12: (
+[; ;APP_Calculations\APP_Calculations.h: 13: APP_INFOR_BYTE * StatusByte ,
+[; ;APP_Calculations\APP_Calculations.h: 14: unsigned long TravelTime ,
+[; ;APP_Calculations\APP_Calculations.h: 15: unsigned long Distance
+[; ;APP_Calculations\APP_Calculations.h: 16: );
+[; ;APP_SleepManage\APP_SleepManage.h: 7: extern void APP_SLEEPmanage(APP_INFOR_BYTE * StatusByte );
+[; ;APP.h: 6: void APP_INITIALIZE(void);
+[; ;APP.h: 7: void APP_MANAGE();
+"31 ../../../../Common/App/APP.c
+[v _APP_DATA `S277 ~T0 @X0 1 s ]
+[; ;APP.c: 31: static APP_NVM_DATA APP_DATA;
+[; ;APP.c: 33: static unsigned short IncrementDecrementSingleDigit
+[; ;APP.c: 34: (
+[; ;APP.c: 35: unsigned short Number,
+[; ;APP.c: 36: unsigned char Index,
+[; ;APP.c: 37: unsigned char bIsincrement
+[; ;APP.c: 38: );
+"40
 [v _APP_INITIALIZE `(v ~T0 @X0 1 ef ]
-"35
+"41
 {
-[; ;APP.c: 34: void APP_INITIALIZE(void)
-[; ;APP.c: 35: {
+[; ;APP.c: 40: void APP_INITIALIZE(void)
+[; ;APP.c: 41: {
 [e :U _APP_INITIALIZE ]
 [f ]
-[; ;APP.c: 37: Eeprom_Read_Block(1 , (unsigned char*)&Circum , (unsigned char)sizeof(Circum));
-"37
-[e ( _Eeprom_Read_Block (3 , , -> -> 1 `i `uc -> &U _Circum `*uc -> -> # _Circum `ui `uc ]
-[; ;APP.c: 46: if(Circum > (unsigned short)9999)
-"46
-[e $ ! > -> _Circum `ui -> -> -> 9999 `i `us `ui 279  ]
-[; ;APP.c: 47: {
-"47
+[; ;APP.c: 42: Eeprom_Read_Block(1 , &APP_DATA , (unsigned char)sizeof(APP_DATA));
+"42
+[e ( _Eeprom_Read_Block (3 , , -> -> 1 `i `uc -> &U _APP_DATA `*v -> -> # _APP_DATA `ui `uc ]
+[; ;APP.c: 44: if(APP_DATA.Circum > (unsigned short)9999)
+"44
+[e $ ! > -> . _APP_DATA 0 `ui -> -> -> 9999 `i `us `ui 279  ]
+[; ;APP.c: 45: {
+"45
 {
-[; ;APP.c: 48: Circum = (unsigned short)0;
-"48
-[e = _Circum -> -> 0 `i `us ]
-"49
+[; ;APP.c: 46: APP_DATA.Circum = (unsigned short)2000;
+"46
+[e = . _APP_DATA 0 -> -> 2000 `i `us ]
+"47
 }
 [e :U 279 ]
-[; ;APP.c: 49: }
-[; ;APP.c: 50: }
+[; ;APP.c: 47: }
+[; ;APP.c: 48: if(APP_DATA.TravelledDistance > (unsigned short)9999)
+"48
+[e $ ! > . _APP_DATA 3 -> -> -> 9999 `i `us `ul 280  ]
+[; ;APP.c: 49: {
+"49
+{
+[; ;APP.c: 50: APP_DATA.TravelledDistance = (unsigned long)0;
 "50
-[e :UE 278 ]
+[e = . _APP_DATA 3 -> -> 0 `i `ul ]
+"51
 }
+[e :U 280 ]
+[; ;APP.c: 51: }
+[; ;APP.c: 52: if(APP_DATA.TravelledDistance > (unsigned short)9999)
 "52
-[v _APP_MANAGE `(v ~T0 @X0 1 ef ]
+[e $ ! > . _APP_DATA 3 -> -> -> 9999 `i `us `ul 281  ]
+[; ;APP.c: 53: {
 "53
 {
-[; ;APP.c: 52: void APP_MANAGE(void)
-[; ;APP.c: 53: {
+[; ;APP.c: 54: APP_DATA.TravelTime = (unsigned long)0;
+"54
+[e = . _APP_DATA 4 -> -> 0 `i `ul ]
+"55
+}
+[e :U 281 ]
+[; ;APP.c: 55: }
+[; ;APP.c: 56: if(APP_DATA.MaxSpeed > (unsigned short)9999)
+"56
+[e $ ! > -> . _APP_DATA 5 `ui -> -> -> 9999 `i `us `ui 282  ]
+[; ;APP.c: 57: {
+"57
+{
+[; ;APP.c: 58: APP_DATA.MaxSpeed = (unsigned short)0;
+"58
+[e = . _APP_DATA 5 -> -> 0 `i `us ]
+"59
+}
+[e :U 282 ]
+[; ;APP.c: 59: }
+[; ;APP.c: 60: SetCircumfirunce(APP_DATA.Circum);
+"60
+[e ( _SetCircumfirunce (1 . _APP_DATA 0 ]
+[; ;APP.c: 61: SetDistance(APP_DATA.TravelledDistance);
+"61
+[e ( _SetDistance (1 . _APP_DATA 3 ]
+[; ;APP.c: 62: APP_CALC_TIMEsetTravelTime(APP_DATA.TravelTime);
+"62
+[e ( _APP_CALC_TIMEsetTravelTime (1 . _APP_DATA 4 ]
+[; ;APP.c: 63: APP_CALC_MAXSPDmanage_Set(APP_DATA.MaxSpeed);
+"63
+[e ( _APP_CALC_MAXSPDmanage_Set (1 . _APP_DATA 5 ]
+[; ;APP.c: 64: }
+"64
+[e :UE 278 ]
+}
+"66
+[v _APP_MANAGE `(v ~T0 @X0 1 ef ]
+"67
+{
+[; ;APP.c: 66: void APP_MANAGE(void)
+[; ;APP.c: 67: {
 [e :U _APP_MANAGE ]
 [f ]
-"54
-[v F3172 `ui ~T0 @X0 1 s blinkIndex ]
-[i F3172
--> -> -> 0 `i `uc `ui
-]
-"55
-[v F3174 `ui ~T0 @X0 1 s bIsBlinkMode ]
-[i F3174
--> -> -> 0 `i `uc `ui
-]
-"56
-[v _AvgSpeedKph `us ~T0 @X0 1 a ]
-"57
-[v _TravelledDistance `ul ~T0 @X0 1 a ]
-"58
-[v _keystatus `uc ~T0 @X0 1 a ]
-"59
-[v _keystatus2 `uc ~T0 @X0 1 a ]
-[; ;APP.c: 54: static unsigned blinkIndex = (unsigned char)0;
-[; ;APP.c: 55: static unsigned bIsBlinkMode = (unsigned char)0;
-[; ;APP.c: 56: unsigned short AvgSpeedKph;
-[; ;APP.c: 57: unsigned long TravelledDistance;
-[; ;APP.c: 58: unsigned char keystatus;
-[; ;APP.c: 59: unsigned char keystatus2;
-[; ;APP.c: 64: SetCircumfirunce(Circum);
-"64
-[e ( _SetCircumfirunce (1 _Circum ]
-[; ;APP.c: 66: AvgSpeedKph = GetAvgSpeed(1);
-"66
-[e = _AvgSpeedKph ( _GetAvgSpeed (1 -> -> 1 `i `uc ]
-[; ;APP.c: 67: TravelledDistance = GetDistance();
-"67
-[e = _TravelledDistance ( _GetDistance ..  ]
-[; ;APP.c: 68: TravelledDistance *= (unsigned long)10;
 "68
-[e =* _TravelledDistance -> -> 10 `i `ul ]
-[; ;APP.c: 69: TravelledDistance /= (unsigned long)16;
+[v _AvgSpeed `us ~T0 @X0 1 a ]
 "69
-[e =/ _TravelledDistance -> -> -> 16 `i `ul `ul ]
-[; ;APP.c: 71: if( (unsigned char)0 == WriteFlag)
-"71
-[e $ ! == -> -> -> 0 `i `uc `i -> _WriteFlag `i 281  ]
-[; ;APP.c: 72: {
+[v _CurrentSpeed `us ~T0 @X0 1 a ]
+"70
+[v _StatusByte `S276 ~T0 @X0 1 a ]
+[; ;APP.c: 68: unsigned short AvgSpeed;
+[; ;APP.c: 69: unsigned short CurrentSpeed;
+[; ;APP.c: 70: APP_INFOR_BYTE StatusByte;
+[; ;APP.c: 72: memcpy(&StatusByte,&APP_DATA.StatusByte,sizeof(APP_INFOR_BYTE));
 "72
-{
-[; ;APP.c: 73: if(bIsBlinkMode == (unsigned char)0)
-"73
-[e $ ! == F3174 -> -> -> 0 `i `uc `ui 282  ]
-[; ;APP.c: 74: {
+[e ( _memcpy (3 , , -> &U _StatusByte `*v -> &U . _APP_DATA 2 `*Cv -> # `S276 `ui ]
+[; ;APP.c: 74: APP_DATA.TravelledDistance = GetDistance();
 "74
-{
-[; ;APP.c: 75: BCDsendNumber(AvgSpeedKph,0,1 ,1);
-"75
-[e ( _BCDsendNumber (4 , , , _AvgSpeedKph -> -> 0 `i `uc -> -> 1 `i `uc -> -> 1 `i `uc ]
-[; ;APP.c: 76: keystatus = GetKeyStatus(0);
+[e = . _APP_DATA 3 ( _GetDistance ..  ]
+[; ;APP.c: 76: APP_HMImanage(&StatusByte);
 "76
-[e = _keystatus ( _GetKeyStatus (1 -> -> 0 `i `uc ]
-[; ;APP.c: 77: if( keystatus == (unsigned char)0x82)
+[e ( _APP_HMImanage (1 &U _StatusByte ]
+[; ;APP.c: 77: APP_DATA.TravelTime = APP_CALC_TIMEmanage(&StatusByte);
 "77
-[e $ ! == -> _keystatus `i -> -> -> 130 `i `uc `i 283  ]
-[; ;APP.c: 78: {
+[e = . _APP_DATA 4 ( _APP_CALC_TIMEmanage (1 &U _StatusByte ]
+[; ;APP.c: 78: AvgSpeed = APP_CALC_AVGSPDmanage(&StatusByte , APP_DATA.TravelTime , APP_DATA.TravelledDistance);
 "78
-{
-[; ;APP.c: 79: bIsBlinkMode = (unsigned char)1;
+[e = _AvgSpeed ( _APP_CALC_AVGSPDmanage (3 , , &U _StatusByte . _APP_DATA 4 . _APP_DATA 3 ]
+[; ;APP.c: 79: APP_SLEEPmanage(&StatusByte);
 "79
-[e = F3174 -> -> -> 1 `i `uc `ui ]
-"80
-}
-[e :U 283 ]
+[e ( _APP_SLEEPmanage (1 &U _StatusByte ]
+[; ;APP.c: 81: CurrentSpeed = GetAvgSpeed(1);
 "81
-}
-[; ;APP.c: 80: }
-[; ;APP.c: 81: }
-[e $U 284  ]
+[e = _CurrentSpeed ( _GetAvgSpeed (1 -> -> 1 `i `uc ]
+[; ;APP.c: 82: APP_DATA.MaxSpeed = APP_CALC_MAXSPDmanage(CurrentSpeed);
 "82
-[e :U 282 ]
-[; ;APP.c: 82: else
-[; ;APP.c: 83: {
+[e = . _APP_DATA 5 ( _APP_CALC_MAXSPDmanage (1 _CurrentSpeed ]
+[; ;APP.c: 83: DisableDistanceCntr(StatusByte.StopMeasureFlag);
 "83
-{
-[; ;APP.c: 85: BCDsendNumber(Circum,1,0 ,0);
+[e ( _DisableDistanceCntr (1 . _StatusByte 10 ]
+[; ;APP.c: 85: BCDsendNumber(CurrentSpeed,0,1,1);
 "85
-[e ( _BCDsendNumber (4 , , , _Circum -> -> 1 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;APP.c: 86: BlinkDigit(blinkIndex,1,100);
-"86
-[e ( _BlinkDigit (3 , , -> F3172 `uc -> -> 1 `i `uc -> -> 100 `i `uc ]
-[; ;APP.c: 87: keystatus = GetKeyStatus(0);
+[e ( _BCDsendNumber (4 , , , -> _CurrentSpeed `ul -> -> 0 `i `uc -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;APP.c: 87: switch(StatusByte.CurrentState)
 "87
-[e = _keystatus ( _GetKeyStatus (1 -> -> 0 `i `uc ]
-[; ;APP.c: 88: if( keystatus == (unsigned char)0x40)
+[e $U 285  ]
+[; ;APP.c: 88: {
 "88
-[e $ ! == -> _keystatus `i -> -> -> 64 `i `uc `i 285  ]
-[; ;APP.c: 89: {
+{
+[; ;APP.c: 89: case (unsigned char)0x0:
 "89
-{
-[; ;APP.c: 90: blinkIndex++;
-"90
-[e ++ F3172 -> -> 1 `i `ui ]
-[; ;APP.c: 91: if(blinkIndex == 4)
-"91
-[e $ ! == F3172 -> -> 4 `i `ui 286  ]
-[; ;APP.c: 92: {
-"92
-{
-[; ;APP.c: 93: blinkIndex=0;
-"93
-[e = F3172 -> -> 0 `i `ui ]
-"94
-}
 [e :U 286 ]
-"95
-}
-[; ;APP.c: 94: }
-[; ;APP.c: 95: }
-[e $U 287  ]
-"96
-[e :U 285 ]
-[; ;APP.c: 96: else
-[; ;APP.c: 97: {
-"97
-{
-[; ;APP.c: 98: keystatus = GetKeyStatus(1);
-"98
-[e = _keystatus ( _GetKeyStatus (1 -> -> 1 `i `uc ]
-[; ;APP.c: 99: keystatus2 = GetKeyStatus(2);
-"99
-[e = _keystatus2 ( _GetKeyStatus (1 -> -> 2 `i `uc ]
-[; ;APP.c: 100: if(keystatus == (unsigned char)0x82 )
-"100
-[e $ ! == -> _keystatus `i -> -> -> 130 `i `uc `i 288  ]
-[; ;APP.c: 101: {
-"101
-{
-[; ;APP.c: 102: Eeprom_Write_Block(1,(unsigned char*)&Circum ,
-[; ;APP.c: 103: (unsigned char)sizeof(Circum),(void*)0);
-"103
-[e ( _Eeprom_Write_Block (4 , , , -> -> 1 `i `uc -> &U _Circum `*uc -> -> # _Circum `ui `uc -> -> -> 0 `i `*v `*F3148 ]
-[; ;APP.c: 104: BlinkDigit(1,1,0);
-"104
-[e ( _BlinkDigit (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;APP.c: 105: bIsBlinkMode = (unsigned char)0;
-"105
-[e = F3174 -> -> -> 0 `i `uc `ui ]
-"108
-}
-[; ;APP.c: 108: }
-[e $U 289  ]
-"109
-[e :U 288 ]
-[; ;APP.c: 109: else if(keystatus == (unsigned char)0x40)
-[e $ ! == -> _keystatus `i -> -> -> 64 `i `uc `i 290  ]
-[; ;APP.c: 110: {
-"110
-{
-[; ;APP.c: 111: Circum = IncrementDecrementSingleDigit(
-[; ;APP.c: 112: Circum,blinkIndex,(unsigned char)0);
-"112
-[e = _Circum ( _IncrementDecrementSingleDigit (3 , , _Circum -> F3172 `uc -> -> 0 `i `uc ]
-"113
-}
-[; ;APP.c: 113: }
-[e $U 291  ]
-"114
-[e :U 290 ]
-[; ;APP.c: 114: else if(keystatus2 == (unsigned char)0x40)
-[e $ ! == -> _keystatus2 `i -> -> -> 64 `i `uc `i 292  ]
-[; ;APP.c: 115: {
-"115
-{
-[; ;APP.c: 116: Circum = IncrementDecrementSingleDigit(
-[; ;APP.c: 117: Circum,blinkIndex,(unsigned char)1);
-"117
-[e = _Circum ( _IncrementDecrementSingleDigit (3 , , _Circum -> F3172 `uc -> -> 1 `i `uc ]
-"118
-}
-[e :U 292 ]
-"119
-[e :U 291 ]
-[e :U 289 ]
-}
+[; ;APP.c: 90: BCDsendNumber(APP_DATA.TravelledDistance ,1 ,1 ,1);
+"90
+[e ( _BCDsendNumber (4 , , , . _APP_DATA 3 -> -> 1 `i `uc -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;APP.c: 91: break;
+"91
+[e $U 284  ]
+[; ;APP.c: 93: case (unsigned char)0x01:
+"93
 [e :U 287 ]
+[; ;APP.c: 95: if((unsigned char)1 == StatusByte.ExtraIncrementFlag)
+"95
+[e $ ! == -> -> -> 1 `i `uc `i -> . _StatusByte 4 `i 288  ]
+[; ;APP.c: 96: {
+"96
+{
+[; ;APP.c: 97: APP_CALC_TIMEsetTravelTime((unsigned long)0);
+"97
+[e ( _APP_CALC_TIMEsetTravelTime (1 -> -> 0 `i `ul ]
+"98
+}
+[e :U 288 ]
+[; ;APP.c: 98: }
+[; ;APP.c: 99: BCDsendNumber(APP_DATA.TravelTime ,1 ,0 ,1);
+"99
+[e ( _BCDsendNumber (4 , , , . _APP_DATA 4 -> -> 1 `i `uc -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;APP.c: 101: break;
+"101
+[e $U 284  ]
+[; ;APP.c: 103: case (unsigned char)0x02:
+"103
+[e :U 289 ]
+[; ;APP.c: 104: BCDsendNumber(AvgSpeed,1,1,1);
+"104
+[e ( _BCDsendNumber (4 , , , -> _AvgSpeed `ul -> -> 1 `i `uc -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;APP.c: 105: break;
+"105
+[e $U 284  ]
+[; ;APP.c: 107: case (unsigned char)0x03:
+"107
+[e :U 290 ]
+[; ;APP.c: 108: BCDsendNumber(APP_DATA.MaxSpeed , 1 ,1 ,1);
+"108
+[e ( _BCDsendNumber (4 , , , -> . _APP_DATA 5 `ul -> -> 1 `i `uc -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;APP.c: 109: break;
+"109
+[e $U 284  ]
+[; ;APP.c: 111: case (unsigned char)0x04:
+"111
+[e :U 291 ]
+[; ;APP.c: 113: if(StatusByte.DisplayState == (unsigned char)0x1)
+"113
+[e $ ! == -> . _StatusByte 9 `i -> -> -> 1 `i `uc `i 292  ]
+[; ;APP.c: 114: {
+"114
+{
+[; ;APP.c: 115: if((unsigned char)1 == StatusByte.ExtraIncrementFlag)
+"115
+[e $ ! == -> -> -> 1 `i `uc `i -> . _StatusByte 4 `i 293  ]
+[; ;APP.c: 116: {
+"116
+{
+[; ;APP.c: 117: if(APP_DATA.CircumBlinkIndex == (4 - (unsigned char)1))
+"117
+[e $ ! == -> . _APP_DATA 1 `i - -> 4 `i -> -> -> 1 `i `uc `i 294  ]
+[; ;APP.c: 118: {
+"118
+{
+[; ;APP.c: 119: APP_DATA.CircumBlinkIndex = (unsigned char)0;
+"119
+[e = . _APP_DATA 1 -> -> 0 `i `uc ]
 "120
 }
-[e :U 284 ]
-"121
-}
-[; ;APP.c: 118: }
-[; ;APP.c: 119: }
 [; ;APP.c: 120: }
-[; ;APP.c: 121: }
-[e $U 293  ]
+[e $U 295  ]
+"121
+[e :U 294 ]
+[; ;APP.c: 121: else
+[; ;APP.c: 122: {
 "122
-[e :U 281 ]
-[; ;APP.c: 122: else
-[; ;APP.c: 123: {
+{
+[; ;APP.c: 123: APP_DATA.CircumBlinkIndex ++;
 "123
-{
-"125
+[e ++ . _APP_DATA 1 -> -> 1 `i `uc ]
+"124
 }
-[e :U 293 ]
-[; ;APP.c: 125: }
-[; ;APP.c: 126: }
-"126
-[e :UE 280 ]
-}
-"154
-[v _IncrementDecrementSingleDigit `(us ~T0 @X0 1 sf3`us`uc`uc ]
-"160
-{
-[; ;APP.c: 154: static unsigned short IncrementDecrementSingleDigit
-[; ;APP.c: 155: (
-[; ;APP.c: 156: unsigned short Number,
-[; ;APP.c: 157: unsigned char Index,
-[; ;APP.c: 158: unsigned char bIsincrement
-[; ;APP.c: 159: )
-[; ;APP.c: 160: {
-[e :U _IncrementDecrementSingleDigit ]
-"156
-[v _Number `us ~T0 @X0 1 r1 ]
-"157
-[v _Index `uc ~T0 @X0 1 r2 ]
-"158
-[v _bIsincrement `uc ~T0 @X0 1 r3 ]
-"160
-[f ]
-"161
-[v _NumberReturned `us ~T0 @X0 1 a ]
-[; ;APP.c: 161: unsigned short NumberReturned = (unsigned short)0;
-[e = _NumberReturned -> -> 0 `i `us ]
-"162
-[v _Link `us ~T0 @X0 1 a ]
-"163
-[v _LoopIndex `uc ~T0 @X0 1 a ]
-"164
-[v _PowIndex `uc ~T0 @X0 1 a ]
-"165
-[v _Output `uc ~T0 @X0 -> 4 `i a ]
-"166
-[v _unitPosition `us ~T0 @X0 1 a ]
-[; ;APP.c: 162: unsigned short Link;
-[; ;APP.c: 163: unsigned char LoopIndex;
-[; ;APP.c: 164: unsigned char PowIndex;
-[; ;APP.c: 165: unsigned char Output[4];
-[; ;APP.c: 166: unsigned short unitPosition = (unsigned short)1;
-[e = _unitPosition -> -> 1 `i `us ]
-[; ;APP.c: 169: for( LoopIndex = (unsigned char)0; LoopIndex < 4 ; LoopIndex++)
-"169
-{
-[e = _LoopIndex -> -> 0 `i `uc ]
-[e $ < -> _LoopIndex `i -> 4 `i 295  ]
-[e $U 296  ]
-"170
 [e :U 295 ]
-[; ;APP.c: 170: {
+"126
+}
+[; ;APP.c: 124: }
+[; ;APP.c: 126: }
+[e $U 296  ]
+"127
+[e :U 293 ]
+[; ;APP.c: 127: else if((unsigned char)1 == StatusByte.ExtraDecrementFlag)
+[e $ ! == -> -> -> 1 `i `uc `i -> . _StatusByte 5 `i 297  ]
+[; ;APP.c: 128: {
+"128
 {
-[; ;APP.c: 171: if((Number != (unsigned short)0) )
+[; ;APP.c: 129: if(APP_DATA.CircumBlinkIndex == (unsigned char)0)
+"129
+[e $ ! == -> . _APP_DATA 1 `i -> -> -> 0 `i `uc `i 298  ]
+[; ;APP.c: 130: {
+"130
+{
+[; ;APP.c: 131: APP_DATA.CircumBlinkIndex = 4 - (unsigned char)1;
+"131
+[e = . _APP_DATA 1 -> - -> 4 `i -> -> -> 1 `i `uc `i `uc ]
+"132
+}
+[; ;APP.c: 132: }
+[e $U 299  ]
+"133
+[e :U 298 ]
+[; ;APP.c: 133: else
+[; ;APP.c: 134: {
+"134
+{
+[; ;APP.c: 135: APP_DATA.CircumBlinkIndex --;
+"135
+[e -- . _APP_DATA 1 -> -> 1 `i `uc ]
+"136
+}
+[e :U 299 ]
+"137
+}
+[; ;APP.c: 136: }
+[; ;APP.c: 137: }
+[e $U 300  ]
+"138
+[e :U 297 ]
+[; ;APP.c: 138: else if((unsigned char)1 == StatusByte.IncrementFlag )
+[e $ ! == -> -> -> 1 `i `uc `i -> . _StatusByte 2 `i 301  ]
+[; ;APP.c: 139: {
+"139
+{
+[; ;APP.c: 140: APP_DATA.Circum = IncrementDecrementSingleDigit(
+[; ;APP.c: 141: APP_DATA.Circum,APP_DATA.CircumBlinkIndex,(unsigned char)0);
+"141
+[e = . _APP_DATA 0 ( _IncrementDecrementSingleDigit (3 , , . _APP_DATA 0 . _APP_DATA 1 -> -> 0 `i `uc ]
+"142
+}
+[; ;APP.c: 142: }
+[e $U 302  ]
+"143
+[e :U 301 ]
+[; ;APP.c: 143: else if ((unsigned char)1 == StatusByte.DecrementFlag)
+[e $ ! == -> -> -> 1 `i `uc `i -> . _StatusByte 3 `i 303  ]
+[; ;APP.c: 144: {
+"144
+{
+[; ;APP.c: 145: APP_DATA.Circum = IncrementDecrementSingleDigit(
+[; ;APP.c: 146: APP_DATA.Circum,APP_DATA.CircumBlinkIndex,(unsigned char)1);
+"146
+[e = . _APP_DATA 0 ( _IncrementDecrementSingleDigit (3 , , . _APP_DATA 0 . _APP_DATA 1 -> -> 1 `i `uc ]
+"148
+}
+[; ;APP.c: 148: }
+[e $U 304  ]
+"149
+[e :U 303 ]
+[; ;APP.c: 149: else
+[; ;APP.c: 150: {
+"150
+{
+"152
+}
+[e :U 304 ]
+[e :U 302 ]
+[e :U 300 ]
+[e :U 296 ]
+[; ;APP.c: 152: }
+[; ;APP.c: 153: BlinkDigit(APP_DATA.CircumBlinkIndex,1,(unsigned char)100);
+"153
+[e ( _BlinkDigit (3 , , . _APP_DATA 1 -> -> 1 `i `uc -> -> 100 `i `uc ]
+"154
+}
+[; ;APP.c: 154: }
+[e $U 305  ]
+"155
+[e :U 292 ]
+[; ;APP.c: 155: else
+[; ;APP.c: 156: {
+"156
+{
+[; ;APP.c: 157: BlinkDigit(APP_DATA.CircumBlinkIndex,1,0);
+"157
+[e ( _BlinkDigit (3 , , . _APP_DATA 1 -> -> 1 `i `uc -> -> 0 `i `uc ]
+"158
+}
+[e :U 305 ]
+[; ;APP.c: 158: }
+[; ;APP.c: 160: BCDsendNumber(APP_DATA.Circum ,1, 0,0);
+"160
+[e ( _BCDsendNumber (4 , , , -> . _APP_DATA 0 `ul -> -> 1 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;APP.c: 161: SetCircumfirunce(APP_DATA.Circum);
+"161
+[e ( _SetCircumfirunce (1 . _APP_DATA 0 ]
+[; ;APP.c: 162: break;
+"162
+[e $U 284  ]
+[; ;APP.c: 164: default:
+"164
+[e :U 306 ]
+[; ;APP.c: 165: memset(&StatusByte,0,sizeof(StatusByte));
+"165
+[e ( _memset (3 , , -> &U _StatusByte `*v -> 0 `i -> # _StatusByte `ui ]
+[; ;APP.c: 166: break;
+"166
+[e $U 284  ]
+"167
+}
+[; ;APP.c: 167: }
+[e $U 284  ]
+"87
+[e :U 285 ]
+[e [\ . _StatusByte 0 , $ -> -> 0 `i `uc 286
+ , $ -> -> 1 `i `uc 287
+ , $ -> -> 2 `i `uc 289
+ , $ -> -> 3 `i `uc 290
+ , $ -> -> 4 `i `uc 291
+ 306 ]
+"167
+[e :U 284 ]
+[; ;APP.c: 169: memcpy(&APP_DATA.StatusByte,&StatusByte,sizeof(APP_INFOR_BYTE));
+"169
+[e ( _memcpy (3 , , -> &U . _APP_DATA 2 `*v -> &U _StatusByte `*Cv -> # `S276 `ui ]
+[; ;APP.c: 171: if(StatusByte.EEPsaveFlag == (unsigned char)1)
 "171
-[e $ ! != -> _Number `ui -> -> -> 0 `i `us `ui 298  ]
+[e $ ! == -> . _StatusByte 1 `i -> -> -> 1 `i `uc `i 307  ]
 [; ;APP.c: 172: {
 "172
 {
-[; ;APP.c: 173: Link = Number;
-"173
-[e = _Link _Number ]
-[; ;APP.c: 174: Number = (unsigned short)(Number/(unsigned short)10);
+[; ;APP.c: 173: if((unsigned char)1 ==
+[; ;APP.c: 174: Eeprom_Write_Block(1,&APP_DATA,(unsigned char)sizeof(APP_DATA),(0)))
 "174
-[e = _Number -> / -> _Number `ui -> -> -> 10 `i `us `ui `us ]
-[; ;APP.c: 175: Output[LoopIndex] = Link -
-[; ;APP.c: 176: (unsigned short)(Number * (unsigned short)10);
+[e $ ! == -> -> -> 1 `i `uc `i -> ( _Eeprom_Write_Block (4 , , , -> -> 1 `i `uc -> &U _APP_DATA `*v -> -> # _APP_DATA `ui `uc -> -> 0 `i `*F3162 `i 308  ]
+[; ;APP.c: 175: {
+"175
+{
+[; ;APP.c: 176: APP_DATA.StatusByte.EEPsaveFlag = (unsigned char)0;
 "176
-[e = *U + &U _Output * -> _LoopIndex `ux -> -> # *U &U _Output `ui `ux -> - -> _Link `ui -> -> * -> _Number `ui -> -> -> 10 `i `us `ui `us `ui `uc ]
+[e = . . _APP_DATA 2 1 -> -> 0 `i `uc ]
 "177
 }
-[; ;APP.c: 177: }
-[e $U 299  ]
+[e :U 308 ]
 "178
-[e :U 298 ]
-[; ;APP.c: 178: else
-[; ;APP.c: 179: {
-"179
-{
-[; ;APP.c: 180: Output[LoopIndex] = (unsigned short)0;
+}
+[e :U 307 ]
+[; ;APP.c: 177: }
+[; ;APP.c: 178: }
+[; ;APP.c: 180: }
 "180
-[e = *U + &U _Output * -> _LoopIndex `ux -> -> # *U &U _Output `ui `ux -> -> -> 0 `i `us `uc ]
-"181
+[e :UE 283 ]
 }
-[e :U 299 ]
 "182
-}
-"169
-[e ++ _LoopIndex -> -> 1 `i `uc ]
-[e $ < -> _LoopIndex `i -> 4 `i 295  ]
-[e :U 296 ]
-"182
-}
-[; ;APP.c: 181: }
-[; ;APP.c: 182: }
-[; ;APP.c: 184: if((unsigned char)0 == bIsincrement)
-"184
-[e $ ! == -> -> -> 0 `i `uc `i -> _bIsincrement `i 300  ]
-[; ;APP.c: 185: {
-"185
-{
-[; ;APP.c: 186: if((unsigned char)0 == Output[Index])
-"186
-[e $ ! == -> -> -> 0 `i `uc `i -> *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux `i 301  ]
-[; ;APP.c: 187: {
-"187
-{
-[; ;APP.c: 188: Output[Index] =(unsigned char)9;
+[v _IncrementDecrementSingleDigit `(us ~T0 @X0 1 sf3`us`uc`uc ]
 "188
-[e = *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux -> -> 9 `i `uc ]
+{
+[; ;APP.c: 182: static unsigned short IncrementDecrementSingleDigit
+[; ;APP.c: 183: (
+[; ;APP.c: 184: unsigned short Number,
+[; ;APP.c: 185: unsigned char Index,
+[; ;APP.c: 186: unsigned char bIsincrement
+[; ;APP.c: 187: )
+[; ;APP.c: 188: {
+[e :U _IncrementDecrementSingleDigit ]
+"184
+[v _Number `us ~T0 @X0 1 r1 ]
+"185
+[v _Index `uc ~T0 @X0 1 r2 ]
+"186
+[v _bIsincrement `uc ~T0 @X0 1 r3 ]
+"188
+[f ]
 "189
-}
-[; ;APP.c: 189: }
-[e $U 302  ]
+[v _NumberReturned `us ~T0 @X0 1 a ]
+[; ;APP.c: 189: unsigned short NumberReturned = (unsigned short)0;
+[e = _NumberReturned -> -> 0 `i `us ]
 "190
-[e :U 301 ]
-[; ;APP.c: 190: else
-[; ;APP.c: 191: {
+[v _Link `us ~T0 @X0 1 a ]
 "191
-{
-[; ;APP.c: 192: Output[Index]--;
+[v _LoopIndex `uc ~T0 @X0 1 a ]
 "192
-[e -- *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux -> -> 1 `i `uc ]
+[v _PowIndex `uc ~T0 @X0 1 a ]
 "193
-}
-[e :U 302 ]
+[v _Output `uc ~T0 @X0 -> 4 `i a ]
 "194
-}
-[; ;APP.c: 193: }
-[; ;APP.c: 194: }
-[e $U 303  ]
-"195
-[e :U 300 ]
-[; ;APP.c: 195: else
-[; ;APP.c: 196: {
-"196
-{
-[; ;APP.c: 197: if( (unsigned char)9 == Output[Index])
+[v _unitPosition `us ~T0 @X0 1 a ]
+[; ;APP.c: 190: unsigned short Link;
+[; ;APP.c: 191: unsigned char LoopIndex;
+[; ;APP.c: 192: unsigned char PowIndex;
+[; ;APP.c: 193: unsigned char Output[4];
+[; ;APP.c: 194: unsigned short unitPosition = (unsigned short)1;
+[e = _unitPosition -> -> 1 `i `us ]
+[; ;APP.c: 197: for( LoopIndex = (unsigned char)0; LoopIndex < 4 ; LoopIndex++)
 "197
-[e $ ! == -> -> -> 9 `i `uc `i -> *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux `i 304  ]
-[; ;APP.c: 198: {
-"198
-{
-[; ;APP.c: 199: Output[Index] = (unsigned char)0;
-"199
-[e = *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux -> -> 0 `i `uc ]
-"200
-}
-[; ;APP.c: 200: }
-[e $U 305  ]
-"201
-[e :U 304 ]
-[; ;APP.c: 201: else
-[; ;APP.c: 202: {
-"202
-{
-[; ;APP.c: 203: Output[Index]++;
-"203
-[e ++ *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux -> -> 1 `i `uc ]
-"204
-}
-[e :U 305 ]
-"205
-}
-[e :U 303 ]
-[; ;APP.c: 204: }
-[; ;APP.c: 205: }
-[; ;APP.c: 207: for(LoopIndex=(unsigned char)0;LoopIndex < 4; LoopIndex++)
-"207
 {
 [e = _LoopIndex -> -> 0 `i `uc ]
-[e $ < -> _LoopIndex `i -> 4 `i 306  ]
-[e $U 307  ]
-"208
-[e :U 306 ]
-[; ;APP.c: 208: {
-{
-[; ;APP.c: 209: for(PowIndex = (unsigned char)0 ; PowIndex < LoopIndex ;
-"209
-{
-[e = _PowIndex -> -> 0 `i `uc ]
-[; ;APP.c: 210: PowIndex++ )
-[e $U 312  ]
-"211
-[e :U 309 ]
-[; ;APP.c: 211: {
-{
-[; ;APP.c: 212: unitPosition *=(unsigned short)10;
-"212
-[e =* _unitPosition -> -> 10 `i `us ]
-"213
-}
-"210
-[e ++ _PowIndex -> -> 1 `i `uc ]
-"209
-[e :U 312 ]
-[e $ < -> _PowIndex `i -> _LoopIndex `i 309  ]
+[e $ < -> _LoopIndex `i -> 4 `i 310  ]
+[e $U 311  ]
+"198
 [e :U 310 ]
-"213
+[; ;APP.c: 198: {
+{
+[; ;APP.c: 199: if((Number != (unsigned short)0) )
+"199
+[e $ ! != -> _Number `ui -> -> -> 0 `i `us `ui 313  ]
+[; ;APP.c: 200: {
+"200
+{
+[; ;APP.c: 201: Link = Number;
+"201
+[e = _Link _Number ]
+[; ;APP.c: 202: Number = (unsigned short)(Number/(unsigned short)10);
+"202
+[e = _Number -> / -> _Number `ui -> -> -> 10 `i `us `ui `us ]
+[; ;APP.c: 203: Output[LoopIndex] = Link -
+[; ;APP.c: 204: (unsigned short)(Number * (unsigned short)10);
+"204
+[e = *U + &U _Output * -> _LoopIndex `ux -> -> # *U &U _Output `ui `ux -> - -> _Link `ui -> -> * -> _Number `ui -> -> -> 10 `i `us `ui `us `ui `uc ]
+"205
 }
-[; ;APP.c: 213: }
-[; ;APP.c: 214: NumberReturned +=
-[; ;APP.c: 215: (((unsigned short)Output[LoopIndex]) * unitPosition);
-"215
-[e =+ _NumberReturned -> * -> -> *U + &U _Output * -> _LoopIndex `ux -> -> # *U &U _Output `ui `ux `us `ui -> _unitPosition `ui `us ]
-[; ;APP.c: 216: unitPosition = (unsigned short)1;
-"216
-[e = _unitPosition -> -> 1 `i `us ]
-"217
-}
+[; ;APP.c: 205: }
+[e $U 314  ]
+"206
+[e :U 313 ]
+[; ;APP.c: 206: else
+[; ;APP.c: 207: {
 "207
+{
+[; ;APP.c: 208: Output[LoopIndex] = (unsigned short)0;
+"208
+[e = *U + &U _Output * -> _LoopIndex `ux -> -> # *U &U _Output `ui `ux -> -> -> 0 `i `us `uc ]
+"209
+}
+[e :U 314 ]
+"210
+}
+"197
 [e ++ _LoopIndex -> -> 1 `i `uc ]
-[e $ < -> _LoopIndex `i -> 4 `i 306  ]
-[e :U 307 ]
+[e $ < -> _LoopIndex `i -> 4 `i 310  ]
+[e :U 311 ]
+"210
+}
+[; ;APP.c: 209: }
+[; ;APP.c: 210: }
+[; ;APP.c: 212: if((unsigned char)0 == bIsincrement)
+"212
+[e $ ! == -> -> -> 0 `i `uc `i -> _bIsincrement `i 315  ]
+[; ;APP.c: 213: {
+"213
+{
+[; ;APP.c: 214: if((unsigned char)0 == Output[Index])
+"214
+[e $ ! == -> -> -> 0 `i `uc `i -> *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux `i 316  ]
+[; ;APP.c: 215: {
+"215
+{
+[; ;APP.c: 216: Output[Index] =(unsigned char)9;
+"216
+[e = *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux -> -> 9 `i `uc ]
 "217
 }
 [; ;APP.c: 217: }
-[; ;APP.c: 219: return NumberReturned;
+[e $U 317  ]
+"218
+[e :U 316 ]
+[; ;APP.c: 218: else
+[; ;APP.c: 219: {
 "219
-[e ) _NumberReturned ]
-[e $UE 294  ]
-[; ;APP.c: 220: }
+{
+[; ;APP.c: 220: Output[Index]--;
 "220
-[e :UE 294 ]
+[e -- *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux -> -> 1 `i `uc ]
+"221
+}
+[e :U 317 ]
+"222
+}
+[; ;APP.c: 221: }
+[; ;APP.c: 222: }
+[e $U 318  ]
+"223
+[e :U 315 ]
+[; ;APP.c: 223: else
+[; ;APP.c: 224: {
+"224
+{
+[; ;APP.c: 225: if( (unsigned char)9 == Output[Index])
+"225
+[e $ ! == -> -> -> 9 `i `uc `i -> *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux `i 319  ]
+[; ;APP.c: 226: {
+"226
+{
+[; ;APP.c: 227: Output[Index] = (unsigned char)0;
+"227
+[e = *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux -> -> 0 `i `uc ]
+"228
+}
+[; ;APP.c: 228: }
+[e $U 320  ]
+"229
+[e :U 319 ]
+[; ;APP.c: 229: else
+[; ;APP.c: 230: {
+"230
+{
+[; ;APP.c: 231: Output[Index]++;
+"231
+[e ++ *U + &U _Output * -> _Index `ux -> -> # *U &U _Output `ui `ux -> -> 1 `i `uc ]
+"232
+}
+[e :U 320 ]
+"233
+}
+[e :U 318 ]
+[; ;APP.c: 232: }
+[; ;APP.c: 233: }
+[; ;APP.c: 235: for(LoopIndex=(unsigned char)0;LoopIndex < 4; LoopIndex++)
+"235
+{
+[e = _LoopIndex -> -> 0 `i `uc ]
+[e $ < -> _LoopIndex `i -> 4 `i 321  ]
+[e $U 322  ]
+"236
+[e :U 321 ]
+[; ;APP.c: 236: {
+{
+[; ;APP.c: 237: for(PowIndex = (unsigned char)0 ; PowIndex < LoopIndex ;
+"237
+{
+[e = _PowIndex -> -> 0 `i `uc ]
+[; ;APP.c: 238: PowIndex++ )
+[e $U 327  ]
+"239
+[e :U 324 ]
+[; ;APP.c: 239: {
+{
+[; ;APP.c: 240: unitPosition *=(unsigned short)10;
+"240
+[e =* _unitPosition -> -> 10 `i `us ]
+"241
+}
+"238
+[e ++ _PowIndex -> -> 1 `i `uc ]
+"237
+[e :U 327 ]
+[e $ < -> _PowIndex `i -> _LoopIndex `i 324  ]
+[e :U 325 ]
+"241
+}
+[; ;APP.c: 241: }
+[; ;APP.c: 242: NumberReturned +=
+[; ;APP.c: 243: (((unsigned short)Output[LoopIndex]) * unitPosition);
+"243
+[e =+ _NumberReturned -> * -> -> *U + &U _Output * -> _LoopIndex `ux -> -> # *U &U _Output `ui `ux `us `ui -> _unitPosition `ui `us ]
+[; ;APP.c: 244: unitPosition = (unsigned short)1;
+"244
+[e = _unitPosition -> -> 1 `i `us ]
+"245
+}
+"235
+[e ++ _LoopIndex -> -> 1 `i `uc ]
+[e $ < -> _LoopIndex `i -> 4 `i 321  ]
+[e :U 322 ]
+"245
+}
+[; ;APP.c: 245: }
+[; ;APP.c: 247: return NumberReturned;
+"247
+[e ) _NumberReturned ]
+[e $UE 309  ]
+[; ;APP.c: 248: }
+"248
+[e :UE 309 ]
 }

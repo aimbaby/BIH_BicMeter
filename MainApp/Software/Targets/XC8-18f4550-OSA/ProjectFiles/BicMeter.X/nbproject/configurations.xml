@@ -15,8 +15,23 @@
       <logicalFolder name="Software" displayName="Software" projectFiles="true">
         <logicalFolder name="Common" displayName="Common" projectFiles="true">
           <logicalFolder name="App" displayName="App" projectFiles="true">
+            <logicalFolder name="APP_Calculations"
+                           displayName="APP_Calculations"
+                           projectFiles="true">
+              <itemPath>../../../../Common/App/APP_Calculations/APP_CalcSpeed.c</itemPath>
+              <itemPath>../../../../Common/App/APP_Calculations/APP_CalcTime.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="APP_HMI" displayName="APP_HMI" projectFiles="true">
+              <itemPath>../../../../Common/App/APP_HMI/APP_HMI.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="APP_SleepManage"
+                           displayName="APP_SleepManage"
+                           projectFiles="true">
+              <itemPath>../../../../Common/App/APP_SleepManage/APP_SleepManage.c</itemPath>
+            </logicalFolder>
             <itemPath>../../../../Common/App/APP.c</itemPath>
             <itemPath>../../../../Common/App/APP.h</itemPath>
+            <itemPath>../../../../Common/App/APP_TypeDef.h</itemPath>
           </logicalFolder>
           <logicalFolder name="Driver" displayName="Driver" projectFiles="true">
             <logicalFolder name="BCDdisplay" displayName="BCDdisplay" projectFiles="true">
@@ -82,6 +97,8 @@
               <itemPath>../../HWIsource/HWI_DIGITAL.c</itemPath>
               <itemPath>../../HWIsource/HWI_Interrupts.c</itemPath>
               <itemPath>../../HWIsource/TargetFile.h</itemPath>
+              <itemPath>../../HWIsource/HWI_Sleep.c</itemPath>
+              <itemPath>../../HWIsource/HWI_StartConfig.c</itemPath>
             </logicalFolder>
             <logicalFolder name="ProjectFiles"
                            displayName="ProjectFiles"
@@ -149,7 +166,7 @@
         <property key="define-macros" value=""/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
-                  value="..\..\..\..\;..\..\..\..\Common\Link;..\..\..\..\Common\Interrupts;..\..\..\..\Common\App;..\..\..\..\Common\HWIheader;..\..\..\..\OS\Scheduler;..\..\..\..\Common\Driver;..\..\..\..\Common\Driver\SpeedCalc;..\..\HWIsource;..\..\..\..\Common\Driver\BCDdisplay;..\..\..\..\Common\Driver\Key;..\..\..\..\OS\OS_manage;..\..\HWIeeprom;..\..\..\..\Common\Driver\EEPROM;..\..\..\..\Common\Driver\Buzzer"/>
+                  value="..\..\..\..\;..\..\..\..\Common\Link;..\..\..\..\Common\Interrupts;..\..\..\..\Common\App;..\..\..\..\Common\HWIheader;..\..\..\..\OS\Scheduler;..\..\..\..\Common\Driver;..\..\..\..\Common\Driver\SpeedCalc;..\..\HWIsource;..\..\..\..\Common\Driver\BCDdisplay;..\..\..\..\Common\Driver\Key;..\..\..\..\OS\OS_manage;..\..\HWIeeprom;..\..\..\..\Common\Driver\EEPROM;..\..\..\..\Common\Driver\Buzzer;..\..\..\..\Common\App\APP_Calculations;..\..\..\..\Common\App\APP_HMI;..\..\..\..\Common\App\APP_SleepManage"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="identifier-length" value="255"/>
         <property key="local-generation" value="false"/>

@@ -3810,6 +3810,10 @@ extern void HWI_Delay_nsec(unsigned short Time);
 
 extern unsigned short ReloadHWtimer(unsigned char TimerId);
 
+extern void SendMCUtoSleep(void);
+
+extern void HWI_InitOscilatorCalib(void);
+
 # 13 "../../../../Common/Driver/SpeedCalc/SpeedCalc.h"
  void SpeedCalcNotifyInitialize(void);
 
@@ -3818,6 +3822,8 @@ extern unsigned short ReloadHWtimer(unsigned char TimerId);
  void SensorTwoNotify(void);
 
  void SpeedCalcManage(void);
+
+ void DisableDistanceCntr(unsigned char bIsDisabled);
 
  void SetDistance(unsigned long Distance);
 
@@ -3837,6 +3843,7 @@ static unsigned long DistTravelCntr = (unsigned long)0;
 static unsigned short LapDistanceCounter = (unsigned short)0;
 static unsigned short LapTimeTenthMilli = (unsigned short)0;
 static unsigned char TimerOVFLcount = (unsigned char)0;
+static unsigned char DistTravelCntrDisable = (unsigned char)0;
 volatile unsigned short HWtimerCount = (unsigned short)0;
 volatile unsigned char HwTimerOVFLcount = (unsigned char)0;
 
@@ -3893,6 +3900,9 @@ LapCounter = (unsigned char)0;
 HundredMeterReference = (unsigned short)((unsigned long)100000 /
 (unsigned long)CircumFactor);
 
+
+if((unsigned char)0 == DistTravelCntrDisable)
+{
 if(LapDistanceCounter >= HundredMeterReference)
 {
 DistTravelCntr ++;
@@ -3903,10 +3913,17 @@ else
 
 }
 }
+}
+
+ void DisableDistanceCntr(unsigned char bIsDisabled)
+{
+DistTravelCntrDisable = bIsDisabled;
+}
 
  void SetDistance(unsigned long Distance)
 {
 DistTravelCntr = Distance;
+LapDistanceCounter = (unsigned short)0;
 }
 
  unsigned long GetDistance(void)

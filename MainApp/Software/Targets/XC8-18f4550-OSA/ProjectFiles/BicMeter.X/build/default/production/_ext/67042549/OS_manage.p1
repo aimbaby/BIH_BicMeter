@@ -1,11 +1,13 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1 ../../../../Common/HWIheader\HWI_func.h
+"20 ../../../../Common/HWIheader\HWI_func.h
+[v _HWI_InitOscilatorCalib `(v ~T0 @X0 0 ef ]
+"1
 [v _HWI_INTERRUPTS_INTITALIZE `(v ~T0 @X0 0 ef ]
 "2
 [v _HWI_DIGITAL_INITIALIZE `(v ~T0 @X0 0 ef ]
 "13 ../../../../Common/Driver/SpeedCalc\SpeedCalc.h
 [v _SpeedCalcNotifyInitialize `(v ~T0 @X0 0 ef ]
-"2 ../../../../Common/App\APP.h
+"6 ../../../../Common/App\APP.h
 [v _APP_INITIALIZE `(v ~T0 @X0 0 ef ]
 "13 ../../../../Common/Driver/BCDdisplay\BCDdisplay.h
 [v _BCDInitialize `(v ~T0 @X0 0 ef1`uc ]
@@ -24,7 +26,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RunScheduler `(v ~T0 @X0 0 ef ]
 "23 ../../../../Common/Driver/BCDdisplay\BCDdisplay.h
 [v _BCDManage7segment `(v ~T0 @X0 0 ef ]
-"3 ../../../../Common/App\APP.h
+"7 ../../../../Common/App\APP.h
 [v _APP_MANAGE `(v ~T0 @X0 0 ef ]
 "19 ../../../../Common/Driver/SpeedCalc\SpeedCalc.h
 [v _SpeedCalcManage `(v ~T0 @X0 0 ef ]
@@ -2832,21 +2834,47 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;HWIheader\HWI_func.h: 13: extern void HWI_Delay_usec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 14: extern void HWI_Delay_nsec(unsigned short Time);
 [; ;HWIheader\HWI_func.h: 16: extern unsigned short ReloadHWtimer(unsigned char TimerId);
-[; ;App\APP.h: 2: extern void APP_INITIALIZE(void);
-[; ;App\APP.h: 3: extern void APP_MANAGE();
+[; ;HWIheader\HWI_func.h: 18: extern void SendMCUtoSleep(void);
+[; ;HWIheader\HWI_func.h: 20: extern void HWI_InitOscilatorCalib(void);
+[; ;App\APP_TypeDef.h: 13: typedef struct
+[; ;App\APP_TypeDef.h: 14: {
+[; ;App\APP_TypeDef.h: 15: unsigned char CurrentState : 3;
+[; ;App\APP_TypeDef.h: 16: unsigned char EEPsaveFlag : 1;
+[; ;App\APP_TypeDef.h: 17: unsigned char IncrementFlag :1;
+[; ;App\APP_TypeDef.h: 18: unsigned char DecrementFlag :1;
+[; ;App\APP_TypeDef.h: 19: unsigned char ExtraIncrementFlag :1;
+[; ;App\APP_TypeDef.h: 20: unsigned char ExtraDecrementFlag :1;
+[; ;App\APP_TypeDef.h: 21: unsigned char ClearFlag :1;
+[; ;App\APP_TypeDef.h: 22: unsigned char SleepFlag :1;
+[; ;App\APP_TypeDef.h: 23: unsigned char KphFlag :1;
+[; ;App\APP_TypeDef.h: 24: unsigned char DisplayState :1;
+[; ;App\APP_TypeDef.h: 25: unsigned char StopMeasureFlag :1;
+[; ;App\APP_TypeDef.h: 26: }APP_INFOR_BYTE;
+[; ;App\APP_TypeDef.h: 28: typedef struct
+[; ;App\APP_TypeDef.h: 29: {
+[; ;App\APP_TypeDef.h: 30: unsigned short Circum;
+[; ;App\APP_TypeDef.h: 31: unsigned char CircumBlinkIndex;
+[; ;App\APP_TypeDef.h: 32: APP_INFOR_BYTE StatusByte;
+[; ;App\APP_TypeDef.h: 33: unsigned long TravelledDistance;
+[; ;App\APP_TypeDef.h: 34: unsigned long TravelTime;
+[; ;App\APP_TypeDef.h: 35: unsigned short MaxSpeed;
+[; ;App\APP_TypeDef.h: 36: }APP_NVM_DATA;
+[; ;App\APP.h: 6: extern void APP_INITIALIZE(void);
+[; ;App\APP.h: 7: extern void APP_MANAGE();
 [; ;SpeedCalc\SpeedCalc.h: 13: extern void SpeedCalcNotifyInitialize(void);
 [; ;SpeedCalc\SpeedCalc.h: 15: extern void SensorOneNotify(void);
 [; ;SpeedCalc\SpeedCalc.h: 17: extern void SensorTwoNotify(void);
 [; ;SpeedCalc\SpeedCalc.h: 19: extern void SpeedCalcManage(void);
-[; ;SpeedCalc\SpeedCalc.h: 21: extern void SetDistance(unsigned long Distance);
-[; ;SpeedCalc\SpeedCalc.h: 23: extern unsigned long GetDistance(void);
-[; ;SpeedCalc\SpeedCalc.h: 25: extern void SetCircumfirunce(unsigned short Circum);
-[; ;SpeedCalc\SpeedCalc.h: 27: extern unsigned short GetAvgSpeed(unsigned char bIsKph);
-[; ;SpeedCalc\SpeedCalc.h: 29: extern void HWtimerCallback (void);
+[; ;SpeedCalc\SpeedCalc.h: 21: extern void DisableDistanceCntr(unsigned char bIsDisabled);
+[; ;SpeedCalc\SpeedCalc.h: 23: extern void SetDistance(unsigned long Distance);
+[; ;SpeedCalc\SpeedCalc.h: 25: extern unsigned long GetDistance(void);
+[; ;SpeedCalc\SpeedCalc.h: 27: extern void SetCircumfirunce(unsigned short Circum);
+[; ;SpeedCalc\SpeedCalc.h: 29: extern unsigned short GetAvgSpeed(unsigned char bIsKph);
+[; ;SpeedCalc\SpeedCalc.h: 31: extern void HWtimerCallback (void);
 [; ;BCDdisplay\BCDdisplay.h: 13: extern void BCDInitialize( unsigned char bIsCommonAnode);
 [; ;BCDdisplay\BCDdisplay.h: 15: extern void BCDsendNumber
 [; ;BCDdisplay\BCDdisplay.h: 16: (
-[; ;BCDdisplay\BCDdisplay.h: 17: unsigned short Number ,
+[; ;BCDdisplay\BCDdisplay.h: 17: unsigned long Number ,
 [; ;BCDdisplay\BCDdisplay.h: 18: unsigned char Line ,
 [; ;BCDdisplay\BCDdisplay.h: 19: unsigned char DecimalPlace,
 [; ;BCDdisplay\BCDdisplay.h: 20: unsigned char EnableTranc
@@ -2884,14 +2912,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;EEPROM\Eeprom.h: 12: unsigned char Eeprom_Write_Block
 [; ;EEPROM\Eeprom.h: 13: (
 [; ;EEPROM\Eeprom.h: 14: unsigned char address ,
-[; ;EEPROM\Eeprom.h: 15: unsigned char *DataPtr ,
+[; ;EEPROM\Eeprom.h: 15: void *DataPtr ,
 [; ;EEPROM\Eeprom.h: 16: unsigned char BlockSize,
 [; ;EEPROM\Eeprom.h: 17: void (*ptrFnCallback)(void)
 [; ;EEPROM\Eeprom.h: 18: );
 [; ;EEPROM\Eeprom.h: 20: unsigned char Eeprom_Read_Block
 [; ;EEPROM\Eeprom.h: 21: (
 [; ;EEPROM\Eeprom.h: 22: unsigned char address ,
-[; ;EEPROM\Eeprom.h: 23: unsigned char *DataPtr ,
+[; ;EEPROM\Eeprom.h: 23: void *DataPtr ,
 [; ;EEPROM\Eeprom.h: 24: unsigned char BlockSize
 [; ;EEPROM\Eeprom.h: 25: );
 [; ;EEPROM\Eeprom.h: 27: void EepromManage(void);
@@ -2908,122 +2936,125 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;OS_manage.c: 22: {
 [e :U _Start_App ]
 [f ]
-[; ;OS_manage.c: 23: HWI_INTERRUPTS_INTITALIZE();
+[; ;OS_manage.c: 23: HWI_InitOscilatorCalib();
 "23
-[e ( _HWI_INTERRUPTS_INTITALIZE ..  ]
-[; ;OS_manage.c: 24: HWI_DIGITAL_INITIALIZE();
+[e ( _HWI_InitOscilatorCalib ..  ]
+[; ;OS_manage.c: 24: HWI_INTERRUPTS_INTITALIZE();
 "24
-[e ( _HWI_DIGITAL_INITIALIZE ..  ]
-[; ;OS_manage.c: 25: SpeedCalcNotifyInitialize();
+[e ( _HWI_INTERRUPTS_INTITALIZE ..  ]
+[; ;OS_manage.c: 25: HWI_DIGITAL_INITIALIZE();
 "25
-[e ( _SpeedCalcNotifyInitialize ..  ]
-[; ;OS_manage.c: 26: APP_INITIALIZE();
+[e ( _HWI_DIGITAL_INITIALIZE ..  ]
+[; ;OS_manage.c: 26: SpeedCalcNotifyInitialize();
 "26
-[e ( _APP_INITIALIZE ..  ]
-[; ;OS_manage.c: 27: BCDInitialize(1);
+[e ( _SpeedCalcNotifyInitialize ..  ]
+[; ;OS_manage.c: 27: APP_INITIALIZE();
 "27
+[e ( _APP_INITIALIZE ..  ]
+[; ;OS_manage.c: 28: BCDInitialize(1);
+"28
 [e ( _BCDInitialize (1 -> -> 1 `i `uc ]
-[; ;OS_manage.c: 29: CreateTask( ManageSpeedCalc, (unsigned char)0 , (unsigned char) 20);
-"29
+[; ;OS_manage.c: 30: CreateTask( ManageSpeedCalc, (unsigned char)0 , (unsigned char) 20);
+"30
 [e ( _CreateTask (3 , , &U _ManageSpeedCalc -> -> 0 `i `uc -> -> 20 `i `uc ]
-[; ;OS_manage.c: 31: CreateTask( ManageApplication, (unsigned char)2 , (unsigned char) 100);
-"31
-[e ( _CreateTask (3 , , &U _ManageApplication -> -> 2 `i `uc -> -> 100 `i `uc ]
-[; ;OS_manage.c: 33: CreateTask( DisplayAlphaNumeric, (unsigned char)1 , (unsigned char) 2);
-"33
+[; ;OS_manage.c: 32: CreateTask( ManageApplication, (unsigned char)2 , (unsigned char) 50);
+"32
+[e ( _CreateTask (3 , , &U _ManageApplication -> -> 2 `i `uc -> -> 50 `i `uc ]
+[; ;OS_manage.c: 34: CreateTask( DisplayAlphaNumeric, (unsigned char)1 , (unsigned char) 2);
+"34
 [e ( _CreateTask (3 , , &U _DisplayAlphaNumeric -> -> 1 `i `uc -> -> 2 `i `uc ]
-[; ;OS_manage.c: 35: CreateTask( ManageDrivers , (unsigned char)3 , (unsigned char) 10);
-"35
+[; ;OS_manage.c: 36: CreateTask( ManageDrivers , (unsigned char)3 , (unsigned char) 10);
+"36
 [e ( _CreateTask (3 , , &U _ManageDrivers -> -> 3 `i `uc -> -> 10 `i `uc ]
-[; ;OS_manage.c: 37: RunScheduler();
-"37
-[e ( _RunScheduler ..  ]
-[; ;OS_manage.c: 38: }
+[; ;OS_manage.c: 38: RunScheduler();
 "38
-[e :UE 279 ]
-}
-"41
-[v _DisplayAlphaNumeric `(v ~T0 @X0 1 ef ]
-"42
-{
-[; ;OS_manage.c: 41: void DisplayAlphaNumeric (void)
-[; ;OS_manage.c: 42: {
-[e :U _DisplayAlphaNumeric ]
-[f ]
-[; ;OS_manage.c: 43: BCDManage7segment();
-"43
-[e ( _BCDManage7segment ..  ]
-[; ;OS_manage.c: 44: }
-"44
-[e :UE 280 ]
-}
-"45
-[v _ManageApplication `(v ~T0 @X0 1 ef ]
-"46
-{
-[; ;OS_manage.c: 45: void ManageApplication (void)
-[; ;OS_manage.c: 46: {
-[e :U _ManageApplication ]
-[f ]
-[; ;OS_manage.c: 47: APP_MANAGE();
-"47
-[e ( _APP_MANAGE ..  ]
-[; ;OS_manage.c: 48: }
-"48
+[e ( _RunScheduler ..  ]
+[; ;OS_manage.c: 39: }
+"39
 [e :UE 281 ]
 }
-"49
-[v _ManageSpeedCalc `(v ~T0 @X0 1 ef ]
-"50
+"42
+[v _DisplayAlphaNumeric `(v ~T0 @X0 1 ef ]
+"43
 {
-[; ;OS_manage.c: 49: void ManageSpeedCalc(void)
-[; ;OS_manage.c: 50: {
-[e :U _ManageSpeedCalc ]
+[; ;OS_manage.c: 42: void DisplayAlphaNumeric (void)
+[; ;OS_manage.c: 43: {
+[e :U _DisplayAlphaNumeric ]
 [f ]
-[; ;OS_manage.c: 51: SpeedCalcManage();
-"51
-[e ( _SpeedCalcManage ..  ]
-[; ;OS_manage.c: 52: }
-"52
+[; ;OS_manage.c: 44: BCDManage7segment();
+"44
+[e ( _BCDManage7segment ..  ]
+[; ;OS_manage.c: 45: }
+"45
 [e :UE 282 ]
 }
-"54
-[v _ManageDrivers `(v ~T0 @X0 1 ef ]
-"55
+"46
+[v _ManageApplication `(v ~T0 @X0 1 ef ]
+"47
 {
-[; ;OS_manage.c: 54: void ManageDrivers(void)
-[; ;OS_manage.c: 55: {
+[; ;OS_manage.c: 46: void ManageApplication (void)
+[; ;OS_manage.c: 47: {
+[e :U _ManageApplication ]
+[f ]
+[; ;OS_manage.c: 48: APP_MANAGE();
+"48
+[e ( _APP_MANAGE ..  ]
+[; ;OS_manage.c: 49: }
+"49
+[e :UE 283 ]
+}
+"50
+[v _ManageSpeedCalc `(v ~T0 @X0 1 ef ]
+"51
+{
+[; ;OS_manage.c: 50: void ManageSpeedCalc(void)
+[; ;OS_manage.c: 51: {
+[e :U _ManageSpeedCalc ]
+[f ]
+[; ;OS_manage.c: 52: SpeedCalcManage();
+"52
+[e ( _SpeedCalcManage ..  ]
+[; ;OS_manage.c: 53: }
+"53
+[e :UE 284 ]
+}
+"55
+[v _ManageDrivers `(v ~T0 @X0 1 ef ]
+"56
+{
+[; ;OS_manage.c: 55: void ManageDrivers(void)
+[; ;OS_manage.c: 56: {
 [e :U _ManageDrivers ]
 [f ]
-"56
-[v _LoopIndex `uc ~T0 @X0 1 a ]
-[; ;OS_manage.c: 56: unsigned char LoopIndex;
-[; ;OS_manage.c: 57: for(LoopIndex = (unsigned char)0 ; LoopIndex < (unsigned char)3 ; LoopIndex++)
 "57
+[v _LoopIndex `uc ~T0 @X0 1 a ]
+[; ;OS_manage.c: 57: unsigned char LoopIndex;
+[; ;OS_manage.c: 58: for(LoopIndex = (unsigned char)0 ; LoopIndex < (unsigned char)2 ; LoopIndex++)
+"58
 {
 [e = _LoopIndex -> -> 0 `i `uc ]
-[e $ < -> _LoopIndex `i -> -> -> 3 `i `uc `i 284  ]
-[e $U 285  ]
-"58
-[e :U 284 ]
-[; ;OS_manage.c: 58: {
-{
-[; ;OS_manage.c: 59: MangeKeys(LoopIndex);
+[e $ < -> _LoopIndex `i -> -> -> 2 `i `uc `i 286  ]
+[e $U 287  ]
 "59
+[e :U 286 ]
+[; ;OS_manage.c: 59: {
+{
+[; ;OS_manage.c: 60: MangeKeys(LoopIndex);
+"60
 [e ( _MangeKeys (1 _LoopIndex ]
-"60
-}
-"57
-[e ++ _LoopIndex -> -> 1 `i `uc ]
-[e $ < -> _LoopIndex `i -> -> -> 3 `i `uc `i 284  ]
-[e :U 285 ]
-"60
-}
-[; ;OS_manage.c: 60: }
-[; ;OS_manage.c: 61: EepromManage();
 "61
+}
+"58
+[e ++ _LoopIndex -> -> 1 `i `uc ]
+[e $ < -> _LoopIndex `i -> -> -> 2 `i `uc `i 286  ]
+[e :U 287 ]
+"61
+}
+[; ;OS_manage.c: 61: }
+[; ;OS_manage.c: 62: EepromManage();
+"62
 [e ( _EepromManage ..  ]
-[; ;OS_manage.c: 63: }
-"63
-[e :UE 283 ]
+[; ;OS_manage.c: 64: }
+"64
+[e :UE 285 ]
 }

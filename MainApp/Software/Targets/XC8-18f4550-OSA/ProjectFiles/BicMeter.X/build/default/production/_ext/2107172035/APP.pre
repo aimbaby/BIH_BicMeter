@@ -1,33 +1,40 @@
 
 # 1 "../../../../Common/App/APP.c"
 
-# 30 "C:\Program Files\Microchip\xc8\v1.41\include\math.h"
-extern double fabs(double);
-extern double floor(double);
-extern double ceil(double);
-extern double modf(double, double *);
-extern double sqrt(double);
-extern double atof(const char *);
-extern double sin(double) ;
-extern double cos(double) ;
-extern double tan(double) ;
-extern double asin(double) ;
-extern double acos(double) ;
-extern double atan(double);
-extern double atan2(double, double) ;
-extern double log(double);
-extern double log10(double);
-extern double pow(double, double) ;
-extern double exp(double) ;
-extern double sinh(double) ;
-extern double cosh(double) ;
-extern double tanh(double);
-extern double eval_poly(double, const double *, int);
-extern double frexp(double, int *);
-extern double ldexp(double, int);
-extern double fmod(double, double);
-extern double trunc(double);
-extern double round(double);
+# 4 "C:\Program Files\Microchip\xc8\v1.41\include\__size_t.h"
+typedef unsigned size_t;
+
+# 14 "C:\Program Files\Microchip\xc8\v1.41\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 34
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
 
 # 26 "C:\Program Files\Microchip\xc8\v1.41\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3803,6 +3810,10 @@ extern void HWI_Delay_nsec(unsigned short Time);
 
 extern unsigned short ReloadHWtimer(unsigned char TimerId);
 
+extern void SendMCUtoSleep(void);
+
+extern void HWI_InitOscilatorCalib(void);
+
 # 13 "../../../../Common/Driver/SpeedCalc\SpeedCalc.h"
 extern void SpeedCalcNotifyInitialize(void);
 
@@ -3811,6 +3822,8 @@ extern void SensorOneNotify(void);
 extern void SensorTwoNotify(void);
 
 extern void SpeedCalcManage(void);
+
+extern void DisableDistanceCntr(unsigned char bIsDisabled);
 
 extern void SetDistance(unsigned long Distance);
 
@@ -3827,7 +3840,7 @@ extern void BCDInitialize( unsigned char bIsCommonAnode);
 
 extern void BCDsendNumber
 (
-unsigned short Number ,
+unsigned long Number ,
 unsigned char Line ,
 unsigned char DecimalPlace,
 unsigned char EnableTranc
@@ -3859,33 +3872,11 @@ unsigned char * Data,
 unsigned char Length
 );
 
-# 22 "../../../../Common/Driver/Key\Key.h"
-typedef struct
-{
-unsigned char HWI_ID;
-unsigned char ActiveValue;
-unsigned short ReleaseTicks;
-unsigned short ShortPress;
-unsigned short LongPress;
-}strKeyConfig;
-
-typedef struct
-{
-unsigned char KeyState;
-unsigned short KeyCounter;
-}strKeyData;
-
-extern void KeyInitialize(void);
-
-extern unsigned char GetKeyStatus(unsigned char KeyID);
-
-extern void MangeKeys(unsigned char KeyID);
-
 # 12 "../../../../Common/Driver/EEPROM\Eeprom.h"
 extern unsigned char Eeprom_Write_Block
 (
 unsigned char address ,
-unsigned char *DataPtr ,
+void *DataPtr ,
 unsigned char BlockSize,
 void (*ptrFnCallback)(void)
 );
@@ -3893,21 +3884,63 @@ void (*ptrFnCallback)(void)
 extern unsigned char Eeprom_Read_Block
 (
 unsigned char address ,
-unsigned char *DataPtr ,
+void *DataPtr ,
 unsigned char BlockSize
 );
 
 extern void EepromManage(void);
 
-# 2 "../../../../Common/App/APP.h"
+# 13 "../../../../Common/App\APP_TypeDef.h"
+typedef struct
+{
+unsigned char CurrentState : 3;
+unsigned char EEPsaveFlag : 1;
+unsigned char IncrementFlag :1;
+unsigned char DecrementFlag :1;
+unsigned char ExtraIncrementFlag :1;
+unsigned char ExtraDecrementFlag :1;
+unsigned char ClearFlag :1;
+unsigned char SleepFlag :1;
+unsigned char KphFlag :1;
+unsigned char DisplayState :1;
+unsigned char StopMeasureFlag :1;
+}APP_INFOR_BYTE;
+
+typedef struct
+{
+unsigned short Circum;
+unsigned char CircumBlinkIndex;
+APP_INFOR_BYTE StatusByte;
+unsigned long TravelledDistance;
+unsigned long TravelTime;
+unsigned short MaxSpeed;
+}APP_NVM_DATA;
+
+# 7 "../../../../Common/App/APP_HMI\APP_HMI.h"
+extern void APP_HMImanage(APP_INFOR_BYTE * StatusByte );
+
+# 7 "../../../../Common/App/APP_Calculations\APP_Calculations.h"
+extern void APP_CALC_TIMEsetTravelTime(unsigned long TravelTime);
+extern unsigned long APP_CALC_TIMEmanage(APP_INFOR_BYTE * StatusByte);
+extern void APP_CALC_MAXSPDmanage_Set(unsigned short MaxSpeed);
+extern unsigned short APP_CALC_MAXSPDmanage(unsigned short CurrentSpeed);
+extern unsigned short APP_CALC_AVGSPDmanage
+(
+APP_INFOR_BYTE * StatusByte ,
+unsigned long TravelTime ,
+unsigned long Distance
+);
+
+# 7 "../../../../Common/App/APP_SleepManage\APP_SleepManage.h"
+extern void APP_SLEEPmanage(APP_INFOR_BYTE * StatusByte );
+
+# 6 "../../../../Common/App/APP.h"
  void APP_INITIALIZE(void);
  void APP_MANAGE();
 
-# 16 "../../../../Common/App/APP.c"
-static unsigned char WriteFlag = (unsigned char)0;
-static unsigned short Circum;
+# 31 "../../../../Common/App/APP.c"
+static APP_NVM_DATA APP_DATA;
 
-# 25
 static unsigned short IncrementDecrementSingleDigit
 (
 unsigned short Number,
@@ -3915,97 +3948,148 @@ unsigned char Index,
 unsigned char bIsincrement
 );
 
-
-
  void APP_INITIALIZE(void)
 {
+Eeprom_Read_Block(1 , &APP_DATA , (unsigned char)sizeof(APP_DATA));
 
-Eeprom_Read_Block(1 , (unsigned char*)&Circum , (unsigned char)sizeof(Circum));
-
-# 46
-if(Circum > (unsigned short)9999)
+if(APP_DATA.Circum > (unsigned short)9999)
 {
-Circum = (unsigned short)0;
+APP_DATA.Circum = (unsigned short)2000;
 }
+if(APP_DATA.TravelledDistance > (unsigned short)9999)
+{
+APP_DATA.TravelledDistance = (unsigned long)0;
+}
+if(APP_DATA.TravelledDistance > (unsigned short)9999)
+{
+APP_DATA.TravelTime = (unsigned long)0;
+}
+if(APP_DATA.MaxSpeed > (unsigned short)9999)
+{
+APP_DATA.MaxSpeed = (unsigned short)0;
+}
+SetCircumfirunce(APP_DATA.Circum);
+SetDistance(APP_DATA.TravelledDistance);
+APP_CALC_TIMEsetTravelTime(APP_DATA.TravelTime);
+APP_CALC_MAXSPDmanage_Set(APP_DATA.MaxSpeed);
 }
 
  void APP_MANAGE(void)
 {
-static unsigned blinkIndex = (unsigned char)0;
-static unsigned bIsBlinkMode = (unsigned char)0;
-unsigned short AvgSpeedKph;
-unsigned long TravelledDistance;
-unsigned char keystatus;
-unsigned char keystatus2;
+unsigned short AvgSpeed;
+unsigned short CurrentSpeed;
+APP_INFOR_BYTE StatusByte;
 
+memcpy(&StatusByte,&APP_DATA.StatusByte,sizeof(APP_INFOR_BYTE));
 
+APP_DATA.TravelledDistance = GetDistance();
 
+APP_HMImanage(&StatusByte);
+APP_DATA.TravelTime = APP_CALC_TIMEmanage(&StatusByte);
+AvgSpeed = APP_CALC_AVGSPDmanage(&StatusByte , APP_DATA.TravelTime , APP_DATA.TravelledDistance);
+APP_SLEEPmanage(&StatusByte);
 
-SetCircumfirunce(Circum);
+CurrentSpeed = GetAvgSpeed(1);
+APP_DATA.MaxSpeed = APP_CALC_MAXSPDmanage(CurrentSpeed);
+DisableDistanceCntr(StatusByte.StopMeasureFlag);
 
-AvgSpeedKph = GetAvgSpeed(1);
-TravelledDistance = GetDistance();
-TravelledDistance *= (unsigned long)10;
-TravelledDistance /= (unsigned long)16;
+BCDsendNumber(CurrentSpeed,0,1,1);
 
-if( (unsigned char)0 == WriteFlag)
+switch(StatusByte.CurrentState)
 {
-if(bIsBlinkMode == (unsigned char)0)
+case (unsigned char)0x0:
+BCDsendNumber(APP_DATA.TravelledDistance ,1 ,1 ,1);
+break;
+
+case (unsigned char)0x01:
+
+if((unsigned char)1 == StatusByte.ExtraIncrementFlag)
 {
-BCDsendNumber(AvgSpeedKph,0,1 ,1);
-keystatus = GetKeyStatus(0);
-if( keystatus == (unsigned char)0x82)
-{
-bIsBlinkMode = (unsigned char)1;
+APP_CALC_TIMEsetTravelTime((unsigned long)0);
 }
+BCDsendNumber(APP_DATA.TravelTime ,1 ,0 ,1);
+
+break;
+
+case (unsigned char)0x02:
+BCDsendNumber(AvgSpeed,1,1,1);
+break;
+
+case (unsigned char)0x03:
+BCDsendNumber(APP_DATA.MaxSpeed , 1 ,1 ,1);
+break;
+
+case (unsigned char)0x04:
+
+if(StatusByte.DisplayState == (unsigned char)0x1)
+{
+if((unsigned char)1 == StatusByte.ExtraIncrementFlag)
+{
+if(APP_DATA.CircumBlinkIndex == (4 - (unsigned char)1))
+{
+APP_DATA.CircumBlinkIndex = (unsigned char)0;
+}
+else
+{
+APP_DATA.CircumBlinkIndex ++;
+}
+
+}
+else if((unsigned char)1 == StatusByte.ExtraDecrementFlag)
+{
+if(APP_DATA.CircumBlinkIndex == (unsigned char)0)
+{
+APP_DATA.CircumBlinkIndex = 4 - (unsigned char)1;
+}
+else
+{
+APP_DATA.CircumBlinkIndex --;
+}
+}
+else if((unsigned char)1 == StatusByte.IncrementFlag )
+{
+APP_DATA.Circum = IncrementDecrementSingleDigit(
+APP_DATA.Circum,APP_DATA.CircumBlinkIndex,(unsigned char)0);
+}
+else if ((unsigned char)1 == StatusByte.DecrementFlag)
+{
+APP_DATA.Circum = IncrementDecrementSingleDigit(
+APP_DATA.Circum,APP_DATA.CircumBlinkIndex,(unsigned char)1);
+
 }
 else
 {
 
-BCDsendNumber(Circum,1,0 ,0);
-BlinkDigit(blinkIndex,1,100);
-keystatus = GetKeyStatus(0);
-if( keystatus == (unsigned char)0x40)
-{
-blinkIndex++;
-if(blinkIndex == 4)
-{
-blinkIndex=0;
 }
+BlinkDigit(APP_DATA.CircumBlinkIndex,1,(unsigned char)100);
 }
 else
 {
-keystatus = GetKeyStatus(1);
-keystatus2 = GetKeyStatus(2);
-if(keystatus == (unsigned char)0x82 )
-{
-Eeprom_Write_Block(1,(unsigned char*)&Circum ,
-(unsigned char)sizeof(Circum),(void*)0);
-BlinkDigit(1,1,0);
-bIsBlinkMode = (unsigned char)0;
+BlinkDigit(APP_DATA.CircumBlinkIndex,1,0);
+}
 
+BCDsendNumber(APP_DATA.Circum ,1, 0,0);
+SetCircumfirunce(APP_DATA.Circum);
+break;
 
+default:
+memset(&StatusByte,0,sizeof(StatusByte));
+break;
 }
-else if(keystatus == (unsigned char)0x40)
-{
-Circum = IncrementDecrementSingleDigit(
-Circum,blinkIndex,(unsigned char)0);
-}
-else if(keystatus2 == (unsigned char)0x40)
-{
-Circum = IncrementDecrementSingleDigit(
-Circum,blinkIndex,(unsigned char)1);
-}
-}
-}
-}
-else
-{
 
+memcpy(&APP_DATA.StatusByte,&StatusByte,sizeof(APP_INFOR_BYTE));
+
+if(StatusByte.EEPsaveFlag == (unsigned char)1)
+{
+if((unsigned char)1 ==
+Eeprom_Write_Block(1,&APP_DATA,(unsigned char)sizeof(APP_DATA),(0)))
+{
+APP_DATA.StatusByte.EEPsaveFlag = (unsigned char)0;
 }
 }
 
-# 154
+}
+
 static unsigned short IncrementDecrementSingleDigit
 (
 unsigned short Number,
@@ -4073,4 +4157,3 @@ unitPosition = (unsigned short)1;
 
 return NumberReturned;
 }
-

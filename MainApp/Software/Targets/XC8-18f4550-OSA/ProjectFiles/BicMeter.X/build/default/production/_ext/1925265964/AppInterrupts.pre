@@ -3766,6 +3766,8 @@ extern void SensorTwoNotify(void);
 
 extern void SpeedCalcManage(void);
 
+extern void DisableDistanceCntr(unsigned char bIsDisabled);
+
 extern void SetDistance(unsigned long Distance);
 
 extern unsigned long GetDistance(void);
