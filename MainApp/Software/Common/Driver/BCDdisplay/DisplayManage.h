@@ -12,7 +12,7 @@ PUBLIC void DisplaySendString
 ( 
     unsigned char Position, 
     unsigned char Line,
-    unsigned char * Data, 
+    char * Data, 
     unsigned char Length
 );
 

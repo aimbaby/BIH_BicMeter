@@ -24,7 +24,7 @@ const unsigned char Segment7ASCIItable[NUMBER_ASCII]=
     0b00000000, //O
     0b00000000, //P
     0b00000000, //Q
-    0b00000000, //R
+    0b10001100, //R
     0b10110110, //S
     0b00000000, //T
     0b00000000, //U
@@ -39,7 +39,7 @@ PUBLIC void DisplaySendString
 ( 
     unsigned char Position, 
     unsigned char Line,
-    unsigned char * Data, 
+    char * Data, 
     unsigned char Length
 )
 {
@@ -52,14 +52,14 @@ PUBLIC void DisplaySendString
         if((Data[LoopIndex] >= (unsigned char) 0x41)
                 &&(Data[LoopIndex] <= (unsigned char)0x66))
         {
-            TempStore = Data[LoopIndex] - (unsigned char)0x41;
+            TempStore = (unsigned char)Data[LoopIndex] - (unsigned char)0x41;
             ConvertedData[(Length - (unsigned char)1)- LoopIndex] 
                                                = Segment7ASCIItable[TempStore];
         }     
 		else
 		{
 			ConvertedData[(Length - (unsigned char)1)- LoopIndex] 
-			                                   = Data[LoopIndex];
+			                                   = (unsigned char)Data[LoopIndex];
 		}			   
     }
     Segment7SendString(Position , Line , &ConvertedData[0] , Length);
