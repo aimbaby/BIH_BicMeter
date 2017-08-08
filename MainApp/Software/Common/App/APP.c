@@ -10,14 +10,23 @@
   #include "APP_HMI.h"
   #include "APP_Calculations.h"
   #include "APP_SleepManage.h"
+  #include "Led.h"
 #include "Alloc.h"
   #include "APP.h"
+  
+#define SET_MPH(x)          do\
+                            {\
+								x = (x * (unsigned short)10) + (unsigned short)8;\
+								x /= (unsigned short)16;\
+							}while(0)
+							
 
 #define MAX_DISPLAY_NUMBER               (unsigned short)9999
 #define DEFAULT_CIRCUM                   (unsigned short)2000
 #define DEFAULT_TRAVEL_DIST              (unsigned long)0
 #define DEFAULT_TRAVEL_TIME              (unsigned long)0
 #define DEFAULT_MAX_SPEED                (unsigned short)0
+#define DEFAULT_BLINK_INDEX              (unsigned char)0
 
 #define APP_BLINK_RATE                   (unsigned char)100
 
@@ -57,6 +66,10 @@
 	 {
 		 APP_DATA.MaxSpeed = DEFAULT_MAX_SPEED;
 	 }
+	 if(APP_DATA.CircumBlinkIndex >= NUMBER_DIGITS)
+	 {
+		 APP_DATA.CircumBlinkIndex = DEFAULT_BLINK_INDEX;
+	 }
 	 SetCircumfirunce(APP_DATA.Circum);
 	 SetDistance(APP_DATA.TravelledDistance);
 	 APP_CALC_TIMEsetTravelTime(APP_DATA.TravelTime);
@@ -67,6 +80,7 @@
   {
     unsigned short AvgSpeed;
 	unsigned short CurrentSpeed;
+	unsigned short MaxSpeed;
     APP_INFOR_BYTE StatusByte;
 	
 	memcpy(&StatusByte,&APP_DATA.StatusByte,sizeof(APP_INFOR_BYTE));
@@ -80,13 +94,29 @@
 	
 	CurrentSpeed =  GetAvgSpeed(1);
 	APP_DATA.MaxSpeed = APP_CALC_MAXSPDmanage(CurrentSpeed);
+	MaxSpeed = APP_DATA.MaxSpeed;
  	DisableDistanceCntr(StatusByte.StopMeasureFlag);	
 	
-	BCDsendNumber(CurrentSpeed,0,1,1);
+	if((unsigned char)0 == StatusByte.KphFlag)
+	{
+		SET_MPH(MaxSpeed);
+		SET_MPH(CurrentSpeed);
+		SET_MPH(AvgSpeed);
+	}
+	else
+	{
+		
+	}
+	
+
+	ExclusiveSwitchLedOnOff((unsigned char)1,StatusByte.CurrentState);
+	SwitchLedOnOff(StatusByte.KphFlag , MPH_LED);
+	SwitchLedOnOff((0x1 & ((unsigned char)~StatusByte.KphFlag)) , KPH_LED);
 
     switch(StatusByte.CurrentState)
     {
 		case APP_STATE_DIST:
+			BCDsendNumber(CurrentSpeed,0,1,1);
 		    BCDsendNumber(APP_DATA.TravelledDistance ,1 ,1 ,1);
 		break;
         
@@ -97,15 +127,17 @@
 				APP_CALC_TIMEsetTravelTime((unsigned long)0);
 			}		
 			BCDsendNumber(APP_DATA.TravelTime ,1 ,0 ,1);
-			
+			BCDsendNumber(CurrentSpeed,0,1,1);		
         break;
 
 		case APP_STATE_AVGSPD:
 		    BCDsendNumber(AvgSpeed,1,1,1);
+			BCDsendNumber(CurrentSpeed,0,1,1);
 		break;
 		
-		case APP_STATE_MAXSPD:
-			BCDsendNumber(APP_DATA.MaxSpeed , 1 ,1 ,1);
+		case APP_STATE_MAXSPD:		
+			BCDsendNumber(MaxSpeed , 1 ,1 ,1);
+			BCDsendNumber(CurrentSpeed,0,1,1);
 		break;
 		
 		case APP_STATE_CIRCUM:
@@ -159,10 +191,13 @@
 
 			BCDsendNumber(APP_DATA.Circum ,1, 0,0);
 			SetCircumfirunce(APP_DATA.Circum);
+			DisplaySendString(0,0,"CIRC",4);
+			
 		break;
 		
 		default:
-		memset(&StatusByte,0,sizeof(StatusByte));
+			BCDsendNumber(CurrentSpeed,0,1,1);
+			memset(&StatusByte,0,sizeof(StatusByte));
 		break;
 	}
 
