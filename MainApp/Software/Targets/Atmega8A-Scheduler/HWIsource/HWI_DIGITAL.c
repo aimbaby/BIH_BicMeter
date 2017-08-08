@@ -9,8 +9,8 @@ PUBLIC void HWI_DIGITAL_INITIALIZE(void)
 {
 	DDRB = 0xFF;
 	DDRC = 0xFF;
-	DDRD = 0x0;
-	PORTD = 0xFF;
+	DDRD = (1<<PIND0) | (1<<PIND1) | (1<<PIND7);
+	PORTD = (unsigned char)~((1<<PIND0) | (1<<PIND1) | (1<<PIND7));
 }
   
 PUBLIC unsigned char HWI_DIGI_READ(unsigned char pin)
@@ -34,22 +34,47 @@ PUBLIC unsigned char HWI_DIGI_READ(unsigned char pin)
 	}
 	return HWIread;
 }
-PUBLIC void HWI_DIGI_WRITE(unsigned char pin,unsigned char value)
+PUBLIC void HWI_DIGI_WRITE(unsigned char pin,unsigned char val)
 {
+	switch(pin)
+	{
+		case 0:
+			PORTD = (PORTD & ((unsigned char)~(1<<PIND0))) | ((val & (unsigned char)0x1)<<PIND0);
+			break;
+		case 1:
+			PORTD = (PORTD & ((unsigned char)~(1<<PIND1))) | ((val & (unsigned char)0x1)<<PIND1);
+			break;
+		case 2:
+			PORTD = (PORTD & ((unsigned char)~(1<<PIND7))) | ((val & (unsigned char)0x1)<<PIND7);
+			break;
+		case 3:
+			PORTC = (PORTC & ((unsigned char)~(1<<PINC5))) | ((val & (unsigned char)0x1)<<PINC5);
+			break;
+		case 4:
+			break;
+		case 5:
+			PORTC = (PORTC & ((unsigned char)~(1<<PINC4))) | ((val & (unsigned char)0x1)<<PINC4);
+			break;
+		case 6:
+			PORTC = (PORTC & ((unsigned char)~(1<<PINC3))) | ((val & (unsigned char)0x1)<<PINC3);
+			break;
+		default:
+			break;
+	}
 }
 
-PUBLIC void HWI_4Digit_WRITE(unsigned char port,unsigned char value)
+PUBLIC void HWI_4Digit_WRITE(unsigned char port,unsigned char val)
 {
 	switch (port)
 	{
 		case 0:
-			PORTC = (PORTC & 0xF0) | value;
+			PORTC = (PORTC & 0xF8) | val;
 			break;
 		case 1:
-			PORTB = (PORTB & 0xF0) | value;
+			PORTB = (PORTB & 0xF0) | val;
 			break;
 		default:
-			PORTB = (PORTB & 0xF0) | value;
+			PORTB = (PORTB & 0xF0) | val;
 			break;
 	}
 	
@@ -72,18 +97,18 @@ PUBLIC unsigned char HWI_4Digit_READ(unsigned char port)
 	return PortValue;
 }
 
-PUBLIC void HWI_8Digit_WRITE(unsigned char port,unsigned char value)
+PUBLIC void HWI_8Digit_WRITE(unsigned char port,unsigned char val)
 {
 	switch (port)
 	{
 		case 0:
-			PORTC = value;
+			PORTC = val;
 			break;
 		case 1:
-			PORTB = value;
+			PORTB = val;
 			break;
 		default:
-			PORTB = value;
+			PORTB = val;
 			break;
 	}
 	

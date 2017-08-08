@@ -26,8 +26,9 @@ APP.d APP.o: ../../../../Common/App/APP.c \
  ../../../../Common/App/APP_TypeDef.h \
  ../../../../Common/App/APP_Calculations/APP_Calculations.h \
  ../../../../Common/App/APP_SleepManage/APP_SleepManage.h \
- ../../../../Common/Link/Alloc.h ../../../../Common/App/APP.h \
- ../../../../Common/App/APP_TypeDef.h
+ ../../../../Common/Driver/LEDout/Led.h \
+ ../../../../Common/Driver/LEDout/Led_p.h ../../../../Common/Link/Alloc.h \
+ ../../../../Common/App/APP.h ../../../../Common/App/APP_TypeDef.h
 
 e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr/4.6.2/../../../../avr/include/string.h:
 
@@ -84,6 +85,10 @@ e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrt
 ../../../../Common/App/APP_Calculations/APP_Calculations.h:
 
 ../../../../Common/App/APP_SleepManage/APP_SleepManage.h:
+
+../../../../Common/Driver/LEDout/Led.h:
+
+../../../../Common/Driver/LEDout/Led_p.h:
 
 ../../../../Common/Link/Alloc.h:
 

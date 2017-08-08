@@ -20,6 +20,8 @@
 
 ..\..\..\Common\Driver\Key\Key.c
 
+..\..\..\Common\Driver\LEDout\Led.c
+
 ..\..\..\Common\Driver\SpeedCalc\SpeedCalc.c
 
 ..\..\..\Common\Interrupts\AppInterrupts.c
