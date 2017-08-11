@@ -28,7 +28,8 @@
 #define DEFAULT_MAX_SPEED                (unsigned short)0
 #define DEFAULT_BLINK_INDEX              (unsigned char)0
 
-#define APP_BLINK_RATE                   (unsigned char)100
+#define SEG7_BLINK_RATE                   (unsigned char)100
+#define LED_BLINK_RATE                    (unsigned char)20
 
 
 #define APP_STATE_DIST                   (unsigned char)0x0
@@ -81,27 +82,30 @@
     unsigned short AvgSpeed;
 	unsigned short CurrentSpeed;
 	unsigned short MaxSpeed;
+	unsigned long TravelledDistance;
     APP_INFOR_BYTE StatusByte;
 	
 	memcpy(&StatusByte,&APP_DATA.StatusByte,sizeof(APP_INFOR_BYTE));
     
-    APP_DATA.TravelledDistance = GetDistance();
-         
     APP_HMImanage(&StatusByte);
+	DisableDistanceCntr(StatusByte.StopMeasureFlag);
+	APP_DATA.TravelledDistance = GetDistance();
     APP_DATA.TravelTime = APP_CALC_TIMEmanage(&StatusByte);
     AvgSpeed = APP_CALC_AVGSPDmanage(&StatusByte , APP_DATA.TravelTime , APP_DATA.TravelledDistance);
     APP_SLEEPmanage(&StatusByte);
-	
 	CurrentSpeed =  GetAvgSpeed(1);
-	APP_DATA.MaxSpeed = APP_CALC_MAXSPDmanage(CurrentSpeed);
+	APP_DATA.MaxSpeed = APP_CALC_MAXSPDmanage(&StatusByte , CurrentSpeed);
+	
+	
+	TravelledDistance = APP_DATA.TravelledDistance;
 	MaxSpeed = APP_DATA.MaxSpeed;
- 	DisableDistanceCntr(StatusByte.StopMeasureFlag);	
 	
 	if((unsigned char)0 == StatusByte.KphFlag)
 	{
 		SET_MPH(MaxSpeed);
 		SET_MPH(CurrentSpeed);
 		SET_MPH(AvgSpeed);
+		SET_MPH(TravelledDistance);
 	}
 	else
 	{
@@ -110,14 +114,20 @@
 	
 
 	ExclusiveSwitchLedOnOff((unsigned char)1,StatusByte.CurrentState);
+	BlinkLedOnOff(StatusByte.CurrentState , LED_BLINK_RATE , StatusByte.StopMeasureFlag);
 	SwitchLedOnOff(StatusByte.KphFlag , MPH_LED);
 	SwitchLedOnOff((0x1 & ((unsigned char)~StatusByte.KphFlag)) , KPH_LED);
 
     switch(StatusByte.CurrentState)
     {
 		case APP_STATE_DIST:
+			if((unsigned char)1 == StatusByte.ExtraIncrementFlag)
+			{
+				APP_CALC_TIMEsetTravelTime((unsigned long)0);
+				SetDistance((unsigned long)0);
+			}				
 			BCDsendNumber(CurrentSpeed,0,1,1);
-		    BCDsendNumber(APP_DATA.TravelledDistance ,1 ,1 ,1);
+		    BCDsendNumber(TravelledDistance ,1 ,1 ,1);
 		break;
         
         case APP_STATE_TIME:
@@ -125,6 +135,7 @@
 		    if((unsigned char)1 == StatusByte.ExtraIncrementFlag)
 			{
 				APP_CALC_TIMEsetTravelTime((unsigned long)0);
+				SetDistance((unsigned long)0);
 			}		
 			BCDsendNumber(APP_DATA.TravelTime ,1 ,0 ,1);
 			BCDsendNumber(CurrentSpeed,0,1,1);		
@@ -135,7 +146,11 @@
 			BCDsendNumber(CurrentSpeed,0,1,1);
 		break;
 		
-		case APP_STATE_MAXSPD:		
+		case APP_STATE_MAXSPD:	
+			if((unsigned char)1 == StatusByte.ExtraIncrementFlag)
+			{
+				APP_CALC_MAXSPDmanage_Set(0);	
+			}				
 			BCDsendNumber(MaxSpeed , 1 ,1 ,1);
 			BCDsendNumber(CurrentSpeed,0,1,1);
 		break;
@@ -182,7 +197,7 @@
 				{
 					
 				}
-				BlinkDigit(APP_DATA.CircumBlinkIndex,1,APP_BLINK_RATE);
+				BlinkDigit(APP_DATA.CircumBlinkIndex,1,SEG7_BLINK_RATE);
 			}				
 			else
 			{

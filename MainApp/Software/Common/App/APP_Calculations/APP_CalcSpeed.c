@@ -21,11 +21,23 @@ PUBLIC void APP_CALC_MAXSPDmanage_Set(unsigned short MaxSpeed)
 	CalcMaxSpeed = MaxSpeed;
 }
 
-PUBLIC unsigned short APP_CALC_MAXSPDmanage(unsigned short CurrentSpeed)
+PUBLIC unsigned short APP_CALC_MAXSPDmanage
+(
+	APP_INFOR_BYTE * StatusByte, 
+	unsigned short CurrentSpeed
+)
 {
-	if(CalcMaxSpeed < CurrentSpeed)
+	if((unsigned char)0 == StatusByte->StopMeasureFlag)
 	{
-		CalcMaxSpeed = CurrentSpeed;
+		if(CalcMaxSpeed < CurrentSpeed)
+		{
+			CalcMaxSpeed = CurrentSpeed;
+		}
 	}
+	else
+	{
+		
+	}
+
 	return CalcMaxSpeed;	
 }
