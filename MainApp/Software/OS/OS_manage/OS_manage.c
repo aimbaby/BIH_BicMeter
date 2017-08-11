@@ -10,6 +10,7 @@
     #include "Alloc.h"
     #include "BCDdisplay.h"
     #include "Eeprom.h"
+	#include "Led.h"
 #include "Alloc.h" 
     #include "OS_manage.h"
 
@@ -26,7 +27,8 @@ PUBLIC void Start_App(void)
     SpeedCalcNotifyInitialize();
     APP_INITIALIZE();
 	BCDInitialize(1);
-   
+	InitializeLed();
+
     CreateTask( ManageSpeedCalc, (unsigned char)0  , (unsigned char) 20);
     
     CreateTask( ManageApplication, (unsigned char)2  , (unsigned char) 50);
@@ -60,5 +62,8 @@ void ManageDrivers(void)
         MangeKeys(LoopIndex);
     }
     EepromManage();
-    
+	for(LoopIndex = (unsigned char)0 ; LoopIndex < NUMBER_LEDS ; LoopIndex++)
+	{
+		ManageLeds(LoopIndex);
+	}
 }
