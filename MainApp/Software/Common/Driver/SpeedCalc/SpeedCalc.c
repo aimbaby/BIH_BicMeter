@@ -67,17 +67,16 @@ PUBLIC void SpeedCalcManage(void)
     
     LapTimeTenthMilli = (HWtimerCount/(unsigned short)100) +
                         ((unsigned short)TimerOVFLcount * (unsigned short)655);       
-    
-    LapDistanceCounter += LapCounter;  
-    
-    LapCounter = (unsigned char)0;
         
-    HundredMeterReference = (unsigned short)(HundredMetersFactor / 
-                                             (unsigned long)CircumFactor);
-
     
 	if((unsigned char)0 == DistTravelCntrDisable)
-	{
+	{		   
+		HundredMeterReference = (unsigned short)(HundredMetersFactor /
+		(unsigned long)CircumFactor);
+	
+		LapDistanceCounter += LapCounter;
+		LapCounter = (unsigned char)0;
+
 		if(LapDistanceCounter >= HundredMeterReference)
 		{
 			DistTravelCntr ++;
@@ -86,7 +85,11 @@ PUBLIC void SpeedCalcManage(void)
 		else
 		{
 
-		}
+		}		
+	}
+	else
+	{
+		LapCounter = (unsigned char)0;
 	}
 }
 

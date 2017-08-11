@@ -17,4 +17,15 @@ PUBLIC void ExclusiveSwitchLedOnOff
 	unsigned char LedId
 );
 
+PUBLIC void BlinkLedOnOff
+(
+	unsigned char LedId , 
+	unsigned char BlinkRate ,
+	unsigned char bIsBlink
+);
+
+PUBLIC void InitializeLed(void);
+
+PUBLIC void ManageLeds(unsigned char LedId);
+
 #endif /* LED_H */
