@@ -2,7 +2,6 @@
 #include "TargetFile.h"
 
 #include   "Extern.h"
-  #include "HWI_func.h"
   #include "SpeedCalc.h"
   #include "BCDdisplay.h"
   #include "DisplayManage.h"
@@ -47,6 +46,9 @@
     unsigned char bIsincrement
   ); 
   
+  unsigned short ConvertMinutesHM(unsigned long TimeMinutes);
+
+  
   PUBLIC void APP_INITIALIZE(void)
   {
 	 Eeprom_Read_Block(1 , &APP_DATA , (unsigned char)sizeof(APP_DATA));	  
@@ -82,19 +84,30 @@
     unsigned short AvgSpeed;
 	unsigned short CurrentSpeed;
 	unsigned short MaxSpeed;
+	unsigned short TimeHoursMinutes;
 	unsigned long TravelledDistance;
-    APP_INFOR_BYTE StatusByte;
+	APP_INFOR_BYTE StatusByte;
 	
 	memcpy(&StatusByte,&APP_DATA.StatusByte,sizeof(APP_INFOR_BYTE));
     
+	StatusByte.SleepFlag = (unsigned char)0;
     APP_HMImanage(&StatusByte);
 	DisableDistanceCntr(StatusByte.StopMeasureFlag);
 	APP_DATA.TravelledDistance = GetDistance();
-    APP_DATA.TravelTime = APP_CALC_TIMEmanage(&StatusByte);
-    AvgSpeed = APP_CALC_AVGSPDmanage(&StatusByte , APP_DATA.TravelTime , APP_DATA.TravelledDistance);
-    APP_SLEEPmanage(&StatusByte);
 	CurrentSpeed =  GetAvgSpeed(1);
-	APP_DATA.MaxSpeed = APP_CALC_MAXSPDmanage(&StatusByte , CurrentSpeed);
+	if((unsigned short)0 != CurrentSpeed)
+	{
+	    APP_DATA.TravelTime = APP_CALC_TIMEmanage(&StatusByte);		
+		StatusByte.SleepFlag = (unsigned char)0;
+	}
+	else
+	{
+		
+	}	
+	
+    AvgSpeed = APP_CALC_AVGSPDmanage(&StatusByte , APP_DATA.TravelTime , APP_DATA.TravelledDistance);
+    APP_DATA.MaxSpeed = APP_CALC_MAXSPDmanage(&StatusByte , CurrentSpeed);
+	APP_SLEEPmanage(&StatusByte,&APP_DATA);
 	
 	
 	TravelledDistance = APP_DATA.TravelledDistance;
@@ -125,6 +138,7 @@
 			{
 				APP_CALC_TIMEsetTravelTime((unsigned long)0);
 				SetDistance((unsigned long)0);
+				APP_DATA.TravelTime = (unsigned long)0;
 			}				
 			BCDsendNumber(CurrentSpeed,0,1,1);
 		    BCDsendNumber(TravelledDistance ,1 ,1 ,1);
@@ -136,8 +150,10 @@
 			{
 				APP_CALC_TIMEsetTravelTime((unsigned long)0);
 				SetDistance((unsigned long)0);
+				APP_DATA.TravelTime = (unsigned long)0;
 			}		
-			BCDsendNumber(APP_DATA.TravelTime ,1 ,0 ,1);
+			TimeHoursMinutes = ConvertMinutesHM(APP_DATA.TravelTime);
+			BCDsendNumber(TimeHoursMinutes ,1 ,2 ,0);
 			BCDsendNumber(CurrentSpeed,0,1,1);		
         break;
 
@@ -295,4 +311,16 @@
       }
       
       return NumberReturned;
+  }
+  
+  
+  unsigned short ConvertMinutesHM(unsigned long TimeMinutes)
+  {
+	  unsigned short Hours;
+	  unsigned char Minutes;
+	  Hours = (TimeMinutes / (unsigned long)60);
+	  Minutes = (unsigned char)(TimeMinutes - ((unsigned long)60 * (unsigned long)Hours));
+	  
+	  Hours = (unsigned short)Minutes + (unsigned short)(Hours * (unsigned short)100);
+	  return Hours;
   }

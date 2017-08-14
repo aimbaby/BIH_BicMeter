@@ -19,19 +19,14 @@ PUBLIC void APP_CALC_TIMEsetTravelTime(unsigned long TravelTime)
 
 PUBLIC unsigned long APP_CALC_TIMEmanage(APP_INFOR_BYTE * StatusByte)
 {
-	
-	if((unsigned char)1 == StatusByte->ClearFlag)
-	{
-		ElapsedTimePeriod = (unsigned short)0;
-		ElapsedTimeMinutes = (unsigned long)0;
-	}	
-	else if(ElapsedTimePeriod >= MINUTE_STAMP)
+
+	if(ElapsedTimePeriod >= MINUTE_STAMP)
 	{
 		ElapsedTimePeriod = (unsigned short)0;
 		ElapsedTimeMinutes++;
 		StatusByte->EEPsaveFlag = (unsigned char)1;
 	}
-	else if(StatusByte->StopMeasureFlag != (unsigned char)1)
+	else if(StatusByte->StopMeasureFlag == (unsigned char)0)
 	{
 		ElapsedTimePeriod++;						
 	}	
@@ -42,3 +37,4 @@ PUBLIC unsigned long APP_CALC_TIMEmanage(APP_INFOR_BYTE * StatusByte)
 	
 	return ElapsedTimeMinutes;
 }
+

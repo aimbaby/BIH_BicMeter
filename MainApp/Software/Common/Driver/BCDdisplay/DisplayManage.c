@@ -15,7 +15,7 @@ const unsigned char Segment7ASCIItable[NUMBER_ASCII]=
     0b10001110, //F
     0b11110110, //g
     0b00101110, //h
-    0b00001100, //I
+    0b00001000, //I
     0b01111000, //J
     0b00000000, //K
     0b00000000, //L
@@ -24,7 +24,7 @@ const unsigned char Segment7ASCIItable[NUMBER_ASCII]=
     0b00000000, //O
     0b00000000, //P
     0b00000000, //Q
-    0b10001100, //R
+    0b00001010, //r
     0b10110110, //S
     0b00000000, //T
     0b00000000, //U

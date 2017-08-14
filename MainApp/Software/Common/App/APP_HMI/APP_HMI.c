@@ -19,7 +19,9 @@ PUBLIC void APP_HMImanage(APP_INFOR_BYTE * StatusByte )
 {
 	unsigned char KeyStatusLeft;
 	unsigned char KeyStatusRight;
-	unsigned char TempVar;
+	unsigned char TempCurrentState;
+	unsigned char TempKphFlag;
+	unsigned char TempStopFLag;
 	static unsigned char DisplayState = NORMAL_STATE;
 	
 	
@@ -65,11 +67,17 @@ PUBLIC void APP_HMImanage(APP_INFOR_BYTE * StatusByte )
 		else if(KeyStatusRight == NEW_STATE_LONG_PRESS)
 		{
 			StatusByte->StopMeasureFlag ^= (unsigned char)1;
+		}
+		else
+		{
+			StatusByte->SleepFlag = (unsigned char)1;
 		}			
 		break;
 		
 		case APPLY_STATE:
-		TempVar = StatusByte->CurrentState;
+		TempCurrentState = StatusByte->CurrentState;
+		TempKphFlag = StatusByte->KphFlag;
+		TempStopFLag = StatusByte->StopMeasureFlag;
 		memset(StatusByte,0,sizeof(APP_INFOR_BYTE));
 		if(
 			(KeyStatusLeft == STATE_SHORT_PRESS)
@@ -97,9 +105,13 @@ PUBLIC void APP_HMImanage(APP_INFOR_BYTE * StatusByte )
 		}
 		else
 		{
-		    /* do nothing */
+		    StatusByte->SleepFlag = (unsigned char)1;
 		}
-		StatusByte->CurrentState = TempVar;
+		
+		StatusByte->CurrentState = TempCurrentState;
+		StatusByte->KphFlag = TempKphFlag;
+		StatusByte->StopMeasureFlag = TempStopFLag;
+		
 		break;
 		
 		case TRANSITION_TO_NORMAL_STATE:

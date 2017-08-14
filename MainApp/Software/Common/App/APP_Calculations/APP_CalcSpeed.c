@@ -2,6 +2,9 @@
 
 #include "Alloc.h"
     #include "APP_Calculations.h"
+	
+
+#define ConvMeterMinuteRatio                (unsigned long)60
 
 static unsigned short CalcMaxSpeed = (unsigned short)0;
 
@@ -12,7 +15,19 @@ PUBLIC unsigned short APP_CALC_AVGSPDmanage
 	unsigned long Distance
 )
 {
-	return 4321;
+	unsigned short AverageSpeed;
+	
+	if(TravelTime != (unsigned long)0)
+	{
+		AverageSpeed = (unsigned short)((unsigned long)
+		        (Distance * ConvMeterMinuteRatio)/TravelTime);
+	}
+	else
+	{
+		AverageSpeed = (unsigned short)0;
+	}
+	
+	return AverageSpeed;
 	
 }
 
