@@ -14,6 +14,7 @@ SpeedCalc.d SpeedCalc.o: ../../../../Common/Driver/SpeedCalc/SpeedCalc.c \
  e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr/4.6.2/../../../../avr/include/avr/interrupt.h \
  e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr/4.6.2/../../../../avr/include/string.h \
  e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr/4.6.2/include/stddef.h \
+ ../../../../Common/Link/Extern.h ../../../../Common/HWIheader/HWI_func.h \
  ../../../../Common/Link/Alloc.h \
  ../../../../Common/Driver/SpeedCalc/SpeedCalc.h \
  ../../../../Common/Driver/SpeedCalc/SpeedCalc_p.h
@@ -47,6 +48,10 @@ e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrt
 e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr/4.6.2/../../../../avr/include/string.h:
 
 e:\program\ files\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.0.65\avrtoolchain\bin\../lib/gcc/avr/4.6.2/include/stddef.h:
+
+../../../../Common/Link/Extern.h:
+
+../../../../Common/HWIheader/HWI_func.h:
 
 ../../../../Common/Link/Alloc.h:
 

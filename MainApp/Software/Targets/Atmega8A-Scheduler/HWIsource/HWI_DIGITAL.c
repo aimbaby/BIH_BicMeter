@@ -12,6 +12,18 @@ PUBLIC void HWI_DIGITAL_INITIALIZE(void)
 	DDRD = (1<<PIND0) | (1<<PIND1) | (1<<PIND7);
 	PORTD = (unsigned char)~((1<<PIND0) | (1<<PIND1) | (1<<PIND7));
 }
+
+PUBLIC void HWI_DIGITAL_SLEEP(void)
+{
+	/* got to tri-state */
+	DDRB = 0x0;
+	DDRC = 0x0;
+	DDRD = 0x0;
+	
+	PORTB = 0x00;
+	PORTC = 0x00;
+	PORTD = 0x00;
+}	
   
 PUBLIC unsigned char HWI_DIGI_READ(unsigned char pin)
 {

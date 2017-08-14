@@ -8,7 +8,7 @@
 
 
 PUBLIC void SendMCUtoSleep(void)
-{
+{	
 	/* change INT0 interrupt source to level */
 	MCUCR &= (unsigned char)~((1<<ISC01)|(1<<ISC00));         
 	/* set sleep Mode */
