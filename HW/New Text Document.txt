@@ -1,0 +1,11 @@
+swap DMax with PC2
+PC1 => PD6
+PC0 => Button right
+swap pb7 with pb6
+swap pb0 with pb1
+swap pb5 with pb3
+swap pb5 with pb2
+swap pb0 with pb4
+swap pb1 with pb2
+swap pb0 with pb1
+swap pb6 with pb7
